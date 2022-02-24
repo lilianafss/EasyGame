@@ -5,6 +5,10 @@ Description : Requêtes SQL (PDO)
 Date        : 02/2022
 Version     : 1.0.0.0
 */
+namespace EasyGame\model;
+use EasyGame\model\database;
+use PDO;
+use PDOException;
 
 require_once "database.php";
 
@@ -41,10 +45,29 @@ function getHistory($idUser){
     }
 }
 
+function getWishlist($idUser){
+    try{
+        $query = getConnexion()->prepare("
+        SELECT`jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix` 
+        FROM `jeux`, `ajouter_wishlist`, `user`, `wishlist` 
+        WHERE `jeux`.`idJeux` = `ajouter_wishlist`.`idJeux`
+        AND `user`.`idUser` = ?
+        AND `wishlist`.idUser = ?
+        AND `ajouter_wishlist`.`idWishlist` = `wishlist`.`idWishlist` 
+        ");
+        $query->execute([$idUser,$idUser]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e){
+        echo 'Exception reçue : ',  $e->getMessage(), "\n";
+    }
+}
+
+/*
 function VerifierMotDePasse($mdpUtilisateur, $mdpBase){
     
     $pdo = getConnexion();
-    if(hash('sha1',$mdpUtilisateur) == $mdpBase){
+    if(hash('sha256',$mdpUtilisateur) == $mdpBase){
 
     return true;
     } 
@@ -70,3 +93,4 @@ $pdo=getConnexion();
 
 
 }
+*/
