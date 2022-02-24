@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -68,32 +69,41 @@
         </div>
     </nav>
 
-    <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/pt/d/df/Far_Cry_6_capa.jpg" alt="">
-            <div class="card-body">
-                <h5 class="superMario">Super Mario</h5>
-                <p class="card-text">Blablablabla</p>
-                <p class="card-text">18 CHF</p>
-                <a href="" class="btn">Ajouter au Panier</a>
+    <div class="container-fluid">
+        <div class="card flex-row flex-wrap m-3">
+            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
+            <div class="card-block p-2">
+                <h4 class="card-title">Far Cry 6</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
+                <p class="card-text">Prix CHF</p>
+                <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>
-        <div class="card">
-            <img class="card-img-top" src="https://image.api.playstation.com/vulcan/ap/rnd/202001/2810/8RzGWcAr27tJvfJHCnmctxOI.png?w=440" alt="">
-            <div class="card-body">
-                <h5 class="superMario">Super Mario</h5>
-                <p class="card-text">Blablablabla</p>
-                <p class="card-text">18 CHF</p>
-                <a href="" class="btn">Ajouter au Panier</a>
+        <div class="card flex-row flex-wrap m-3">
+            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
+            <div class="card-block p-2">
+                <h4 class="card-title">Far Cry 6</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
+                <p class="card-text">Prix CHF</p>
+                <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>
-        <div class="card" >
-            <img class="card-img-top" src="https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/7a35d4a468a820f1dc72b9ad22e9aeec.jpg" alt="">
-            <div class="card-body">
-                <h5 class="superMario">Super Mario</h5>
-                <p class="card-text">Blablablabla</p>
-                <p class="card-text">18 CHF</p>
-                <a href="" class="btn">Ajouter au Panier</a>
+        <div class="card flex-row flex-wrap m-3">
+            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
+            <div class="card-block p-2">
+                <h4 class="card-title">Far Cry 6</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
+                <p class="card-text">Prix CHF</p>
+                <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
+            </div>
+        </div>
+        <div class="card flex-row flex-wrap m-3">
+            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
+            <div class="card-block p-2">
+                <h4 class="card-title">Far Cry 6</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
+                <p class="card-text">Prix CHF</p>
+                <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>
     </div>
