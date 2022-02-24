@@ -4,105 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../public/assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Recherche"> 
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Rechercher</button>
-        
-                <select name="" id="" class="form-select">
-                    <option value="age">Âge</option>
-                    <option value="">3 ans</option>
-                    <option value="">7 ans</option>
-                    <option value="">12 ans</option>
-                    <option value="">16 ans</option>
-                    <option value="">18 ans</option>
-                </select>
-            
-                <select name="" id="" class="form-select">
-                    <option value="plateforme">Toutes les plateformes</option>
-                    <option value="pc">PC</option>
-                    <option value="playsation">Playsation</option>
-                    <option value="xbox">Xbox</option>
-                    <option value="nintendo">Nintendo</option>
-                </select>
-            
-                <select name="" id="" class="form-select">
-                    <option value="genre">Toud les genres</option>
-                    <option value="genreAction">Action</option>
-                    <option value="genreArcade">Arcade</option>
-                    <option value="genreAutre">Autre</option>
-                    <option value="genreAventure">Aventure</option>
-                    <option value="genreBeat">Beat'em all</option>
-                    <option value="genreCoopEnLigne">Co-op en ligne</option>
-                    <option value="genreCoaching">Coaching</option>
-                    <option value="genreCombat">Combat</option>
-                    <option value="genreCooperation">Coopération</option>
-                    <option value="genreCourse">Course</option>
-                    <option value="genreEarlyAccess">Early Access</option>
-                    <option value="genreFPS">FPS</option>
-                    <option value="genreFreePlay">Free to play</option>
-                    <option value="genreGestion">Gestion</option>
-                    <option value="genreIndies">Indies</option>
-                    <option value="genreJeuxSolo">Jeux solo</option>
-                    <option value="genreLocalCoOp">Local co-op</option>
-                    <option value="genreMmo">MMO</option>
-                    <option value="genreMultijoueur">Multijoueur</option>
-                    <option value="genreMultijoueurMulti">Multijoueur multiplateforme</option>
-                    <option value="genrePlatesFormes">Plates-formes</option>
-                    <option value="genrePvp">PvP en ligne</option>
-                    <option value="genreRPG">RPG</option>
-                    <option value="genreRemote">Remote Play Together</option>
-                    <option value="genreShoot">Shoot'em up</option>
-                    <option value="genreSimulation">Simulation</option>
-                    <option value="genreSport">Sport</option>
-                    <option value="genreStrategie">Stratégie</option>
-                    <option value="genreVr">VR</option>
-                    <option value="genreWargame">Wargame</option> 
-                </select>
-            </form>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <form class="d-flex">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item mr-2">
+                            <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 100px;">
+                                <option value="" disabled selected>Âge</option>
+                                
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 175px;">
+                                <option value="" disabled selected>Toutes les plateformes</option>
+                                
+                            </select>
+                        </li>
+                        <li class="nav-item">
+                            <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 150px;">
+                                <option value="" disabled selected>Tous les genres</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="me-auto">
+                        <li class="nav-item">
+                            <input class="form-control me-2" type="Search" placeholder="Recherche">
+                            <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
         </div>
     </nav>
-
-    <div class="container-fluid">
-        <div class="card flex-row flex-wrap m-3">
+   
+    <div class="container-fluid container_jeux">
+        <div class="card flex-row flex-wrap m-4">
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
             <div class="card-block p-2">
                 <h4 class="card-title">Far Cry 6</h4>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text">Prix CHF</p>
+                <p class="card-text card_prix">Prix CHF</p>
                 <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>
-        <div class="card flex-row flex-wrap m-3">
+        <div class="card flex-row flex-wrap m-4">
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
             <div class="card-block p-2">
                 <h4 class="card-title">Far Cry 6</h4>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text">Prix CHF</p>
+                <p class="card-text card_prix">Prix CHF</p>
                 <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>
-        <div class="card flex-row flex-wrap m-3">
+        <div class="card flex-row flex-wrap m-4">
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
             <div class="card-block p-2">
                 <h4 class="card-title">Far Cry 6</h4>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text">Prix CHF</p>
+                <p class="card-text card_prix">Prix CHF</p>
                 <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>
-        <div class="card flex-row flex-wrap m-3">
+        <div class="card flex-row flex-wrap m-4">
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
             <div class="card-block p-2">
                 <h4 class="card-title">Far Cry 6</h4>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text">Prix CHF</p>
+                <p class="card-text card_prix">Prix CHF</p>
                 <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>

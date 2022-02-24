@@ -1,0 +1,15 @@
+.card{
+    width: 350px;
+    margin: 0;
+    float: left;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card_prix{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
