@@ -21,7 +21,8 @@ if($hash != ""){
     }
 }
 
-var_dump(getGames());
+//var_dump(getGames());
+var_dump(getHistory(1));
 ?>
 <!DOCTYPE html>
 <html lang="en">
