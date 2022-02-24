@@ -45,6 +45,25 @@ function getHistory($idUser){
     }
 }
 
+function getWishlist($idUser){
+    try{
+        $query = getConnexion()->prepare("
+        SELECT`jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix` 
+        FROM `jeux`, `ajouter_wishlist`, `user`, `wishlist` 
+        WHERE `jeux`.`idJeux` = `ajouter_wishlist`.`idJeux`
+        AND `user`.`idUser` = ?
+        AND `wishlist`.idUser = ?
+        AND `ajouter_wishlist`.`idWishlist` = `wishlist`.`idWishlist` 
+        ");
+        $query->execute([$idUser,$idUser]);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e){
+        echo 'Exception reçue : ',  $e->getMessage(), "\n";
+    }
+}
+
+/*
 function VerifierMotDePasse($mdpUtilisateur, $mdpBase){
     
     $pdo = getConnexion();
@@ -74,3 +93,4 @@ $pdo=getConnexion();
 
 
 }
+*/

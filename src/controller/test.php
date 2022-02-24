@@ -1,4 +1,7 @@
 <?php
+
+use function EasyGame\model\getWishlist;
+
 require_once '../model/pdo.php';
 
 $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
@@ -23,6 +26,7 @@ if($hash != ""){
 
 //var_dump(getGames());
 var_dump(getHistory(1));
+var_dump(getWishlist(1));
 ?>
 <!DOCTYPE html>
 <html lang="en">
