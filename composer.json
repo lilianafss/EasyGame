@@ -1,0 +1,9 @@
+{
+    "name": "ania/easy-game",
+    "autoload": {
+        "psr-4": {
+            "Ania\\EasyGame\\": "src/"
+        }
+    },
+    "require": {}
+}
