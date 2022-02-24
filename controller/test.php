@@ -1,4 +1,6 @@
 <?php
+require_once '../model/pdo.php';
+
 $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
 $realpassword = filter_input(INPUT_POST,'realpassword',FILTER_SANITIZE_STRING);
 $hash = "";
@@ -19,7 +21,7 @@ if($hash != ""){
     }
 }
 
-
+var_dump(getGames());
 ?>
 <!DOCTYPE html>
 <html lang="en">
