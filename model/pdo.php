@@ -40,3 +40,33 @@ function getHistory($idUser){
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
     }
 }
+
+function VerifierMotDePasse($mdpUtilisateur, $mdpBase){
+    
+    $pdo = getConnexion();
+    if(hash('sha1',$mdpUtilisateur) == $mdpBase){
+
+    return true;
+    } 
+    else 
+    {
+        return false;
+    }
+
+}
+function VerifierEmail($email){
+$pdo=getConnexion();
+
+    
+  
+    // on met la requete dans la variable $sql, et on va charcher le mot de passe si le nom insérée est correcte.
+    $sql = "SELECT * FROM user WHERE email = '$email';";
+    //execution de la requête et envoie de la réponse de la requête.
+    $requeteSQL = $pdo->query($sql);
+    // récuperation du résultat de la requête.
+    $reponseSQL = $requeteSQL->fetch();
+    return $reponseSQL;
+  
+
+
+}
