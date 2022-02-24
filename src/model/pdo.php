@@ -5,6 +5,10 @@ Description : Requêtes SQL (PDO)
 Date        : 02/2022
 Version     : 1.0.0.0
 */
+namespace EasyGame\model;
+use EasyGame\model\database;
+use PDO;
+use PDOException;
 
 require_once "database.php";
 
@@ -44,7 +48,7 @@ function getHistory($idUser){
 function VerifierMotDePasse($mdpUtilisateur, $mdpBase){
     
     $pdo = getConnexion();
-    if(hash('sha1',$mdpUtilisateur) == $mdpBase){
+    if(hash('sha256',$mdpUtilisateur) == $mdpBase){
 
     return true;
     } 

@@ -1,10 +1,5 @@
 
-<?php 
-$mdp=filter_input(INPUT_POST,'password');
-$email=filter_input(INPUT_POST,'email');
-
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
