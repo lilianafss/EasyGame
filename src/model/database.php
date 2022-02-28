@@ -5,9 +5,12 @@ Description : Connexion à la base de données
 Date        : 02/2022
 Version     : 1.0.0.0
 */
+namespace EasyGame\model;
+use PDO;
+use PDOException;
 
 require_once 'config.php';
-
+class database{
 //Connexion à la base de données
 function getConnexion(){
     static $myDb = null;
@@ -27,6 +30,7 @@ function getConnexion(){
 
     return $myDb;
 
+}
 }
 
 
