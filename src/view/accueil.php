@@ -1,6 +1,8 @@
 <?php
 require_once "../model/FonctionsBD.php"; 
 // use function EasyGame\model\getGames;
+use EasyGame\model\FonctionsBD;
+use EasyGame\model\database;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,6 +50,7 @@ require_once "../model/FonctionsBD.php";
     </nav>
     <div class="container-fluid container_jeux">
         <?php
+        var_dump (getConnexion());
         for($i = 0; $i > count(getGames()); $i++){
         ?>
         <div class="card flex-row flex-wrap m-4">
