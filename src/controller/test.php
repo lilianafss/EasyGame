@@ -1,5 +1,9 @@
 <?php
 
+use function EasyGame\model\getFilters;
+use function EasyGame\model\getGames;
+use function EasyGame\model\getHistory;
+use function EasyGame\model\getInfoUser;
 use function EasyGame\model\getWishlist;
 
 require_once '../model/pdo.php';
@@ -25,8 +29,11 @@ if($hash != ""){
 }
 
 //var_dump(getGames());
-var_dump(getHistory(1));
-var_dump(getWishlist(1));
+//var_dump(getHistory(1));
+//var_dump(getWishlist(1));
+//var_dump(getFilters());
+var_dump(getInfoUser(1));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,6 @@
 <?php
 /*
-Auteur      : De Castilho E Sousa Rodrigo
+Auteur      : De Castilho E Sousa Rodrigo, 
 Description : Requêtes SQL (PDO)
 Date        : 02/2022
 Version     : 1.0.0.0
@@ -25,7 +25,6 @@ function getGames(){
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
     }
 }
-
 //Recuperer l'historique sur la base de données
 function getHistory($idUser){
     try{
@@ -44,7 +43,7 @@ function getHistory($idUser){
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
     }
 }
-
+//Recuperer la wishlist sur la base de données
 function getWishlist($idUser){
     try{
         $query = getConnexion()->prepare("
@@ -57,6 +56,33 @@ function getWishlist($idUser){
         ");
         $query->execute([$idUser,$idUser]);
         return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e){
+        echo 'Exception reçue : ',  $e->getMessage(), "\n";
+    }
+}
+//Recuperer les filtres de la base de données
+function getFilters(){
+   try{
+       $query = getConnexion()->prepare("
+       SELECT `genre` FROM `genre`
+       ");
+       $query->execute();
+       return $query->fetchAll(PDO::FETCH_ASSOC);
+   }
+   catch(PDOException $e){
+        echo 'Exception reçue : ',  $e->getMessage(), "\n";
+   }
+}
+//Recuperer les informations de l'utilisateur
+function getInfoUser($idUser){
+    try{
+        $query = getConnexion()->prepare("
+        SELECT `pseudo`, `nom`, `prenom`, `email` 
+        FROM `user` WHERE `idUser` = ?
+        ");
+        $query->execute([$idUser]);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
     catch(PDOException $e){
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
