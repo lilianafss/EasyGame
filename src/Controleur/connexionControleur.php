@@ -8,7 +8,7 @@ class connexionControleur
 {
     public function connexion()
     {
-        require '../view/connexion.php';
+        require '../src/view/connexion.php';
 
         // if (isset($_POST['btnSubmit']))
         //  {
@@ -47,5 +47,3 @@ class connexionControleur
     }
 }
 
-
-?>
