@@ -89,6 +89,21 @@ function getInfoUser($idUser){
     }
 }
 
+function getSearch($searchName){
+    try{
+        $query = getConnexion()->prepare("
+        SELECT idJeux, nom, description, prix 
+        FROM jeux WHERE nom 
+        LIKE '%?%'
+        ");
+        $query->execute([$searchName]);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $e){
+        echo 'Exception reçue : ',  $e->getMessage(), "\n";
+    }
+}
+
 /*
 function VerifierMotDePasse($mdpUtilisateur, $mdpBase){
     

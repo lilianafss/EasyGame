@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <link rel="stylesheet" href="../../public/assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,8 +14,8 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="mynavbar">
                 <form class="d-flex">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item mr-2">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
                             <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 100px;">
                                 <option value="" disabled selected>Âge</option>
                                 
@@ -32,8 +32,6 @@
                                 <option value="" disabled selected>Tous les genres</option>
                             </select>
                         </li>
-                    </ul>
-                    <ul class="me-auto">
                         <li class="nav-item">
                             <input class="form-control me-2" type="Search" placeholder="Recherche">
                             <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
