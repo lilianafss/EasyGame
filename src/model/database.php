@@ -10,7 +10,7 @@ use PDO;
 use PDOException;
 
 require_once 'config.php';
-class database{
+// class database{
 //Connexion à la base de données
 function getConnexion(){
     static $myDb = null;
@@ -31,6 +31,6 @@ function getConnexion(){
     return $myDb;
 
 }
-}
+// }
 
 

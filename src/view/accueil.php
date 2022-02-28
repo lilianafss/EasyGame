@@ -1,3 +1,7 @@
+<?php
+require_once "../model/FonctionsBD.php"; 
+// use function EasyGame\model\getGames;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,44 +46,22 @@
             </div>
         </div>
     </nav>
-   
     <div class="container-fluid container_jeux">
+        <?php
+        for($i = 0; $i > count(getGames()); $i++){
+        ?>
         <div class="card flex-row flex-wrap m-4">
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
             <div class="card-block p-2">
-                <h4 class="card-title">Far Cry 6</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text card_prix">Prix CHF</p>
+                <h4 class="card-title"><?php getGames()[0]['nom']?></h4>
+                <p class="card-text"><?php getGames()[0]['description']?></p>
+                <p class="card-text card_prix"><?php getGames()[0]['prix']?></p>
                 <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>
-        <div class="card flex-row flex-wrap m-4">
-            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
-            <div class="card-block p-2">
-                <h4 class="card-title">Far Cry 6</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text card_prix">Prix CHF</p>
-                <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
-            </div>
-        </div>
-        <div class="card flex-row flex-wrap m-4">
-            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
-            <div class="card-block p-2">
-                <h4 class="card-title">Far Cry 6</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text card_prix">Prix CHF</p>
-                <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
-            </div>
-        </div>
-        <div class="card flex-row flex-wrap m-4">
-            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
-            <div class="card-block p-2">
-                <h4 class="card-title">Far Cry 6</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum quod et, deserunt veniam nisi</p>
-                <p class="card-text card_prix">Prix CHF</p>
-                <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
-            </div>
-        </div>
+        <?php 
+        }
+        ?>
     </div>
 </body>
 </html>
