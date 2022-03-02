@@ -2,10 +2,10 @@
 
 namespace EasyGame\model;
 
-use EasyGame\model\database;
+use EasyGame\model\BaseDonnee;
 use PDO;
 use PDOException;
-require "database.php";
+//require "database.php";
 //require "database.php";
 
 @ini_set('display_errors', 'on');
@@ -23,14 +23,15 @@ class FonctionsBD
     public static function getGames()
     {
         try {
-            $query = database::getConnexion()->prepare("
+            $query = BaseDonnee::getConnexion()->prepare("
             SELECT `idJeux`, `nom`, `description`, `prix` FROM `jeux` 
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-            echo "cjdvk";
+         
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            
         }
     }
     //Recuperer l'historique sur la base de données

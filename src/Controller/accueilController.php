@@ -7,7 +7,7 @@
     {
         public function accueil()
         {
-            require "../view/accueil.php";
+            require "../src/view/accueil.php";
         }
     }
 

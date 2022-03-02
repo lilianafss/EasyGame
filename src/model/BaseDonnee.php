@@ -12,7 +12,7 @@ use PDOException;
 
 require "config.php";
 
-class database
+class BaseDonnee
 {
 //Connexion à la base de données
     public static function getConnexion()
@@ -30,7 +30,7 @@ class database
                 );
                 $myDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $myDb->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-                echo"connecté";
+                //echo"connecté";
             }
             catch(PDOException $e)
             {
