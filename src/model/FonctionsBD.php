@@ -91,44 +91,44 @@ class FonctionsBD
                 echo 'Exception reçue : ',  $e->getMessage(), "\n";
             }
         }
-
-        //Recuperer les informations de l'utilisateur
-        function getInfoUser($idUser)
-        {
-            try {
-                $query = getConnexion()->prepare("
+    }
+    //Recuperer les informations de l'utilisateur
+    function getInfoUser($idUser)
+    {
+        try {
+            $query = getConnexion()->prepare("
             SELECT `pseudo`, `nom`, `prenom`, `email` 
             FROM `user` WHERE `idUser` = ?
             ");
-                $query->execute([$idUser]);
-                return $query->fetch(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo 'Exception reçue : ',  $e->getMessage(), "\n";
-            }
+            $query->execute([$idUser]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
+    }
 
-        function getSearch($searchName)
-        {
-            try {
-                $query = getConnexion()->prepare("
+    function getSearch($searchName)
+    {
+        try {
+            $query = getConnexion()->prepare("
             SELECT idJeux, nom, description, prix 
             FROM jeux WHERE nom 
             LIKE '%$searchName%'
             ");
-                $query->execute();
-                return $query->fetch(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo 'Exception reçue : ',  $e->getMessage(), "\n";
-            }
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
+    }
 
-        //Fonction pour chercher un jeux par pegi, genre ou plateforme
-        function getGameByFilters($pegi, $genre, $plateforme)
-        {
+    //Fonction pour chercher un jeux par pegi, genre ou plateforme
+    function getGameByFilters($pegi, $genre, $plateforme)
+    {
 
-            if ($pegi != "" && $genre != "" && $plateforme != "") {
-                try {
-                    $query = getConnexion()->prepare("
+        if ($pegi != "" && $genre != "" && $plateforme != "") {
+            try {
+                $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
                     FROM `jeux`, `genres`, `plateforme`, `pegis`, `ou_jouer`, `filtre_jeux` 
                     WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
@@ -140,14 +140,14 @@ class FonctionsBD
                     AND `plateforme`.`plateforme` = ?
                     AND `pegis`.`pegi` = ?
                 ");
-                    $query->execute([$genre, $plateforme, $pegi]);
-                    return $query->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-                }
-            } else if ($genre != "" && $plateforme != "") {
-                try {
-                    $query = getConnexion()->prepare("
+                $query->execute([$genre, $plateforme, $pegi]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
+        } else if ($genre != "" && $plateforme != "") {
+            try {
+                $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
                     FROM `jeux`, `genres`, `plateforme`, `ou_jouer`, `filtre_jeux` 
                     WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
@@ -157,14 +157,14 @@ class FonctionsBD
                     AND `genres`.`genre` = ?
                     AND `plateforme`.`plateforme` = ?
                 ");
-                    $query->execute([$genre, $plateforme]);
-                    return $query->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-                }
-            } else if ($genre != "" && $pegi != "") {
-                try {
-                    $query = getConnexion()->prepare("
+                $query->execute([$genre, $plateforme]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
+        } else if ($genre != "" && $pegi != "") {
+            try {
+                $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
                     FROM `jeux`, `genres`, `pegis`, `filtre_jeux` 
                     WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
@@ -173,14 +173,14 @@ class FonctionsBD
                     AND `genres`.`genre` = ?
                     AND `pegis`.`pegi` = ?
                 ");
-                    $query->execute([$genre, $pegi]);
-                    return $query->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-                }
-            } else if ($plateforme != "" && $pegi != "") {
-                try {
-                    $query = getConnexion()->prepare("
+                $query->execute([$genre, $pegi]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
+        } else if ($plateforme != "" && $pegi != "") {
+            try {
+                $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
                     FROM `jeux`, `plateforme`, `pegis`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
@@ -189,79 +189,91 @@ class FonctionsBD
                     AND `plateforme`.`plateforme` = ?
                     AND `pegis`.`pegi` = ?
                 ");
-                    $query->execute([$plateforme, $pegi]);
-                    return $query->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-                }
-            } else if ($pegi != "") {
-                try {
-                    $query = getConnexion()->prepare("
+                $query->execute([$plateforme, $pegi]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
+        } else if ($pegi != "") {
+            try {
+                $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
                     FROM `jeux`, `pegis`
                     WHERE `jeux`.`idPegi` = `pegis`.`idPegi`
                     AND `pegis`.`pegi` = ?
                 ");
-                    $query->execute([$pegi]);
-                    return $query->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-                }
-            } else if ($plateforme != "") {
-                try {
-                    $query = getConnexion()->prepare("
+                $query->execute([$pegi]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
+        } else if ($plateforme != "") {
+            try {
+                $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
                     FROM `jeux`, `plateforme`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
                     AND `plateforme`.`plateforme` = ?
                 ");
-                    $query->execute([$plateforme]);
-                    return $query->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-                }
-            } else if ($genre != "") {
-                try {
-                    $query = getConnexion()->prepare("
+                $query->execute([$plateforme]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
+        } else if ($genre != "") {
+            try {
+                $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
                     FROM `jeux`, `genres`, `filtre_jeux` 
                     WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
                     AND `genres`.`genre` = ?
                 ");
-                    $query->execute([$genre]);
-                    return $query->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-                    echo 'Exception reçue : ',  $e->getMessage(), "\n";
-                }
+                $query->execute([$genre]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
             }
         }
+    }
 
-        function VerifierMotDePasse($mdpUtilisateur, $mdpBase)
-        {
-
-            $pdo = getConnexion();
-            if (hash('sha256', $mdpUtilisateur) == $mdpBase) {
-
-                return true;
-            } else {
-                return false;
-            }
+    function newUser($pseudo, $nom, $prenom, $email, $password, $admin){
+        try {
+            $query = getConnexion()->prepare("
+            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
+            VALUES ( ?, ?, ?, ?, ?, ?)
+            ");
+            $query->execute([$pseudo, $nom, $prenom, $email, $password, $admin]);
+            
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
-        function VerifierEmail($email)
-        {
-            $pdo = getConnexion();
+    }
 
+    function VerifierMotDePasse($mdpUtilisateur, $mdpBase)
+    {
 
+        $pdo = getConnexion();
+        if (hash('sha256', $mdpUtilisateur) == $mdpBase) {
 
-            // on met la requete dans la variable $sql, et on va charcher le mot de passe si le nom insérée est correcte.
-            $sql = "SELECT * FROM user WHERE email = '$email';";
-            //execution de la requête et envoie de la réponse de la requête.
-            $requeteSQL = $pdo->query($sql);
-            // récuperation du résultat de la requête.
-            $reponseSQL = $requeteSQL->fetch();
-            return $reponseSQL;
+            return true;
+        } else {
+            return false;
         }
+    }
+    function VerifierEmail($email)
+    {
+        $pdo = getConnexion();
+
+
+
+        // on met la requete dans la variable $sql, et on va charcher le mot de passe si le nom insérée est correcte.
+        $sql = "SELECT * FROM user WHERE email = '$email';";
+        //execution de la requête et envoie de la réponse de la requête.
+        $requeteSQL = $pdo->query($sql);
+        // récuperation du résultat de la requête.
+        $reponseSQL = $requeteSQL->fetch();
+        return $reponseSQL;
     }
 }
