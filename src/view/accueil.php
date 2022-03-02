@@ -50,15 +50,16 @@ use EasyGame\model\database;
     </nav>
     <div class="container-fluid container_jeux">
         <?php
-        var_dump (getConnexion());
-        for($i = 0; $i > count(getGames()); $i++){
+        var_dump (database::getConnexion());
+    
+        for($i = 0; $i > count(FonctionsBD::getGames()); $i++){
         ?>
         <div class="card flex-row flex-wrap m-4">
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
             <div class="card-block p-2">
-                <h4 class="card-title"><?php getGames()[0]['nom']?></h4>
-                <p class="card-text"><?php getGames()[0]['description']?></p>
-                <p class="card-text card_prix"><?php getGames()[0]['prix']?></p>
+                <h4 class="card-title"><?php FonctionsBD::getGames()[0]['nom']?></h4>
+                <p class="card-text"><?php FonctionsBD::getGames()[0]['description']?></p>
+                <p class="card-text card_prix"><?php FonctionsBD::getGames()[0]['prix']?></p>
                 <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
             </div>
         </div>

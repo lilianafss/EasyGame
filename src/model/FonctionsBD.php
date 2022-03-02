@@ -5,6 +5,8 @@ namespace EasyGame\model;
 use EasyGame\model\database;
 use PDO;
 use PDOException;
+require "database.php";
+//require "database.php";
 
 @ini_set('display_errors', 'on');
 
@@ -18,14 +20,15 @@ Version     : 1.0.0.0
 class FonctionsBD
 {
     //Recuperer la table jeux sur la base de données
-    function getGames()
+    public static function getGames()
     {
         try {
-            $query = getConnexion()->prepare("
+            $query = database::getConnexion()->prepare("
             SELECT `idJeux`, `nom`, `description`, `prix` FROM `jeux` 
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
+            echo "cjdvk";
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
@@ -264,29 +267,4 @@ class FonctionsBD
         }
     }
 
-    function VerifierMotDePasse($mdpUtilisateur, $mdpBase)
-    {
-
-        $pdo = getConnexion();
-        if (hash('sha256', $mdpUtilisateur) == $mdpBase) {
-
-            return true;
-        } else {
-            return false;
-        }
-    }
-    function VerifierEmail($email)
-    {
-        $pdo = getConnexion();
-
-
-
-        // on met la requete dans la variable $sql, et on va charcher le mot de passe si le nom insérée est correcte.
-        $sql = "SELECT * FROM user WHERE email = '$email';";
-        //execution de la requête et envoie de la réponse de la requête.
-        $requeteSQL = $pdo->query($sql);
-        // récuperation du résultat de la requête.
-        $reponseSQL = $requeteSQL->fetch();
-        return $reponseSQL;
-    }
 }

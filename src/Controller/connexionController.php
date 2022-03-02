@@ -9,41 +9,36 @@ class connexionController
     public function connexion()
     {
         require '../src/view/connexion.php';
+    
 
-        // if (isset($_POST['btnSubmit']))
-        //  {
-        //     //récupération des champs du formulaire
-        //     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        //     $mdp = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        //     //connexion
-        //     $utilisateur = recupererEmail($email);
-        //     if ($utilisateur != null && count($utilisateur) >= 1) {
-
-        //         //vérifie si le mot de passe est identique à celui donner dans l'inscription
-        //         if ($utilisateur['mdp'] == hash("sha256", $mdp)) {
-        //             header("location:accueil.php");
-        //         }
-        //     }
-        //  }
-    //     if(filter_has_var('btnSubmit')){
-    //         header("location:/accueil.php");
-    //         echo "efkef";
-    //     }
-
-    //     session_start();
-    //      $mdp=filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
-    //     $email=filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
-
-    //      $mdpBase=VerifierEmail($_SESSION['email']);
-    //      if(VerifierMotDePasse($mdp,$mdpBase[0])){
-    //       header("location:/accueil.php");
-    //         echo"ok mdp";
+        session_start();
+        $submit = filter_input(INPUT_POST,'btnSubmit',FILTER_SANITIZE_STRING);
+        $erreur = "";
+          if($submit == "login"){
+            $email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
+            if($email != "" && $password != ""){
+              $erreur = "";
+              if(getInfoUser($email, $password) == true){
+                $erreur = "";
+                $_SESSION['email'] = getInfoUser($email, $password)['email'];
+                $_SESSION["group"] = getInfoUser($email, $password)['type'];
+                $_SESSION['logged'] = true;
+        
+                header("Location: / ");
+                exit(); 
+              }
+              else{
+                $erreur = "nom ou mot de passe invalides";
+              }
+            }
+            else{
+              $erreur = "pas de champs vides";
+            }
             
-    //      }
-    //     else{
-    //          echo "Erreur login";
-    //    }
-  
+          }
+        
+        
     }
 }
 
