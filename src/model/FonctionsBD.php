@@ -1,18 +1,21 @@
 <?php
+namespace EasyGame\model;
+use EasyGame\model\database;
+use PDO;
+use PDOException;
+
 @ini_set('display_errors', 'on');
+
 /*
 Auteur      : De Castilho E Sousa Rodrigo, 
 Description : Requêtes SQL (PDO)
 Date        : 02/2022
 Version     : 1.0.0.0
 */
-// namespace EasyGame\model;
-// use EasyGame\model\database;
-// use PDO;
-// use PDOException;
 
-require_once "./database.php";
-// class FonctionsBd{
+
+
+class FonctionsBD{
     //Recuperer la table jeux sur la base de données
     function getGames(){
         try{
@@ -136,4 +139,4 @@ require_once "./database.php";
 
     }
 
-// }
+}

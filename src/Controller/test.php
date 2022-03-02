@@ -1,13 +1,13 @@
 <?php
-
+@ini_set('display_errors', 'on');
 use function EasyGame\model\getFilters;
 use function EasyGame\model\getGames;
 use function EasyGame\model\getHistory;
 use function EasyGame\model\getInfoUser;
 use function EasyGame\model\getWishlist;
 use function EasyGame\model\getSearch;
-
-require_once '../model/pdo.php';
+use EasyGame\model\FonctionsBD;
+use EasyGame\model\database;
 
 $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
 $realpassword = filter_input(INPUT_POST,'realpassword',FILTER_SANITIZE_STRING);
@@ -34,7 +34,7 @@ if($hash != ""){
 //var_dump(getWishlist(1));
 //var_dump(getFilters());
 //var_dump(getInfoUser(1));
-//var_dump(getSearch('Grand'));
+var_dump(getSearch('Grand'));
 
 
 ?>
