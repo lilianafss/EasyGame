@@ -1,10 +1,10 @@
 <?php
-namespace EasyGame\Controleur;
+namespace EasyGame\Controller;
 
 use EasyGame\model\FonctionsBd;
 
 
-class connexionControleur
+class connexionController
 {
     public function connexion()
     {
