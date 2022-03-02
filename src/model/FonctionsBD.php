@@ -107,7 +107,7 @@ class FonctionsBD
         }
     }
 
-    function getSearch($searchName)
+    function searchGame($searchName)
     {
         try {
             $query = getConnexion()->prepare("
@@ -237,7 +237,7 @@ class FonctionsBD
             }
         }
     }
-
+    //Fonction pour ajouter des nouveaux utilisateur a la base de donnée
     function newUser($pseudo, $nom, $prenom, $email, $password, $admin){
         try {
             $query = getConnexion()->prepare("
@@ -245,6 +245,19 @@ class FonctionsBD
             VALUES ( ?, ?, ?, ?, ?, ?)
             ");
             $query->execute([$pseudo, $nom, $prenom, $email, $password, $admin]);
+            
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+    //Fonction pour ajouter des nouveaux jeux a la base de donnée
+    function newGame($nomJeux, $description, $preix, $idPegi){
+        try {
+            $query = getConnexion()->prepare("
+            INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
+            VALUES (?, ?, ?, ?)
+            ");
+            $query->execute([$nomJeux, $description, $preix, $idPegi]);
             
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
