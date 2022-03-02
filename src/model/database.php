@@ -12,9 +12,10 @@ use PDOException;
 
 require "config.php";
 
-class database{
+class database
+{
 //Connexion à la base de données
-    function getConnexion()
+    public static function getConnexion()
     {
         static $myDb = null;
 
@@ -25,13 +26,16 @@ class database{
                 $myDb = new PDO(
                     "mysql:host=". DB_HOST. ";dbname=". DB_NAME. ";charset=utf8",
                     DB_USER, DB_PASSWORD
+                
                 );
                 $myDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $myDb->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+                echo"connecté";
             }
             catch(PDOException $e)
             {
                 die("Erreur :" . $e->getMessage());
+                
             }
         }
         return $myDb;
