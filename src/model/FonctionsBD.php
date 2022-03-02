@@ -97,7 +97,7 @@ class FonctionsBD
     {
         try {
             $query = getConnexion()->prepare("
-            SELECT `pseudo`, `nom`, `prenom`, `email` 
+            SELECT `pseudo`, `nom`, `prenom`, `email`, `password` 
             FROM `user` WHERE `idUser` = ?
             ");
             $query->execute([$idUser]);
