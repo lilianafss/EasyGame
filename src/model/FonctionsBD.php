@@ -24,7 +24,7 @@ class FonctionsBD
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `idJeux`, `nom`, `description`, `prix` FROM `jeux` 
+            SELECT `idJeux`, `nom`, `description`, `prix`,`image` FROM `jeux` 
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
