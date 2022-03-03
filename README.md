@@ -1,1 +1,1 @@
-# EasyGame
+# EasyGame :video_game:
