@@ -3,12 +3,7 @@
 // use function EasyGame\model\getGames;
 use EasyGame\model\FonctionsBD;
 use EasyGame\model\BaseDonnee;
-$listePegi=FonctionsBD::getPegi();
-$listePlatforme=FonctionsBD::getPlatform();
-$Listegenre=FonctionsBD::getGenre();
 ?>
-
-                        
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +13,7 @@ $Listegenre=FonctionsBD::getGenre();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>easygame</title>
+    <title>Document</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -26,31 +21,21 @@ $Listegenre=FonctionsBD::getGenre();
             <div class="collapse navbar-collapse" id="mynavbar">
                 <form class="d-flex">
                     <ul class="navbar-nav">
-                   
                         <li class="nav-item">
                             <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 100px;">
                                 <option value="" disabled selected>Âge</option>
-                                <?php foreach($listePegi as $pegi){?>
-                                <option value="" ><?php echo $pegi["pegi"] ?></option>
-                            <?php } ?>
-
+                                
                             </select>
                         </li>
                         <li class="nav-item">
                             <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 175px;">
                                 <option value="" disabled selected>Toutes les plateformes</option>
-                                <?php foreach($listePlatforme as $plateforme){?>
-                                <option value="" ><?php echo $plateforme["plateforme"] ?></option>
-                            <?php } ?>
                                 
                             </select>
                         </li>
                         <li class="nav-item">
                             <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 150px;">
                                 <option value="" disabled selected>Tous les genres</option>
-                                <?php foreach($Listegenre as $genre){?>
-                                <option value="" ><?php echo $genre["genre"] ?></option>
-                            <?php } ?>
                             </select>
                         </li>
                         <li class="nav-item">
@@ -75,8 +60,8 @@ $Listegenre=FonctionsBD::getGenre();
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
                 <div class="card-block p-2">
                     <h4 class="card-title"><?php echo $jeux2['nom']?></h4>
-                    <p class="card-text card_description"><?php echo $jeux2['description']?></p>
-                    <p class="card-text card_prix"><?php echo $jeux2['prix']?> CHF</p>
+                    <p class="card-text"><?php echo $jeux2['description']?></p>
+                    <p class="card-text card_prix"><?php echo $jeux2['prix']?></p>
                     <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
                 </div>
             </div> 
