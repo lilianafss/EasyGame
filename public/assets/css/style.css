@@ -3,7 +3,7 @@
     width: 400px;
     margin: 0;
     float: left;
-    background-color: aqua;
+    
 }
 
 .card-title
@@ -16,4 +16,21 @@
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+}
+.card-img{
+    height: auto;
+    width: 400px;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+html{
+    position: relative;
+    min-height: 100%;
+}
+section :last-of-type{
+    float: left;
 }

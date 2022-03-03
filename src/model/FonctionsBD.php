@@ -71,29 +71,45 @@ class FonctionsBD
         }
     }
     //Recuperer les genres de jeux video de la base de données
-    function getGenrePlatform($filter)
+    public static function getPlatform()
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-        SELECT `?` FROM `easygame`.`?`
+        SELECT `plateforme` FROM `easygame`.`plateforme`
         ");
-            $query->execute([$filter, $filter]);
+            $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
 
-        function getPegi()
-        {
-            try {
-                $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `pegi` FROM `easygame`.`pegis`
-            ");
-                $query->execute();
-                return $query->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo 'Exception reçue : ',  $e->getMessage(), "\n";
-            }
+      
+    }
+    public static function getGenre()
+    {
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+        SELECT `genre` FROM `easygame`.`genre`
+        ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+
+      
+    }
+    
+    public static function getPegi()
+    {
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+        SELECT `pegi` FROM `easygame`.`pegis`
+        ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
     //Recuperer les informations de l'utilisateur
