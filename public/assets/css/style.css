@@ -3,7 +3,6 @@
     width: 400px;
     margin: 0;
     float: left;
-    
 }
 
 .card-title
@@ -31,6 +30,6 @@ html{
     position: relative;
     min-height: 100%;
 }
-section:last-of-type{
+section:first-of-type{
     float: left;
 }
