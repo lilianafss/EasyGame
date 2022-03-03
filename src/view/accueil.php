@@ -54,7 +54,7 @@ use EasyGame\model\BaseDonnee;
             $jeux=FonctionsBD::getGames();
             foreach($jeux as $jeux2){
         
-         ?>
+        ?>
 
         <div class="card flex-row flex-wrap m-4">
             <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
