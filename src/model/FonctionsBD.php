@@ -35,7 +35,7 @@ class FonctionsBD
         }
     }
     //Recuperer l'historique sur la base de données
-    function getHistory($idUser)
+    public static function getHistory($idUser)
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
@@ -53,7 +53,7 @@ class FonctionsBD
         }
     }
     //Recuperer la wishlist sur la base de données
-    function getWishlist($idUser)
+    public static function getWishlist($idUser)
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
@@ -113,7 +113,7 @@ class FonctionsBD
         }
     }
     //Recuperer les informations de l'utilisateur
-    function getInfoUser($idUser)
+    public static function getInfoUser($idUser)
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
@@ -127,7 +127,7 @@ class FonctionsBD
         }
     }
 
-    function searchGame($searchName)
+    public static function searchGame($searchName)
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
@@ -143,7 +143,7 @@ class FonctionsBD
     }
 
     //Fonction pour chercher un jeux par pegi, genre ou plateforme
-    function getGameByFilters($pegi, $genre, $plateforme)
+    public static function getGameByFilters($pegi, $genre, $plateforme)
     {
 
         if ($pegi != "" && $genre != "" && $plateforme != "") {
@@ -258,7 +258,7 @@ class FonctionsBD
         }
     }
     //Fonction pour ajouter des nouveaux utilisateur a la base de donnée
-    function newUser($pseudo, $nom, $prenom, $email, $password, $admin){
+    public static function newUser($pseudo, $nom, $prenom, $email, $password, $admin){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
@@ -271,7 +271,7 @@ class FonctionsBD
         }
     }
     //Fonction pour ajouter des nouveaux jeux a la base de donnée
-    function newGame($nomJeux, $description, $preix, $idPegi){
+    public static function newGame($nomJeux, $description, $preix, $idPegi){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
