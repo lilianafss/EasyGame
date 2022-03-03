@@ -11,7 +11,7 @@ use PDOException;
 @ini_set('display_errors', 'on');
 
 /*
-Auteur      : De Castilho E Sousa Rodrigo, 
+Auteur      : De Castilho E Sousa Rodrigo, Liliana Santos
 Description : Requêtes SQL (PDO)
 Date        : 02/2022
 Version     : 1.0.0.0
@@ -28,10 +28,8 @@ class FonctionsBD
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-         
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
-            
         }
     }
     //Recuperer l'historique sur la base de données
@@ -112,6 +110,7 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
     //Recuperer les informations de l'utilisateur
     public static function getInfoUser($idUser)
     {
@@ -265,7 +264,6 @@ class FonctionsBD
             VALUES ( ?, ?, ?, ?, ?, ?)
             ");
             $query->execute([$pseudo, $nom, $prenom, $email, $password, $admin]);
-            
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
@@ -278,10 +276,8 @@ class FonctionsBD
             VALUES (?, ?, ?, ?)
             ");
             $query->execute([$nomJeux, $description, $preix, $idPegi]);
-            
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-
 }

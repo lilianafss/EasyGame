@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
 <body>
         <div class=" row">
             <div class="col d-flex justify-content-center align-items-center">
-                        <form action="#" method="POST">
+                        <form action="../Controller/connexionController.php" method="POST">
                             <div class="form-group mb-3">
                                 <div><input type="email" id="email" name="email" placeholder="Email" required></div>
                             </div>
