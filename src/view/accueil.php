@@ -72,7 +72,7 @@ $Listegenre=FonctionsBD::getGenre();
          ?>
 
         <div class="card flex-row flex-wrap m-4">
-            <img src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/6a52db09e45a58b3e50bcc6213785282.ico" alt="" class="mx-auto d-block">
+        <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $jeux2['image'] ).'"/>'; ?>
                 <div class="card-block p-2">
                     <h4 class="card-title"><?php echo $jeux2['nom']?></h4>
                     <p class="card-text card_description"><?php echo $jeux2['description']?></p>
