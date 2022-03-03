@@ -71,29 +71,44 @@ class FonctionsBD
         }
     }
     //Recuperer les genres de jeux video de la base de données
-    function getGenrePlatform($filter)
+     public static function getPlatform()
     {
         try {
-            $query = getConnexion()->prepare("
-        SELECT `?` FROM `easygame`.`?`
+            $query = BaseDonnee::getConnexion()->prepare("
+        SELECT `plateforme` FROM `easygame`.`plateforme`
         ");
-            $query->execute([$filter, $filter]);
+            $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
 
-        function getPegi()
-        {
-            try {
-                $query = getConnexion()->prepare("
-            SELECT `pegi` FROM `easygame`.`pegis`
-            ");
-                $query->execute();
-                return $query->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo 'Exception reçue : ',  $e->getMessage(), "\n";
-            }
+       
+    }
+    public static function getGenre()
+    {
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+        SELECT `genre` FROM `easygame`.`genre`
+        ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+
+       
+    }
+    public static function getPegi()
+    {
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+        SELECT `pegi` FROM `easygame`.`pegis`
+        ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
     //Recuperer les informations de l'utilisateur
@@ -127,20 +142,20 @@ class FonctionsBD
     }
 
     //Fonction pour chercher un jeux par pegi, genre ou plateforme
-    function getGameByFilters($pegi, $genre, $plateforme)
+   public static function getGameByFilters($pegi, $genre, $plateforme)
     {
 
         if ($pegi != "" && $genre != "" && $plateforme != "") {
             try {
-                $query = getConnexion()->prepare("
+                $query = BaseDonnee::getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
-                    FROM `jeux`, `genres`, `plateforme`, `pegis`, `ou_jouer`, `filtre_jeux` 
-                    WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
+                    FROM `jeux`, `genre`, `plateforme`, `pegis`, `ou_jouer`, `filtre_jeux` 
+                    WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
                     AND `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
                     AND `jeux`.`idPegi` = `pegis`.`idPegi`
-                    AND `genres`.`genre` = ?
+                    AND `genre`.`genre` = ?
                     AND `plateforme`.`plateforme` = ?
                     AND `pegis`.`pegi` = ?
                 ");
@@ -153,12 +168,12 @@ class FonctionsBD
             try {
                 $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
-                    FROM `jeux`, `genres`, `plateforme`, `ou_jouer`, `filtre_jeux` 
-                    WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
+                    FROM `jeux`, `genre`, `plateforme`, `ou_jouer`, `filtre_jeux` 
+                    WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
                     AND `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
-                    AND `genres`.`genre` = ?
+                    AND `genre`.`genre` = ?
                     AND `plateforme`.`plateforme` = ?
                 ");
                 $query->execute([$genre, $plateforme]);
@@ -170,11 +185,11 @@ class FonctionsBD
             try {
                 $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
-                    FROM `jeux`, `genres`, `pegis`, `filtre_jeux` 
-                    WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
+                    FROM `jeux`, `genre`, `pegis`, `filtre_jeux` 
+                    WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
                     AND `jeux`.`idPegi` = `pegis`.`idPegi`
-                    AND `genres`.`genre` = ?
+                    AND `genre`.`genre` = ?
                     AND `pegis`.`pegi` = ?
                 ");
                 $query->execute([$genre, $pegi]);
@@ -229,10 +244,10 @@ class FonctionsBD
             try {
                 $query = getConnexion()->prepare("
                     SELECT `nom`, `description`, `prix` 
-                    FROM `jeux`, `genres`, `filtre_jeux` 
-                    WHERE `genres`.`idGenre` = `filtre_jeux`.`idGenre` 
+                    FROM `jeux`, `genre`, `filtre_jeux` 
+                    WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
-                    AND `genres`.`genre` = ?
+                    AND `genre`.`genre` = ?
                 ");
                 $query->execute([$genre]);
                 return $query->fetchAll(PDO::FETCH_ASSOC);
