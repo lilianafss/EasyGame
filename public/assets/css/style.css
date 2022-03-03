@@ -3,10 +3,7 @@
     width: 400px;
     margin: 0;
     float: left;
-  
-}
-.card_description{
-    height: 150px;
+    background-color: aqua;
 }
 
 .card-title

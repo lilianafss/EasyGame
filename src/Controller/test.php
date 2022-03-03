@@ -34,8 +34,7 @@ if($hash != ""){
 //var_dump(getWishlist(1));
 //var_dump(getFilters());
 //var_dump(getInfoUser(1));
-var_dump(getSearch('Grand'));
-
+//var_dump(getSearch('Grand'));
 
 ?>
 <!DOCTYPE html>

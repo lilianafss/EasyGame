@@ -1,4 +1,5 @@
 <?php
+
 namespace EasyGame\Controller;
 
 use EasyGame\model\FonctionsBd;
@@ -6,11 +7,14 @@ use EasyGame\model\FonctionsBd;
 
 class connexionController
 {
+    /**
+     * description de la fonction ....................................................
+     *
+     * @return void
+     * @author nom de la personne qui à fait la fonction ........
+     */
     public function connexion()
     {
-        require '../src/view/connexion.php';
-    
-
         session_start();
         $submit = filter_input(INPUT_POST,'btnSubmit',FILTER_SANITIZE_STRING);
         $erreur = "";
@@ -37,8 +41,6 @@ class connexionController
             }
             
           }
-        
-        
+          require '../src/view/connexion.php';   
     }
 }
-
