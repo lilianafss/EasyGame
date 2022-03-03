@@ -54,7 +54,7 @@ use EasyGame\model\BaseDonnee;
             $jeux=FonctionsBD::getGames();
             foreach($jeux as $jeux2){
         
-         ?>
+        ?>
 
         <div class="card flex-row flex-wrap m-4">
         <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $jeux2['image'] ).'"/>'; ?>
