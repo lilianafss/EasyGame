@@ -3,6 +3,9 @@
 // use function EasyGame\model\getGames;
 use EasyGame\model\FonctionsBD;
 use EasyGame\model\BaseDonnee;
+$listeAge=FonctionsBD::getPegi();
+$listePlateforme=FonctionsBD::getPlatform();
+$listeGenre=FonctionsBD::getGenre();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,18 +27,27 @@ use EasyGame\model\BaseDonnee;
                         <li class="nav-item">
                             <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 100px;">
                                 <option value="" disabled selected>Âge</option>
-                                
+                            <?php  foreach($listeAge as $age) {?>
+                                <option value=""><?php echo $age["pegi"]?></option>
+                                <?php } ?>
                             </select>
+                            
                         </li>
                         <li class="nav-item">
                             <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 175px;">
                                 <option value="" disabled selected>Toutes les plateformes</option>
+                                <?php  foreach($listePlateforme as $plateforme) {?>
+                                <option value=""><?php echo $plateforme["plateforme"]?></option>
+                                <?php } ?>
                                 
                             </select>
                         </li>
                         <li class="nav-item">
                             <select name="" id="" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 150px;">
                                 <option value="" disabled selected>Tous les genres</option>
+                                <?php  foreach($listeGenre as $genre) {?>
+                                <option value=""><?php echo $genre["genre"]?></option>
+                                <?php } ?>
                             </select>
                         </li>
                         <li class="nav-item">
@@ -51,17 +63,17 @@ use EasyGame\model\BaseDonnee;
     <div class="container-fluid container_jeux">
         <?php
         
-            $jeux=FonctionsBD::getGames();
-            foreach($jeux as $jeux2){
+            $listeJeux=FonctionsBD::getGames();
+            foreach($listeJeux as $jeux){
         
         ?>
 
         <div class="card flex-row flex-wrap m-4">
-        <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $jeux2['image'] ).'"/>'; ?>
+        <?php echo '<img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $jeux['image'] ).'"/>'; ?>
                 <div class="card-block p-2">
-                    <h4 class="card-title"><?php echo $jeux2['nom']?></h4>
-                    <p class="card-text"><?php echo $jeux2['description']?></p>
-                    <p class="card-text card_prix"><?php echo $jeux2['prix']?></p>
+                    <h4 class="card-title"><?php echo $jeux['nom']?></h4>
+                    <p class="card-text"><?php echo $jeux['description']?></p>
+                    <p class="card-text card_prix"><?php echo $jeux['prix']?></p>
                     <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
                 </div>
             </div> 
@@ -70,4 +82,8 @@ use EasyGame\model\BaseDonnee;
          ?>
     </div>
 </body>
+<footer>
+
+<?php include "footer.html" ?>
+</footer>
 </html>

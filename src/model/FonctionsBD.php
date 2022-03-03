@@ -69,42 +69,44 @@ class FonctionsBD
         }
     }
     //Recuperer les genres de jeux video de la base de données
-    function getGenrePlatform($filter)
+    public static function getPlatform()
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-        SELECT `?` FROM `easygame`.`?`
+        SELECT `plateforme` FROM `easygame`.`plateforme`
         ");
-            $query->execute([$filter, $filter]);
-            return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
-        }
-    }
-    //Recuperer le age minimal pour jour a chaque jeux
-    function getPegi()
-    {
-        try {
-            $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `pegi` FROM `easygame`.`pegis`
-            ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
-    }
 
-    public static function verifyUserByEmail($email){
-        try{
+      
+    }
+    public static function getGenre()
+    {
+        try {
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `idUser`, `password`
-            FROM `user` WHERE `email` = ?
-            ");
-            $query->execute([$email]);
-            return $query->fetch(PDO::FETCH_ASSOC);
+        SELECT `genre` FROM `easygame`.`genre`
+        ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
-        catch(PDOException $e){
+
+      
+    }
+    
+    public static function getPegi()
+    {
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+        SELECT `pegi` FROM `easygame`.`pegis`
+        ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
