@@ -1,8 +1,9 @@
 .card
 {
-    width: 350px;
+    width: 400px;
     margin: 0;
     float: left;
+    background-color: aqua;
 }
 
 .card-title
@@ -13,6 +14,6 @@
 .card_prix
 {
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 }

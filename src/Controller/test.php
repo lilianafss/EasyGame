@@ -9,8 +9,8 @@ use function EasyGame\model\getSearch;
 use EasyGame\model\FonctionsBD;
 use EasyGame\model\database;
 
-$password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
-$realpassword = filter_input(INPUT_POST,'realpassword',FILTER_SANITIZE_STRING);
+$password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_SPECIAL_CHARS);
+$realpassword = filter_input(INPUT_POST,'realpassword',FILTER_SANITIZE_SPECIAL_CHARS);
 $hash = "";
 $seePassword = "";
 

@@ -1,5 +1,4 @@
 <?php
-
 use EasyGame\Controller\connexionController;
 use EasyGame\Controller\registerController;
 
