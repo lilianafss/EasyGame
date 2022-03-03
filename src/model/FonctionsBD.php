@@ -11,7 +11,7 @@ use PDOException;
 @ini_set('display_errors', 'on');
 
 /*
-Auteur      : De Castilho E Sousa Rodrigo, 
+Auteur      : De Castilho E Sousa Rodrigo, Liliana Santos
 Description : Requêtes SQL (PDO)
 Date        : 02/2022
 Version     : 1.0.0.0
@@ -28,10 +28,8 @@ class FonctionsBD
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-         
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
-            
         }
     }
     //Recuperer l'historique sur la base de données
@@ -82,20 +80,35 @@ class FonctionsBD
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
-
-        function getPegi()
-        {
-            try {
-                $query = BaseDonnee::getConnexion()->prepare("
+    }
+    //Recuperer le age minimal pour jour a chaque jeux
+    function getPegi()
+    {
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
             SELECT `pegi` FROM `easygame`.`pegis`
             ");
-                $query->execute();
-                return $query->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo 'Exception reçue : ',  $e->getMessage(), "\n";
-            }
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+    public static function verifyUserByEmail($email){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `idUser`, `password`
+            FROM `user` WHERE `email` = ?
+            ");
+            $query->execute([$email]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
     //Recuperer les informations de l'utilisateur
     function getInfoUser($idUser)
     {
@@ -110,7 +123,7 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-
+    //chercher un jeux par son nom
     function searchGame($searchName)
     {
         try {
@@ -242,30 +255,29 @@ class FonctionsBD
         }
     }
     //Fonction pour ajouter des nouveaux utilisateur a la base de donnée
-    function newUser($pseudo, $nom, $prenom, $email, $password, $admin){
+    function newUser($pseudo, $nom, $prenom, $email, $password, $admin)
+    {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
             VALUES ( ?, ?, ?, ?, ?, ?)
             ");
             $query->execute([$pseudo, $nom, $prenom, $email, $password, $admin]);
-            
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
     //Fonction pour ajouter des nouveaux jeux a la base de donnée
-    function newGame($nomJeux, $description, $preix, $idPegi){
+    function newGame($nomJeux, $description, $preix, $idPegi)
+    {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
             VALUES (?, ?, ?, ?)
             ");
             $query->execute([$nomJeux, $description, $preix, $idPegi]);
-            
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-
 }
