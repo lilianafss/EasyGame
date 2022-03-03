@@ -1,4 +1,5 @@
 <?php
+
 namespace EasyGame\Controller;
 
 use EasyGame\model\FonctionsBd;
@@ -6,9 +7,14 @@ use EasyGame\model\FonctionsBd;
 
 class connexionController
 {
+    /**
+     * description de la fonction ....................................................
+     *
+     * @return void
+     * @author nom de la personne qui à fait la fonction ........
+     */
     public function connexion()
     {
-        require '../src/view/connexion.php';
 
         // if (isset($_POST['btnSubmit']))
         //  {
@@ -25,25 +31,25 @@ class connexionController
         //         }
         //     }
         //  }
-    //     if(filter_has_var('btnSubmit')){
-    //         header("location:/accueil.php");
-    //         echo "efkef";
-    //     }
+        //     if(filter_has_var('btnSubmit')){
+        //         header("location:/accueil.php");
+        //         echo "efkef";
+        //     }
 
-    //     session_start();
-    //      $mdp=filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
-    //     $email=filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
+        //     session_start();
+        //      $mdp=filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
+        //     $email=filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
 
-    //      $mdpBase=VerifierEmail($_SESSION['email']);
-    //      if(VerifierMotDePasse($mdp,$mdpBase[0])){
-    //       header("location:/accueil.php");
-    //         echo"ok mdp";
-            
-    //      }
-    //     else{
-    //          echo "Erreur login";
-    //    }
-  
+        //      $mdpBase=VerifierEmail($_SESSION['email']);
+        //      if(VerifierMotDePasse($mdp,$mdpBase[0])){
+        //       header("location:/accueil.php");
+        //         echo"ok mdp";
+
+        //      }
+        //     else{
+        //          echo "Erreur login";
+        //    }
+        require '../src/view/connexion.php';
     }
 }
 
