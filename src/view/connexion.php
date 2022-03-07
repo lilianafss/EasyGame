@@ -11,10 +11,10 @@
             <div class="col d-flex justify-content-center align-items-center">
                         <form action="../Controller/connexionController.php" method="POST">
                             <div class="form-group mb-3">
-                                <div><input type="email" id="email" name="email" placeholder="Email" required></div>
+                                <div><input type="email" id="email" name="email" placeholder="Email"></div>
                             </div>
                             <div class="form-group mb-3">
-                                <div><input type="password" name="password" placeholder="Mot de passe" required></div>
+                                <div><input type="password" name="password" placeholder="Mot de passe"></div>
                             </div>
                             <div><input  type="submit" name="btnSubmit" value="Se connecter"></div>
                         </form>

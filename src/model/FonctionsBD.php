@@ -163,6 +163,20 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+    
+    public static function getIdUser($email){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `idUser`
+            FROM `user` WHERE `email` = ?
+            ");
+            $query->execute([$email]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
 
     /**
      * Cherche un jeu avec son nom
