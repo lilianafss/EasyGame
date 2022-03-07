@@ -17,7 +17,10 @@
 
             if ($submit == "Valider")
             {
-                
+                if ($userName != "")
+                {
+
+                }
             }
             else if($submit == "Annuler")
             {

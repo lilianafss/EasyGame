@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="/assets/css/register.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Créer un compte</h1>
     </header>
     <main>
-        <div class="container">
+        <div class="container"> 
             <form method="POST">
                 <div>
                     <label for="userName" class="col-6">Nom d'utilisateur</label>
@@ -53,6 +55,7 @@
                     <input class="btn col-6" type="submit" name="submit" value="Valider">
                     <input class="btn col-6" type="submit" name="submit" value="Annuler">
                 </div>
+                <i class="fa-solid fa-eye-slash"></i>
             </form>
         </div>
     </main>
@@ -62,6 +65,6 @@
   feather.replace();
 </script>
 <!-- partial -->
-<script  src="../../public/assets/js/hidePassword.js"></script>
+<script  src="assets/js/hidePassword.js"></script>
 </body>
 </html>
