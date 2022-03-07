@@ -163,6 +163,20 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+    
+    public static function getIdUser($email){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `idUser`
+            FROM `user` WHERE `email` = ?
+            ");
+            $query->execute([$email]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
 
     /**
      * Cherche un jeu avec son nom
@@ -323,13 +337,13 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newUser($pseudo, $nom, $prenom, $email, $password, $admin){
+    public static function newUser($pseudo, $nom, $prenom, $email, $password){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
-            VALUES ( ?, ?, ?, ?, ?, ?)
+            VALUES ( ?, ?, ?, ?, ?, 0)
             ");
-            $query->execute([$pseudo, $nom, $prenom, $email, $password, $admin]);
+            $query->execute([$pseudo, $nom, $prenom, $email, $password]);
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }

@@ -1,9 +1,7 @@
 <?php
-
 namespace EasyGame\Controller;
 
 use EasyGame\model\FonctionsBD;
-
 
 class connexionController
 {
@@ -13,102 +11,46 @@ class connexionController
    * @return void
    * @author nom de la personne qui à fait la fonction ........
    */
-  public function connexion()
+  public static function Connexion()
   {
     session_start();
 
-    if (!isset($_SESSION['userName'])) {
-      $_SESSION = [
-        'userName' => '',
-        'email' => '',
-        'nom' => '',
-        'prenom' => '',
-      ];
+    if (!isset($_SESSION['userId'])) {
+        $_SESSION = [
+            'userId' => '',
+            'connected' => false
+        ];
     }
 
     $submit = filter_input(INPUT_POST, 'btnSubmit', FILTER_SANITIZE_SPECIAL_CHARS);
     $erreur = "";
 
-    if ($submit = "Se connecter") {
-      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
-      $password = filter_input(INPUT_POST,'password', FILTER_SANITIZE_SPECIAL_CHARS);
+    if ($submit == "Se connecter") {
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
-      if($email != "" && $password != ""){
-         $emailBd = FonctionsBD::verifyUserByEmail($email);
-        if($emailBd == $email){
-          
-        }
-        else{
-          $erreur = "Email ou mot de passe incorrect.";
-        }
+        if ($email != "" && $password != "") {
+            if (FonctionsBD::verifyUserByEmail($email)) {
 
-      }
-      else{
-        $erreur = "Saisissez votre eamil et mot de passe.";
-      }
-
+                $_SESSION['idUser'] = FonctionsBD::verifyUserByEmail($email)['idUser'];
+                $hash = password_hash($password, PASSWORD_BCRYPT);
+                if (password_verify($hash, getInfoUser($_SESSION['idUser'])('password'))) {
+                    $_SESSION['connected'] = true;
+                    header("location: http://easygame/");
+                    var_dump($_SESSION);
+                    //exit();
+                } else {
+                    $_SESSION['idUser'] = "";
+                    $erreur = "Email ou mot de passe incorrect.";
+                }
+            } else {
+                $erreur = "Email ou mot de passe incorrect.";
+            }
+        } else {
+            $erreur = "Saisissez votre email et mot de passe.";
+        }  
     }
+    var_dump($_SESSION);
+    require '../src/view/connexion.php';
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*
-      session_start();
-        $submit = filter_input(INPUT_POST,'btnSubmit',FILTER_SANITIZE_STRING);
-        $erreur = "";
-          if($submit == "login"){
-            $email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_STRING);
-            $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
-            if($email != "" && $password != ""){
-              $erreur = "";
-              if(getInfoUser($email, $password) == true){
-                $erreur = "";
-                $_SESSION['email'] = getInfoUser($email, $password)['email'];
-                $_SESSION["group"] = getInfoUser($email, $password)['type'];
-                $_SESSION['logged'] = true;
-        
-                header("Location: / ");
-                exit(); 
-              }
-              else{
-                $erreur = "nom ou mot de passe invalides";
-              }
-            }
-            else{
-              $erreur = "pas de champs vides";
-            }
-            
-          }
-          require '../src/view/connexion.php'; 
-          */
 }

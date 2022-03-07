@@ -1,12 +1,14 @@
 {
-    "name": "flavio.srsrd/easy-game",
+    "name": "rodrigodcstl/easy-game",
     "autoload": {
         "psr-4": {
-            "EasyGame\\": "src/"
+            "Rodrigodcstl\\EasyGame\\": "src/"
         }
     },
-    "require": {
-        "pecee/simple-router": "4.3.7.2",
-        "phpmailer/phpmailer": "^6.6"
-    }
+    "authors": [
+        {
+            "name": "rodrigo"
+        }
+    ],
+    "require": {}
 }

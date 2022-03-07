@@ -1,9 +1,11 @@
-/*body*/
-/*{*/
-/*    margin: auto;*/
-/*    padding: 0;*/
-/*    height: 100%;*/
-/*}*/
+body
+{
+    font-family: Calibri;
+    font-size: 1.15em;
+    margin: auto;
+    padding: 0;
+    height: 100%;
+}
 
 header
 {
@@ -35,55 +37,15 @@ div
     text-align: left;
 }
 
-/*#containerBtn*/
-/*{*/
-/*    display: flex;*/
-/*    text-align: center;*/
-/*    flex-wrap: nowrap;*/
-/*}*/
-
-/*.password-icon*/
-/*{*/
-/*    float: right;*/
-/*    position: relative;*/
-
-/*    right: 30px;*/
-/*    top: -10px;*/
-/*    width: 0px;*/
-/*}*/
-
-.password-icon .feather-eye-off
+#showPassWord
 {
-    display: none;
+    width:25px;
+    height:25px;
+    margin-right: 40px;
 }
 
-/*@media only screen and (max-width: 768px) {*/
-/*    .container {*/
-/*        text-align: left;*/
-/*    }*/
-
-/*    .btn {*/
-/*        margin-top: 10px;*/
-/*    }*/
-
-/*    #containerBtn {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-
-/*        width: 50%;*/
-/*    }*/
-
-/*    .password-icon {*/
-/*        float: right;*/
-/*        position: relative;*/
-
-/*        right: 20px;*/
-/*        top: -34px;*/
-/*        width: 0px;*/
-
-/*    }*/
-
-/*    .col-6 {*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
+#containerShowPassWord
+{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
