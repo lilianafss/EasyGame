@@ -19,8 +19,13 @@
                             <div><input  type="submit" name="btnSubmit" value="Se connecter"></div>
                         </form>
                     </div>
-                    <br>
                     
+                    <br>
+                    <div>
+                        <p>
+                            <?=$erreur?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

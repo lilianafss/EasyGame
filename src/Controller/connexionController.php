@@ -30,11 +30,11 @@ class connexionController
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if ($email != "" && $password != "") {
-            if (FonctionsBD::verifyUserByEmail($email)) {
+            if (FonctionsBD::getIdUser($email)) {
 
-                $_SESSION['idUser'] = FonctionsBD::verifyUserByEmail($email)['idUser'];
+                $_SESSION['idUser'] = FonctionsBD::getIdUser($email)['idUser'];
                 $hash = password_hash($password, PASSWORD_BCRYPT);
-                if (password_verify($hash, getInfoUser($_SESSION['idUser'])('password'))) {
+                if (password_verify($hash, FonctionsBD::getInfoUser($_SESSION['idUser'])('password'))) {
                     $_SESSION['connected'] = true;
                     header("location: http://easygame/");
                     var_dump($_SESSION);
@@ -50,7 +50,8 @@ class connexionController
             $erreur = "Saisissez votre email et mot de passe.";
         }  
     }
-    var_dump($_SESSION);
+ 
+   
     require '../src/view/connexion.php';
   }
 }
