@@ -201,7 +201,7 @@ class FonctionsBD
         if ($pegi != "" && $genre != "" && $plateforme != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `nom`, `description`, `prix` 
+                    SELECT `nom`, `description`, `prix`, `image`  
                     FROM `jeux`, `genre`, `plateforme`, `pegis`, `ou_jouer`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
@@ -220,7 +220,7 @@ class FonctionsBD
         } else if ($genre != "" && $plateforme != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `nom`, `description`, `prix` 
+                    SELECT `nom`, `description`, `prix`, `image`
                     FROM `jeux`, `genre`, `plateforme`, `ou_jouer`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
@@ -237,7 +237,7 @@ class FonctionsBD
         } else if ($genre != "" && $pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `nom`, `description`, `prix` 
+                    SELECT `nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `genre`, `pegis`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
@@ -253,7 +253,7 @@ class FonctionsBD
         } else if ($plateforme != "" && $pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `nom`, `description`, `prix` 
+                    SELECT `nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `plateforme`, `pegis`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
@@ -269,7 +269,7 @@ class FonctionsBD
         } else if ($pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `nom`, `description`, `prix` 
+                    SELECT `nom`, `description`, `prix`, `image`
                     FROM `jeux`, `pegis`
                     WHERE `jeux`.`idPegi` = `pegis`.`idPegi`
                     AND `pegis`.`pegi` = ?
@@ -282,7 +282,7 @@ class FonctionsBD
         } else if ($plateforme != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `nom`, `description`, `prix` 
+                    SELECT `nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `plateforme`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
@@ -296,7 +296,7 @@ class FonctionsBD
         } else if ($genre != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `nom`, `description`, `prix` 
+                    SELECT `nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `genre`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
