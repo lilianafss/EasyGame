@@ -6,6 +6,8 @@ use EasyGame\model\BaseDonnee;
 $listeAge=FonctionsBD::getPegi();
 $listePlateforme=FonctionsBD::getPlatform();
 $listeGenre=FonctionsBD::getGenre();
+session_start();
+var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
