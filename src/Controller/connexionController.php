@@ -29,7 +29,7 @@ class connexionController
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        if ($email != "" && $password != "") {
+        if ($email != "" || $password != "") {
             if (FonctionsBD::getIdUser($email)) {
                 
               $_SESSION['idUser'] = FonctionsBD::getIdUser($email)['idUser'];
