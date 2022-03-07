@@ -19,7 +19,11 @@ Version     : 1.0.0.0
 
 class FonctionsBD
 {
-    //Recuperer la table jeux sur la base de données
+    /**
+     * Récupère la table jeux dans la base de données
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getGames()
     {
         try {
@@ -32,7 +36,13 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-    //Recuperer l'historique sur la base de données
+
+    /**
+     * Récupère l'historique dans la base de données
+     * @param $idUser
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getHistory($idUser)
     {
         try {
@@ -50,7 +60,13 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-    //Recuperer la wishlist sur la base de données
+
+    /**
+     * Récupère la wishlist dans la base de données
+     * @param $idUser
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getWishlist($idUser)
     {
         try {
@@ -68,7 +84,12 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-    //Recuperer les genres de jeux video de la base de données
+
+    /**
+     * Récupère les genres de jeux vidéo dans la base de données
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getPlatform()
     {
         try {
@@ -83,6 +104,12 @@ class FonctionsBD
 
       
     }
+
+    /**
+     * Récupère tout les genres
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getGenre()
     {
         try {
@@ -97,7 +124,12 @@ class FonctionsBD
 
       
     }
-    
+
+    /**
+     * Récupère tout les PEGI
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getPegi()
     {
         try {
@@ -111,7 +143,13 @@ class FonctionsBD
         }
     }
 
-    //Recuperer les informations de l'utilisateur
+    /**
+     * Récupère les informations de l'utilisateur
+     *
+     * @param $idUser
+     * @return mixed|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getInfoUser($idUser)
     {
         try {
@@ -126,6 +164,13 @@ class FonctionsBD
         }
     }
 
+    /**
+     * Cherche un jeu avec son nom
+     *
+     * @param $searchName
+     * @return mixed|void
+     * @author Liliana Filipa Santos Silva
+     */
     public static function searchGame($searchName)
     {
         try {
@@ -141,7 +186,15 @@ class FonctionsBD
         }
     }
 
-    //Fonction pour chercher un jeux par pegi, genre ou plateforme
+    /**
+     * Fonction pour chercher un jeux par pegi, genre ou plateforme
+     *
+     * @param $pegi
+     * @param $genre
+     * @param $plateforme
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getGameByFilters($pegi, $genre, $plateforme)
     {
 
@@ -256,7 +309,20 @@ class FonctionsBD
             }
         }
     }
-    //Fonction pour ajouter des nouveaux utilisateur a la base de donnée
+
+    /**
+     * Ajoute des nouveaux utilisateurs dans la base de données
+     *
+     * @param $pseudo
+     * @param $nom
+     * @param $prenom
+     * @param $email
+     * @param $password
+     * @param $admin
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function newUser($pseudo, $nom, $prenom, $email, $password, $admin){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
@@ -268,7 +334,18 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-    //Fonction pour ajouter des nouveaux jeux a la base de donnée
+
+    /**
+     * Ajoute des nouveaux jeux dans la base de données
+     *
+     * @param $nomJeux
+     * @param $description
+     * @param $preix
+     * @param $idPegi
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function newGame($nomJeux, $description, $preix, $idPegi){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
