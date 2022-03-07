@@ -9,7 +9,7 @@
 <body>
         <div class=" row">
             <div class="col d-flex justify-content-center align-items-center">
-                        <form action="../Controller/connexionController.php" method="POST">
+                        <form method="POST">
                             <div class="form-group mb-3">
                                 <div><input type="email" id="email" name="email" placeholder="Email"></div>
                             </div>
