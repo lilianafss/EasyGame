@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6526ded5-d237-4220-91dc-68873f139b67" name="Changes" comment="- Changement des commentaires de &quot;fonctionsBD.php&quot;&#10;- Changement des liens de la page register.php">
+    <list default="true" id="6526ded5-d237-4220-91dc-68873f139b67" name="Changes" comment="page registerController.php fonctionnelle">
+      <change beforePath="$PROJECT_DIR$/.idea/EasyGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EasyGame.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/hidePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/hidePassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/FonctionsBD.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FonctionsBD.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,9 +37,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/pecee/simple-router" />
       <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/pecee/simple-router" />
     </include_path>
   </component>
   <component name="ProjectId" id="25plE773eh8o9TVkaLYfd8LdeXb" />
@@ -77,7 +79,9 @@
       <workItem from="1646293765049" duration="746000" />
       <workItem from="1646302260673" duration="3848000" />
       <workItem from="1646315438386" duration="1870000" />
-      <workItem from="1646638759816" duration="9967000" />
+      <workItem from="1646638759816" duration="16016000" />
+      <workItem from="1646807905245" duration="4082000" />
+      <workItem from="1646812356697" duration="11693000" />
     </task>
     <task id="LOCAL-00001" summary="- Changement des commentaires de &quot;fonctionsBD.php&quot;&#10;- Changement des liens de la page register.php">
       <created>1646642019219</created>
@@ -86,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646642019219</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="page registerController.php fonctionnelle">
+      <created>1646648915976</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1646648915976</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +116,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Changement des commentaires de &quot;fonctionsBD.php&quot;&#10;- Changement des liens de la page register.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Changement des commentaires de &quot;fonctionsBD.php&quot;&#10;- Changement des liens de la page register.php" />
+    <MESSAGE value="page registerController.php fonctionnelle" />
+    <option name="LAST_COMMIT_MESSAGE" value="page registerController.php fonctionnelle" />
   </component>
 </project>

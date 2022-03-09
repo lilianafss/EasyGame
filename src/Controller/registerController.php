@@ -41,6 +41,9 @@
 
                         // Ajoute un nouvel utilisateur dans la base de données
                         $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
+
+                        header("location: http://easygame/");
+                        exit();
                     }
                     else
                     {
@@ -51,7 +54,7 @@
                 {
                     $message = "Veuillez Remplir tout les champs";
                 }
-                echo $message;
+                //echo $message;
             }
             else if($submit == "Annuler")
             {

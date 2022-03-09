@@ -1,51 +1,178 @@
-body
-{
+/*#region Body*/
+body {
     font-family: Calibri;
-    font-size: 1.15em;
+    font-size: 1.2em;
+
     margin: auto;
     padding: 0;
+
     height: 100%;
+    overflow-x: hidden;
 }
+/*#endregion*/
 
-header
+
+
+
+
+/*#region Header*/
+header {
+    margin-bottom: 40px;
+}
+/*#endregion*/
+
+
+
+
+
+/*#region Main*/
+    #titre {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: left;
+    }
+
+    #divMain {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .divForm {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .label-input {
+        width: 100%;
+    }
+
+    #containerShowPassWord {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #showPassWord {
+        width:25px;
+        height:25px;
+    }
+
+    #containerBtn {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btnCustom {
+        width: 48%;
+    }
+/*#endregion*/
+
+
+
+
+
+/*#region Footer*/
+    footer {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+
+        justify-content: space-between;
+        justify-items: center;
+    }
+
+    #divFooter {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: space-around;
+
+        align-items: center;
+        text-align: center;
+    }
+
+    .sectionFooter {
+        width: 33.3333%;
+    }
+/*#endregion */
+
+
+
+
+
+/*#region Media (Screen under 600px)*/
+@media only screen and (max-width: 600px)
 {
-    margin-top: 50px;
-    margin-bottom: 30px;
-}
+    body
+    {
+        overflow: auto;
+    }
 
-h1
+    .btnCustom
+    {
+        justify-content: space-between;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .label-input
+    {
+        width: 83.33%;
+    }
+
+    .divForm
+    {
+        text-align: center;
+    }
+
+    label
+    {
+        text-align: left;
+    }
+
+    #showPassWord
+    {
+        width: 24%;
+    }
+
+    #divFooter
+    {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sectionFooter
+    {
+        width: 50%;
+    }
+}
+/*#endregion */
+
+
+
+
+
+/*#region Scroll Bar*/
+::-webkit-scrollbar
 {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: center;
-    text-align: left;
+    width: 10px;
 }
 
-div
+::-webkit-scrollbar-track
 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    background: #f1f1f1;
 }
 
-.container
+::-webkit-scrollbar-thumb
 {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: center;
-    text-align: left;
+    background: #888;
 }
 
-#showPassWord
+::-webkit-scrollbar-thumb:hover
 {
-    width:25px;
-    height:25px;
-    margin-right: 40px;
+    background: #555;
 }
-
-#containerShowPassWord
-{
-    margin-top: 15px;
-    margin-bottom: 20px;
-}
+/*#endregion*/
