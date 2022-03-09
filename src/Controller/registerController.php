@@ -47,14 +47,13 @@
                     }
                     else
                     {
-                        $message = "Le mot de passe de confirmation n'est pas identique au mot de passe";
+                        $message = "Ces mots de passe ne correspondent pas. Veuillez réessayer.";
                     }
                 }
                 else
                 {
                     $message = "Veuillez Remplir tout les champs";
                 }
-                //echo $message;
             }
             else if($submit == "Annuler")
             {

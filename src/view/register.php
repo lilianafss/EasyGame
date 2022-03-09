@@ -11,10 +11,10 @@
 </head>
 <body class="d-flex flex-column h-100">
     <header>
-            <nav class="navbar navbar-dark bg-dark justify-content-center">
+            <nav class="navbar navbar-dark bg-dark bg-gradient justify-content-center">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                        <a class="nav-link" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -23,15 +23,19 @@
                         <a class="nav-link" href="#">Link</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
                     </li>
                 </ul>
             </nav>
     </header>
     <main class="flex-shrink-0">
-        <h1 id="titre">Créer un compte</h1>
+        <h1>Créer un compte</h1>
         <div id="divMain">
             <form method="POST">
+
                 <div class="divForm">
                     <label for="userName" class="label-input">Nom d'utilisateur</label>
                     <input id="userName" class="label-input" type="text" name="userName" maxlength="20" value="<?=$userName?>">
@@ -61,20 +65,22 @@
                     <label for="password2" class="label-input"> Confirmer mot de passe </label>
                     <input id="password2" class="label-input" type="password" name="password2" minlength="4" value="">
                 </div>
-
                 <label for="showPassWord" id="containerShowPassWord">
                     <input type="checkbox" name="showPassWord" class="col-2" id="showPassWord" onclick="HidePassword()">
                     <span class="col-10">Afficher le mot de passe</span>
                 </label>
 
-                <div id="containerBtn" class="divForm">
-                    <input class="btnCustom btn btn-dark" type="submit" name="submit" value="Valider">
-                    <input class="btnCustom btn btn-dark" type="submit" name="submit" value="Annuler">
+                <div class="divForm" id="containerBtn">
+                    <input class="btnSubmit btn btn-dark bg-gradient" type="submit" name="submit" value="Valider">
+                    <input class="btnSubmit btn btn-dark bg-gradient" type="submit" name="submit" value="Annuler">
                 </div>
+
+                <span id="errorMessage"><?=$message?></span>
+
             </form>
         </div>
     </main>
-    <footer class="mt-auto bg-dark pt-3 text-white">
+    <footer class="mt-auto bg-dark bg-gradient pt-3 text-white">
         <div id="divFooter">
             <section class="sectionFooter">
                 <i class="fa fa-2x fa-paypal"></i>
