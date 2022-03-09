@@ -1,14 +1,25 @@
 {
-    "name": "rodrigodcstl/easy-game",
+    "name": "flavio.srsrd/easy-game",
     "autoload": {
         "psr-4": {
-            "Rodrigodcstl\\EasyGame\\": "src/"
+            "EasyGame\\": "src/"
         }
     },
-    "authors": [
+    "authors": [{
+            "name": "Flavio Soares Rodrigues"
+        },
         {
-            "name": "rodrigo"
+            "name": "Rodrigo De Castilho E Sousa"
+        },
+        {
+            "name": "Liliana Filipa Santos Silva"
+        },
+        {
+            "name": "Ania Marostica"
         }
     ],
-    "require": {}
+    "require": {
+        "pecee/simple-router": "4.3.7.2",
+        "phpmailer/phpmailer": "^6.6"
+    }
 }
