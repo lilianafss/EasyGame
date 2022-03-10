@@ -3,7 +3,7 @@
     namespace EasyGame\Controller;
     use EasyGame\model\FonctionsBd;
 
-    class accueilController
+    class AccueilController
     {
         public function accueil()
         {

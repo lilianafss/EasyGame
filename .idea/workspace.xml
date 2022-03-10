@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6526ded5-d237-4220-91dc-68873f139b67" name="Changes" comment="page registerController.php Front-End V1">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/router/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/connexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/FonctionsBD.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FonctionsBD.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
+    <list default="true" id="6526ded5-d237-4220-91dc-68873f139b67" name="Changes" comment="Username, Email Unique">
+      <change beforePath="$PROJECT_DIR$/src/Controller/accueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/accueilController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +76,7 @@
       <workItem from="1646807905245" duration="4082000" />
       <workItem from="1646812356697" duration="13484000" />
       <workItem from="1646831676711" duration="6384000" />
-      <workItem from="1646893603129" duration="10935000" />
+      <workItem from="1646893603129" duration="11679000" />
     </task>
     <task id="LOCAL-00001" summary="- Changement des commentaires de &quot;fonctionsBD.php&quot;&#10;- Changement des liens de la page register.php">
       <created>1646642019219</created>
@@ -115,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646837748020</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Username, Email Unique">
+      <created>1646907779682</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1646907779682</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +135,7 @@
     <MESSAGE value="page registerController.php fonctionnelle" />
     <MESSAGE value="page registerController.php Responsive" />
     <MESSAGE value="page registerController.php Front-End V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="page registerController.php Front-End V1" />
+    <MESSAGE value="Username, Email Unique" />
+    <option name="LAST_COMMIT_MESSAGE" value="Username, Email Unique" />
   </component>
 </project>
