@@ -102,6 +102,7 @@
                 <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com " role="button">
                     <i class="fa fa-instagram"></i>
                 </a>
+
                 <p>site.easygame@gmail.com</p>
             </section>
         </div>

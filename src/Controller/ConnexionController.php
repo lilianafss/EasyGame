@@ -3,7 +3,7 @@ namespace EasyGame\Controller;
 
 use EasyGame\model\FonctionsBD;
 
-class connexionController
+class ConnexionController
 {
   /**
    * description de la fonction ....................................................
@@ -53,8 +53,7 @@ class connexionController
             $erreur = "Saisissez votre email et mot de passe.";
         }  
     }
- 
-   
+
     require '../src/view/connexion.php';
   }
 }

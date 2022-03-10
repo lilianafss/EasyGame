@@ -9,6 +9,6 @@ use EasyGame\Controller\registerController;
 use EasyGame\Controller\accueilController;
 
 
-SimpleRouter::form('/', [accueilController::class, 'accueil']);
-SimpleRouter::form('/connexion', [connexionController::class, 'connexion']);
-SimpleRouter::form('/nouveau', [registerController::class, 'nouveauCompte']);
+SimpleRouter::form('/', [AccueilController::class, 'accueil']);
+SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion']);
+SimpleRouter::form('/nouveau', [RegisterController::class, 'nouveauCompte']);

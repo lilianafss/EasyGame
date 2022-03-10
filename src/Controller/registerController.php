@@ -1,8 +1,9 @@
 <?php
     namespace EasyGame\Controller;
     use EasyGame\model\FonctionsBd;
+    use PDOException;
 
-    class registerController
+    class RegisterController
     {
         /**
          * Crée un nouveau Compte
@@ -34,16 +35,28 @@
                     // Si le mot de passe est identique à celui de confirmation
                     if ($password == $password2)
                     {
-                        $message = "appel fonction de création";
-
                         // Hash le mot de passe
                         $passwordHash = password_hash($password, PASSWORD_BCRYPT);;
 
                         // Ajoute un nouvel utilisateur dans la base de données
-                        $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
+                        try
+                        {
+                            $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
 
-                        header("location: http://easygame/");
-                        exit();
+                            header("location: http://easygame/");
+                            exit();
+                        }
+                        catch (PDOException $e)
+                        {
+                            if(strpos($e->getMessage(), 'email'))
+                            {
+                                $message = "email déjà existant";
+                            }
+                            else if (strpos($e->getMessage(), 'pseudo'))
+                            {
+                                $message = "nom d'utilisateur déjà existant";
+                            }
+                        }
                     }
                     else
                     {

@@ -1,11 +1,9 @@
 <?php
-
 namespace EasyGame\model;
 
 use EasyGame\model\BaseDonnee;
 use PDO;
 use PDOException;
-//require "database.php";
 //require "database.php";
 
 @ini_set('display_errors', 'on');
@@ -332,21 +330,17 @@ class FonctionsBD
      * @param $prenom
      * @param $email
      * @param $password
-     * @param $admin
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newUser($pseudo, $nom, $prenom, $email, $password){
-        try {
-            $query = BaseDonnee::getConnexion()->prepare("
+    public static function newUser($pseudo, $nom, $prenom, $email, $password)
+    {
+        $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
             VALUES ( ?, ?, ?, ?, ?, 0)
-            ");
-            $query->execute([$pseudo, $nom, $prenom, $email, $password]);
-        } catch (PDOException $e) {
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
-        }
+        ");
+        $query->execute([$pseudo, $nom, $prenom, $email, $password]);
     }
 
     /**
@@ -354,19 +348,19 @@ class FonctionsBD
      *
      * @param $nomJeux
      * @param $description
-     * @param $preix
+     * @param $prix
      * @param $idPegi
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($nomJeux, $description, $preix, $idPegi){
+    public static function newGame($nomJeux, $description, $prix, $idPegi){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
             VALUES (?, ?, ?, ?)
             ");
-            $query->execute([$nomJeux, $description, $preix, $idPegi]);
+            $query->execute([$nomJeux, $description, $prix, $idPegi]);
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
