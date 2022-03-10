@@ -35,7 +35,6 @@ if($hash != ""){
 //var_dump(getFilters());
 //var_dump(getInfoUser(1));
 //var_dump(getSearch('Grand'));
-//var_dump(get)
 
 ?>
 <!DOCTYPE html>
