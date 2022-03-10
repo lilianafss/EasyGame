@@ -1,6 +1,5 @@
 <?php
 @ini_set('display_errors', 'on');
-session_start();
 //require_once "../model/FonctionsBD.php"; 
 // use function EasyGame\model\getGames;
 use EasyGame\model\FonctionsBD;
@@ -8,6 +7,7 @@ use EasyGame\model\BaseDonnee;
 $listeAge=FonctionsBD::getPegi();
 $listePlateforme=FonctionsBD::getPlatform();
 $listeGenre=FonctionsBD::getGenre();
+session_start();
 var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,7 @@ var_dump($_SESSION);
                             <select name="age" id="age" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 100px;">
                                 <option value="" disabled selected>Âge</option>
                             <?php  foreach($listeAge as $age) {?>
+                                
                                 <option value="<?php $choixAge["pegi"]?>" onclick="afficherFiltre()"><?php echo $age["pegi"]?></option>
                                 <?php } ?>
                             </select>
@@ -105,6 +106,11 @@ var_dump($_SESSION);
 
 </body>
 <footer>
+<script>
+    function afficherFiltre(){
+
+    }
+</script>
 
 <?php include "footer.html" ?>
 </footer>
