@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6526ded5-d237-4220-91dc-68873f139b67" name="Changes" comment="Username, Email Unique">
-      <change beforePath="$PROJECT_DIR$/src/Controller/accueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/accueilController.php" afterDir="false" />
+    <list default="true" id="6150d164-d028-4115-93e7-e9814fc650c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/router/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -34,108 +27,30 @@
       <path value="$PROJECT_DIR$/vendor/pecee/simple-router" />
     </include_path>
   </component>
-  <component name="ProjectId" id="25plE773eh8o9TVkaLYfd8LdeXb" />
-  <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectId" id="26EeiAY6Tm2QlAglCkzcZ1cBpzN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6526ded5-d237-4220-91dc-68873f139b67" name="Changes" comment="" />
-      <created>1646231797160</created>
+      <changelist id="6150d164-d028-4115-93e7-e9814fc650c6" name="Changes" comment="" />
+      <created>1646993306248</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1646231797160</updated>
-      <workItem from="1646231801193" duration="136000" />
-      <workItem from="1646232024667" duration="178000" />
-      <workItem from="1646232219910" duration="706000" />
-      <workItem from="1646292118012" duration="73000" />
-      <workItem from="1646292841786" duration="117000" />
-      <workItem from="1646292976892" duration="151000" />
-      <workItem from="1646293292599" duration="31000" />
-      <workItem from="1646293338541" duration="408000" />
-      <workItem from="1646293765049" duration="746000" />
-      <workItem from="1646302260673" duration="3848000" />
-      <workItem from="1646315438386" duration="1870000" />
-      <workItem from="1646638759816" duration="16016000" />
-      <workItem from="1646807905245" duration="4082000" />
-      <workItem from="1646812356697" duration="13484000" />
-      <workItem from="1646831676711" duration="6384000" />
-      <workItem from="1646893603129" duration="11679000" />
+      <updated>1646993306248</updated>
+      <workItem from="1646993310943" duration="41000" />
     </task>
-    <task id="LOCAL-00001" summary="- Changement des commentaires de &quot;fonctionsBD.php&quot;&#10;- Changement des liens de la page register.php">
-      <created>1646642019219</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1646642019219</updated>
-    </task>
-    <task id="LOCAL-00002" summary="page registerController.php fonctionnelle">
-      <created>1646648915976</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1646648915976</updated>
-    </task>
-    <task id="LOCAL-00003" summary="page registerController.php Responsive">
-      <created>1646829969074</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1646829969074</updated>
-    </task>
-    <task id="LOCAL-00004" summary="page registerController.php Front-End V1">
-      <created>1646837748020</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1646837748020</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Username, Email Unique">
-      <created>1646907779682</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1646907779682</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Changement des commentaires de &quot;fonctionsBD.php&quot;&#10;- Changement des liens de la page register.php" />
-    <MESSAGE value="page registerController.php fonctionnelle" />
-    <MESSAGE value="page registerController.php Responsive" />
-    <MESSAGE value="page registerController.php Front-End V1" />
-    <MESSAGE value="Username, Email Unique" />
-    <option name="LAST_COMMIT_MESSAGE" value="Username, Email Unique" />
   </component>
 </project>
