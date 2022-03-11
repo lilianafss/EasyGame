@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6150d164-d028-4115-93e7-e9814fc650c6" name="Changes" comment="">
+    <list default="true" id="6150d164-d028-4115-93e7-e9814fc650c6" name="Changes" comment="règlage de fichier manquant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/router/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +46,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646993306248</updated>
-      <workItem from="1646993310943" duration="41000" />
+      <workItem from="1646993310943" duration="878000" />
     </task>
+    <task id="LOCAL-00001" summary="règlage de fichier manquant">
+      <created>1646993425531</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646993425531</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="règlage de fichier manquant" />
+    <option name="LAST_COMMIT_MESSAGE" value="règlage de fichier manquant" />
   </component>
 </project>

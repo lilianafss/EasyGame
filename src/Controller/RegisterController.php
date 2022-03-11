@@ -1,6 +1,6 @@
 <?php
     namespace EasyGame\Controller;
-    use EasyGame\model\FonctionsBd;
+    use EasyGame\model\FonctionsBD;
     use PDOException;
 
     class RegisterController
@@ -43,7 +43,7 @@
                         {
                             $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
 
-                            header("location: http://easygame/");
+                            header("location: http://easygame.ch/");
                             exit();
                         }
                         catch (PDOException $e)
@@ -70,7 +70,7 @@
             }
             else if($submit == "Annuler")
             {
-                header("location: http://easygame/");
+                header("location: http://easygame.ch/");
                 exit();
             }
             require "../src/view/register.php";
