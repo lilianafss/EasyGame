@@ -336,11 +336,54 @@ class FonctionsBD
      */
     public static function newUser($pseudo, $nom, $prenom, $email, $password)
     {
-        $query = BaseDonnee::getConnexion()->prepare("
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
             VALUES ( ?, ?, ?, ?, ?, 0)
-        ");
-        $query->execute([$pseudo, $nom, $prenom, $email, $password]);
+            ");
+            $query->execute([$pseudo, $nom, $prenom, $email, $password]);
+        } catch (PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Avoir les commentaires de la base de données
+     * @param $idJeux
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function getComments($idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `commentaire`, `idUser` FROM `commentaires`
+            WHERE `commentaires`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n"; 
+        }
+    }
+
+    /**
+     * Avoir les notes de la base de données
+     * @param $idJeux
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function getNotes($idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `note`, `idUser` FROM `notes` 
+            WHERE `notes`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n"; 
+        }
     }
 
     /**

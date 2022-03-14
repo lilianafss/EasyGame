@@ -39,7 +39,7 @@ class ConnexionController
                 if (password_verify($password, FonctionsBD::getInfoUser($_SESSION['idUser'])['password'])) {
                     
                   $_SESSION['connected'] = true;
-                    header("location: http://easygame.ch");
+                    header("location: http://easygame");
                     
                     //exit();
                 } else {

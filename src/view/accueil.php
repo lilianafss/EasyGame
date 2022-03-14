@@ -9,6 +9,7 @@ $listeAge=FonctionsBD::getPegi();
 $listePlateforme=FonctionsBD::getPlatform();
 $listeGenre=FonctionsBD::getGenre();
 var_dump($_SESSION);
+var_dump(FonctionsBD::getComments(1));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@ var_dump($_SESSION);
                             <select name="age" id="age" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 100px;">
                                 <option value="" disabled selected>Âge</option>
                             <?php  foreach($listeAge as $age) {?>
-                                <option value="<?php $choixAge["pegi"]?>" onclick="afficherFiltre()"><?php echo $age["pegi"]?></option>
+                                <option value="<?php $age["pegi"]?>" onclick="afficherFiltre()"><?php echo $age["pegi"]?></option>
                                 <?php } ?>
                             </select>
                             
