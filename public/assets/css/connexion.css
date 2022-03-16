@@ -1,0 +1,27 @@
+#title{
+    margin-top: 20px;
+}
+
+#box{
+    border: 2px double black;
+    border-radius:5px;
+    width:40%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#line{
+    padding-right: 20px;
+    border: 1px solid black;
+    color:black;
+    background-color:black;
+}
+
+#linkIncrit{
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+a:link{
+    text-decoration: none;
+}
