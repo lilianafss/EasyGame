@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/register.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/logo.png">
 </head>
 <body class="d-flex flex-column h-100">
     <header>
-            <nav class="navbar navbar-dark bg-dark bg-gradient justify-content-center">
+            <nav class="navbar justify-content-center">
+                <a href="/">
+                    <img id="logo" alt="logo" src="assets/logo/logo.png">
+                </a>
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Accueil</a>
@@ -32,7 +36,7 @@
             </nav>
     </header>
     <main class="flex-shrink-0">
-        <h1>Créer un compte</h1>
+        <h1>Insciption</h1>
         <div id="divMain">
             <form method="POST">
 
@@ -71,8 +75,8 @@
                 </label>
 
                 <div class="divForm" id="containerBtn">
-                    <input class="btnSubmit btn btn-dark bg-gradient" type="submit" name="submit" value="Valider">
-                    <input class="btnSubmit btn btn-dark bg-gradient" type="submit" name="submit" value="Annuler">
+                    <input class="btnSubmit btn" type="submit" name="submit" value="Valider">
+                    <input class="btnSubmit btn" type="submit" name="submit" value="Annuler">
                 </div>
 
                 <span id="errorMessage"><?=$message?></span>
@@ -80,7 +84,7 @@
             </form>
         </div>
     </main>
-    <footer class="mt-auto bg-dark bg-gradient pt-3 text-white">
+    <footer class="mt-auto pt-3 text-white">
         <div id="divFooter">
             <section class="sectionFooter">
                 <i class="fa fa-2x fa-paypal"></i>
