@@ -25,7 +25,7 @@ use EasyGame\Controller\AccueilController;
             <a href="/">
                 <img id="logo" alt="logo" src="assets/image/logo.png">
             </a>
-            <form method="post">
+            <form method="get">
                 <ul class="nav">
                     <li class="nav-item">
                         <select name="age" id="age" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
@@ -49,7 +49,7 @@ use EasyGame\Controller\AccueilController;
                     </li>
 
                     <li class="nav-item">
-                        <input class="border-0 px-2 py-1 m-2 rounded shadow" type="Search" placeholder="Recherche">
+                        <input class="border-0 px-2 py-1 m-2 rounded shadow" type="Search" placeholder="Recherche" name="recherche">
                         <button class="btn btn-primary" type="submit">Rechercher</button>
                     </li>
                 </ul>

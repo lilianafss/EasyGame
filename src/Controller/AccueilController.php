@@ -7,7 +7,7 @@
     {
         public static function accueil()
         {
-            // session_start();
+            session_start();
             $recherche = filter_input(INPUT_GET,'recherche');
             $pegi = filter_input(INPUT_GET,'age');
             $plateforme = filter_input(INPUT_GET,'plateforme');
@@ -34,8 +34,6 @@
                 </div>';
                 }
             }elseif($listeFiltre==false && $recherche!=""){
-                $inputRecherche=FonctionsBD::searchGame($recherche);
-                              
                 
             }elseif($listeFiltre!="" && $recherche ==""){
                 foreach($listeFiltre  as $filtre){
