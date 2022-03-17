@@ -5,6 +5,10 @@
 
     class AccueilController
     {
+        /** ---------Description de la Fonction----------------------
+         * @return void
+         * @author Liliana Santos Silva
+         */
         public static function accueil()
         {
             session_start();
@@ -18,44 +22,50 @@
 
             $stringJeux = "";
 
-            if($listeFiltre==false && $recherche==""){
-                
-                foreach($listeJeux as $jeux){
-                    $stringJeux .= '<div class="card m-4">
-                    <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $jeux['image'] ).'"/>
-                    <div class="card-block">
-                        <h4 class="card-title">'.$jeux['nom'].'</h4>
-                        <section class="card-text">
-                            <p>'.$jeux['description'].'</p>
-                        </section>
-                        <p class="card_prix">'.$jeux['prix'].'</p>
-                        <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
-                    </div>
-                </div>';
+            if($listeFiltre==false && $recherche=="")
+            {
+                foreach($listeJeux as $jeux)
+                {
+                    $stringJeux .= '
+                    <div class="card m-4">
+                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $jeux['image'] ).'"/>
+                        <div class="card-block">
+                            <h4 class="card-title">'.$jeux['nom'].'</h4>
+                            <section class="card-text">
+                                <p>'.$jeux['description'].'</p>
+                            </section>
+                            <p class="card_prix">'.$jeux['prix'].'</p>
+                            <a href="#" class="btn card-btn">Ajouter au panier</a>
+                        </div>
+                    </div>';
                 }
-            }elseif($listeFiltre==false && $recherche!=""){
+            }
+            else if($listeFiltre == false && $recherche != "")
+            {
                 
-            }elseif($listeFiltre!="" && $recherche ==""){
-                foreach($listeFiltre  as $filtre){
-                    $stringJeux .= '<div class="card m-4">
-                    <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $filtre['image'] ).'"/>
-                    <div class="card-block">
-                        <h4 class="card-title">'.$filtre['nom'].'</h4>
-                        <section class="card-text">
-                            <p>'.$filtre['description'].'</p>
-                        </section>
-                        <p class="card_prix">'.$filtre['prix'].'</p>
-                        <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
-                    </div>
-                </div>';
+            }
+            else if($listeFiltre!="" && $recherche =="")
+            {
+                foreach($listeFiltre  as $filtre)
+                {
+                    $stringJeux .= '
+                    <div class="card m-4">
+                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $filtre['image'] ).'"/>
+                        <div class="card-block">
+                            <h4 class="card-title">'.$filtre['nom'].'</h4>
+                            <section class="card-text">
+                                <p>'.$filtre['description'].'</p>
+                            </section>
+                            <p class="card_prix">'.$filtre['prix'].'</p>
+                            <a href="#" class="btn card-btn">Ajouter au panier</a>
+                        </div>
+                    </div>';
                 }
                 // header("Location: http://easygame.ch");
-       
             }
-           
          require "../src/view/accueil.php";
-        
         }
+
         public static function affichageFiltre($liste,$champBd){
          
            foreach($liste as $filtre){

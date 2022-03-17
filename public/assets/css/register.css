@@ -25,8 +25,8 @@ header
 
 #logo
 {
-    width: 128px;
-    height: 128px;
+    width: 40%;
+    height: 40%;
 }
 
 a
@@ -202,6 +202,6 @@ h1
 /* Couleur de la scroll-bar (hover) */
 ::-webkit-scrollbar-thumb:hover
 {
-    background: #4F3661;
+    background: #3C3661;
 }
 /*#endregion*/

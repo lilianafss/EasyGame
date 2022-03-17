@@ -46,7 +46,6 @@
                 <a href="http://easygame/nouveau">S'incrire</a>
             </div>
     </main>
-    <?php require_once 'footer.html' ?>
+    <?php require_once 'footer.php' ?>
 </body>
-
 </html>
