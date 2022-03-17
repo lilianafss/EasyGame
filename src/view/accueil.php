@@ -25,38 +25,36 @@ use EasyGame\Controller\AccueilController;
             <a href="/">
                 <img id="logo" alt="logo" src="assets/image/logo.png">
             </a>
-            <form method="get">
+            <form method="GET">
                 <ul class="nav">
                     <li class="nav-item">
                         <select name="age" id="age" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
-                            <option value="" disabled selected>Age</option>
-                            <?php AccueilController::affichageFiltre(FonctionsBD::getPegi(),"pegi");?>
+                            <?php AccueilController::affichageFiltre("Age",FonctionsBD::getPegi(),"pegi");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
                         <select name="plateforme" id="plateforme" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
-                            <option value="" disabled selected>Plateformes</option>
-                            <?php AccueilController::affichageFiltre(FonctionsBD::getPlatform(),"plateforme");?>
+                            <?php AccueilController::affichageFiltre("Plateforme",FonctionsBD::getPlatform(),"plateforme");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
                         <select name="genre" id="genre" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
-                            <option value="" disabled selected>Genres</option>
-                            <?php AccueilController::affichageFiltre(FonctionsBD::getGenre(),"genre");?>
+                            <?php AccueilController::affichageFiltre("Genre",FonctionsBD::getGenre(),"genre");?>
                         </select>
                     </li>
 
+                    
                     <li class="nav-item">
                         <input class="border-0 px-2 py-1 m-2 rounded shadow" type="Search" placeholder="Recherche" name="recherche">
-                        <button class="btn btn-primary" type="submit">Rechercher</button>
+                        <button class="btn btn-primary" type="submit" name="valider">Rechercher</button>
                     </li>
                 </ul>
             </form>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Connexion</a>
+                    <a class="nav-link" href="/connexion">Connexion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/">Panier</a>
