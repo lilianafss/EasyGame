@@ -81,7 +81,7 @@
         </nav>
     </header>
 
-    <main class="flex">
+    <main class="flex-shrink-0">
         <div id="divMain">
             <?php
                 $listeJeux=FonctionsBD::getGames();
