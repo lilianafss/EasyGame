@@ -1,15 +1,8 @@
 <?php
-    @ini_set('display_errors', 'on');
-    session_start();
-//    require_once "../model/FonctionsBD.php";
-//     use function EasyGame\model\getGames;
-    use EasyGame\model\FonctionsBD;
-    use EasyGame\model\BaseDonnee;
-    $listeAge=FonctionsBD::getPegi();
-    $listePlateforme=FonctionsBD::getPlatform();
-    $listeGenre=FonctionsBD::getGenre();
-//    var_dump($_SESSION);
-//    var_dump(FonctionsBD::getComments(1));
+use EasyGame\model\FonctionsBD;
+use EasyGame\Controller\AccueilController;
+
+@ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
