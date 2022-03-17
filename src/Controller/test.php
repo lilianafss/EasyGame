@@ -1,13 +1,8 @@
 <?php
-@ini_set('display_errors', 'on');
-use function EasyGame\model\getFilters;
-use function EasyGame\model\getGames;
-use function EasyGame\model\getHistory;
-use function EasyGame\model\getInfoUser;
-use function EasyGame\model\getWishlist;
-use function EasyGame\model\getSearch;
+namespace EasyGame\Controller;
 use EasyGame\model\FonctionsBD;
-use EasyGame\model\database;
+@ini_set('display_errors', 'on');
+
 
 $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_SPECIAL_CHARS);
 $realpassword = filter_input(INPUT_POST,'realpassword',FILTER_SANITIZE_SPECIAL_CHARS);
@@ -36,6 +31,10 @@ if($hash != ""){
 //var_dump(getInfoUser(1));
 //var_dump(getSearch('Grand'));
 
+$recherche = filter_input(INPUT_GET,'q');
+
+var_dump(FonctionsBD::searchGame($recherche));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,5 +54,11 @@ if($hash != ""){
         <br>
         <input type="submit" value="send">
     </form>
-</body>
+
+<hr>
+ <form method="GET">
+    <input type="search" name="q" placeholder="Recherche..." />
+    <input type="submit" value="Valider" />
+ </form>
+ </body>
 </html>

@@ -1,15 +1,8 @@
 <?php
-@ini_set('display_errors', 'on');
-session_start();
-//require_once "../model/FonctionsBD.php"; 
-// use function EasyGame\model\getGames;
 use EasyGame\model\FonctionsBD;
-use EasyGame\model\BaseDonnee;
-$listeAge=FonctionsBD::getPegi();
-$listePlateforme=FonctionsBD::getPlatform();
-$listeGenre=FonctionsBD::getGenre();
-var_dump($_SESSION);
-var_dump(FonctionsBD::getComments(1));
+use EasyGame\Controller\AccueilController;
+
+@ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,37 +19,29 @@ var_dump(FonctionsBD::getComments(1));
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="mynavbar">
-                <form class="d-flex">
+                <form class="d-flex" method="GET">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <select name="age" id="age" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 100px;">
                                 <option value="" disabled selected>Âge</option>
-                            <?php  foreach($listeAge as $age) {?>
-                                <option value="<?php $age["pegi"]?>" onclick="afficherFiltre()"><?php echo $age["pegi"]?></option>
-                                <?php } ?>
+                                <?php AccueilController::affichageFiltre(FonctionsBD::getPegi(),"pegi");?>
                             </select>
                             
                         </li>
                         <li class="nav-item">
                             <select name="plateforme" id="plateforme" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 175px;">
                                 <option value="" disabled selected>Toutes les plateformes</option>
-                                <?php  foreach($listePlateforme as $plateforme) {?>
-                                <option value="<?php $plateforme["plateforme"]?>" onclick="afficherFiltre()"><?php echo $plateforme["plateforme"]?></option>
-                                <?php } ?>
-                                
+                                <?php AccueilController::affichageFiltre(FonctionsBD::getPlatform(),"plateforme");?>
                             </select>
                         </li>
                         <li class="nav-item">
                             <select name="genre" id="genre" class="form-control border-0 px-2 py-1 mx-2 rounded shadow" style="width: 150px;">
                                 <option value="" disabled selected>Tous les genres</option>
-                                <?php  foreach($listeGenre as $genre) {?>
-                                
-                                <option value="<?php $genre["genre"]?>" onclick="afficherFiltre()"><?php echo $genre["genre"]?></option>
-                                <?php } ?>
+                                <?php AccueilController::affichageFiltre(FonctionsBD::getGenre(),"genre");?>
                             </select>
                         </li>
                         <li class="nav-item">
-                            <input class="form-control me-2" type="Search" placeholder="Recherche">
+                            <input class="form-control me-2" type="Search" placeholder="Recherche" name="recherche">
                             <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
                         </li>
                     </ul>
@@ -65,45 +50,9 @@ var_dump(FonctionsBD::getComments(1));
             </div>
         </div>
     </nav>
-
     <div class="container-fluid container_jeux">
-            <?php
-            $listeJeux=FonctionsBD::getGames();
-            $listeFiltre=FonctionsBD::getGameByFilters("","","");
-            var_dump($listeFiltre);
-                if($listeFiltre!=""){
-                    foreach($listeFiltre as $filtre){
-            ?>
-
-                    <div class="card flex-row flex-wrap m-4">
-                        <?php echo '<img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $filtre['image'] ).'"/>'; ?>
-                        <div class="card-block p-2">
-                            <h4 class="card-title"><?php echo $filtre['nom']?></h4>
-                            <p class="card-text"><?php echo $filtre['description']?></p>
-                            <p class="card-text card_prix"><?php echo $filtre['prix']?></p>
-                            <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
-                        </div>
-                    </div>
-            <?php       
-                    }
-                }else{
-                    foreach($listeJeux as $jeux){
-            ?>
-                   <div class="card flex-row flex-wrap m-4">
-                        <?php echo '<img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $jeux['image'] ).'"/>'; ?>
-                        <div class="card-block p-2">
-                            <h4 class="card-title"><?php echo $jeux['nom']?></h4>
-                            <p class="card-text"><?php echo $jeux['description']?></p>
-                            <p class="card-text card_prix"><?php echo $jeux['prix']?></p>
-                            <a href="#" class="btn btn-primary mx-auto d-block">Ajouter au panier</a>
-                        </div>
-                    </div>
-            <?php
-                    }
-                }
-            ?>
-        </div>   
-
+       <?php var_dump($stringJeux);?>
+    </div>
 </body>
 <footer>
 

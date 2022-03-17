@@ -187,7 +187,7 @@ class FonctionsBD
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT idJeux, nom, description, prix 
+            SELECT idJeux, nom, description, prix, image 
             FROM jeux WHERE nom 
             LIKE '%$searchName%'
             ");
@@ -408,4 +408,6 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+    
 }
