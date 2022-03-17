@@ -68,49 +68,7 @@ use EasyGame\Controller\AccueilController;
 
     <main class="flex-shrink-0">
         <div id="divMain">
-            <?php
-                $listeJeux=FonctionsBD::getGames();
-                $listeFiltre=FonctionsBD::getGameByFilters("","","");
-                //var_dump($listeFiltre);
-                if($listeFiltre!="")
-                {
-                    foreach($listeFiltre as $filtre)
-                    {
-                        ?>
-                        <div class="card">
-                            <?php echo '<img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $filtre['image'] ).'"/>'; ?>
-                            <div class="card-block">
-                                <h4 class="card-title"><?php echo $filtre['nom']?></h4>
-                                <section class="card-text">
-                                    <p><?php echo $jeux['description']?></p>
-                                </section>
-                                <p class="card_prix"><?php echo $filtre['prix']?></p>
-                                <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                }
-                else
-                {
-                    foreach($listeJeux as $jeux)
-                    {
-                        ?>
-                        <div class="card m-4">
-                            <?php echo '<img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $jeux['image'] ).'"/>'; ?>
-                            <div class="card-block">
-                                <h4 class="card-title"><?php echo $jeux['nom']?></h4>
-                                <section class="card-text">
-                                    <p><?php echo $jeux['description']?></p>
-                                </section>
-                                <p class="card_prix"><?php echo $jeux['prix']?>€</p>
-                                <a href="#" class="btn card-btn">Ajouter au panier</a>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                }
-            ?>
+            <?=$stringJeux?>
         </div>
     </main>
     <?php require_once"footer.html"; ?>
