@@ -4,7 +4,6 @@ namespace EasyGame\model;
 use EasyGame\model\BaseDonnee;
 use PDO;
 use PDOException;
-//require "database.php";
 
 @ini_set('display_errors', 'on');
 
@@ -192,7 +191,7 @@ class FonctionsBD
             LIKE '%$searchName%'
             ");
             $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC);
+            return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }

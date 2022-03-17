@@ -3,6 +3,7 @@ namespace EasyGame\Controller;
 use EasyGame\model\FonctionsBD;
 @ini_set('display_errors', 'on');
 
+require "../model/FonctionsBD.php";
 
 $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_SPECIAL_CHARS);
 $realpassword = filter_input(INPUT_POST,'realpassword',FILTER_SANITIZE_SPECIAL_CHARS);
@@ -31,9 +32,6 @@ if($hash != ""){
 //var_dump(getInfoUser(1));
 //var_dump(getSearch('Grand'));
 
-$recherche = filter_input(INPUT_GET,'q');
-
-var_dump(FonctionsBD::searchGame($recherche));
 
 ?>
 <!DOCTYPE html>
@@ -56,9 +54,10 @@ var_dump(FonctionsBD::searchGame($recherche));
     </form>
 
 <hr>
- <form method="GET">
-    <input type="search" name="q" placeholder="Recherche..." />
-    <input type="submit" value="Valider" />
- </form>
- </body>
+
+<form action="" method="get">
+    <input type="search" name="jeuxRecherche" id="jeuxRecherche">
+    <input type="submit" value="valider" name="valider">
+</form>
+</body>
 </html>

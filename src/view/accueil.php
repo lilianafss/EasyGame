@@ -37,7 +37,7 @@ use EasyGame\Controller\AccueilController;
             </ul>
         </nav>
         <nav class="navbar justify-content-center">
-            <form method="get">
+            <form method="GET">
                 <ul class="nav">
                     <li class="nav-item">
                         <input class="border-0 px-2 py-1 m-2 rounded shadow" type="Search" placeholder="Recherche" name="recherche">
@@ -46,29 +46,25 @@ use EasyGame\Controller\AccueilController;
 
                     <li class="nav-item">
                         <select name="age" id="age" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
-                            <option value="" disabled selected>Age</option>
-                            <?php AccueilController::affichageFiltre(FonctionsBD::getPegi(),"pegi");?>
+                            <?php AccueilController::affichageFiltre("Age",FonctionsBD::getPegi(),"pegi");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
                         <select name="plateforme" id="plateforme" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
-                            <option value="" disabled selected>Plateformes</option>
-                            <?php AccueilController::affichageFiltre(FonctionsBD::getPlatform(),"plateforme");?>
+                            <?php AccueilController::affichageFiltre("Plateforme",FonctionsBD::getPlatform(),"plateforme");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
                         <select name="genre" id="genre" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
-                            <option value="" disabled selected>Genres</option>
-                            <?php AccueilController::affichageFiltre(FonctionsBD::getGenre(),"genre");?>
+                            <?php AccueilController::affichageFiltre("Genre",FonctionsBD::getGenre(),"genre");?>
                         </select>
                     </li>
                 </ul>
             </form>
         </nav>
     </header>
-
     <main class="flex-shrink-0">
         <div id="divMain">
             <?=$stringJeux?>

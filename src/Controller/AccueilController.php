@@ -24,60 +24,83 @@
 
             if($listeFiltre==false && $recherche=="")
             {
-                foreach($listeJeux as $jeux)
+                foreach($listeJeux as $elementListe)
                 {
                     $stringJeux .= '
                     <div class="card m-4">
-                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $jeux['image'] ).'"/>
+                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                         <div class="card-block">
-                            <h4 class="card-title">'.$jeux['nom'].'</h4>
+                            <h4 class="card-title">'.$elementListe['nom'].'</h4>
                             <section class="card-text">
-                                <p>'.$jeux['description'].'</p>
+                                <p>'.$elementListe['description'].'</p>
                             </section>
-                            <p class="card_prix">'.$jeux['prix'].'</p>
-                            <a href="#" class="btn card-btn">Ajouter au panier</a>
+                            <p class="card_prix">'.$elementListe['prix'].'</p>
+                            <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
                         </div>
                     </div>';
                 }
             }
-            else if($listeFiltre == false && $recherche != "")
+            else if($listeFiltre==false && $recherche!="")
             {
-                
+                if(isset($recherche))
+                {
+                    $stringJeux= '<p> Vous avez recherché : ' . $recherche . '</p>';
+                    $requete=FonctionsBD::searchGame($recherche);
+
+                    if($requete!="")
+                    {
+                        foreach($requete as $elementListe)
+                        {
+                            $stringJeux .= '
+                            <div class="card m-4">
+                                <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
+                                <div class="card-block">
+                                    <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                                    <section class="card-text">
+                                        <p>'.$elementListe['description'].'</p>
+                                    </section>
+                                    <p class="card_prix">'.$elementListe['prix'].'</p>
+                                    <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
+                                </div>
+                            </div>';
+                        }
+                    }
+                    else
+                    {
+                        $stringJeux ="Aucun resultat";
+                    }
+                }
             }
             else if($listeFiltre!="" && $recherche =="")
             {
-                foreach($listeFiltre  as $filtre)
+                foreach($listeFiltre  as $elementListe)
                 {
                     $stringJeux .= '
                     <div class="card m-4">
-                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $filtre['image'] ).'"/>
+                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                         <div class="card-block">
-                            <h4 class="card-title">'.$filtre['nom'].'</h4>
+                            <h4 class="card-title">'.$elementListe['nom'].'</h4>
                             <section class="card-text">
-                                <p>'.$filtre['description'].'</p>
+                                <p>'.$elementListe['description'].'</p>
                             </section>
-                            <p class="card_prix">'.$filtre['prix'].'</p>
-                            <a href="#" class="btn card-btn">Ajouter au panier</a>
+                            <p class="card_prix">'.$elementListe['prix'].'</p>
+                            <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
                         </div>
                     </div>';
                 }
-                // header("Location: http://easygame.ch");
             }
-         require "../src/view/accueil.php";
+            require "../src/view/accueil.php";
         }
 
-        public static function affichageFiltre($liste,$champBd){
-         
-           foreach($liste as $filtre){
-                echo "<option value=".$filtre[$champBd].">".$filtre[$champBd]."</option>";
+        public static function affichageFiltre($nomliste,$liste,$champBd)
+        {
+            echo '<option disabled selected>'.$nomliste.'</option>';
+            foreach($liste as $elementListe)
+            {
+                echo "<option value=".$elementListe[$champBd].">".$elementListe[$champBd]."</option>";
             } 
         }
 
-        public static function affichage(){
-         
-            
-        }
-        
     }
 
 ?>
