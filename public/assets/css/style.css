@@ -15,31 +15,23 @@ header
     background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
 }
 
-
+nav
 {
-    flex-direction: column;
-}
+    justify-items: center;
+    justify-content: center;
 
-.nav-font
-{
-    color: #fff;
 }
-
 ul
 {
+    /*flex-direction: column;*/
     justify-content: center;
     justify-items: center;
 }
 
-a
-{
-    text-align: center;
-}
-
 #logo
 {
-    width: 40%;
-    height: 40%;
+    width: 128px;
+    height: 128px;
 }
 
 #divMain
@@ -85,8 +77,8 @@ a
 {
     height: 100%;
     overflow: auto;
-    padding: 0px 15px 0px 15px;
-    text-align: justify;
+    margin: 5px;
+    text-align: center;
 }
 
 .card_prix
@@ -96,7 +88,6 @@ a
     font-weight: bold;
     margin-top: 10px;
     text-align: center;
-    color: #3C3661;
 }
 
 .card-img
@@ -113,14 +104,6 @@ a
     height: 15%;
     font-size: 18px;
     margin-bottom: 5px;
-    background-color: #3C3661;
-    color: white;
-}
-
-.card-btn:hover
-{
-    color: whitesmoke;
-    background-color: #332E52 ;
 }
 /*#endregion */
 
@@ -150,12 +133,6 @@ a
     .card
     {
         width: 80%;
-    }
-    .logo
-    {
-        justify-content: center;
-        text-align: center;
-        justify-items: center;
     }
 }
 
@@ -191,6 +168,6 @@ a
 /* Couleur de la scroll-bar (hover) */
 ::-webkit-scrollbar-thumb:hover
 {
-    background: #3C3661;
+    background: #4F3661;
 }
 /*#endregion*/

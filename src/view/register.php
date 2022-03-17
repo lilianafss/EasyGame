@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="icon" type="image/png" sizes="16x16" href="assets/image/logo.png">
-    <link rel="stylesheet" href="assets/font-awesome/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/register.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
@@ -45,7 +45,7 @@
     </header>
 
     <main class="flex-shrink-0">
-        <h1>Inscription</h1>
+        <h1>Insciption</h1>
         <div id="divMain">
             <form method="POST">
 
@@ -93,7 +93,7 @@
             </form>
         </div>
     </main>
-    <?php require_once"footer.php"; ?>
+    <?php require_once"footer.html"; ?>
     <script  src="assets/js/hidePassword.js"></script>
 </body>
 </html>
