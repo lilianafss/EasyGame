@@ -37,16 +37,23 @@
 
                 <a href="http://easygame">Mot de passe oublié?</a>
             </div>
-            
+
             <div>
-            <hr id="line">
+                <hr id="line">
             </div>
 
+            <div>
+                <!-- <?=$btnGoogle?> -->
+            </div>
+
+            <div>
+                <p>ou</p>
+            </div>
             <div class="col justify-content-center align-items-center" id="linkIncrit">
                 <a href="http://easygame/nouveau">S'incrire</a>
             </div>
     </main>
-    <?php require_once 'footer.html' ?>
+    <?php require_once 'footer.html'?>
 </body>
 
 </html>

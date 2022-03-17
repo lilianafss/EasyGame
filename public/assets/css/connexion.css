@@ -22,6 +22,10 @@
     margin-bottom: 20px;
 }
 
+#googleLogo{
+    width: 50px;
+}
+
 a:link{
     text-decoration: none;
 }
