@@ -15,6 +15,19 @@ header
     background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
 }
 
+nav
+{
+    justify-items: center;
+    justify-content: center;
+
+}
+ul
+{
+    /*flex-direction: column;*/
+    justify-content: center;
+    justify-items: center;
+}
+
 #logo
 {
     width: 128px;
@@ -38,7 +51,7 @@ header
     display: flex;
     flex-direction: column;
 
-    width: 25%;
+    width: 30%;
     height: auto;
 }
 
@@ -98,14 +111,39 @@ header
 
 
 /*--------------------Media--------------------*/
-/*#region Media (Screen under 600px)*/
-@media only screen and (max-width: 600px)
+/*#region Media*/
+@media only screen and (max-width: 1400px)
 {
     .card
     {
-        width: 100%;
+        width: 45%;
     }
 }
+
+@media only screen and (max-width: 1024px)
+{
+    .card
+    {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 769px)
+{
+    .card
+    {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 480px)
+{
+    .card
+    {
+        width: 90%;
+    }
+}
+
 /*#endregion */
 
 

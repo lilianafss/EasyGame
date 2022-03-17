@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6150d164-d028-4115-93e7-e9814fc650c6" name="Changes" comment="Changement view Accueil v2">
+    <list default="true" id="6150d164-d028-4115-93e7-e9814fc650c6" name="Changes" comment="ajout du logo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +36,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="26EeiAY6Tm2QlAglCkzcZ1cBpzN" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,7 +65,7 @@
       <updated>1646993306248</updated>
       <workItem from="1646993310943" duration="878000" />
       <workItem from="1647412894173" duration="14413000" />
-      <workItem from="1647499457042" duration="1120000" />
+      <workItem from="1647499457042" duration="4154000" />
     </task>
     <task id="LOCAL-00001" summary="règlage de fichier manquant">
       <created>1646993425531</created>
@@ -92,7 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647500360907</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajout du logo">
+      <created>1647500629497</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647500629497</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ajout du logo">
+      <created>1647500789137</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1647500789137</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +131,7 @@
     <MESSAGE value="changement Foter et Nav" />
     <MESSAGE value="Changement de la View page Accueil" />
     <MESSAGE value="Changement view Accueil v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changement view Accueil v2" />
+    <MESSAGE value="ajout du logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout du logo" />
   </component>
 </project>
