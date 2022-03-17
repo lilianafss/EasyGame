@@ -60,7 +60,8 @@ h1
     flex-wrap: wrap;
     justify-content: center;
     text-align: left;
-    color: #212529;
+
+    color: #332E52;
 }
 
 /* div dans le main qui englobe le formulaire */
@@ -128,7 +129,7 @@ h1
     font-size: 1.1rem;
     margin-bottom: 15px;
 
-    background:-webkit-linear-gradient(left, darkred, red);
+    background:-webkit-linear-gradient(left, #211E36, #3C3661);
     -webkit-background-clip:text;
     color:transparent;
 }

@@ -336,15 +336,11 @@ class FonctionsBD
      */
     public static function newUser($pseudo, $nom, $prenom, $email, $password)
     {
-        try{
-            $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
-            VALUES ( ?, ?, ?, ?, ?, 0)
-            ");
-            $query->execute([$pseudo, $nom, $prenom, $email, $password]);
-        } catch (PDOException $e){
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
-        }
+        $query = BaseDonnee::getConnexion()->prepare("
+        INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
+        VALUES ( ?, ?, ?, ?, ?, 0)
+        ");
+        $query->execute([$pseudo, $nom, $prenom, $email, $password]);
     }
 
     /**

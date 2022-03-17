@@ -43,7 +43,7 @@
                         {
                             $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
 
-                            header("location: http://easygame.ch/");
+                            header("location: /");
                             exit();
                         }
                         catch (PDOException $e)
@@ -70,7 +70,7 @@
             }
             else if($submit == "Annuler")
             {
-                header("location: http://easygame.ch/");
+                header("location: /");
                 exit();
             }
             require "../src/view/register.php";
