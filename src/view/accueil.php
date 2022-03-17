@@ -30,29 +30,21 @@ use EasyGame\Controller\AccueilController;
                     <li class="nav-item">
                         <select name="age" id="age" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
                             <option value="" disabled selected>Age</option>
-                            <?php  foreach($listeAge as $age) {?>
-                                <option value="<?php $age["pegi"]?>" onclick="afficherFiltre()"><?php echo $age["pegi"]?></option>
-                            <?php } ?>
+                            <?php AccueilController::affichageFiltre(FonctionsBD::getPegi(),"pegi");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
                         <select name="plateforme" id="plateforme" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
                             <option value="" disabled selected>Plateformes</option>
-                            <?php  foreach($listePlateforme as $plateforme) {?>
-                                <option value="<?php $plateforme["plateforme"]?>" onclick="afficherFiltre()"><?php echo $plateforme["plateforme"]?></option>
-                            <?php } ?>
-
+                            <?php AccueilController::affichageFiltre(FonctionsBD::getPlatform(),"plateforme");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
                         <select name="genre" id="genre" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
                             <option value="" disabled selected>Genres</option>
-                            <?php  foreach($listeGenre as $genre) {?>
-
-                                <option value="<?php $genre["genre"]?>" onclick="afficherFiltre()"><?php echo $genre["genre"]?></option>
-                            <?php } ?>
+                            <?php AccueilController::affichageFiltre(FonctionsBD::getGenre(),"genre");?>
                         </select>
                     </li>
 
