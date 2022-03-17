@@ -16,7 +16,7 @@ class ConnexionController
   {
     session_start();
 
-    // require_once 'ConnexionGoogle.php';
+    // //require_once 'ConnexionGoogle.php';
 
     // $gClient = "";
     // $google_oauthV2 = "";
@@ -74,7 +74,7 @@ class ConnexionController
           if (password_verify($password, FonctionsBD::getInfoUser($_SESSION['idUser'])['password'])) {
 
             $_SESSION['connected'] = true;
-            header("location: http://easygame");
+            header("location: http://easygame.ch");
 
             //exit();
           } else {

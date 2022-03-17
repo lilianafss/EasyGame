@@ -1,13 +1,17 @@
 #title{
     margin-top: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+    color: white;
 }
 
 #box{
     border: 2px double black;
     border-radius:5px;
-    width:40%;
+    width:45%;
     margin: auto;
     margin-top: 30px;
+    text-align: center;
 }
 
 #line{

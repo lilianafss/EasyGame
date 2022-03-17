@@ -559,18 +559,6 @@
         },
         {
             "name": "monolog/monolog",
-<<<<<<< Updated upstream
-            "version": "1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "52ebd235c1f7e0d5e1b16464b695a28335f8e44a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/52ebd235c1f7e0d5e1b16464b695a28335f8e44a",
-                "reference": "52ebd235c1f7e0d5e1b16464b695a28335f8e44a",
-=======
             "version": "2.4.0",
             "source": {
                 "type": "git",
@@ -581,7 +569,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d7fd7450628561ba697b7097d86db72662f54aef",
                 "reference": "d7fd7450628561ba697b7097d86db72662f54aef",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -655,11 +642,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-<<<<<<< Updated upstream
-                "source": "https://github.com/Seldaek/monolog/tree/1.27.0"
-=======
                 "source": "https://github.com/Seldaek/monolog/tree/2.4.0"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -671,9 +654,6 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2022-03-13T20:29:46+00:00"
-=======
             "time": "2022-03-14T12:44:37+00:00"
         },
         {
@@ -792,7 +772,6 @@
                 "source": "https://github.com/paragonie/random_compat"
             },
             "time": "2020-10-15T08:29:30+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "pecee/simple-router",
@@ -1427,5 +1406,5 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

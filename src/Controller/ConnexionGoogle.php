@@ -14,6 +14,5 @@ function userGoogle($gClient, $google_oauth){
     $gClient->setRedirectUri(GOOGLE_REDIRECT_URL);
 
     $google_oauth = new Google_Service_Oauth2($gClient);
-
 }
 
