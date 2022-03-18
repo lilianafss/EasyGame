@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="icon" type="image/png" sizes="16x16" href="assets/image/logo.png">
-    <link rel="stylesheet" href="/assets/font-awesome/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font-awesome/css/all.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/connexion.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -45,17 +46,12 @@
             </div>
 
             <div>
-                <?=$btnGoogle?>
-            </div>
-
-            <div>
                 <p>ou</p>
             </div>
             <div class="col justify-content-center align-items-center" id="linkIncrit">
                 <a href="/nouveau">S'inscrire</a>
             </div>
     </main>
-    <?php require_once 'footer.html' ?>
+    <?php require_once 'footer.php' ?>
 </body>
-
 </html>

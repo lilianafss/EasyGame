@@ -75,7 +75,6 @@ class ConnexionController
 
             $_SESSION['connected'] = true;
             header("location: http://easygame.ch");
-
             //exit();
           } else {
             $_SESSION['idUser'] = "";
@@ -88,7 +87,6 @@ class ConnexionController
         $erreur = "Saisissez votre email et mot de passe.";
       }
     }
-
     require '../src/view/connexion.php';
   }
 }

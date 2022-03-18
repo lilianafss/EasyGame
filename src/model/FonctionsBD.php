@@ -16,8 +16,6 @@ Version     : 1.0.0.0
 
 class FonctionsBD
 {
-    /********Fonctions pour avoir les données************/
-
     /**
      * Récupère la table jeux dans la base de données
      * @return array|false|void
@@ -32,19 +30,6 @@ class FonctionsBD
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
-        }
-    }
-
-    public static function getGameById($idJeux){
-        try{
-            $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `nom`, `description`, `prix`,`image` FROM `jeux` 
-            WHERE `idJeux` = ?
-            ");
-            $query->execute([$idJeux]);
-            return $query->fetch(PDO::FETCH_ASSOC);
-        }catch(PDOException $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
@@ -166,7 +151,7 @@ class FonctionsBD
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin` 
+            SELECT `pseudo`, `nom`, `prenom`, `email`, `password` 
             FROM `user` WHERE `idUser` = ?
             ");
             $query->execute([$idUser]);
@@ -337,6 +322,27 @@ class FonctionsBD
     }
 
     /**
+     * Ajoute des nouveaux utilisateurs dans la base de données
+     *
+     * @param $pseudo
+     * @param $nom
+     * @param $prenom
+     * @param $email
+     * @param $password
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function newUser($pseudo, $nom, $prenom, $email, $password)
+    {
+        $query = BaseDonnee::getConnexion()->prepare("
+        INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
+        VALUES ( ?, ?, ?, ?, ?, 0)
+        ");
+        $query->execute([$pseudo, $nom, $prenom, $email, $password]);
+    }
+
+    /**
      * Avoir les commentaires de la base de données
      * @param $idJeux
      * @return array|false|void
@@ -375,8 +381,6 @@ class FonctionsBD
         }
     }
 
-/********Fonctions d'insertion de données************/
-
     /**
      * Ajoute des nouveaux jeux dans la base de données
      *
@@ -389,33 +393,16 @@ class FonctionsBD
      * @author Rodrigo De Castilho E Sousa
      */
     public static function newGame($nomJeux, $description, $prix, $idPegi){
-
-        $query = BaseDonnee::getConnexion()->prepare("
-        INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
-        VALUES (?, ?, ?, ?)
-        ");
-        $query->execute([$nomJeux, $description, $prix, $idPegi]);
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
+            VALUES (?, ?, ?, ?)
+            ");
+            $query->execute([$nomJeux, $description, $prix, $idPegi]);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
     }
 
-    /**
-     * Ajoute des nouveaux utilisateurs dans la base de données
-     *
-     * @param $pseudo
-     * @param $nom
-     * @param $prenom
-     * @param $email
-     * @param $password
-     * @return void
-     *
-     * @author Rodrigo De Castilho E Sousa
-     */
-    public static function newUser($pseudo, $nom, $prenom, $email, $password)
-    {
-        $query = BaseDonnee::getConnexion()->prepare("
-        INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
-        VALUES ( ?, ?, ?, ?, ?, 0)
-        ");
-        $query->execute([$pseudo, $nom, $prenom, $email, $password]);
-    }
     
 }
