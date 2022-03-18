@@ -34,6 +34,19 @@ class FonctionsBD
         }
     }
 
+    public static function getGameById($idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `nom`, `description`, `prix`,`image` FROM `jeux` 
+            WHERE `idJeux` = ?
+            ");
+            $query->execute([$idJeux]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
     /**
      * Récupère l'historique dans la base de données
      * @param $idUser

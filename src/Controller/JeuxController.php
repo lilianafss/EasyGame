@@ -13,7 +13,6 @@ class JeuxController{
         }else{
             header("Location: easygame.ch");
         }
-
         require '../src/view/jeux.php';
     }
 }
