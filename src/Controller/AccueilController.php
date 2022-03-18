@@ -24,11 +24,11 @@
                     $stringJeux .= '<div class="card m-4" onclick="Redirection('. $elementListe['idJeux'].')">
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
-                        <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                        <h4 class="card-title">'.$jeux['nom'].'</h4>
                         <section class="card-text">
-                            <p>'.$elementListe['description'].'</p>
+                            <p>'.$jeux['description'].'</p>
                         </section>
-                        <p class="card_prix">'.$elementListe['prix'].'</p>
+                        <p class="card_prix">'.$jeux['prix'].'</p>
                         <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
                     </div>
                 </div>';
@@ -61,11 +61,11 @@
                     $stringJeux .= '<div class="card m-4" onclick="Redirection('. $elementListe['idJeux'].')">
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
-                        <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                        <h4 class="card-title">'.$filtre['nom'].'</h4>
                         <section class="card-text">
-                            <p>'.$elementListe['description'].'</p>
+                            <p>'.$filtre['description'].'</p>
                         </section>
-                        <p class="card_prix">'.$elementListe['prix'].'</p>
+                        <p class="card_prix">'.$filtre['prix'].'</p>
                         <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
                     </div>
                 </div>';
@@ -75,13 +75,18 @@
          require "../src/view/accueil.php";
         
         }
-        public static function affichageFiltre($nomliste,$liste,$champBd){
-            echo '<option disabled selected>'.$nomliste.'</option>';
-           foreach($liste as $elementListe){
-                echo "<option value=".$elementListe[$champBd].">".$elementListe[$champBd]."</option>";
+        public static function affichageFiltre($liste,$champBd){
+         
+           foreach($liste as $filtre){
+                echo "<option value=".$filtre[$champBd].">".$filtre[$champBd]."</option>";
             } 
         }
 
+        public static function affichage(){
+         
+            
+        }
+        
     }
 
 ?>
