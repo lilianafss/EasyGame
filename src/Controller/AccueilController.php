@@ -22,73 +22,57 @@
 
             $stringJeux = "";
 
-            if($listeFiltre==false && $recherche=="")
-            {
-                foreach($listeJeux as $elementListe)
-                {
-                    $stringJeux .= '
-                    <div class="card m-4">
-                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
-                        <div class="card-block">
-                            <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                            <section class="card-text">
-                                <p>'.$elementListe['description'].'</p>
-                            </section>
-                            <p class="card_prix">'.$elementListe['prix'].'</p>
-                            <a href="#" class="btn card-btn">Ajouter au panier</a>
-                        </div>
-                    </div>';
+            if($listeFiltre==false && $recherche==""){
+
+                foreach($listeJeux as $elementListe){
+                    $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')">
+                    <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
+                    <div class="card-block">
+                        <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                        <section class="card-text">
+                            <p>'.$elementListe['description'].'</p>
+                        </section>
+                        <p class="card_prix">'.$elementListe['prix'].'</p>
+                        <a href="#" class="btn card-btn">Ajouter au panier</a>
+                    </div>
+                </div>';
                 }
-            }
-            else if($listeFiltre==false && $recherche!="")
-            {
-                if(isset($recherche))
-                {
+            }elseif($listeFiltre==false && $recherche!=""){
+                if(isset($recherche)){
                     $stringJeux= '<p> Vous avez recherché : ' . $recherche . '</p>';
                     $requete=FonctionsBD::searchGame($recherche);
-
-                    if($requete!="")
-                    {
-                        foreach($requete as $elementListe)
-                        {
-                            $stringJeux .= '
-                            <div class="card m-4">
-                                <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
-                                <div class="card-block">
-                                    <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                                    <section class="card-text">
-                                        <p>'.$elementListe['description'].'</p>
-                                    </section>
-                                    <p class="card_prix">'.$elementListe['prix'].'</p>
-                                    <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
-                                </div>
-                            </div>';
+                    if($requete!=""){
+                        foreach($requete as $elementListe){
+                            $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')">
+                            <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
+                            <div class="card-block">
+                                <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                                <section class="card-text">
+                                    <p>'.$elementListe['description'].'</p>
+                                </section>
+                                <p class="card_prix">'.$elementListe['prix'].'</p>
+                                <a href="#" class="btn card-btn">Ajouter au panier</a>
+                            </div>
+                        </div>';
                         }
                     }
-                    else
-                    {
-                        $stringJeux ="Aucun resultat";
-                    }
                 }
-            }
-            else if($listeFiltre!="" && $recherche =="")
-            {
-                foreach($listeFiltre  as $elementListe)
-                {
-                    $stringJeux .= '
-                    <div class="card m-4">
-                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
-                        <div class="card-block">
-                            <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                            <section class="card-text">
-                                <p>'.$elementListe['description'].'</p>
-                            </section>
-                            <p class="card_prix">'.$elementListe['prix'].'</p>
-                            <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
-                        </div>
-                    </div>';
+            }elseif($listeFiltre==true && $recherche ==""){
+
+                foreach($listeFiltre  as $elementListe){
+                    $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')" >
+                    <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
+                    <div class="card-block">
+                        <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                        <section class="card-text">
+                            <p>'.$elementListe['description'].'</p>
+                        </section>
+                        <p class="card_prix">'.$elementListe['prix'].'</p>
+                        <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
+                    </div>
+                </div>';
                 }
-            }
+            }           
             require "../src/view/accueil.php";
         }
 
@@ -100,7 +84,6 @@
                 echo "<option value=".$elementListe[$champBd].">".$elementListe[$champBd]."</option>";
             } 
         }
-
     }
 
 ?>

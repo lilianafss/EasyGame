@@ -40,11 +40,6 @@ use EasyGame\Controller\AccueilController;
             <form method="GET">
                 <ul class="nav">
                     <li class="nav-item">
-                        <input class="border-0 px-2 py-1 m-2 rounded shadow" type="Search" placeholder="Recherche" name="recherche">
-                        <button class="btn btn-primary" type="submit">Rechercher</button>
-                    </li>
-
-                    <li class="nav-item">
                         <select name="age" id="age" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
                             <?php AccueilController::affichageFiltre("Age",FonctionsBD::getPegi(),"pegi");?>
                         </select>
@@ -61,6 +56,11 @@ use EasyGame\Controller\AccueilController;
                             <?php AccueilController::affichageFiltre("Genre",FonctionsBD::getGenre(),"genre");?>
                         </select>
                     </li>
+
+                    <li class="nav-item">
+                        <input class="border-0 px-2 py-1 m-2 rounded shadow" type="Search" placeholder="Recherche" name="recherche">
+                        <button class="btn btn-primary" type="submit">Rechercher</button>
+                    </li>
                 </ul>
             </form>
         </nav>
@@ -71,5 +71,13 @@ use EasyGame\Controller\AccueilController;
         </div>
     </main>
     <?php require_once "footer.php"; ?>
+    <script>
+       function Redirection(id){
+
+        let stringUrl = "http://easygame.ch/jeux?idJeux=" + id;
+
+        window.location.replace(stringUrl);
+       }
+    </script>
 </body>
 </html>
