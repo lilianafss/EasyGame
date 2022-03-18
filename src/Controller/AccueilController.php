@@ -21,7 +21,7 @@
             if($listeFiltre==false && $recherche==""){
                 
                 foreach($listeJeux as $elementListe){
-                    $stringJeux .= '<div class="card m-4">
+                    $stringJeux .= '<div class="card m-4" onclick="Redirection('. $elementListe['idJeux'].')">
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
                         <h4 class="card-title">'.$elementListe['nom'].'</h4>
@@ -39,7 +39,7 @@
                     $requete=FonctionsBD::searchGame($recherche);
                     if($requete!=""){
                         foreach($requete as $elementListe){
-                            $stringJeux .= '<div class="card m-4">
+                            $stringJeux .= '<div class="card m-4" onclick="Redirection('. $elementListe['idJeux'].')>
                             <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
                             <div class="card-block">
                                 <h4 class="card-title">'.$elementListe['nom'].'</h4>
@@ -50,14 +50,15 @@
                                 <a href="#" class="btn btn-primary card-btn">Ajouter au panier</a>
                             </div>
                         </div>';
-                    }
+                        }
                     }else{
                         $stringJeux ="Aucun resultat";
                     }
                 }
-            }elseif($listeFiltre!="" && $recherche ==""){
+            }elseif($listeFiltre==true && $recherche ==""){ 
+
                 foreach($listeFiltre  as $elementListe){
-                    $stringJeux .= '<div class="card m-4">
+                    $stringJeux .= '<div class="card m-4" onclick="Redirection('. $elementListe['idJeux'].')">
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
                         <h4 class="card-title">'.$elementListe['nom'].'</h4>
@@ -69,9 +70,8 @@
                     </div>
                 </div>';
                 }
-                // header("Location: http://easygame.ch");
-            }
-           
+
+            }           
          require "../src/view/accueil.php";
         
         }
