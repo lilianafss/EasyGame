@@ -7,7 +7,7 @@ Version     : 1.0.0.0
 */
 
 //Constantes pour la connexion à la base de données
-define('DB_HOST', '127.0.0.1');
+define('DB_HOST', '10.5.42.2');
 define('DB_NAME', 'easygame');
-define('DB_USER', 'userEasyGame');
-define('DB_PASSWORD', 'Super2022');
+define('DB_USER', 'easygame');
+define('DB_PASSWORD', 'uS0_q2BLFj4ds');
