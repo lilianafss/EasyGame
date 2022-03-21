@@ -26,7 +26,7 @@
                         <div><input type="email" id="email" name="email" placeholder="Email" width="100"></div>
                     </div>
                     <div class="form-group mb-3">
-                        <div><input type="password" name="password" placeholder="Mot de passe"></div>
+                        <div><input type="password" id="password" name="password" placeholder="Mot de passe"></div>
                     </div>
                     <div class="form-group mb-3">
                         <p class="text-danger">
@@ -44,7 +44,7 @@
             <div>
                 <hr id="line">
             </div>
-
+            
             <div>
                 <p>ou</p>
             </div>

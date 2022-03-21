@@ -34,6 +34,12 @@ class FonctionsBD
         }
     }
 
+    /**
+     * Récupère la table jeux dans la base de données
+     * @param int $idJeux
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getGameById($idJeux){
         try{
             $query = BaseDonnee::getConnexion()->prepare("
@@ -49,7 +55,7 @@ class FonctionsBD
 
     /**
      * Récupère l'historique dans la base de données
-     * @param $idUser
+     * @param int $idUser
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -73,7 +79,7 @@ class FonctionsBD
 
     /**
      * Récupère la wishlist dans la base de données
-     * @param $idUser
+     * @param int $idUser
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -156,7 +162,7 @@ class FonctionsBD
     /**
      * Récupère les informations de l'utilisateur
      *
-     * @param $idUser
+     * @param  int $idUser
      * @return mixed|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -174,6 +180,13 @@ class FonctionsBD
         }
     }
     
+    /**
+     * Récupère les informations de l'utilisateur
+     *
+     * @param  int $idUser
+     * @return mixed|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getIdUser($email){
         try{
             $query = BaseDonnee::getConnexion()->prepare("
@@ -191,7 +204,7 @@ class FonctionsBD
     /**
      * Cherche un jeu avec son nom
      *
-     * @param $searchName
+     * @param string $searchName
      * @return mixed|void
      * @author Liliana Filipa Santos Silva
      */
@@ -213,9 +226,9 @@ class FonctionsBD
     /**
      * Fonction pour chercher un jeux par pegi, genre ou plateforme
      *
-     * @param $pegi
-     * @param $genre
-     * @param $plateforme
+     * @param string $pegi
+     * @param string $genre
+     * @param string $plateforme
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -337,11 +350,11 @@ class FonctionsBD
     /**
      * Ajoute des nouveaux utilisateurs dans la base de données
      *
-     * @param $pseudo
-     * @param $nom
-     * @param $prenom
-     * @param $email
-     * @param $password
+     * @param string $pseudo
+     * @param string $nom
+     * @param string $prenom
+     * @param string $email
+     * @param string $password
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
@@ -357,7 +370,7 @@ class FonctionsBD
 
     /**
      * Avoir les commentaires de la base de données
-     * @param $idJeux
+     * @param int $idJeux
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -376,7 +389,7 @@ class FonctionsBD
 
     /**
      * Avoir les notes de la base de données
-     * @param $idJeux
+     * @param int $idJeux
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -397,10 +410,10 @@ class FonctionsBD
     /**
      * Ajoute des nouveaux jeux dans la base de données
      *
-     * @param $nomJeux
-     * @param $description
-     * @param $prix
-     * @param $idPegi
+     * @param string $nomJeux
+     * @param string $description
+     * @param float $prix
+     * @param int $idPegi
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
