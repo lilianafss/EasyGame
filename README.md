@@ -1,2 +1,2 @@
 # EasyGame :video_game:
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://tenor.com/view/funny-animals-walking-gorilla-ape-gif-11409190)
