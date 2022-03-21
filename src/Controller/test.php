@@ -1,5 +1,7 @@
 <?php
 namespace EasyGame\Controller;
+
+use EasyGame\model\BaseDonnee;
 use EasyGame\model\FonctionsBD;
 @ini_set('display_errors', 'on');
 
@@ -25,13 +27,7 @@ if($hash != ""){
     }
 }
 
-//var_dump(getGames());
-//var_dump(getHistory(1));
-//var_dump(getWishlist(1));
-//var_dump(getFilters());
-//var_dump(getInfoUser(1));
-//var_dump(getSearch('Grand'));
-
+var_dump(FonctionsBD::getWishlist(1));
 
 ?>
 <!DOCTYPE html>

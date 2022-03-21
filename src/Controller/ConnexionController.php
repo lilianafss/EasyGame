@@ -15,7 +15,6 @@ class ConnexionController
   public static function connexion()
   {
     session_start();
-
     // //require_once 'ConnexionGoogle.php';
 
     // $gClient = "";
