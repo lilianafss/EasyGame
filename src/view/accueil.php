@@ -32,7 +32,7 @@ use EasyGame\Controller\AccueilController;
                     <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart nav-font"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-basket-shopping nav-font"></i></a>
+                    <a class="nav-link" href="panier"><i class="fa-solid fa-2x fa-basket-shopping nav-font"></i></a>
                 </li>
             </ul>
         </nav>

@@ -33,7 +33,7 @@
                             <p>'.$elementListe['description'].'</p>
                         </section>
                         <p class="card_prix">'.$elementListe['prix'].'</p>
-                        <a href="#" class="btn card-btn">Ajouter au panier</a>
+                        <a href="panier" class="btn card-btn">Ajouter au panier</a>
                     </div>
                 </div>';
                 }
@@ -51,7 +51,7 @@
                                     <p>'.$elementListe['description'].'</p>
                                 </section>
                                 <p class="card_prix">'.$elementListe['prix'].'</p>
-                                <a href="#" class="btn card-btn">Ajouter au panier</a>
+                                <a href="panier" class="btn card-btn">Ajouter au panier</a>
                             </div>
                         </div>';
                         }
@@ -68,7 +68,7 @@
                             <p>'.$elementListe['description'].'</p>
                         </section>
                         <p class="card_prix">'.$elementListe['prix'].'</p>
-                        <a href="#" class="btn card-btn">Ajouter au panier</a>
+                        <a href="panier" class="btn card-btn">Ajouter au panier</a>
                     </div>
                 </div>';
                 }
