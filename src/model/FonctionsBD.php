@@ -17,7 +17,7 @@ Version     : 1.0.0.0
 
 class FonctionsBD
 {
-    /**********************Fonction pour récupérer les données*************************/
+    /**********************Fonctions pour récupérer les données*************************/
     /**
      * Récupère la table jeux dans la base de données
      * @return array|false|void
@@ -388,7 +388,7 @@ class FonctionsBD
         }
     }
 
-/**********************Fonction pour insérer des données*************************/
+/**********************Fonctions pour insérer des données*************************/
     
     /**
      * Ajoute des nouveaux utilisateurs dans la base de données
@@ -508,7 +508,7 @@ class FonctionsBD
         }
     }
 
-     /**
+    /**
      * Ajoute un jeux a son historique d'achat
      *
      * @param int $idJeux
@@ -528,4 +528,49 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+/**********************Fonctions pour effacer des données*************************/
+     
+    /**
+     * Efface un commentaire
+     *
+     * @param int $idComment
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deleteComment($idComment){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `commentaires` WHERE `idComentaire` = ?
+            ");
+            $query->execute([$idComment]);
+        }catch (Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+        /**
+     * Efface un jeu
+     *
+     * @param int $idComment
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deleteGame($idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_wishlist` WHERE `idJeux` = ?;
+            DELETE FROM `voir_historique` WHERE `idJeux` = ?;
+            DELETE FROM `ou_jouer` WHERE `idJeux` = ?;
+            DELETE FROM `filtre_jeux` WHERE `idJeux` = ?;
+            DELETE FROM `jeux` WHERE `idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+        }catch (Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
 }
