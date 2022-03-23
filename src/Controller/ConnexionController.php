@@ -15,6 +15,10 @@ class ConnexionController
   public static function connexion()
   {
     session_start();
+
+    //FonctionsBD::deleteGame(6);
+    //FonctionBD::deleteComment(3);
+    
     // //require_once 'ConnexionGoogle.php';
 
     // $gClient = "";
@@ -67,8 +71,6 @@ class ConnexionController
         if (FonctionsBD::getIdUser($email)) {
 
           $_SESSION['idUser'] = FonctionsBD::getIdUser($email)['idUser'];
-
-          var_dump(password_verify($password, FonctionsBD::getInfoUser($_SESSION['idUser'])['password']));
 
           if (password_verify($password, FonctionsBD::getInfoUser($_SESSION['idUser'])['password'])) {
 

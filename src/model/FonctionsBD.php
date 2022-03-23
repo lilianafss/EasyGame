@@ -27,7 +27,9 @@ class FonctionsBD
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `idJeux`, `nom`, `description`, `prix`,`image` FROM `jeux` 
+            SELECT `idJeux`, `nom`, `description`, `prix`, `pegis`.`pegi`, `image` 
+            FROM `jeux`, `pegis`
+            WHERE `jeux`.`idPegi` = `pegis`.`idPegi`
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -45,8 +47,10 @@ class FonctionsBD
     public static function getGameById($idJeux){
         try{
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `nom`, `description`, `prix`,`image` FROM `jeux` 
-            WHERE `idJeux` = ?
+            SELECT `idJeux`, `nom`, `description`, `prix`, `pegis`.`pegi`, `image` 
+            FROM `jeux`, `pegis`
+            WHERE `jeux`.`idPegi` = `pegis`.`idPegi`
+            AND `idJeux` = ?
             ");
             $query->execute([$idJeux]);
             return $query->fetch(PDO::FETCH_ASSOC);
@@ -75,6 +79,48 @@ class FonctionsBD
             $query->execute([$idUser, $idUser]);
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Récupère le(s) genre(s) d'un jeux
+     * @param int $idJeux
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function getGameGenre($idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT DISTINCT `genre` 
+            FROM `genre`, `filtre_jeux` 
+            WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
+            AND `filtre_jeux`.`idJeux` = ?
+            ");
+            $query->execute([$idJeux]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Récupère la(les) plateforme(s) d'un jeux
+     * @param int $idJeux
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function getGamePlatform($idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT DISTINCT `plateforme` 
+            FROM `plateforme`, `ou_jouer` 
+            WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
+            AND `ou_jouer`.`idJeux` = ?
+            ");
+            $query->execute([$idJeux]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
@@ -240,7 +286,7 @@ class FonctionsBD
         if ($pegi != "" && $genre != "" && $plateforme != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idJeux`, `nom`, `description`, `prix`, `image`  
+                    SELECT DISTINCT `jeux`.`idJeux`, `nom`, `description`, `prix`, `image`  
                     FROM `jeux`, `genre`, `plateforme`, `pegis`, `ou_jouer`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
@@ -259,7 +305,7 @@ class FonctionsBD
         } else if ($genre != "" && $plateforme != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idJeux`,`nom`, `description`, `prix`, `image`
+                    SELECT DISTINCT `jeux`.`idJeux`,`nom`, `description`, `prix`, `image`
                     FROM `jeux`, `genre`, `plateforme`, `ou_jouer`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
@@ -276,7 +322,7 @@ class FonctionsBD
         } else if ($genre != "" && $pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idJeux`,`nom`, `description`, `prix`, `image` 
+                    SELECT DISTINCT `jeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `genre`, `pegis`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
@@ -292,7 +338,7 @@ class FonctionsBD
         } else if ($plateforme != "" && $pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idJeux`,`nom`, `description`, `prix`, `image` 
+                    SELECT DISTINCT `jeux`.`idJeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `plateforme`, `pegis`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
@@ -308,7 +354,7 @@ class FonctionsBD
         } else if ($pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idJeux`,`nom`, `description`, `prix`, `image`
+                    SELECT DISTINCT `jeux`.`idJeux`,`nom`, `description`, `prix`, `image`
                     FROM `jeux`, `pegis`
                     WHERE `jeux`.`idPegi` = `pegis`.`idPegi`
                     AND `pegis`.`pegi` = ?
@@ -321,11 +367,12 @@ class FonctionsBD
         } else if ($plateforme != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idJeux`,`nom`, `description`, `prix`, `image` 
-                    FROM `jeux`, `plateforme`, `ou_jouer`
-                    WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
-                    AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
-                    AND `plateforme`.`plateforme` = ?
+                SELECT DISTINCT `jeux`.`idJeux`, `nom`, `description`, `prix`, `pegi` ,`image` 
+                FROM `jeux`, `plateforme`, `ou_jouer`, `pegis`
+                WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
+                AND `pegis`.`idPegi` = `jeux`.`idPegi`
+                AND  `jeux`.`idJeux`= `ou_jouer`.`idJeux`
+                AND `plateforme`.`plateforme` = ?
                 ");
                 $query->execute([$plateforme]);
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -335,7 +382,7 @@ class FonctionsBD
         } else if ($genre != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idJeux`,`nom`, `description`, `prix`, `image` 
+                    SELECT DISTINCT `jeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `genre`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = `jeux`.`idJeux` 
@@ -550,10 +597,10 @@ class FonctionsBD
         }
     }
 
-        /**
+    /**
      * Efface un jeu
      *
-     * @param int $idComment
+     * @param int $idJeux
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
@@ -561,11 +608,27 @@ class FonctionsBD
     public static function deleteGame($idJeux){
         try{
             $query = BaseDonnee::getConnexion()->prepare("
-            DELETE FROM `ajouter_wishlist` WHERE `idJeux` = ?;
-            DELETE FROM `voir_historique` WHERE `idJeux` = ?;
-            DELETE FROM `ou_jouer` WHERE `idJeux` = ?;
-            DELETE FROM `filtre_jeux` WHERE `idJeux` = ?;
-            DELETE FROM `jeux` WHERE `idJeux` = ?;
+            DELETE FROM `voir_historique` WHERE `voir_historique`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+            
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_wishlist` WHERE `ajouter_wishlist`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+            
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ou_jouer` WHERE `ou_jouer`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `filtre_jeux` WHERE `filtre_jeux`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `jeux` WHERE `jeux`.`idJeux` = ?; 
             ");
             $query->execute([$idJeux]);
         }catch (Exception $e){
@@ -573,4 +636,32 @@ class FonctionsBD
         }
     }
 
+    /**
+     * Modifie un jeux choisi
+     *
+     * @param int $idJeux
+     * @param string $nom
+     * @param string $description
+     * @param float $prix
+     * @param int $idPegi
+     * @param string $image
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function updateGame($idJeux, $nom, $description, $prix, $idPegi, $image){
+        try{
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            UPDATE `jeux` 
+            SET `nom`= ?,`description`= ?,`prix`= ?,`idPegi`= ?,`image`= ? 
+            WHERE `idJeux` = ?
+            ");
+
+            $query->execute([$nom, $description, $prix, $idPegi, $image, $idJeux]);
+
+        }catch (Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
 }
