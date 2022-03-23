@@ -33,8 +33,33 @@ a
 
 #logo
 {
-    width: 40%;
-    height: 40%;
+    width: 167px;
+    height: 100px;
+}
+
+#span-logo
+{
+    justify-content: right;
+    padding-right: 15px;
+}
+
+#span-icon
+{
+    justify-content: left;
+    padding-left: 15px;
+}
+
+.filtres
+{
+    width: 135px;
+}
+
+.main-nav
+{
+    display: flex;
+    width: 50%;
+
+    justify-content: center;
 }
 
 #divMain
@@ -146,12 +171,18 @@ a
     {
         width: 80%;
     }
+
     .logo
     {
         justify-content: center;
         text-align: center;
         justify-items: center;
     }
+
+    /*.filtres*/
+    /*{*/
+    /*    width: 135px;*/
+    /*}*/
 }
 
 @media only screen and (max-width: 480px)

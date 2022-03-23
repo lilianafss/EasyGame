@@ -21,38 +21,40 @@ use EasyGame\Controller\AccueilController;
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar justify-content-center">
-            <a href="/">
-                <img id="logo" alt="logo" src="assets/image/logo.png">
-            </a>
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="connexion"><i class="fa-solid fa-2x fa-user nav-font"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart nav-font"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-basket-shopping nav-font"></i></a>
-                </li>
-            </ul>
+            <span class="main-nav" id="span-logo">
+                <a href="/"><img id="logo" alt="logo" src="assets/image/logo.png"></a>
+            </span>
+            <span class="main-nav" id="span-icon">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="connexion"><i class="fa-solid fa-2x fa-user nav-font"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart nav-font"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-basket-shopping nav-font"></i></a>
+                    </li>
+                </ul>
+            </span>
         </nav>
         <nav class="navbar justify-content-center">
             <form method="GET">
                 <ul class="nav">
                     <li class="nav-item">
-                        <select name="age" id="age" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
+                        <select name="age" id="age" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Age",FonctionsBD::getPegi(),"pegi");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
-                        <select name="plateforme" id="plateforme" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
+                        <select name="plateforme" id="plateforme" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Plateforme",FonctionsBD::getPlatform(),"plateforme");?>
                         </select>
                     </li>
 
                     <li class="nav-item">
-                        <select name="genre" id="genre" class="border-0 px-2 py-1 m-2 rounded shadow" style="width: 150px;">
+                        <select name="genre" id="genre" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Genre",FonctionsBD::getGenre(),"genre");?>
                         </select>
                     </li>

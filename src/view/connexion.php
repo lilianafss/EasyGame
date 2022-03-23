@@ -44,10 +44,9 @@
             <div>
                 <hr id="line">
             </div>
-
-            <div>
-                <p>ou</p>
-            </div>
+            
+            <p>ou</p>
+            
             <div class="col justify-content-center align-items-center" id="linkIncrit">
                 <a href="/nouveau">S'inscrire</a>
             </div>

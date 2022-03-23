@@ -8,10 +8,11 @@
 #box{
     border: 2px double black;
     border-radius: 5px;
-    width: 45%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -34,4 +35,23 @@
 
 a:link{
     text-decoration: none;
+}
+
+@media only screen and (max-width: 1400px)
+{
+
+}
+
+@media only screen and (max-width: 1024px)
+{
+
+}
+
+@media only screen and (max-width: 769px)
+{
+    #box
+    {
+        width: 80%;
+    }
+
 }
