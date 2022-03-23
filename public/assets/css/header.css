@@ -1,0 +1,101 @@
+/*--------------------Header--------------------*/
+/*#region Header*/
+header
+{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+}
+
+#logoContainer
+{
+    display:flex;
+    justify-content: right;
+    width: 40%;
+}
+
+#logo
+{
+    width: 167px;
+    height: 100px;
+}
+
+nav
+{
+    width: 100%;
+}
+
+ul
+{
+    width: 50%;
+}
+
+.nav-link
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #FFF;
+}
+
+.nav-link:visited
+{
+    color: #FFF;
+}
+
+.nav-link:hover
+{
+    color: silver;
+}
+
+.nav-link:focus
+{
+    color: silver;
+}
+/*#endregion*/
+
+@media only screen and (max-width: 1024px)
+{
+    #logoContainer
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+    ul
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+
+@media only screen and (max-width: 769px)
+{
+    #logoContainer
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+    ul
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-link
+    {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{
+    .nav-link
+    {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

@@ -6,36 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/image/logo.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/font-awesome/css/all.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="/assets/css/connexion.css">
-
+    <?php require_once "style.php" ?>
 </head>
 
 <body class="d-flex flex-column h-100">
+
+    <?php require_once"header.php" ?>
     <main>
         <div class="row d-flex justify-content-center" id="box">
+
             <div class="row text-center" id="title">
                 <h3>Connexion</h3>
             </div>
+
             <div class="col justify-content-center align-items-center">
-                <form method="POST">
-                    <div class="form-group mb-3">
-                        <div><input type="email" id="email" name="email" placeholder="Email" width="100"></div>
+
+                <form method="POST" class="formItemsContainer">
+                    <div id="connexionContainer">
+                        <input type="email" class="connexionInput" id="email" name="email" placeholder="Email" width="100">
+                        <input type="password" class="connexionInput" id="password" name="password" placeholder="Mot de passe">
                     </div>
-                    <div class="form-group mb-3">
-                        <div><input type="password" id="password" name="password" placeholder="Mot de passe"></div>
-                    </div>
-                    <div class="form-group mb-3">
+
+                    <div class="formItemsContainer">
                         <p class="text-danger">
                             <?= $erreur ?>
                         </p>
                     </div>
-                    <div class="form-group mb-3">
-                        <div><input type="submit" name="btnSubmit" value="Se connecter"></div>
+
+                    <div class="formItemsContainer">
+                        <input class="btn" type="submit" name="btnSubmit" value="Se connecter">
                     </div>
+
                 </form>
 
                 <a href="/">Mot de passe oublié?</a>
@@ -44,12 +45,13 @@
             <div>
                 <hr id="line">
             </div>
-            
+
             <p>ou</p>
-            
+
             <div class="col justify-content-center align-items-center" id="linkIncrit">
-                <a href="/nouveau">S'inscrire</a>
+                <a href="/nouveau">Crée un nouveau compte</a>
             </div>
+        </div>
     </main>
     <?php require_once 'footer.php' ?>
 </body>

@@ -1,0 +1,11 @@
+/*--------------------Body--------------------*/
+body
+{
+    font-family: Calibri;
+    font-size: 1.2em;
+
+    margin: auto;
+    padding: 0;
+
+    overflow-x: hidden;
+}

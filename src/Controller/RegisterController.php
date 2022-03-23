@@ -70,7 +70,7 @@
             }
             else if($submit == "Annuler")
             {
-                header("location: /");
+                header("location: /connexion");
                 exit();
             }
             require "../src/view/register.php";

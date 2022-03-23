@@ -1,24 +1,7 @@
-body
-{
-    font-family: Calibri;
-    font-size: 1.2em;
-
-    margin: auto;
-    padding: 0;
-
-    overflow-x: hidden;
-}
-
 header
 {
     margin-bottom: 20px;
     background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
-}
-
-
-
-{
-    flex-direction: column;
 }
 
 .nav-font
@@ -75,7 +58,21 @@ a
     justify-content: center;
 }
 
+#search
+{
+    margin: 8px 0 0 8px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+}
 
+#filtre-submit
+{
+    height: 35px;
+    width: 105px;
+    padding: 5px;
+    margin: 4px 5px 6px 10px;
+
+}
 
 
 /*--------------------Cards--------------------*/
@@ -182,13 +179,8 @@ a
     {
         justify-content: center;
         text-align: center;
-        justify-items: center;
     }
 
-    /*.filtres*/
-    /*{*/
-    /*    width: 135px;*/
-    /*}*/
 }
 
 @media only screen and (max-width: 480px)
@@ -196,6 +188,37 @@ a
     .card
     {
         width: 90%;
+    }
+
+    #span-icon
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .filtres
+    {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .filtre-li
+    {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #search
+    {
+        width: 55%;
+        margin: 8px 20px 0 0;
+    }
+
+    #filtre-submit
+    {
+        width: 35%;
+        margin: 8px 0 0 0;
     }
 }
 

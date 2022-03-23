@@ -5,44 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/image/logo.png">
-    <link rel="stylesheet" href="assets/font-awesome/css/all.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/register.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
+    <?php require_once "style.php" ?>
 </head>
 
 <body class="d-flex flex-column h-100">
-    <header>
-            <nav class="navbar justify-content-center">
 
-                <a href="/">
-                    <img id="logo" alt="logo" src="assets/image/logo.png">
-                </a>
-
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Accueil</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul>
-            </nav>
-    </header>
+    <?php require_once"header.php" ?>
 
     <main class="flex-shrink-0">
         <h1>Inscription</h1>
@@ -93,7 +61,7 @@
             </form>
         </div>
     </main>
-    <?php require_once"footer.php"; ?>
+    <?php require_once "footer.php"?>
     <script  src="assets/js/hidePassword.js"></script>
 </body>
 </html>
