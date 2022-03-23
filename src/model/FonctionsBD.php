@@ -2,6 +2,7 @@
 namespace EasyGame\model;
 
 use EasyGame\model\BaseDonnee;
+use Exception;
 use PDO;
 use PDOException;
 
@@ -16,6 +17,7 @@ Version     : 1.0.0.0
 
 class FonctionsBD
 {
+    /**********************Fonctions pour récupérer les données*************************/
     /**
      * Récupère la table jeux dans la base de données
      * @return array|false|void
@@ -34,6 +36,12 @@ class FonctionsBD
         }
     }
 
+    /**
+     * Récupère un jeux par son id
+     * @param int $idJeux
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getGameById($idJeux){
         try{
             $query = BaseDonnee::getConnexion()->prepare("
@@ -49,7 +57,7 @@ class FonctionsBD
 
     /**
      * Récupère l'historique dans la base de données
-     * @param $idUser
+     * @param int $idUser
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -73,7 +81,7 @@ class FonctionsBD
 
     /**
      * Récupère la wishlist dans la base de données
-     * @param $idUser
+     * @param int $idUser
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -96,7 +104,7 @@ class FonctionsBD
     }
 
     /**
-     * Récupère les genres de jeux vidéo dans la base de données
+     * Récupère tous les plateformes
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -156,7 +164,7 @@ class FonctionsBD
     /**
      * Récupère les informations de l'utilisateur
      *
-     * @param $idUser
+     * @param  int $idUser
      * @return mixed|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -174,6 +182,13 @@ class FonctionsBD
         }
     }
     
+    /**
+     * Récupère les informations de l'utilisateur
+     *
+     * @param  int $idUser
+     * @return mixed|void
+     * @author Rodrigo De Castilho E Sousa
+     */
     public static function getIdUser($email){
         try{
             $query = BaseDonnee::getConnexion()->prepare("
@@ -191,7 +206,7 @@ class FonctionsBD
     /**
      * Cherche un jeu avec son nom
      *
-     * @param $searchName
+     * @param string $searchName
      * @return mixed|void
      * @author Liliana Filipa Santos Silva
      */
@@ -213,9 +228,9 @@ class FonctionsBD
     /**
      * Fonction pour chercher un jeux par pegi, genre ou plateforme
      *
-     * @param $pegi
-     * @param $genre
-     * @param $plateforme
+     * @param string $pegi
+     * @param string $genre
+     * @param string $plateforme
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -335,29 +350,8 @@ class FonctionsBD
     }
 
     /**
-     * Ajoute des nouveaux utilisateurs dans la base de données
-     *
-     * @param $pseudo
-     * @param $nom
-     * @param $prenom
-     * @param $email
-     * @param $password
-     * @return void
-     *
-     * @author Rodrigo De Castilho E Sousa
-     */
-    public static function newUser($pseudo, $nom, $prenom, $email, $password)
-    {
-        $query = BaseDonnee::getConnexion()->prepare("
-        INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
-        VALUES ( ?, ?, ?, ?, ?, 0)
-        ");
-        $query->execute([$pseudo, $nom, $prenom, $email, $password]);
-    }
-
-    /**
      * Avoir les commentaires de la base de données
-     * @param $idJeux
+     * @param int $idJeux
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -376,7 +370,7 @@ class FonctionsBD
 
     /**
      * Avoir les notes de la base de données
-     * @param $idJeux
+     * @param int $idJeux
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -394,13 +388,44 @@ class FonctionsBD
         }
     }
 
+/**********************Fonctions pour insérer des données*************************/
+    
+    /**
+     * Ajoute des nouveaux utilisateurs dans la base de données
+     *
+     * @param string $pseudo
+     * @param string $nom
+     * @param string $prenom
+     * @param string $email
+     * @param string $password
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function newUser($pseudo, $nom, $prenom, $email, $password)
+    {
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
+            VALUES ( ?, ?, ?, ?, ?, false);
+            
+            INSERT INTO `wishlist`(`idWishlist`,`idUser`) VALUES (LAST_INSERT_ID(),LAST_INSERT_ID());
+            
+            INSERT INTO `historique`(`idHistorique`,`idUser`) VALUES (LAST_INSERT_ID(),LAST_INSERT_ID())
+            ");
+            $query->execute([$pseudo, $nom, $prenom, $email, $password]);
+        } catch(Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
     /**
      * Ajoute des nouveaux jeux dans la base de données
      *
-     * @param $nomJeux
-     * @param $description
-     * @param $prix
-     * @param $idPegi
+     * @param string $nomJeux
+     * @param string $description
+     * @param float $prix
+     * @param int $idPegi
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
@@ -412,10 +437,140 @@ class FonctionsBD
             VALUES (?, ?, ?, ?)
             ");
             $query->execute([$nomJeux, $description, $prix, $idPegi]);
-        } catch (PDOException $e) {
+        } catch (Exception $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
 
-    
+    /**
+     * Ajoute un commentaire a un jeux choisi
+     *
+     * @param string $commentaire
+     * @param int $idJeux
+     * @param int $idUser
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function addCommentToGame($commentaire, $idJeux, $idUser){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `commentaires`(`commentaire`, `idUser`, `idJeux`) 
+            VALUES (?,?,?)
+            ");
+            $query->execute([$commentaire, $idUser, $idJeux]);
+
+        } catch (Exception $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Ajoute une note a un jeux choisi
+     *
+     * @param int $note
+     * @param int $idJeux
+     * @param int $idUser
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function addNoteToGame($note, $idJeux, $idUser){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `notes`(`note`, `idUser`, `idJeux`) 
+            VALUES (?,?,?)
+            ");
+            $query->execute([$note, $idJeux, $idJeux]);
+        } catch (Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Ajoute un jeux a sa wishlist
+     *
+     * @param int $idJeux
+     * @param int $idUser
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function addGameToWishlist($idUser, $idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `ajouter_wishlist`(`idWishlist`, `idJeux`) 
+            VALUES (?,?)
+            ");
+            $query->execute([$idUser, $idJeux]);
+        } catch(Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Ajoute un jeux a son historique d'achat
+     *
+     * @param int $idJeux
+     * @param int $idUser
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function addGameToHistorique($idUser, $idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `voir_historique`(`idHistorique`, `idJeux`) 
+            VALUES (?,?)
+            ");
+            $query->execute([$idUser, $idJeux]);
+        } catch(Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+/**********************Fonctions pour effacer des données*************************/
+     
+    /**
+     * Efface un commentaire
+     *
+     * @param int $idComment
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deleteComment($idComment){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `commentaires` WHERE `idComentaire` = ?
+            ");
+            $query->execute([$idComment]);
+        }catch (Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+        /**
+     * Efface un jeu
+     *
+     * @param int $idComment
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deleteGame($idJeux){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_wishlist` WHERE `idJeux` = ?;
+            DELETE FROM `voir_historique` WHERE `idJeux` = ?;
+            DELETE FROM `ou_jouer` WHERE `idJeux` = ?;
+            DELETE FROM `filtre_jeux` WHERE `idJeux` = ?;
+            DELETE FROM `jeux` WHERE `idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+        }catch (Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
 }
