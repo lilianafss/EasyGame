@@ -17,19 +17,19 @@ use EasyGame\Controller\AccueilController;
 <body class="d-flex flex-column h-100">
     <header>
         <nav class="navbar justify-content-center">
-            <span class="main-nav" id="span-logo">
+            <span class="nav-container" id="logo-container">
                 <a href="/"><img id="logo" alt="logo" src="assets/image/logo.png"></a>
             </span>
-            <span class="main-nav" id="span-icon">
+            <span class="nav-container" id="icon-container">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="connexion"><i class="fa-solid fa-2x fa-user nav-font"></i></a>
+                        <a class="nav-link" href="connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart nav-font"></i></a>
+                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-basket-shopping nav-font"></i></a>
+                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
                     </li>
                 </ul>
             </span>
@@ -37,19 +37,19 @@ use EasyGame\Controller\AccueilController;
         <nav class="navbar justify-content-center">
             <form method="GET">
                 <ul class="nav">
-                    <li class="nav-item filtre-li">
+                    <li class="nav-item filtre-container">
                         <select name="age" id="age" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Age",FonctionsBD::getPegi(),"pegi");?>
                         </select>
                     </li>
 
-                    <li class="nav-item filtre-li">
+                    <li class="nav-item filtre-container">
                         <select name="plateforme" id="plateforme" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Plateforme",FonctionsBD::getPlatform(),"plateforme");?>
                         </select>
                     </li>
 
-                    <li class="nav-item filtre-li">
+                    <li class="nav-item filtre-container">
                         <select name="genre" id="genre" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Genre",FonctionsBD::getGenre(),"genre");?>
                         </select>
@@ -64,8 +64,8 @@ use EasyGame\Controller\AccueilController;
         </nav>
     </header>
     <main class="flex-shrink-0">
-        <div id="divMain">
-            <?=$stringJeux?>
+        <div id="main-container">
+            <?= $stringJeux ?>
         </div>
     </main>
     <?php require_once "footer.php"; ?>

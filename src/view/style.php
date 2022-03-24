@@ -15,7 +15,7 @@
         // Si page d'accueil -> style page accueil, sinon afficher header des autres pages
         if($_SERVER['PHP_SELF'] == "/index.php")
         {
-            echo'<link rel="stylesheet" href="assets/css/style.css">';
+            echo'<link rel="stylesheet" href="assets/css/accueil.css">';
         }
         else
         {

@@ -29,11 +29,7 @@
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
                         <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                        <section class="card-text">
-                            <p>'.$elementListe['description'].'</p>
-                        </section>
-                        <p class="card_prix">'.$elementListe['prix'].'</p>
-                        <a href="panier" class="btn card-btn">Ajouter au panier</a>
+                        <p class="card-prix">'.$elementListe['prix'].'</p>
                     </div>
                 </div>';
                 }
@@ -47,11 +43,7 @@
                             <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
                             <div class="card-block">
                                 <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                                <section class="card-text">
-                                    <p>'.$elementListe['description'].'</p>
-                                </section>
-                                <p class="card_prix">'.$elementListe['prix'].'</p>
-                                <a href="panier" class="btn card-btn">Ajouter au panier</a>
+                                <p class="card-prix">'.$elementListe['prix'].'</p>
                             </div>
                         </div>';
                         }
@@ -64,11 +56,7 @@
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
                         <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                        <section class="card-text">
-                            <p>'.$elementListe['description'].'</p>
-                        </section>
-                        <p class="card_prix">'.$elementListe['prix'].'</p>
-                        <a href="panier" class="btn card-btn">Ajouter au panier</a>
+                        <p class="card-prix">'.$elementListe['prix'].'</p>
                     </div>
                 </div>';
                 }
@@ -85,5 +73,3 @@
             } 
         }
     }
-
-?>
