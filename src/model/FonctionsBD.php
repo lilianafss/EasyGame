@@ -38,6 +38,19 @@ class FonctionsBD
         }
     }
 
+    public static function getUsers(){
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `admin` 
+            FROM `user`
+            ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
     /**
      * Récupère un jeux par son id
      * @param int $idJeux

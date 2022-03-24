@@ -1,6 +1,3 @@
-<?php
-//var_dump($jeux);
-?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -13,23 +10,38 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <h1>Admin</h1>
-
+    <?php require_once "header.php"; ?>
     <main>
+        <h1>Page d'Admin</h1>
         <div>
-            <h3>Les jeux</h3>
-            <button name="showGames" value="yes">Montrer les jeux</button>
+
+            <form method="POST">
+                <div>
+                    <a href="/">Ajouter jeux</a>
+                </div>
+                <div>
+                    <h3>Les jeux</h3>
+                    <button name="showGames" value="yesJeux"><?= $nomBoutonJeux ?></button>
+                </div>
+            </form>
+
             <table>
-                <?= $stringTable ?>
+                <?= $stringTableJeux ?>
+            </table>
+            <form method="POST">
+                <div>
+                    <h3>Les utilisateurs</h3>
+                    <button name="showUsers" value="yesUsers"><?= $nomBoutonUsers ?></button>
+                </div>
+
+            </form>
+
+            <table>
+                <?= $stringTableUsers ?>
             </table>
         </div>
-
-        <div>
-            <h3>Les utilisateurs</h3>
-
-        </div>
-
     </main>
     <?php require_once "footer.php"; ?>
 </body>
+
 </html>

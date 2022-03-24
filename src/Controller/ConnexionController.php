@@ -7,10 +7,10 @@ use EasyGame\model\FonctionsBD;
 class ConnexionController
 {
   /**
-   * description de la fonction ....................................................
+   * Se connecter
    *
    * @return void
-   * @author nom de la personne qui à fait la fonction ........
+   * @author De Castilho E Sousa Rodrigo
    */
   public static function connexion()
   {
