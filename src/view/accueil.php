@@ -1,7 +1,6 @@
 <?php
 use EasyGame\model\FonctionsBD;
 use EasyGame\Controller\AccueilController;
-
 @ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>

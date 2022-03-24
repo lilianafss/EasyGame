@@ -218,7 +218,7 @@ class FonctionsBD
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `pseudo`, `nom`, `prenom`, `email`, `password` 
+            SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin` 
             FROM `user` WHERE `idUser` = ?
             ");
             $query->execute([$idUser]);
