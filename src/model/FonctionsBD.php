@@ -541,7 +541,7 @@ class FonctionsBD
             INSERT INTO `notes`(`note`, `idUser`, `idJeux`) 
             VALUES (?,?,?)
             ");
-            $query->execute([$note, $idJeux, $idJeux]);
+            $query->execute([$note, $idUser, $idJeux]);
         } catch (Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
