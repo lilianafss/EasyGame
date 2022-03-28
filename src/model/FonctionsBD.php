@@ -351,7 +351,7 @@ class FonctionsBD
         } else if ($plateforme != "" && $pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT DISTINCT `jeux`.`idJeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
+                    SELECT DISTINCT `jeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `plateforme`, `pegis`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
