@@ -19,7 +19,6 @@ class AjouterJeuxController{
 
             //var_dump(AjouterJeuxController::validateImage($imageURL));
             
-            FonctionsBD::deleteUser(17);
 
             if($nom != "" && $description != "" && $prix != "" && $pegi != "" ){
                 // $fp = fopen($imageTmp, 'r');
