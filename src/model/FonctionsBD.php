@@ -38,6 +38,19 @@ class FonctionsBD
         }
     }
 
+    public static function getUsers(){
+        try {
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `admin` 
+            FROM `user`
+            ");
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
     /**
      * Récupère un jeux par son id
      * @param int $idJeux
@@ -218,7 +231,7 @@ class FonctionsBD
     {
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            SELECT `pseudo`, `nom`, `prenom`, `email`, `password` 
+            SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin` 
             FROM `user` WHERE `idUser` = ?
             ");
             $query->execute([$idUser]);
@@ -338,7 +351,7 @@ class FonctionsBD
         } else if ($plateforme != "" && $pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT DISTINCT `jeux`.`idJeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
+                    SELECT DISTINCT `jeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `plateforme`, `pegis`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
@@ -523,7 +536,7 @@ class FonctionsBD
             INSERT INTO `notes`(`note`, `idUser`, `idJeux`) 
             VALUES (?,?,?)
             ");
-            $query->execute([$note, $idJeux, $idJeux]);
+            $query->execute([$note, $idUser, $idJeux]);
         } catch (Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
@@ -569,6 +582,21 @@ class FonctionsBD
         } catch(Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
+    }
+    public static function addGameToPanier($idUser,$idJeux){
+        try{
+            $query= BaseDonnee::getConnexion()->prepare("
+             INSERT INTO `ajouter_panier`(`idPanier`, `idJeux`)
+              VALUES (?,?)
+             ");
+            $query->execute([$idUser, $idJeux]);
+            }
+        catch(Exeception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+
+        }
+    
+        
     }
 
 /**********************Fonctions pour effacer des données*************************/
