@@ -588,6 +588,21 @@ class FonctionsBD
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+    public static function addGameToPanier($idUser,$idJeux){
+        try{
+            $query= BaseDonnee::getConnexion()->prepare("
+             INSERT INTO `ajouter_panier`(`idPanier`, `idJeux`)
+              VALUES (?,?)
+             ");
+            $query->execute([$idUser, $idJeux]);
+            }
+        catch(Exeception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+
+        }
+    
+        
+    }
 
 /**********************Fonctions pour effacer des données*************************/
      
