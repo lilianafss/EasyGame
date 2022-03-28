@@ -351,7 +351,7 @@ class FonctionsBD
         } else if ($plateforme != "" && $pegi != "") {
             try {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT DISTINCT `jeux`.`idJeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
+                    SELECT DISTINCT `jeux`.`idJeux`,`nom`, `description`, `prix`, `image` 
                     FROM `jeux`, `plateforme`, `pegis`, `ou_jouer`
                     WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
                     AND `ou_jouer`.`idJeux` = `jeux`.`idJeux`
@@ -541,7 +541,7 @@ class FonctionsBD
             INSERT INTO `notes`(`note`, `idUser`, `idJeux`) 
             VALUES (?,?,?)
             ");
-            $query->execute([$note, $idJeux, $idJeux]);
+            $query->execute([$note, $idUser, $idJeux]);
         } catch (Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
@@ -587,6 +587,21 @@ class FonctionsBD
         } catch(Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
+    }
+    public static function addGameToPanier($idUser,$idJeux){
+        try{
+            $query= BaseDonnee::getConnexion()->prepare("
+             INSERT INTO `ajouter_panier`(`idPanier`, `idJeux`)
+              VALUES (?,?)
+             ");
+            $query->execute([$idUser, $idJeux]);
+            }
+        catch(Exeception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+
+        }
+    
+        
     }
 
 /**********************Fonctions pour effacer des données*************************/
