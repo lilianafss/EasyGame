@@ -2,7 +2,10 @@
     namespace EasyGame\Controller;
     use EasyGame\model\FonctionsBD;
     use PDOException;
+    use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
 
+//    require "vendor/phpmailer/phpmailer/src/PHPMailer/PHPMailerAutoload.php";
     class RegisterController
     {
         /**
@@ -26,6 +29,16 @@
 
             $message = "";
 
+            //fdgggggggggggggggggggggggggggggggggggggggfdfgfgdgggdgfgf
+            $to   = $email;
+            $from = 'site.easygame@gmail.com';
+            $name = 'EasyGame';
+            $subj = 'Email de confirmation';
+            $msg = 'http://easygame.ch/';
+
+            //$error=smtpmailer($to,$from, $name ,$subj, $msg);
+            //dfgogdhfgdfghdfklghfkgdsj cnuirzjuirejrcdvkuhbnjfigrkdgfjipohkiuo
+
             // Si le boutton "Valider" est pressé
             if ($submit == "Valider")
             {
@@ -41,6 +54,8 @@
                         // Ajoute un nouvel utilisateur dans la base de données
                         try
                         {
+                            //$this->smtpmailer($to, $from, $name, $subj, $msg);
+
                             $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
 
                             header("location: /");
@@ -74,5 +89,39 @@
                 exit();
             }
             require "../src/view/register.php";
+        }
+
+        /** Email de vérification
+         * @param $to
+         * @param $from
+         * @param $from_name
+         * @param $subject
+         * @param $body
+         * @return void
+         * @throws Exception
+         */
+        public function smtpmailer($to, $from, $from_name, $subject, $body)
+        {
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = 'site.easygame@gmail.com';
+            $mail->Password = 'Super2022';
+
+            //   $path = 'reseller.pdf';
+            //   $mail->AddAttachment($path);
+
+            $mail->IsHTML(true);
+            $mail->From="site.easygame@gmail.com";
+            $mail->FromName=$from_name;
+            $mail->Sender=$from;
+            $mail->AddReplyTo($from, $from_name);
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+            $mail->AddAddress($to);
         }
     }

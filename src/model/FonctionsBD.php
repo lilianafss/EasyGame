@@ -449,21 +449,16 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newUser($pseudo, $nom, $prenom, $email, $password)
+    public static function newUser(string $pseudo, string $nom, string $prenom, string $email, string $password)
     {
-        try{
-            $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`) 
-            VALUES ( ?, ?, ?, ?, ?, false);
+        $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`) 
+            VALUES ( ?, ?, ?, ?, ?, false, 'En Attente');
             
             INSERT INTO `wishlist`(`idWishlist`,`idUser`) VALUES (LAST_INSERT_ID(),LAST_INSERT_ID());
-            
             INSERT INTO `historique`(`idHistorique`,`idUser`) VALUES (LAST_INSERT_ID(),LAST_INSERT_ID())
-            ");
-            $query->execute([$pseudo, $nom, $prenom, $email, $password]);
-        } catch(Exception $e){
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
-        }
+        ");
+        $query->execute([$pseudo, $nom, $prenom, $email, $password]);
     }
 
     /**
@@ -477,7 +472,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($nomJeux, $description, $prix, $idPegi){
+    public static function newGame(string $nomJeux, string $description, float $prix, int $idPegi){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
