@@ -10,6 +10,7 @@ use EasyGame\Controller\AccueilController;
 use EasyGame\Controller\JeuxController;
 use EasyGame\Controller\PanierController;
 use EasyGame\Controller\AdminController;
+use EasyGame\Controller\AjouterJeuxController;
 
 SimpleRouter::form('/', [AccueilController::class, 'accueil']);
 SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion']);
@@ -17,3 +18,4 @@ SimpleRouter::form('/nouveau', [RegisterController::class, 'nouveauCompte']);
 SimpleRouter::form('/jeux', [JeuxController::class, 'jeux']);
 SimpleRouter::form('/panier', [PanierController::class, 'panier']);
 SimpleRouter::form('/admin', [AdminController::class, 'admin']);
+SimpleRouter::form('/ajouterJeux', [AjouterJeuxController::class, 'ajouterJeux']);
