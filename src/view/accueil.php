@@ -28,7 +28,7 @@ use EasyGame\Controller\AccueilController;
                         <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
+                        <a class="nav-link" href="panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
                     </li>
                     <?php
                     if($_SESSION['admin']){
