@@ -7,7 +7,7 @@ use EasyGame\model\FonctionsBD;
 class AdminController
 {
   /**
-   * function principale de la page admin
+   * fonction principale de la page admin
    *
    * @return void
    * @author De Castilho E Sousa Rodrigo

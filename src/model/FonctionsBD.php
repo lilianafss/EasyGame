@@ -6,8 +6,6 @@ use Exception;
 use PDO;
 use PDOException;
 
-@ini_set('display_errors', 'on');
-
 /*
 Auteur      : De Castilho E Sousa Rodrigo, Liliana Santos
 Description : Requêtes SQL (PDO)
@@ -502,13 +500,13 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($nomJeux, $description, $prix, $idPegi, $image){
+    public static function newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $image){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`, `image`) 
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO `jeux`( `idJeux`, `nom`, `description`, `prix`, `idPegi`, `image`) 
+            VALUES (?, ?, ?, ?, ?, ?)
             ");
-            $query->execute([$nomJeux, $description, $prix, $idPegi, $image]);
+            $query->execute([$idJeux, $nomJeux, $description, $prix, $idPegi, $image]);
         } catch (Exception $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
@@ -654,6 +652,16 @@ class FonctionsBD
 
             $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `ajouter_wishlist` WHERE `idWishlist` = ?
+            ");
+            $query->execute([$idUser]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `commentaires` WHERE `idUser` = ?
+            ");
+            $query->execute([$idUser]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `notes` WHERE `idUser` = ?
             ");
             $query->execute([$idUser]);
 
