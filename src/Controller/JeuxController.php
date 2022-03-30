@@ -98,3 +98,4 @@ class JeuxController{
         require '../src/view/jeux.php';
     }
 }
+}
