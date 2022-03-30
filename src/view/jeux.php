@@ -19,7 +19,7 @@
     <?=$content?>
    
     <form method="get">
-        <fieldset class="rating"> 
+        <!-- <fieldset class="rating"> 
             <input name="rating" type="radio" id="rating5" value="5" on="change:rating.submit">
             <label for="rating5" title="5 stars">☆</label>
 
@@ -34,9 +34,11 @@
 
             <input name="rating" type="radio" id="rating1" value="1" on="change:rating.submit">
             <label for="rating1" title="1 stars">☆</label>
-        </fieldset>
-        
-        <label for="commentaire">Commentaire: </label>
+        </fieldset> -->
+        <label for="note">Note :</label>
+        <input type="number" min="1" max="5" name="note" id="note>
+
+        <label for="commentaire" >Commentaire: </label>
         <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
         
         <input type="submit" value="Ajouter commentaire" name="envoyer">
