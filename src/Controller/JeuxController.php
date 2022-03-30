@@ -16,6 +16,7 @@ class JeuxController{
             $formulaire = "";
             $stringUserCommentaire = "";
             $userUtilisateur=$_SESSION['idUser'];
+            $envoiePanier=filter_input(INPUT_POST,'panier');
 
             $infoJeux = FonctionsBD::getGameById($idJeux);
             $tableauxCommentaire= FonctionsBD::getComments($idJeux);
@@ -49,9 +50,9 @@ class JeuxController{
             }
 
           
-            // if(filter_has_var(INPUT_GET,'panier')){
-            //     echo "coucou";
-            //     $panier=FonctionsBD::addGameToPanier($userUtilisateur,$idJeux);
+            if($envoiePanier="Ajouter au panier"){
+                echo "couocu";
+                $panier=FonctionsBD::addGameToPanier($userUtilisateur,$idJeux);
                
             // }
 
