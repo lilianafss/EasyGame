@@ -15,7 +15,9 @@
     
 </head>
 <body  class="h-100"> 
+
     <?=$content?>
+   
     <form method="get">
         <fieldset class="rating"> 
             <input name="rating" type="radio" id="rating5" value="5" on="change:rating.submit">
@@ -38,7 +40,9 @@
         <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
         
         <input type="submit" value="Ajouter commentaire" name="envoyer">
+        
     </form>
+
 
     <?php require_once "footer.php"; ?>
 </body>
