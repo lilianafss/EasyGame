@@ -39,4 +39,9 @@
         {
             echo '<link rel="stylesheet" href="/assets/css/ajouterJeux.css">';
         }
+        //page panier
+        if ($_SERVER['PHP_SELF'] == "/index.php/panier")
+        {
+            echo '<link rel="stylesheet" href="/assets/css/header.css">';
+        }
     #endregion

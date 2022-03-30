@@ -37,7 +37,7 @@ class JeuxController{
             }
           
             if($envoiePanier="Ajouter au panier"){
-                echo "couocu";
+              
                 $panier=FonctionsBD::addGameToPanier($userUtilisateur,$idJeux);
                
             }

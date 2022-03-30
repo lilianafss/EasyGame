@@ -16,7 +16,9 @@ session_start();
     <link rel="stylesheet" href="assets/font-awesome/css/all.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <?php require_once "style.php" ?>
 </head>
+<?php require_once "header.php";?>
 <body>
     <h1>panier</h1>
     
