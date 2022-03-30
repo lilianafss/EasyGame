@@ -607,6 +607,12 @@ class FonctionsBD
             VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());
         ");
         $query->execute();
+
+        $query = BaseDonnee::getConnexion()->prepare("
+        INSERT INTO `panier`(`idPanier`, `idUser`)
+        VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());
+    ");
+    $query->execute();
     }
 
     /**
@@ -648,8 +654,8 @@ class FonctionsBD
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                INSERT INTO `commentaires`(`commentaire`, `idUser`, `idJeux`) 
-                VALUES (?,?,?)
+                INSERT INTO `commentaires`(`commentaire`, `date`, `idUser`, `idJeux`) 
+                VALUES (?,CURDATE(),?,?)
             ");
             $query->execute([$commentaire, $idUser, $idJeux]);
 
@@ -754,7 +760,7 @@ class FonctionsBD
             VALUES (?,?)
             ");
             $query->execute([$idUser, $idJeux]);
-        } catch(Exeception $e){
+        } catch(Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
 
