@@ -754,7 +754,7 @@ class FonctionsBD
             VALUES (?,?)
             ");
             $query->execute([$idUser, $idJeux]);
-        } catch(Exeception $e){
+        } catch(Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
 

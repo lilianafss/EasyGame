@@ -14,6 +14,8 @@ class JeuxController{
         $idUser=filter_input(INPUT_GET,'idUser');
         $idJeux=filter_input(INPUT_GET,'idJeux');
         $envoyer=filter_input(INPUT_POST,'envoyer');
+        $envoiePanier=filter_input(INPUT_POST,'panier');
+
         $note=filter_input(INPUT_POST,'note',FILTER_SANITIZE_NUMBER_INT);
         $commentaire=filter_input(INPUT_POST,'commentaire', FILTER_SANITIZE_SPECIAL_CHARS);
         $userUtilisateur=$_SESSION['idUser'];
@@ -34,9 +36,9 @@ class JeuxController{
                 $stringNote.='<p>Note:'.$note['note'].'</p>';
             }
           
-            if(filter_has_var(INPUT_GET,'panier')){
+            if($envoiePanier="Ajouter au panier"){
                 echo "couocu";
-                $panier=FonctionsBD::addGameToPanier($idUser,$idJeux);
+                $panier=FonctionsBD::addGameToPanier($userUtilisateur,$idJeux);
                
             }
             $content.='<h1>'.$infoJeux['nom'].'</h1>
