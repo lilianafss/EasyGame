@@ -7,7 +7,7 @@ use EasyGame\model\FonctionsBD;
 class AdminController
 {
   /**
-   * function principale de la page admin
+   * fonction principale de la page admin
    *
    * @return void
    * @author De Castilho E Sousa Rodrigo
@@ -126,6 +126,7 @@ class AdminController
       <th>Prenom</th>
       <th>Email</th>
       <th>Admin</th>
+      <th>USER_STATUS</th>
       <tr>
       ";
 
@@ -138,7 +139,9 @@ class AdminController
         <td>" . $unUser['prenom'] . "</td>
         <td>" . $unUser['email'] . "</td>
         <td>" . $unUser['admin'] . "</td>
+        <td>" . $unUser['user_status'] . "</td>
         <td><a href='/'>Effacer<a/><td>
+        <td><a href='/'>Disabled<a/></td>
         </tr>";
     }
     return $stringTableU;

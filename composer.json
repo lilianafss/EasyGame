@@ -21,7 +21,6 @@
     "require": {
         "pecee/simple-router": "4.3.7.2",
         "phpmailer/phpmailer": "^6.6",
-        "ext-pdo": "*",
-        "google/apiclient": "^2.12.1"
+        "ext-pdo": "*"
     }
 }

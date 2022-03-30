@@ -11,7 +11,6 @@ footer
 
     background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
 }
-
 /* div dans le footer qui sert de container*/
 #divFooter
 {
@@ -30,9 +29,7 @@ footer
 {
     width: 33.3333%;
 }
-/*#endregion */
-
-
+/*#endregion*/
 
 
 /*--------------------Media--------------------*/

@@ -27,6 +27,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
+            <?php
+                if($_SESSION['admin']){
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='http://easygame.ch/admin'>Admin</a>
+                    </li>";
+                }
+            
+            ?>
         </ul>
     </nav>
 </header>
