@@ -3,6 +3,7 @@ namespace EasyGame\Controller;
 
 use EasyGame\model\FonctionsBD;
 
+//@ini_set('display_errors', 'on');
 class JeuxController{
     public static function jeux(){
         session_start();
@@ -11,10 +12,10 @@ class JeuxController{
         $stringNote="";
         $stringCommentaire="";
         $idJeux=filter_input(INPUT_GET,'idJeux');
-        $envoyer=filter_input(INPUT_GET,'envoyer');
-        $note=filter_input(INPUT_GET,'note');
-        $commentaire=filter_input(INPUT_GET,'commentaire');
-        $user1=filter_input(INPUT_GET,'idUser');
+        $envoyer=filter_input(INPUT_POST,'envoyer');
+        $note=filter_input(INPUT_POST,'note',FILTER_SANITIZE_NUMBER_INT);
+        $commentaire=filter_input(INPUT_POST,'commentaire', FILTER_SANITIZE_SPECIAL_CHARS);
+        $userUtilisateur=$_SESSION['idUser'];
 
         if($idJeux!=""){
             $infoJeux = FonctionsBD::getGameById($idJeux);
@@ -41,12 +42,14 @@ class JeuxController{
             <p>'.$stringNote.'</p>
             <p>'.$stringCommentaire.'</p>';
 
-            if($note!="" && $commentaire!=""){
-                FonctionsBD::addCommentToGame($commentaire,$idJeux,$user);
-                FonctionsBD::addNoteToGame($note,$idJeux,$user);
+            if($envoyer="Ajouter commentaire"){
+                if($commentaire!="" && $note!=""){
+                    FonctionsBD::addCommentToGame($commentaire,$idJeux,$userUtilisateur);
+                    FonctionsBD::addNoteToGame($note,$idJeux,$userUtilisateur);
+                }
             }
         }else{
-            header("Location: easygame.ch");
+            header("Location: http://easygame.ch/");
         }
         require '../src/view/jeux.php';
     }

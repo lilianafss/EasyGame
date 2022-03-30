@@ -16,7 +16,7 @@
 </head>
 <body  class="h-100"> 
     <?=$content?>
-    <form method="get">
+    <form method="POST">
         <!-- <fieldset class="rating"> 
             <input name="rating" type="radio" id="rating5" value="5" on="change:rating.submit">
             <label for="rating5" title="5 stars">☆</label>
