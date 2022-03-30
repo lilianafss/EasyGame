@@ -592,7 +592,8 @@ class FonctionsBD
      */
     public static function newUser(string $pseudo, string $nom, string $prenom, string $email, string $password)
     {
-        $query = BaseDonnee::getConnexion()->prepare("
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`) 
             VALUES ( ?, ?, ?, ?, ?, false, 'En Attente');
         ");
@@ -618,6 +619,7 @@ class FonctionsBD
      * @param string $description
      * @param float $prix
      * @param int $idPegi
+     * @param string $image
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
@@ -627,8 +629,8 @@ class FonctionsBD
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`) 
-            VALUES (?, ?, ?, ?)
+            INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`, `image`) 
+            VALUES (?, ?, ?, ?, ?)
             ");
             $query->execute([$nomJeux, $description, $prix, $idPegi]);
         }
@@ -791,6 +793,46 @@ class FonctionsBD
         }
         catch (Exception $e)
         {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Efface un commentaire
+     *
+     * @param int $idUser
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deleteUser($idUser){
+        try{
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `voir_historique` WHERE `idHistorique` = ?
+            ");
+            $query->execute([$idUser]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_wishlist` WHERE `idWishlist` = ?
+            ");
+            $query->execute([$idUser]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `historique` WHERE `idUser` = ?
+            ");
+            $query->execute([$idUser]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `wishlist` WHERE `idUser` = ?
+            ");
+            $query->execute([$idUser]); 
+            
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `user` WHERE `idUser` = ?
+            ");
+            $query->execute([$idUser]);
+
+        }catch (Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
