@@ -30,6 +30,13 @@ use EasyGame\Controller\AccueilController;
                     <li class="nav-item">
                         <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
                     </li>
+                    <?php
+                    if($_SESSION['admin']){
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' href='http://easygame.ch/admin'>Admin</a>
+                        </li>";
+                    }
+                    ?>
                 </ul>
             </span>
         </nav>

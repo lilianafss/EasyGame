@@ -38,7 +38,7 @@ class AjouterJeuxController
                 //si tout est rempli on l'ajoute a la base de donnée
                 if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "") {
                     $img = file_get_contents($image);
-                    FonctionsBD::newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $img);
+                    //FonctionsBD::newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $img);
                 } else {
                     //affichage de la message d'erreur
                     $messageErreur = "<p id='messageErreur'>Tous les champs doivent être remplis</p>";
@@ -46,5 +46,9 @@ class AjouterJeuxController
             }
         }
         require '../src/view/ajouterJeux.php';
+    }
+
+    public static function afficherGenres(){
+        
     }
 }
