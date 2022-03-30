@@ -15,6 +15,7 @@
     
 </head>
 <body  class="h-100"> 
+
     <?=$content?>
     <form method="POST">
         <!-- <fieldset class="rating"> 
@@ -40,7 +41,9 @@
         <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
         
         <input type="submit" value="Ajouter commentaire" name="envoyer">
+        
     </form>
+
 
     <?php require_once "footer.php"; ?>
 </body>

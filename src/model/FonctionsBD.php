@@ -621,7 +621,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $image){
+    public static function newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $image, $idPlateforme, $idGenre){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `jeux`( `idJeux`, `nom`, `description`, `prix`, `idPegi`, `image`) 
@@ -754,11 +754,8 @@ class FonctionsBD
             VALUES (?,?)
             ");
             $query->execute([$idUser, $idJeux]);
-        }
-        catch(Exception $e)
-        {
+        } catch(Exeception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
-
         }
 
 

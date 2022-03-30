@@ -11,6 +11,7 @@ class JeuxController{
         $stringUser="";
         $stringNote="";
         $stringCommentaire="";
+        $idUser=filter_input(INPUT_GET,'idUser');
         $idJeux=filter_input(INPUT_GET,'idJeux');
         $envoyer=filter_input(INPUT_POST,'envoyer');
         $note=filter_input(INPUT_POST,'note',FILTER_SANITIZE_NUMBER_INT);
@@ -32,15 +33,23 @@ class JeuxController{
                 $user=FonctionsBD::getInfoUser($note['idUser']);
                 $stringNote.='<p>Note:'.$note['note'].'</p>';
             }
-           
+          
+            if(filter_has_var(INPUT_GET,'panier')){
+                echo "couocu";
+                $panier=FonctionsBD::addGameToPanier($idUser,$idJeux);
+               
+            }
             $content.='<h1>'.$infoJeux['nom'].'</h1>
             <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($infoJeux['image']).'"/>
             <h3>A propos du jeu</h3>
             <p>'.$infoJeux['description'].'</p>
+            <input type="submit" name="panier" id="panier" value="Ajouter au panier">
             <h3>Notes et Comentaires</h3>
             <p>'.$stringUser.'</p>
             <p>'.$stringNote.'</p>
             <p>'.$stringCommentaire.'</p>';
+           
+            
 
             if($envoyer="Ajouter commentaire"){
                 if($commentaire!="" && $note!=""){

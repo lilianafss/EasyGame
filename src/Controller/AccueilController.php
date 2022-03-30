@@ -12,6 +12,16 @@
         public static function accueil()
         {
             session_start();
+            if (!isset($_SESSION['idUser'])) {
+                $_SESSION = [
+                  'idUser' => '',
+                  'connected' => false,
+                  'admin' => false,
+                  'btnJeux' => false,
+                  'btnUser' => false
+                ];
+            }
+            
             $recherche = filter_input(INPUT_GET,'recherche');
             $pegi = filter_input(INPUT_GET,'age');
             $plateforme = filter_input(INPUT_GET,'plateforme');

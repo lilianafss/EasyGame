@@ -58,7 +58,9 @@ class ConnexionController
       $_SESSION = [
         'idUser' => '',
         'connected' => false,
-        'admin' => false
+        'admin' => false,
+        'btnJeux' => false,
+        'btnUser' => false
       ];
     }
 

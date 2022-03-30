@@ -43,10 +43,10 @@
                 <br>
 
                 <label>L'image du jeu :</label>
-                <input type="file" name="imageJeu">
+                <input class="btn" type="file" name="imageJeu">
             </div>
             <div>
-                <input type="submit" name="submit" value="Envoyer">
+                <input class="btn" type="submit" name="submit" value="Envoyer">
             </div>
         </form>
         <?=$messageErreur?>

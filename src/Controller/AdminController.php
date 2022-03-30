@@ -100,8 +100,8 @@ class AdminController
         <td>" . $unJeux['prix'] . "</td>
         <td>" . $unJeux['pegi'] . "</td>
         <td><img class=\"card-img\" src=\"data:image/jpeg;base64," . base64_encode($unJeux['image']) . "\"/></td>
-        <td><a href='/'>Effacer<a/><td>
-        <td><a href='/'>Modifier<a/><td>
+        <td><a href='http://easygame.ch/effacer?idJeux=".$unJeux['idJeux']."'>Effacer<a/><td>
+        <td><a href='http://easygame.ch/effacer?idJeux=".$unJeux['idJeux']."'>Modifier<a/><td>
         </tr>";
     }
     return $stringTableJ;
@@ -140,8 +140,8 @@ class AdminController
         <td>" . $unUser['email'] . "</td>
         <td>" . $unUser['admin'] . "</td>
         <td>" . $unUser['user_status'] . "</td>
-        <td><a href='/'>Effacer<a/><td>
-        <td><a href='/'>Disabled<a/></td>
+        <td><a href='http://easygame.ch/effacer?idUser=".$unUser['idUser']."'>Effacer<a/><td>
+        <td><a href='http://easygame.ch/effacer?idUser=".$unUser['idUser']."'>Disabled<a/></td>
         </tr>";
     }
     return $stringTableU;
