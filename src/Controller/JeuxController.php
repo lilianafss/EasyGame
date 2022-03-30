@@ -12,6 +12,9 @@ class JeuxController{
         $stringCommentaire="";
         $idJeux=filter_input(INPUT_GET,'idJeux');
         $envoyer=filter_input(INPUT_GET,'envoyer');
+        $note=filter_input(INPUT_GET,'note');
+        $commentaire=filter_input(INPUT_GET,'commentaire');
+        $user1=filter_input(INPUT_GET,'idUser');
 
         if($idJeux!=""){
             $infoJeux = FonctionsBD::getGameById($idJeux);
@@ -38,6 +41,10 @@ class JeuxController{
             <p>'.$stringNote.'</p>
             <p>'.$stringCommentaire.'</p>';
 
+            if($note!="" && $commentaire!=""){
+                FonctionsBD::addCommentToGame($commentaire,$idJeux,$user);
+                FonctionsBD::addNoteToGame($note,$idJeux,$user);
+            }
         }else{
             header("Location: easygame.ch");
         }
