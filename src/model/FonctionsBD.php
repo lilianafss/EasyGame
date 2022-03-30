@@ -592,8 +592,7 @@ class FonctionsBD
      */
     public static function newUser(string $pseudo, string $nom, string $prenom, string $email, string $password)
     {
-        try{
-            $query = BaseDonnee::getConnexion()->prepare("
+        $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`) 
             VALUES ( ?, ?, ?, ?, ?, false, 'En Attente');
         ");
@@ -624,15 +623,15 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame(string $nomJeux, string $description, float $prix, int $idPegi)
+    public static function newGame($nomJeux, $description, $prix, $idPegi, $image)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`, `image`) 
-            VALUES (?, ?, ?, ?, ?)
+                INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`, `image`) 
+                VALUES (?, ?, ?, ?, ?)
             ");
-            $query->execute([$nomJeux, $description, $prix, $idPegi]);
+            $query->execute([$nomJeux, $description, $prix, $idPegi, $image]);
         }
         catch (Exception $e)
         {
@@ -655,8 +654,8 @@ class FonctionsBD
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `commentaires`(`commentaire`, `idUser`, `idJeux`) 
-            VALUES (?,?,?)
+                INSERT INTO `commentaires`(`commentaire`, `idUser`, `idJeux`) 
+                VALUES (?,?,?)
             ");
             $query->execute([$commentaire, $idUser, $idJeux]);
 

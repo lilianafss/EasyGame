@@ -75,7 +75,6 @@ class RegisterController
                         {
                             $message = "nom d'utilisateur déjà existant";
                         }
-                        echo($e);
                     }
                 }
                 else

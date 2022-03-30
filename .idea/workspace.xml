@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd4ae595-0cb7-471d-aef3-47b0bae37a4a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/EasyGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EasyGame.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/FonctionsBD.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FonctionsBD.php" afterDir="false" />
     </list>
@@ -54,7 +50,7 @@
       <updated>1648451280306</updated>
       <workItem from="1648451284357" duration="7306000" />
       <workItem from="1648472838452" duration="5704000" />
-      <workItem from="1648618839266" duration="1949000" />
+      <workItem from="1648618839266" duration="2935000" />
     </task>
     <servers />
   </component>
