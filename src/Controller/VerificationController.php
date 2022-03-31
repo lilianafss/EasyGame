@@ -16,15 +16,22 @@ class VerificationController
 {
     public function VerifierCompte()
     {
+        session_start();
+
         // Permet d'utiliser les fonctions contenues dans la classe FonctionsBD
         $fonctionsBD = new FonctionsBD();
 
+        // Récupère l'id de l'utilisateur dans la session
+        $idUser = implode($_SESSION['idUser']);
 
-        $fonctionsBD->getInfoUser($idUser);
+        // Récupère les informations de l'utilisateur avec l'idUser
+        $infoUser = $fonctionsBD->getInfoUser($idUser);
 
-        $idUser     = "";
-        $userName   = "";
-        $lastName   = "";
-        $firstName  = "";
+        $userName   = $infoUser['pseudo'];
+        $nom   = $infoUser['nom'];
+        $prenom  = $infoUser['prenom'];
+        $userStatus = "Actif";
+
+        $fonctionsBD->updateUser($idUser, $userName, $nom, $prenom, $userStatus);
     }
 }

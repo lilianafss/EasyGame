@@ -50,12 +50,12 @@ class FonctionsBD
          * @return mixed|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getInfoUser( $idUser)
+        public static function getInfoUser($idUser)
         {
             try
             {
                 $query = BaseDonnee::getConnexion()->prepare("
-                        SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin` 
+                        SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status` 
                         FROM `user` WHERE `idUser` = ?
                     ");
 

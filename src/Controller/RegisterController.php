@@ -22,6 +22,18 @@ class RegisterController
      */
     public function nouveauCompte()
     {
+        session_start();
+        if (!isset($_SESSION['idUser']))
+        {
+            $_SESSION = [
+                'idUser' => '',
+                'connected' => false,
+                'admin' => false,
+                'btnJeux' => false,
+                'btnUser' => false
+            ];
+        }
+
         // Permet d'utiliser les fonctions contenues dans la classe FonctionsBD
         $fonctionsBD = new FonctionsBD();
 
@@ -58,7 +70,13 @@ class RegisterController
                     // Ajoute un nouvel utilisateur dans la base de données
                     try
                     {
+                        // Crée l'utilisateur
                         $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
+
+                        // Récupère l'id de l'utilisateur et on le met dans la session
+                        $_SESSION['idUser'] = $fonctionsBD->getIdUser($email);
+
+                        // Envoie un mail de confirmation pour activer le compte
                         $message = $this->smtpmailer($to, $from, $name, $subj, $msg);
                     }
                     catch (PDOException $e)
