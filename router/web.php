@@ -12,6 +12,7 @@ use EasyGame\Controller\PanierController;
 use EasyGame\Controller\AdminController;
 use EasyGame\Controller\AjouterJeuxController;
 use EasyGame\Controller\VerificationController;
+use EasyGame\Controller\EffacerController;
 
 SimpleRouter::form('/', [AccueilController::class, 'accueil']); // page d'accueil du site
 SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion']); // page de connexion au site
@@ -21,3 +22,4 @@ SimpleRouter::form('/panier', [PanierController::class, 'panier']); // page du p
 SimpleRouter::form('/admin', [AdminController::class, 'admin']); // page administrateur
 SimpleRouter::form('/ajouterJeux', [AjouterJeuxController::class, 'ajouterJeux']); // page d'ajout de jeux
 SimpleRouter::form('/verification', [VerificationController::class, 'VerifierCompte']); // page de vérification de compte
+SimpleRouter::form('/effacer', [EffacerController::class, 'effacer']); 

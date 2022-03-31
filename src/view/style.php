@@ -33,4 +33,16 @@
         {
             echo '<link rel="stylesheet" href="/assets/css/connexion.css">';
         }
+
+        // Page AjouterJeu
+        if ($_SERVER['PHP_SELF'] == "/index.php/ajouterJeux")
+        {
+            echo '<link rel="stylesheet" href="/assets/css/ajouterJeux.css">';
+        }
+
+        // Page Description jeux
+        if ($_SERVER['PHP_SELF'] == "/index.php/jeux")
+        {
+            echo '<link rel="stylesheet" href="/assets/css/header.css">';
+        }
     #endregion

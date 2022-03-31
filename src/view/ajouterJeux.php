@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ajouter un jeu</title>
     <?php require_once "style.php" ?>
 </head>
 
@@ -27,7 +27,7 @@
                 <br>
 
                 <label>Prix du jeu :</label>
-                <input type="number" name="prixJeu">
+                <input type="number"  step="0.01" name="prixJeu">
 
                 <br>
 
@@ -42,13 +42,14 @@
 
                 <br>
 
-                <label>URL de l'image du jeu :</label>
-                <input type="text" name="imageJeu">
+                <label>L'image du jeu :</label>
+                <input class="btn" type="file" name="imageJeu">
             </div>
             <div>
-                <input type="submit" name="submit" value="Envoyer">
+                <input class="btn" type="submit" name="submit" value="Envoyer">
             </div>
         </form>
+        <?=$messageErreur?>
     </main>
     <?php require_once "footer.php"; ?>
 </body>

@@ -53,15 +53,15 @@ class ConnexionController
         //   $btnGoogle = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"><img src="/assets/image/googleLogo.png" alt=""/></a>';
     // }
     /******************************************************************************************/
-
-    //si idUser n'existe pas dans la session on va creer ses trois variables
-    if (!isset($_SESSION['idUser']))
-    {
-        $_SESSION = [
-            'idUser' => '',
-            'connected' => false,
-            'admin' => false
-        ];
+    //si idUser existe pas dans la session on va creer ses trois variables  
+    if (!isset($_SESSION['idUser'])) {
+      $_SESSION = [
+        'idUser' => '',
+        'connected' => false,
+        'admin' => false,
+        'btnJeux' => false,
+        'btnUser' => false
+      ];
     }
 
     //varible pour récupérer le boutton

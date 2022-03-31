@@ -1,54 +1,54 @@
 <?php
+
 namespace EasyGame\Controller;
 
 use EasyGame\model\FonctionsBD;
 use Exception;
 
-class AjouterJeuxController{
+class AjouterJeuxController
+{
+    /**
+     * Fonction de la page de ajouter jeux
+     * @return array|false|void
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function ajouterJeux()
+    {
+        //start la fonction
+        session_start();
 
-    public static function ajouterJeux(){
+        //si on est pas connecté en tant de admin on va a la page d'accueil
+        if (!$_SESSION['admin']) {
+            header("location: http://easygame.ch");
+            exit();
+        } else {
+            $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
+            $messageErreur = "";
+            //on essaye de ajouter le jeu si on touche le bouton Envoyer
+            if ($submit == "Envoyer") {
 
-        $submit = filter_input(INPUT_POST,'submit',FILTER_SANITIZE_SPECIAL_CHARS);
+                //recuperer les donnees de l'image
+                $nomJeux = filter_input(INPUT_POST, 'nomJeu', FILTER_SANITIZE_SPECIAL_CHARS);
+                $description = filter_input(INPUT_POST, 'descrifJeu', FILTER_SANITIZE_SPECIAL_CHARS);
+                $prix = floatval(filter_input(INPUT_POST, 'prixJeu', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+                $idPegi = filter_input(INPUT_POST, 'pegiJeu', FILTER_SANITIZE_NUMBER_INT);
+                $idJeux = count(FonctionsBD::getGames()) + 1;
+                $image = $_FILES['imageJeu']['tmp_name'];
 
-        if($submit == "Envoyer"){
-            $nom = filter_input(INPUT_POST,'nomJeu',FILTER_SANITIZE_SPECIAL_CHARS);
-            $description = filter_input(INPUT_POST,'descrifJeu',FILTER_SANITIZE_SPECIAL_CHARS);
-            $prix = filter_input(INPUT_POST,'prixJeu',FILTER_SANITIZE_NUMBER_FLOAT);
-            $pegi = filter_input(INPUT_POST,'pegiJeu',FILTER_SANITIZE_NUMBER_INT);
-            $imageURL = filter_input(INPUT_POST,'imageJeu',FILTER_SANITIZE_SPECIAL_CHARS);
-
-            //var_dump(AjouterJeuxController::validateImage($imageURL));
-            
-
-            if($nom != "" && $description != "" && $prix != "" && $pegi != "" ){
-                // $fp = fopen($imageTmp, 'r');
-                // $data = fread($fp, filesize($imageTmp));
-                // $data = addslashes($data);
-                //fclose($fp);
-                
-                
+                //si tout est rempli on l'ajoute a la base de donnée
+                if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "") {
+                    $img = file_get_contents($image);
+                    //FonctionsBD::newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $img);
+                } else {
+                    //affichage de la message d'erreur
+                    $messageErreur = "<p id='messageErreur'>Tous les champs doivent être remplis</p>";
+                }
             }
-            // var_dump($nom);
-            // var_dump($description);
-            // var_dump($prix);
-            // var_dump($pegi);
-            // var_dump($imageSize);
-
-
         }
-
         require '../src/view/ajouterJeux.php';
     }
 
-    static public function validateImage($image){
-        try{
-            $size = getimagesize($image);
-            return (strtolower(substr($size['mime'], 0, 5)) == 'image' ? true : false); 
-        }
-        catch(Exception $e){
-            return (strtolower(substr($size['mime'], 0, 5)) == 'image' ? true : false); 
-        }
-       
+    public static function afficherGenres(){
         
     }
 }

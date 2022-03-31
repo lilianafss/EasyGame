@@ -6,8 +6,6 @@ use Exception;
 use PDO;
 use PDOException;
 
-@ini_set('display_errors', 'on');
-
 /*
 Auteur      : De Castilho E Sousa Rodrigo, Liliana Santos
 Description : Requêtes SQL (PDO)
@@ -52,7 +50,7 @@ class FonctionsBD
          * @return mixed|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getInfoUser(int $idUser)
+        public static function getInfoUser( $idUser)
         {
             try
             {
@@ -75,7 +73,7 @@ class FonctionsBD
          * @return mixed|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getIdUser(string $email)
+        public static function getIdUser( $email)
         {
             try
             {
@@ -126,7 +124,7 @@ class FonctionsBD
              * @return array|false|void
              * @author Rodrigo De Castilho E Sousa
              */
-            public static function getGameById(int $idJeux)
+            public static function getGameById( $idJeux)
             {
                 try
                 {
@@ -365,7 +363,7 @@ class FonctionsBD
          * @return array|false|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getGameGenre(int $idJeux)
+        public static function getGameGenre( $idJeux)
         {
             try
             {
@@ -414,7 +412,7 @@ class FonctionsBD
          * @return array|false|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getGamePlatform(int $idJeux)
+        public static function getGamePlatform( $idJeux)
         {
             try
             {
@@ -466,7 +464,7 @@ class FonctionsBD
          * @return array|false|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getComments(int $idJeux)
+        public static function getComments( $idJeux)
         {
             try
             {
@@ -493,7 +491,7 @@ class FonctionsBD
          * @return array|false|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getNotes(int $idJeux)
+        public static function getNotes( $idJeux)
         {
             try
             {
@@ -520,7 +518,7 @@ class FonctionsBD
          * @return array|false|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getHistory(int $idUser)
+        public static function getHistory( $idUser)
         {
             try
             {
@@ -551,7 +549,7 @@ class FonctionsBD
          * @return array|false|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getWishlist(int $idUser)
+        public static function getWishlist( $idUser)
         {
             try
             {
@@ -590,7 +588,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newUser(string $pseudo, string $nom, string $prenom, string $email, string $password)
+    public static function newUser( $pseudo,  $nom,  $prenom,  $email,  $password)
     {
         $query = BaseDonnee::getConnexion()->prepare("
             INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`) 
@@ -609,6 +607,12 @@ class FonctionsBD
             VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());
         ");
         $query->execute();
+
+        $query = BaseDonnee::getConnexion()->prepare("
+        INSERT INTO `panier`(`idPanier`, `idUser`)
+        VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());
+    ");
+    $query->execute();
     }
 
     /**
@@ -623,18 +627,14 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($nomJeux, $description, $prix, $idPegi, $image)
-    {
-        try
-        {
+    public static function newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $image, $idPlateforme, $idGenre){
+        try {
             $query = BaseDonnee::getConnexion()->prepare("
-                INSERT INTO `jeux`( `nom`, `description`, `prix`, `idPegi`, `image`) 
-                VALUES (?, ?, ?, ?, ?)
+            INSERT INTO `jeux`( `idJeux`, `nom`, `description`, `prix`, `idPegi`, `image`) 
+            VALUES (?, ?, ?, ?, ?, ?)
             ");
-            $query->execute([$nomJeux, $description, $prix, $idPegi, $image]);
-        }
-        catch (Exception $e)
-        {
+            $query->execute([$idJeux, $nomJeux, $description, $prix, $idPegi, $image]);
+        } catch (Exception $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
@@ -649,13 +649,13 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addCommentToGame(string $commentaire, int $idJeux, int $idUser)
+    public static function addCommentToGame( $commentaire,  $idJeux,  $idUser)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                INSERT INTO `commentaires`(`commentaire`, `idUser`, `idJeux`) 
-                VALUES (?,?,?)
+                INSERT INTO `commentaires`(`commentaire`, `date`, `idUser`, `idJeux`) 
+                VALUES (?,CURDATE(),?,?)
             ");
             $query->execute([$commentaire, $idUser, $idJeux]);
 
@@ -676,7 +676,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addNoteToGame(int $note, int $idJeux, int $idUser)
+    public static function addNoteToGame( $note,  $idJeux,  $idUser)
     {
         try
         {
@@ -701,7 +701,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addGameToWishlist(int $idUser, int $idJeux)
+    public static function addGameToWishlist( $idUser,  $idJeux)
     {
         try
         {
@@ -726,7 +726,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addGameToHistorique(int $idUser, int $idJeux)
+    public static function addGameToHistorique( $idUser,  $idJeux)
     {
         try
         {
@@ -751,20 +751,17 @@ class FonctionsBD
      *
      * Rodrigo De Castilho E Sousa
      */
-    public static function addGameToPanier(int $idUser, int $idJeux)
+    public static function addGameToPanier( $idUser,  $idJeux)
     {
         try
         {
             $query= BaseDonnee::getConnexion()->prepare("
-             INSERT INTO `ajouter_panier`(`idPanier`, `idJeux`)
-              VALUES (?,?)
-             ");
+            INSERT INTO `ajouter_panier`(`idPanier`, `idJeux`)
+            VALUES (?,?)
+            ");
             $query->execute([$idUser, $idJeux]);
-        }
-        catch(Exception $e)
-        {
+        } catch(Exception $e){
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
-
         }
 
 
@@ -781,7 +778,7 @@ class FonctionsBD
      * @return void
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function deleteComment(int $idComment)
+    public static function deleteComment( $idComment)
     {
         try
         {
@@ -819,6 +816,16 @@ class FonctionsBD
             $query->execute([$idUser]);
 
             $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `commentaires` WHERE `idUser` = ?
+            ");
+            $query->execute([$idUser]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `notes` WHERE `idUser` = ?
+            ");
+            $query->execute([$idUser]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `historique` WHERE `idUser` = ?
             ");
             $query->execute([$idUser]);
@@ -848,7 +855,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function deleteGame(int $idJeux)
+    public static function deleteGame( $idJeux)
     {
         try
         {
@@ -898,7 +905,7 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function updateGame(int $idJeux, string $nom, string $description, float $prix, int $idPegi, string $image)
+    public static function updateGame( $idJeux,  $nom,  $description,  $prix,  $idPegi,  $image)
     {
         try
         {

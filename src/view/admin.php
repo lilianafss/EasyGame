@@ -17,7 +17,7 @@
 
             <form method="POST">
                 <div>
-                    <a href="/">Ajouter jeux</a>
+                    <a href="http://easygame.ch/ajouterJeux">Ajouter jeux</a>
                 </div>
                 <div>
                     <h3>Les jeux</h3>
