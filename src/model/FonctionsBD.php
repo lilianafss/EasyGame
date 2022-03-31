@@ -346,7 +346,7 @@ class FonctionsBD
         {
             try
             {
-                $query = BaseDonnee::getConnexion()->prepare("SELECT `genre` FROM `easygame`.`genre`");
+                $query = BaseDonnee::getConnexion()->prepare("SELECT `genre`, `idGenre` FROM `easygame`.`genre`");
 
                 $query->execute();
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -395,7 +395,7 @@ class FonctionsBD
         {
             try
             {
-                $query = BaseDonnee::getConnexion()->prepare("SELECT `plateforme` FROM `easygame`.`plateforme`");
+                $query = BaseDonnee::getConnexion()->prepare("SELECT `plateforme`, `idPlateforme` FROM `easygame`.`plateforme`");
 
                 $query->execute();
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -627,13 +627,13 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $image, $idPlateforme, $idGenre){
+    public static function newGame($nomJeux, $description, $prix, $idPegi, $image, $idPlateforme, $idGenres,){
         try {
             $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `jeux`( `idJeux`, `nom`, `description`, `prix`, `idPegi`, `image`) 
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO `jeux`(`nom`, `description`, `prix`, `idPegi`, `image`) 
+            VALUES (?, ?, ?, ?, ?)
             ");
-            $query->execute([$idJeux, $nomJeux, $description, $prix, $idPegi, $image]);
+            $query->execute([$nomJeux, $description, $prix, $idPegi, $image]);
         } catch (Exception $e) {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
