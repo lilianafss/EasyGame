@@ -804,8 +804,10 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function deleteUser($idUser){
-        try{
+    public static function deleteUser($idUser)
+    {
+        try
+        {
             $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `voir_historique` WHERE `idHistorique` = ?
             ");
@@ -831,7 +833,9 @@ class FonctionsBD
             ");
             $query->execute([$idUser]);
 
-        }catch (Exception $e){
+        }
+        catch (Exception $e)
+        {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
@@ -903,8 +907,34 @@ class FonctionsBD
                 SET `nom`= ?,`description`= ?,`prix`= ?,`idPegi`= ?,`image`= ? 
                 WHERE `idJeux` = ?
             ");
-
             $query->execute([$nom, $description, $prix, $idPegi, $image, $idJeux]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+    * @param int $idUser Identifiant de l'utilisateur
+    * @param string $userName Pseudo
+    * @param string $nom Nom de l'utilisateur
+    * @param string $prenom Prénom de l'utilisateur
+    * @param string $userStatus Status du compte
+    * @return void
+    *
+    * @author Flavio Soares Rodrigues
+    */
+    public static function updateUser($idUser, $userName, $nom, $prenom, $userStatus)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                UPDATE `user`
+                SET `pseudo`= ?,`nom`= ?,`prenom`= ?, `user_status`= ?
+                WHERE `idUser` = ?
+            ");
+            $query->execute([$userName, $nom, $prenom, $userStatus, $idUser]);
         }
         catch (Exception $e)
         {

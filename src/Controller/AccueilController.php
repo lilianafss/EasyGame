@@ -22,9 +22,10 @@
 
             $stringJeux = "";
 
-            if($listeFiltre==false && $recherche==""){
-
-                foreach($listeJeux as $elementListe){
+            if($listeFiltre==false && $recherche=="")
+            {
+                foreach($listeJeux as $elementListe)
+                {
                     $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')">
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
@@ -33,12 +34,17 @@
                     </div>
                 </div>';
                 }
-            }elseif($listeFiltre==false && $recherche!=""){
-                if(isset($recherche)){
+            }
+            elseif($listeFiltre==false && $recherche!="")
+            {
+                if(isset($recherche))
+                {
                     $stringJeux= '<p> Vous avez recherché : ' . $recherche . '</p>';
                     $requete=FonctionsBD::searchGame($recherche);
-                    if($requete!=""){
-                        foreach($requete as $elementListe){
+                    if($requete!="")
+                    {
+                        foreach($requete as $elementListe)
+                        {
                             $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')">
                             <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
                             <div class="card-block">
@@ -49,21 +55,30 @@
                         }
                     }
                 }
-            }elseif($listeFiltre==true && $recherche ==""){
-
-                foreach($listeFiltre  as $elementListe){
-                    $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')" >
-                    <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
-                    <div class="card-block">
-                        <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                        <p class="card-prix">'.$elementListe['prix'].'</p>
-                    </div>
-                </div>';
+            }
+            elseif($listeFiltre==true && $recherche =="")
+            {
+                foreach($listeFiltre  as $elementListe)
+                {
+                    $stringJeux .= '
+                    <div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')" >
+                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
+                        <div class="card-block">
+                            <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                            <p class="card-prix">'.$elementListe['prix'].'</p>
+                        </div>
+                    </div>';
                 }
             }           
             require "../src/view/accueil.php";
         }
 
+        /**
+        * @param $nomliste
+        * @param $liste
+        * @param $champBd
+        * @return void
+        */
         public static function affichageFiltre($nomliste,$liste,$champBd)
         {
             echo '<option disabled selected>'.$nomliste.'</option>';

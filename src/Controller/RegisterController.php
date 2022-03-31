@@ -11,9 +11,6 @@ require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 require '../vendor/phpmailer/phpmailer/src/Exception.php';
 
-//require "../vendor/autoload.php";
-//require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-
 
 class RegisterController
 {
@@ -42,12 +39,14 @@ class RegisterController
         $from = 'site.easygame@gmail.com';
         $name = 'EasyGame';
         $subj = 'Email de confirmation';
-        $msg = 'http://easygame.ch/';
-        $this->smtpmailer($to, $from, $name, $subj, $msg);
-        var_dump($this->smtpmailer($to, $from, $name, $subj, $msg));
+        $msg = ' <h1>Complètez votre création de compte en vérifiant votre email ci-dessous </h1>
+                <button class="btn btn-primary">
+                    <a href="http://easygame.ch/verification?" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
+               </button>';
 
         // Si le boutton "Valider" est pressé
         if ($submit == "Valider")
+        {
             if ($userName != "" && $lastName != "" && $firstName != "" && $email != "" && $password != "" && $password2 != "")
             {
                 // Si le mot de passe est identique à celui de confirmation
@@ -59,11 +58,8 @@ class RegisterController
                     // Ajoute un nouvel utilisateur dans la base de données
                     try
                     {
-                        $this->smtpmailer($to, $from, $name, $subj, $msg);
                         $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
-
-//                            header("location: /");
-//                            exit();
+                        $message = $this->smtpmailer($to, $from, $name, $subj, $msg);
                     }
                     catch (PDOException $e)
                     {
@@ -82,10 +78,11 @@ class RegisterController
                     $message = "Ces mots de passe ne correspondent pas. Veuillez réessayer.";
                 }
             }
-        else
+            else
             {
                 $message = "Veuillez Remplir tout les champs";
             }
+        }
         else if ($submit == "Annuler")
         {
             header("location: /connexion");
@@ -100,39 +97,37 @@ class RegisterController
      * @param $from_name
      * @param $subject
      * @param $body
-     * @return void
+     * @return string
+     * @throws Exception
      */
-    public function smtpmailer($to, $from, $from_name, $subject, $body)
+    public function smtpmailer($to, $from, $from_name, $subject, $body): string
     {
         $mail = new PHPMailer(true);
-        try
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+
+        $mail->SMTPSecure = 'ssl';
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 465;
+        $mail->Username = 'site.easygame@gmail.com';
+        $mail->Password = 'Super2022!';
+
+        $mail->IsHTML(true);
+        $mail->From = 'site.easygame@gmail.com';
+        $mail->FromName = $from_name;
+        $mail->Sender = $from;
+        $mail->AddReplyTo($from, $from_name);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($to);
+
+        if ($mail->send())
         {
-            $mail->IsSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'site.easygame@gmail.com';
-            $mail->Password = 'Super2022';
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
-            $mail->From = "site.easygame@gmail.com";
-            $mail->AddAddress($to);
-
-            $mail->IsHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body = $body;
-
-            $mail->FromName = $from_name;
-            $mail->Sender = $from;
-            $mail->AddReplyTo($from, $from_name);
-
-            $mail->send();
-
-            echo "Mail has been sent successfully";
+            return "L'email de confirmation à été envoyé";
         }
-        catch (\Exception $e)
+        else
         {
-            var_dump($e->getMessage());
-            echo "Message could not be sent.";
+            return "Malheureusement l'email n'as pas pu être envoyé";
         }
     }
 }
