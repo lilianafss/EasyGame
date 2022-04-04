@@ -32,7 +32,6 @@ class AdminController
     $stringTableUsers = ""; //la variable vaut rien parce que on a pas cliquer le bouton
     $nomBoutonUsers = "Montrer users"; //au debut le bouton va montrer ça
 
-
     if (!$_SESSION['admin']) {
       header("location: http://easygame.ch");
       exit();
