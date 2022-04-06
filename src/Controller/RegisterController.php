@@ -47,14 +47,18 @@ class RegisterController
         $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
         $message = "";
 
+        $key = rand(10000000, 99999999);
+
+        $_SESSION['key'] = $key;
+
         $to = $email;
         $from = 'site.easygame@gmail.com';
         $name = 'EasyGame';
         $subj = 'Email de confirmation';
-        $msg = ' <h1>Complètez votre création de compte en vérifiant votre email ci-dessous </h1>
-                <button class="btn btn-primary">
-                    <a href="http://easygame.ch/verification?" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
-               </button>';
+        $msg = '<h1>Complètez votre création de compte en vérifiant votre email ci-dessous </h1>
+                <button type="submit">
+                    <a href="http://easygame.ch/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
+                </button>';
 
         // Si le boutton "Valider" est pressé
         if ($submit == "Valider")
@@ -74,7 +78,7 @@ class RegisterController
                         $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
 
                         // Récupère l'id de l'utilisateur et on le met dans la session
-                        $_SESSION['idUser'] = $fonctionsBD->getIdUser($email);
+                        $_SESSION['idUser'] = $fonctionsBD->getIdUser($email)['idUser'];
 
                         // Envoie un mail de confirmation pour activer le compte
                         $message = $this->smtpmailer($to, $from, $name, $subj, $msg);

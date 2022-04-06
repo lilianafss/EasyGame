@@ -79,7 +79,7 @@
                         </div>
                     </div>';
                 }
-            }           
+            }
             require "../src/view/accueil.php";
         }
 
