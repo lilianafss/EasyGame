@@ -50,12 +50,12 @@ class FonctionsBD
          * @return mixed|void
          * @author Rodrigo De Castilho E Sousa
          */
-        public static function getInfoUser( $idUser)
+        public static function getInfoUser($idUser)
         {
             try
             {
                 $query = BaseDonnee::getConnexion()->prepare("
-                        SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin` 
+                        SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status` 
                         FROM `user` WHERE `idUser` = ?
                     ");
 
@@ -346,7 +346,7 @@ class FonctionsBD
         {
             try
             {
-                $query = BaseDonnee::getConnexion()->prepare("SELECT `genre` FROM `easygame`.`genre`");
+                $query = BaseDonnee::getConnexion()->prepare("SELECT `genre`, `idGenre` FROM `easygame`.`genre`");
 
                 $query->execute();
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -395,7 +395,7 @@ class FonctionsBD
         {
             try
             {
-                $query = BaseDonnee::getConnexion()->prepare("SELECT `plateforme` FROM `easygame`.`plateforme`");
+                $query = BaseDonnee::getConnexion()->prepare("SELECT `plateforme`, `idPlateforme` FROM `easygame`.`plateforme`");
 
                 $query->execute();
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -632,8 +632,8 @@ class FonctionsBD
         $query = BaseDonnee::getConnexion()->prepare("
         INSERT INTO `panier`(`idPanier`, `idUser`)
         VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());
-    ");
-    $query->execute();
+        ");
+        $query->execute();
     }
 
     /**
@@ -644,19 +644,32 @@ class FonctionsBD
      * @param float $prix
      * @param int $idPegi
      * @param string $image
+     * @param array $genres
+     * @param array $plateformes
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($idJeux, $nomJeux, $description, $prix, $idPegi, $image, $idPlateforme, $idGenre){
-        try {
+    public static function newGame($nomJeux, $description, $prix, $idPegi, $image, $genres, $plateformes){
+       
+        $query = BaseDonnee::getConnexion()->prepare("
+        INSERT INTO `jeux`(`nom`, `description`, `prix`, `idPegi`, `image`) 
+        VALUES (?, ?, ?, ?, ?);
+        ");
+        $query->execute([$nomJeux, $description, $prix, $idPegi, $image]);
+        foreach($genres as $key){
             $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `jeux`( `idJeux`, `nom`, `description`, `prix`, `idPegi`, `image`) 
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO `filtre_jeux`(`idJeux`, `idGenre`) 
+            VALUES (LAST_INSERT_ID(), ?);
             ");
-            $query->execute([$idJeux, $nomJeux, $description, $prix, $idPegi, $image]);
-        } catch (Exception $e) {
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            $query->execute([$key]);
+        }
+        foreach($plateformes as $key){
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `ou_jouer`(`idJeux`, `idPlateforme`) 
+            VALUES (LAST_INSERT_ID(), ?);
+            ");
+            $query->execute([$key]);
         }
     }
 
@@ -835,8 +848,20 @@ class FonctionsBD
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function deleteUser($idUser){
-        try{
+    public static function deleteUser($idUser)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_panier` WHERE `ajouter_panier`.`idPanier` = ?;
+            ");
+            $query->execute([$idUser]);            
+            
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `panier` WHERE `panier`.`idUser` = ?;
+            ");
+            $query->execute([$idUser]);
+            
             $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `voir_historique` WHERE `idHistorique` = ?
             ");
@@ -872,7 +897,9 @@ class FonctionsBD
             ");
             $query->execute([$idUser]);
 
-        }catch (Exception $e){
+        }
+        catch (Exception $e)
+        {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
@@ -890,12 +917,27 @@ class FonctionsBD
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_panier` WHERE `ajouter_panier`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `voir_historique` WHERE `voir_historique`.`idJeux` = ?;
             ");
             $query->execute([$idJeux]);
 
             $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `ajouter_wishlist` WHERE `ajouter_wishlist`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `commentaires` WHERE `idJeux` = ?
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `notes` WHERE `idJeux` = ?
             ");
             $query->execute([$idJeux]);
 
@@ -944,8 +986,34 @@ class FonctionsBD
                 SET `nom`= ?,`description`= ?,`prix`= ?,`idPegi`= ?,`image`= ? 
                 WHERE `idJeux` = ?
             ");
-
             $query->execute([$nom, $description, $prix, $idPegi, $image, $idJeux]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+    * @param int $idUser Identifiant de l'utilisateur
+    * @param string $userName Pseudo
+    * @param string $nom Nom de l'utilisateur
+    * @param string $prenom Prénom de l'utilisateur
+    * @param string $userStatus Status du compte
+    * @return void
+    *
+    * @author Flavio Soares Rodrigues
+    */
+    public static function updateUser($idUser, $userName, $nom, $prenom, $userStatus)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                UPDATE `user`
+                SET `pseudo`= ?,`nom`= ?,`prenom`= ?, `user_status`= ?
+                WHERE `idUser` = ?
+            ");
+            $query->execute([$userName, $nom, $prenom, $userStatus, $idUser]);
         }
         catch (Exception $e)
         {

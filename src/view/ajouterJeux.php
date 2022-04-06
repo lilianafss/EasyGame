@@ -42,6 +42,30 @@
 
                 <br>
 
+                <label>Combien de genres:</label>
+                <select name="nbGenre">
+                    <option value="10">10</option>
+                    <option value="9">9</option>
+                    <option value="8">8</option>
+                    <option value="7">7</option>
+                    <option value="6">6</option>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2" >2</option>
+                    <option value="1" >1</option>
+                </select>
+                <label>Combien de plateformes:</label>
+                <select name="nbPlatform">
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2" >2</option>
+                    <option value="1" >1</option>
+                </select>
+                <input class="btn" type="submit" value="Submit Platform et Genre" name="btnGenrePlateform">
+                <br>
+                    <?=$tableau?>
+                <br>
                 <label>L'image du jeu :</label>
                 <input class="btn" type="file" name="imageJeu">
             </div>

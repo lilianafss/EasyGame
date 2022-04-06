@@ -24,11 +24,15 @@ class JeuxController{
 
             $submit = filter_input(INPUT_POST,'envoyer', FILTER_SANITIZE_SPECIAL_CHARS);
 
+            //Si le button envoyer est egal a "Ajouter commentaire"
             if($submit = "Ajouter commentaire"){
+                //Récupération des notes et commentaires
                 $note = filter_input(INPUT_POST,'note',FILTER_SANITIZE_NUMBER_INT);
                 $commentaire = filter_input(INPUT_POST,'commentaire', FILTER_SANITIZE_SPECIAL_CHARS);
 
+                //Si les input commentaire et note n'est pas egal a vide
                 if($commentaire!="" && $note!=""){
+                    //ajouter les notes et commentaires a la base de donnees
                     FonctionsBD::addCommentToGame($commentaire,$idJeux,$userUtilisateur);
                     FonctionsBD::addNoteToGame($note,$idJeux,$userUtilisateur);
                 }
@@ -37,12 +41,15 @@ class JeuxController{
                 }
             }
 
+            //Parcourir les tableaux des notes 
             foreach($tableauxNotes as $note){
-               
+               //garder les notes dans une variables
                 $stringUserCommentaire.='<p>Note:'.$note['note'].'</p>';
             }
 
+            //Parcourir les tableaux des commentaires
             foreach($tableauxCommentaire as $commentaire){
+                //garder le idUser dans la variable user
                 $user=FonctionsBD::getInfoUser($commentaire['idUser']);
                 $stringUserCommentaire .='<p> User:'.$user['pseudo'].'</p>
                 <p>Commentaire:'.$commentaire['commentaire'].'</p>';
@@ -73,31 +80,31 @@ class JeuxController{
            
 
             if($userUtilisateur!=""){
-                $formulaire ='<label for="note">Note :</label>
-                <input type="number" min="1" max="5" name="note" id="note">
-        
+                $formulaire ='<div class="evaluation">
+                <label for="note">Note :</label>
+                <input type="number" min="1" max="5" name="note" id="note"><br>
+                <br>
                 <label for="commentaire" >Commentaire: </label>
-                <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
-                
-                <input type="submit" value="Ajouter commentaire" name="envoyer">';
+                <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea><br>
+                <br>
+                <input type="submit" value="Ajouter commentaire" name="envoyer">
+                </div>';
+
 
                 foreach($tableauxNotes as $note){
                     if($userUtilisateur == $note['idUser']){
-                        $formulaire = '<label for="commentaire" >Commentaire: </label>
+                        $formulaire = '<div class="evaluation">
+                        <label for="commentaire" >Commentaire: </label>
                         <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
                 
-                        <input type="submit" value="Ajouter commentaire" name="envoyer">';
+                        <input type="submit" value="Ajouter commentaire" name="envoyer">
+                        </div>';
                     }
                 }
                 
                 $content .= $formulaire;
                 
             }
-           
-           
-
-            $stringNotesCommentaire ='<h3>Notes et Comentaires</h3>
-            <p>'.$stringUserCommentaire.'</p>';
 
         }else{
             header("Location: http://easygame.ch/");

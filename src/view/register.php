@@ -10,7 +10,7 @@
 
 <body class="d-flex flex-column h-100">
 
-    <?php require_once"header.php" ?>
+    <?php require_once "header.php" ?>
 
     <main class="flex-shrink-0">
         <h1>Inscription</h1>
