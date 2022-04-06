@@ -611,8 +611,8 @@ class FonctionsBD
         $query = BaseDonnee::getConnexion()->prepare("
         INSERT INTO `panier`(`idPanier`, `idUser`)
         VALUES (LAST_INSERT_ID(), LAST_INSERT_ID());
-    ");
-    $query->execute();
+        ");
+        $query->execute();
     }
 
     /**
@@ -623,19 +623,32 @@ class FonctionsBD
      * @param float $prix
      * @param int $idPegi
      * @param string $image
+     * @param array $genres
+     * @param array $plateformes
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function newGame($nomJeux, $description, $prix, $idPegi, $image, $idPlateforme, $idGenres,){
-        try {
+    public static function newGame($nomJeux, $description, $prix, $idPegi, $image, $genres, $plateformes){
+       
+        $query = BaseDonnee::getConnexion()->prepare("
+        INSERT INTO `jeux`(`nom`, `description`, `prix`, `idPegi`, `image`) 
+        VALUES (?, ?, ?, ?, ?);
+        ");
+        $query->execute([$nomJeux, $description, $prix, $idPegi, $image]);
+        foreach($genres as $key){
             $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `jeux`(`nom`, `description`, `prix`, `idPegi`, `image`) 
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO `filtre_jeux`(`idJeux`, `idGenre`) 
+            VALUES (LAST_INSERT_ID(), ?);
             ");
-            $query->execute([$nomJeux, $description, $prix, $idPegi, $image]);
-        } catch (Exception $e) {
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            $query->execute([$key]);
+        }
+        foreach($plateformes as $key){
+            $query = BaseDonnee::getConnexion()->prepare("
+            INSERT INTO `ou_jouer`(`idJeux`, `idPlateforme`) 
+            VALUES (LAST_INSERT_ID(), ?);
+            ");
+            $query->execute([$key]);
         }
     }
 
@@ -806,6 +819,16 @@ class FonctionsBD
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_panier` WHERE `ajouter_panier`.`idPanier` = ?;
+            ");
+            $query->execute([$idUser]);            
+            
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `panier` WHERE `panier`.`idUser` = ?;
+            ");
+            $query->execute([$idUser]);
+            
+            $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `voir_historique` WHERE `idHistorique` = ?
             ");
             $query->execute([$idUser]);
@@ -860,12 +883,27 @@ class FonctionsBD
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ajouter_panier` WHERE `ajouter_panier`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `voir_historique` WHERE `voir_historique`.`idJeux` = ?;
             ");
             $query->execute([$idJeux]);
 
             $query = BaseDonnee::getConnexion()->prepare("
             DELETE FROM `ajouter_wishlist` WHERE `ajouter_wishlist`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `commentaires` WHERE `idJeux` = ?
+            ");
+            $query->execute([$idJeux]);
+
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `notes` WHERE `idJeux` = ?
             ");
             $query->execute([$idJeux]);
 

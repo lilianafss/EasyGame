@@ -41,8 +41,8 @@ class AjouterJeuxController
 
             $btnGenrePlateform = filter_input(INPUT_POST,'btnGenrePlateform',FILTER_SANITIZE_SPECIAL_CHARS);
             if($btnGenrePlateform == "Submit Platform et Genre"){
-               $_SESSION['nbGenre'] = filter_input(INPUT_POST,'nbGenre',FILTER_SANITIZE_NUMBER_INT);
-               $_SESSION['nbPlatform'] = filter_input(INPUT_POST,'nbPlatform',FILTER_SANITIZE_NUMBER_INT);
+                $_SESSION['nbGenre'] = filter_input(INPUT_POST,'nbGenre',FILTER_SANITIZE_NUMBER_INT);
+                $_SESSION['nbPlatform'] = filter_input(INPUT_POST,'nbPlatform',FILTER_SANITIZE_NUMBER_INT);
                 $tableau = AjouterJeuxController::afficherGenresPlateform($_SESSION['nbGenre'],$_SESSION['nbPlatform']); 
             }
             
@@ -58,37 +58,32 @@ class AjouterJeuxController
                 $image = $_FILES['imageJeu']['tmp_name'];
 
                 if($_SESSION['nbGenre'] != ""){
-                  
+                    //prendre les valeurs et les stoker dans une variable
                     for($i = 1 ; $i <= $_SESSION['nbGenre']; $i++){
                         
                         $tableauGenre[$i] = filter_input(INPUT_POST, 'nbGenre'.$i, FILTER_SANITIZE_NUMBER_INT);
                         
                     }
-                    /*Check if the array contain multiple same values in php*/
-                    $array_new = array_count_values($tableauGenre);
-                    $array2 = array();
-
-                    foreach($array_new as $key=>$val){
-                        if($val >1){ //or do $val >2 based on your desire
-                          $array2[] = $key;
-                        }
-                    }
+                    //pas avoir la même valeur deux ou plusieurs fois
+                    $tableauGenre = array_unique($tableauGenre);
                 }
 
                 if($_SESSION['nbPlatform'] != ""){
-                  
+                    //prendre les valeurs et les stoker dans une variable
                     for($i = 1 ; $i <= $_SESSION['nbPlatform']; $i++){
                         
                         $tableauPlatform[$i] = filter_input(INPUT_POST, 'nbPlatform'.$i, FILTER_SANITIZE_NUMBER_INT);
                         
                     }
+                    //pas avoir la même valeur deux ou plusieurs fois
+                    $tableauPlatform = array_unique($tableauPlatform);                    
                 }
-                var_dump($array2);
 
                 //si tout est rempli on l'ajoute a la base de donnée
-                if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "") {
+                if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "" && $tableauGenre != [] && $tableauPlatform != []) {
                     $img = file_get_contents($image);
-                    //FonctionsBD::newGame($nomJeux, $description, $prix, $idPegi, $img);
+                    
+                    FonctionsBD::newGame($nomJeux, $description, $prix, $idPegi, $img, $tableauGenre, $tableauPlatform);
                 } else {
                     //affichage de la message d'erreur
                     $messageErreur = "<p id='messageErreur'>Tous les champs doivent être remplis</p>";
