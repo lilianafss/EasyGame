@@ -49,19 +49,26 @@ class JeuxController{
                 
             }
 
-          
-            if($envoiePanier="Ajouter au panier"){
-              
-                $panier=FonctionsBD::addGameToPanier($userUtilisateur,$idJeux);
-               
-            // }
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                if($_POST['panier']){
+                    
+                      $panier=FonctionsBD::addGameToPanier($userUtilisateur,$idJeux);
+                      $envoiePanier="Dans le panier";
+                      
+                   }
+            }
+           
 
 
             $content.='<h1>'.$infoJeux['nom'].'</h1>
             <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($infoJeux['image']).'"/>
             <h3>A propos du jeu</h3>
             <p>'.$infoJeux['description'].'</p>
-            <input type="submit" name="panier" id="panier" value="Ajouter au panier">';
+            <form method="POST">
+            <input type="submit" name="panier" id="panier" value="Ajouter au panier">
+            </form>
+            ';
+
 
            
 
@@ -97,5 +104,4 @@ class JeuxController{
         }
         require '../src/view/jeux.php';
     }
-}
 }
