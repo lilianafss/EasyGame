@@ -15,4 +15,3 @@ function userGoogle($gClient, $google_oauth){
 
     $google_oauth = new Google_Service_Oauth2($gClient);
 }
-
