@@ -5,7 +5,7 @@ footer
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-
+    clear: both;
     justify-content: space-between;
     justify-items: center;
 

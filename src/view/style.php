@@ -45,4 +45,9 @@
         {
             echo '<link rel="stylesheet" href="/assets/css/header.css">';
         }
+        if ($_SERVER['PHP_SELF'] == "/index.php/panier")
+        {
+            echo'<link rel="stylesheet" href="assets/css/panier.css">';
+            echo '<link rel="stylesheet" href="/assets/css/header.css">';
+        }
     #endregion

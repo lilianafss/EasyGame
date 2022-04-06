@@ -65,10 +65,14 @@ class JeuxController
                 $stringDate .= $commentaire['date'];
             }
 
-            if ($envoiePanier = "Ajouter au panier") {
-
-                $panier = FonctionsBD::addGameToPanier($userUtilisateur, $idJeux);
-
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                if($_POST['panier']){
+                    
+                    $panier=FonctionsBD::addGameToPanier($userUtilisateur,$idJeux);
+                    $envoiePanier="Dans le panier";
+                      
+                }
+            }
                 // }
 
 
@@ -80,7 +84,9 @@ class JeuxController
                     <h3>A propos du jeu</h3>
                     <p>' . $infoJeux['description'] . '</p>
                 </div>
+                <form method="POST">
                 <input type="submit" name="panier" id="panier" value="Ajouter au panier"><br>
+                </form>
                  <br>
                 <h3>Notes et Comentaires</h3>
                 <div class="review-list">
@@ -129,11 +135,23 @@ class JeuxController
                     </div>
                 
                 ';
+          
+
+            if($userUtilisateur!=""){
+                $formulaire ='<div class="evaluation">
+                <label for="note">Note :</label>
+                <input type="number" min="1" max="5" name="note" id="note"><br>
+                <br>
+                <label for="commentaire" >Commentaire: </label>
+                <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea><br>
+                <br>
+                <input type="submit" value="Ajouter commentaire" name="envoyer">
+                </div>';
 
 
-                    foreach ($tableauxNotes as $note) {
-                        if ($userUtilisateur == $note['idUser']) {
-                            $formulaire = '<div class="evaluation">
+                foreach($tableauxNotes as $note){
+                    if($userUtilisateur == $note['idUser']){
+                        $formulaire = '<div class="evaluation">
                         <label for="commentaire" >Commentaire: </label>
                         <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
                 

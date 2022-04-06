@@ -1,11 +1,6 @@
-<?php  
-
-
-session_start();
-
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,14 +11,43 @@ session_start();
     <link rel="stylesheet" href="assets/font-awesome/css/all.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <?php require_once "style.php" ?>
 </head>
-<?php require_once "header.php";?>
-<body>
-    <h1>panier</h1>
-    
+<?php require_once "header.php"; ?>
 
+<body class="h-100">
+    <h1>panier</h1>
+
+
+    <main>
+        <div id="jeux-container">
+
+            <table id="cart" class="table table-hover table-condensed">
+
+                <tbody>
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <?= $content ?>
+                            </div>
+                    </tr>
+				</tbody>
+					
+			</table> 
+            
+            
+          
+        </div>
+                            <div id="paiement-container">
+                                <?= $info ?>
+                            </div>
+    </main>
     <?php require_once "footer.php"; ?>
+
 </body>
 
 </html>
