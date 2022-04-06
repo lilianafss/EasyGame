@@ -469,7 +469,7 @@ class FonctionsBD
             try
             {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `commentaire`, `idUser` FROM `commentaires`
+                    SELECT `commentaire`, `idUser`, `date` FROM `commentaires`
                     WHERE `commentaires`.`idJeux` = ?;
                 ");
 
