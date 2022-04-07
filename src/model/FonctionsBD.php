@@ -814,7 +814,7 @@ class FonctionsBD
      */
     public static function deleteGameToPanier($idJeux){
         try{
-            $query=BaseDonnee::getConnexion()->prepare("
+            $query = BaseDonnee::getConnexion()->prepare("
 
             DELETE FROM `ajouter_panier`WHERE `idJeux`= ?
             ");
