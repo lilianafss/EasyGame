@@ -1,0 +1,238 @@
+/*--------------------Header--------------------*/
+/*#region Header*/
+header
+{
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+}
+
+ul
+{
+    justify-content: center;
+    justify-items: center;
+}
+
+a
+{
+    text-align: center;
+}
+
+
+    
+   
+   
+/*--------------------Link-Nav--------------------*/
+/*#region Link-Nav*/
+.nav-container
+{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+#logo-container
+{
+    justify-content: right;
+    padding-right: 15px;
+}
+
+#logo
+{
+    width: 167px;
+    height: 100px;
+}
+
+#icon-container
+{
+    justify-content: left;
+    padding-left: 15px;
+}
+
+.icon
+{
+    color: #fff;
+}
+/*#endregion*/
+.container .p-0{
+    width: 1000px;
+}
+.container .h8 {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center
+}
+.btn.btn-danger{
+    height: 35px;
+    width: 35px;
+}
+ .btn.btn-primary {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    /* background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto */
+} 
+.btn.btn.btn-primary:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none
+}
+.btn.btn-primary:hover .fas.fa-arrow-right {
+    transform: translate(15px);
+    transition: transform 0.2s ease-in
+}
+/*--------------------Main--------------------*/
+/*#region Main*/
+#jeux-container
+{
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    float: left;
+}
+#paiement-container{
+    width: 900px;
+   font-weight: 600;
+   font-size: 18px;
+    float: right;
+}
+
+/*--------------------Cards--------------------*/
+/*#region Cards*/
+.card
+{
+    display: flex;
+    flex-direction: column;
+
+    width: 30%;
+    height: auto;
+
+    border-radius: 20px;
+    border: 0;
+}
+
+.card:hover
+{
+    background-color: #E8E8E8;
+    cursor: pointer;
+}
+
+.card-img
+{
+    width: 100%;
+    height: 65%;
+
+    border-radius: 20px;
+}
+
+.card-block
+{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 35%;
+}
+
+.card-title
+{
+    width: 100%;
+    height: 40%;
+    margin-top: 15px;
+
+    font: italic bold 1.4em Calibri, serif ;
+    text-align: center;
+    color:#3C3661;
+
+}
+
+.card-prix
+{
+    width: 100%;
+    height: 60%;
+
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #3C3661;
+}
+
+/*--------------------Media--------------------*/
+/*#region Media*/
+@media only screen and (max-width: 1400px)
+{
+    .card
+    {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1024px)
+{
+    .card
+    {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 769px)
+{
+    .card
+    {
+        width: 80%;
+    }
+
+    #logo
+    {
+        justify-content: center;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (max-width: 480px)
+{
+    .card
+    {
+        width: 90%;
+    }
+
+    #icon-container
+    {
+        width: 100%;
+        justify-content: center;
+    }
+    
+}
+/*#endregion */
+
+
+/*--------------------Scroll-bar--------------------*/
+/*#region Scroll-bar*/
+
+/* Largeur de la scroll-bar*/
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+
+/* Couleur de la scroll-bar */
+::-webkit-scrollbar-thumb
+{
+    background: linear-gradient(0deg, #3C3661 0%, #332E52 60%, #211E36 100%);
+}
+
+/* Couleur de la scroll-bar (hover) */
+::-webkit-scrollbar-thumb:hover
+{
+    background: #3C3661;
+}
+/*#endregion*/

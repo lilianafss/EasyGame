@@ -469,7 +469,7 @@ class FonctionsBD
             try
             {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `commentaire`, `idUser` FROM `commentaires`
+                    SELECT `commentaire`, `idUser`, `date` FROM `commentaires`
                     WHERE `commentaires`.`idJeux` = ?;
                 ");
 
@@ -571,6 +571,27 @@ class FonctionsBD
             }
         }
         #endregion
+        public static function getPanier( $idUser)
+        {
+            try
+            {
+                $query = BaseDonnee::getConnexion()->prepare("
+                        SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix`,`jeux`.`image` 
+                        FROM `jeux`, `ajouter_panier`, `user`, `panier` 
+                        WHERE `jeux`.`idJeux` = `ajouter_panier`.`idJeux`
+                        AND `user`.`idUser` = ?
+                        AND `panier`.idUser = ?
+                        AND `ajouter_panier`.`idPanier` = `panier`.`idPanier` 
+                    ");
+
+                $query->execute([$idUser, $idUser]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            }
+            catch (PDOException $e)
+            {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            }
+        }
 
     #endregion
 
@@ -791,6 +812,19 @@ class FonctionsBD
      * @return void
      * @author Rodrigo De Castilho E Sousa
      */
+    public static function deleteGameToPanier($idJeux){
+        try{
+            $query=BaseDonnee::getConnexion()->prepare("
+
+            DELETE FROM `ajouter_panier`WHERE `idJeux`= ?
+            ");
+            $query->execute([$idJeux]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     public static function deleteComment( $idComment)
     {
         try

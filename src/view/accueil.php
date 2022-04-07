@@ -1,10 +1,13 @@
 <?php
+
 use EasyGame\model\FonctionsBD;
 use EasyGame\Controller\AccueilController;
+
 @ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,19 +54,19 @@ use EasyGame\Controller\AccueilController;
                 <ul class="nav">
                     <li class="nav-item filtre-container">
                         <select name="age" id="age" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
-                            <?php AccueilController::affichageFiltre("Age",FonctionsBD::getPegi(),"pegi");?>
+                            <?php AccueilController::affichageFiltre("Age", FonctionsBD::getPegi(), "pegi"); ?>
                         </select>
                     </li>
 
                     <li class="nav-item filtre-container">
                         <select name="plateforme" id="plateforme" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
-                            <?php AccueilController::affichageFiltre("Plateforme",FonctionsBD::getPlatform(),"plateforme");?>
+                            <?php AccueilController::affichageFiltre("Plateforme", FonctionsBD::getPlatform(), "plateforme"); ?>
                         </select>
                     </li>
 
                     <li class="nav-item filtre-container">
                         <select name="genre" id="genre" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
-                            <?php AccueilController::affichageFiltre("Genre",FonctionsBD::getGenre(),"genre");?>
+                            <?php AccueilController::affichageFiltre("Genre", FonctionsBD::getGenre(), "genre"); ?>
                         </select>
                     </li>
 
@@ -82,12 +85,13 @@ use EasyGame\Controller\AccueilController;
     </main>
     <?php require_once "footer.php"; ?>
     <script>
-       function Redirection(id){
+        function Redirection(id) {
 
-        let stringUrl = "http://easygame.ch/jeux?idJeux=" + id;
+            let stringUrl = "http://easygame.ch/jeux?idJeux=" + id;
 
-        window.location.replace(stringUrl);
-       }
+            window.location.replace(stringUrl);
+        }
     </script>
 </body>
+
 </html>

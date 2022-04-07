@@ -46,9 +46,16 @@
             echo '<link rel="stylesheet" href="/assets/css/header.css">';
         }
 
-        // Page Description jeux
+        // Page de récupération d'email pour le mot de passe oublié
         if ($_SERVER['PHP_SELF'] == "/index.php/loginInfo")
         {
             echo '<link rel="stylesheet" href="/assets/css/loginInfo.css">';
+        }
+
+        // Page du panier
+        if ($_SERVER['PHP_SELF'] == "/index.php/panier")
+        {
+            echo'<link rel="stylesheet" href="assets/css/panier.css">';
+            echo '<link rel="stylesheet" href="/assets/css/header.css">';
         }
     #endregion
