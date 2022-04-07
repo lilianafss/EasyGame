@@ -22,12 +22,13 @@ a
 .nav-container
 {
     display: flex;
-    justify-content: center;
-    width: 50%;
+    justify-content: left;
+    width: 55%;
 }
 
 #logo-container
 {
+    width: 45%;
     justify-content: right;
     padding-right: 15px;
 }
@@ -38,15 +39,32 @@ a
     height: 100px;
 }
 
+#container-ul
+{
+    width: 450px;
+}
+
 #icon-container
 {
     justify-content: left;
     padding-left: 15px;
+
 }
 
 .icon
 {
     color: #fff;
+}
+
+.icon-texte
+{
+    width: 100px;
+    margin-bottom: 0;
+
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
 }
 /*#endregion*/
 
@@ -196,6 +214,18 @@ a
         text-align: center;
     }
 
+    #logo-container
+    {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .nav-container
+    {
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 480px)
@@ -209,6 +239,14 @@ a
     {
         width: 100%;
         justify-content: center;
+    }
+
+    .icon-texte
+    {
+        width: 80px;
+        margin-bottom: 0;
+
+        text-align: center;
     }
 
     .filtres

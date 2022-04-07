@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f34a7840-1ad3-400a-9e0f-a35151103c3e" name="Changes" comment="">
+    <list default="true" id="fcd37fd6-b0e7-41b3-b15b-896e474b4198" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/css/loginInfo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/loginInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/modifierMDP.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionGoogle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionGoogle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/accueil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/connexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/connexion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/router/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/style.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/style.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +38,7 @@
       <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
     </include_path>
   </component>
-  <component name="ProjectId" id="27JvxoumIIAXk0A88o937YhgaiJ" />
+  <component name="ProjectId" id="27SOpLmPyYZ68vLRnB5UdoFHudV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,27 +52,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f34a7840-1ad3-400a-9e0f-a35151103c3e" name="Changes" comment="" />
-      <created>1649051262490</created>
+      <changelist id="fcd37fd6-b0e7-41b3-b15b-896e474b4198" name="Changes" comment="" />
+      <created>1649310211337</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1649051262490</updated>
-      <workItem from="1649051268433" duration="11305000" />
+      <updated>1649310211337</updated>
+      <workItem from="1649310215958" duration="9907000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

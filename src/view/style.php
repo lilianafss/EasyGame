@@ -45,4 +45,10 @@
         {
             echo '<link rel="stylesheet" href="/assets/css/header.css">';
         }
+
+        // Page Description jeux
+        if ($_SERVER['PHP_SELF'] == "/index.php/loginInfo")
+        {
+            echo '<link rel="stylesheet" href="/assets/css/loginInfo.css">';
+        }
     #endregion
