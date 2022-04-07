@@ -812,13 +812,13 @@ class FonctionsBD
      * @return void
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function deleteGameToPanier($idUser){
+    public static function deleteGameToPanier($idJeux){
         try{
             $query=BaseDonnee::getConnexion()->prepare("
 
             DELETE FROM `ajouter_panier`WHERE `idJeux`= ?
             ");
-            $query->execute([$idUser]);
+            $query->execute([$idJeux]);
         }
         catch (Exception $e)
         {

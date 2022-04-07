@@ -14,12 +14,16 @@ class PanierController
         $content = "";
         $info = "";
         $userUtilisateur = $_SESSION['idUser'];
+        $suppJeux="";
         $infoJeux = FonctionsBD::getGameById($idJeux);
         $tableauxPanier = FonctionsBD::getPanier($userUtilisateur);
         $content .= '';
-        if(filter_has_var(INPUT_GET,'trash')){
-            echo "coucou";
-        }
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            if($_POST['trash']){
+                echo "s";
+                FonctionsBD::deleteGameToPanier($idJeux);
+            }
+    }
         foreach ($tableauxPanier as $panier) {
             $content .= ' 
            <tr>
@@ -33,8 +37,10 @@ class PanierController
 							<td data-th="Price">'.$panier['prix'].'</td>
 			
 							<td class="actions" data-th="">
-							
-								<button name="trash" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							<form method="POST">
+                            
+								<input type ="submit" name="trash" value="Supprimer" ><i class="fa fa-trash-o"></i></button>	
+                                </form>							
 							</td>
 			</tr>	';
         }
