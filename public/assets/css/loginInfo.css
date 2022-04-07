@@ -53,17 +53,11 @@
     margin: 10px;
 }
 
-.boutton
+.btn
 {
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
 }
-
-.boutton:hover
-{
-    color: #DDDDDD;
-}
-
 a:link
 {
     text-decoration: none;

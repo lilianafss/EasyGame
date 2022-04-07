@@ -22,28 +22,34 @@ use EasyGame\Controller\AccueilController;
             <span class="nav-container" id="logo-container">
                 <a href="/"><img id="logo" alt="logo" src="assets/image/logo.png"></a>
             </span>
-            <span class="nav-container" id="icon-container">
-                <ul class="nav">
+            <span class="nav-container">
+                <ul class="nav" id="container-ul">
                     <li class="nav-item">
-                        <a class="nav-link" href="connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>
+                        <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>
+                        <p class="icon-texte">Connexion</p>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
+                        <p class="icon-texte">Liste d'envie</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
+                        <a class="nav-link" href="/panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
+                        <p class="icon-texte">Panier</p>
                     </li>
                     <?php
-                    if ($_SESSION['admin']) {
-                        echo "<li class='nav-item'>
-                        <a class='nav-link' href='http://easygame.ch/admin'>Admin</a>
-                        </li>";
-                    }
+                        if($_SESSION['admin'])
+                        {
+                            echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
+                                <p class="icon-texte">Admin</p>
+                            </li>';
+                        }
                     ?>
                 </ul>
             </span>
         </nav>
-        <nav class="navbar justify-content-center">
+        <nav class="navbar justify-content-center mb-3">
             <form method="GET">
                 <ul class="nav">
                     <li class="nav-item filtre-container">

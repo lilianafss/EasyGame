@@ -34,12 +34,12 @@
                     </div>
 
                     <div class="formItemsContainer">
-                        <input class="btn" type="submit" name="btnSubmit" value="Se connecter">
+                        <input class="btn boutton" type="submit" name="btnSubmit" value="Se connecter">
                     </div>
 
                 </form>
 
-                <a href="/">Mot de passe oublié?</a>
+                <a href="/loginInfo">Mot de passe oublié?</a>
             </div>
 
             <div>
