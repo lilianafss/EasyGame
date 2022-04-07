@@ -36,16 +36,16 @@
                                 <?= $content ?>
                             </div>
                     </tr>
-				</tbody>
-					
-			</table> 
-            
-            
-          
+                </tbody>
+
+            </table>
+
+
+
         </div>
-                            <div id="paiement-container">
-                                <?= $info ?>
-                            </div>
+        <div id="paiement-container">
+            <?= $info ?>
+        </div>
     </main>
     <?php require_once "footer.php"; ?>
 
