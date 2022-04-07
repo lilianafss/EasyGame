@@ -64,7 +64,7 @@ class JeuxController
 
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($_POST['panier']) {
-
+                    echo"s";
                     $panier = FonctionsBD::addGameToPanier($userUtilisateur, $idJeux);
                     $envoiePanier = "Dans le panier";
                 }
