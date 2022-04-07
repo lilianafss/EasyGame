@@ -16,11 +16,13 @@ class JeuxController
 
         if ($idJeux != "") {
 
-            
+            $content = "";
+            $formulaire = "";
             $stringUser = "";
             $stringNote = "";
             $stringCommentaire = "";
             $stringDate = "";
+            $finTitre="</h4>";
             $userUtilisateur = $_SESSION['idUser'];
             $envoiePanier = filter_input(INPUT_POST, 'panier');
 
@@ -57,9 +59,9 @@ class JeuxController
             foreach ($tableauxCommentaire as $commentaire) {
                 //garder le idUser dans la variable user
                 $user = FonctionsBD::getInfoUser($commentaire['idUser']);
-                $stringUser .= $user['pseudo'];
-                $stringCommentaire .= $commentaire['commentaire'];
-                $stringDate .= $commentaire['date'];
+                $stringUser .= "<h4>" . $user['pseudo'];
+                $stringCommentaire .= "<p>" .$commentaire['commentaire']."</p>";
+                $stringDate .= "<span>" .$commentaire['date']."</span>";
             }
 
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
