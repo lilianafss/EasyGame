@@ -346,7 +346,9 @@ class FonctionsBD
         {
             try
             {
-                $query = BaseDonnee::getConnexion()->prepare("SELECT `genre`, `idGenre` FROM `easygame`.`genre`");
+                $query = BaseDonnee::getConnexion()->prepare("
+                    SELECT `genre`, `idGenre` FROM `easygame`.`genre`
+                ");
 
                 $query->execute();
                 return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -368,14 +370,14 @@ class FonctionsBD
             try
             {
                 $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT DISTINCT `genre` 
+                    SELECT `genre` 
                     FROM `genre`, `filtre_jeux` 
                     WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
                     AND `filtre_jeux`.`idJeux` = ?
                 ");
 
                 $query->execute([$idJeux]);
-                return $query->fetch(PDO::FETCH_ASSOC);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
             }
             catch(PDOException $e)
             {
@@ -424,7 +426,7 @@ class FonctionsBD
                 ");
 
                 $query->execute([$idJeux]);
-                return $query->fetch(PDO::FETCH_ASSOC);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
             }
             catch(PDOException $e)
             {
@@ -814,7 +816,7 @@ class FonctionsBD
      */
     public static function deleteGameToPanier($idJeux){
         try{
-            $query=BaseDonnee::getConnexion()->prepare("
+            $query = BaseDonnee::getConnexion()->prepare("
 
             DELETE FROM `ajouter_panier`WHERE `idJeux`= ?
             ");
@@ -1014,6 +1016,22 @@ class FonctionsBD
                 WHERE `idUser` = ?
             ");
             $query->execute([$userName, $nom, $prenom, $userStatus, $idUser]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    public static function updateUserStatos($idUser,$userStatus){
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                UPDATE `user`
+                SET `user_status`= ?
+                WHERE `idUser` = ?
+            ");
+            $query->execute([$userStatus,$idUser]);
         }
         catch (Exception $e)
         {

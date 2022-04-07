@@ -22,31 +22,59 @@
 
 <body class="h-100">
     <h1>panier</h1>
+    <form method="POST">
 
+        <main>
+            <div id="jeux-container">
 
-    <main>
-        <div id="jeux-container">
+                <table id="cart" class="table table-hover table-condensed">
 
-            <table id="cart" class="table table-hover table-condensed">
+                    <tbody>
+                        <tr>
+                            <td data-th="Product">
+                                <div class="row">
+                                    <?= $content ?>
+                                </div>
+                        </tr>
+                    </tbody>
 
-                <tbody>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <?= $content ?>
-                            </div>
-                    </tr>
-                </tbody>
+                </table>
+            </div>
+            <div id="paiement-container">
+            <div class="container p-0">
+        <div class="card px-3">
 
-            </table>
-
-
-
+            <p class="h8 py-3">Information du paiement</p>
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Nom du proprietaire</p> <input class="form-control mb-3" type="text" placeholder="Name" ">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Numero de carte</p> <input class="form-control mb-3" type="text" placeholder="1234 5678 435 678">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">date de fin</p> <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">CVV/CVC</p> <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="btn btn-primary mb-3"> <span class="ps-3">Payer</span> <span class="fas fa-arrow-right"></span> </div>
+                </div>
+            </div>
         </div>
-        <div id="paiement-container">
-            <?= $info ?>
-        </div>
-    </main>
+    </div>
+            </div>
+        </main>
+    </form>
     <?php require_once "footer.php"; ?>
 
 </body>
