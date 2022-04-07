@@ -8,30 +8,50 @@
         </div>
 
         <ul class="nav">
-            <li class="nav-item nav-li">
-                <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-house icon"></i></a>
-                <p class="icon-texte">Accueil</p>
-            </li>
-            <li class="nav-item nav-li">
-                <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>
-                <p class="icon-texte">Connexion</p>
-            </li>
-            <li class="nav-item nav-li">
-                <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
-                <p class="icon-texte">Liste d'envie</p>
-            </li>
-            <li class="nav-item nav-li">
-                <a class="nav-link" href="/panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
-                <p class="icon-texte">Panier</p>
-            </li>
             <?php
-            if($_SESSION['admin'])
+
+            if (!($_SESSION['connected']))
             {
                 echo '
-                <li class="nav-item nav-li">
-                    <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
-                    <p class="icon-texte">Admin</p>
-                </li>';
+                    <li class="nav-item nav-li">
+                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-house icon"></i></a>
+                        <p class="icon-texte">Accueil</p>
+                    </li>
+                    
+                    <li class="nav-item nav-li">
+                        <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>
+                        <p class="icon-texte">Connexion</p>
+                    </li>
+                ';
+            }
+            else
+            {
+                echo '
+                    <li class="nav-item nav-li">
+                        <a class="nav-link" href="/deconnexion"><i class="fa-solid fa-2x fa-door-open icon"></i></a>
+                        <p class="icon-texte">Déconnexion</p>
+                    </li>
+                    
+                    <li class="nav-item nav-li">
+                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
+                        <p class="icon-texte">Wishlist</p>
+                    </li>
+                    
+                    <li class="nav-item nav-li">
+                        <a class="nav-link" href="/panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
+                        <p class="icon-texte">Panier</p>
+                    </li>
+                ';
+
+                if($_SESSION['admin'])
+                {
+                    echo '
+                        <li class="nav-item nav-li">
+                            <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
+                            <p class="icon-texte">Admin</p>
+                        </li>
+                    ';
+                }
             }
             ?>
         </ul>
