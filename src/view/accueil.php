@@ -24,30 +24,7 @@ use EasyGame\Controller\AccueilController;
             </span>
             <span class="nav-container">
                 <ul class="nav" id="container-ul">
-
                     <?php AccueilController::affichageConnexionDeconnexion() ?>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>-->
-<!--                        <p class="icon-texte">Connexion</p>-->
-<!--                    </li>-->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
-                        <p class="icon-texte">Liste d'envie</p>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
-                        <p class="icon-texte">Panier</p>
-                    </li>
-                    <?php
-                        if($_SESSION['admin'])
-                        {
-                            echo '
-                            <li class="nav-item">
-                                <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
-                                <p class="icon-texte">Admin</p>
-                            </li>';
-                        }
-                    ?>
                 </ul>
             </span>
         </nav>
