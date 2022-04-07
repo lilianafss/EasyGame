@@ -17,7 +17,6 @@ class VerificationController
     public function VerifierCompte()
     {
         session_start();
-
         if (!isset($_SESSION['idUser']))
         {
             $_SESSION = [
@@ -27,7 +26,6 @@ class VerificationController
                 'btnJeux' => false,
                 'btnUser' => false
             ];
-            echo "non connecté";
         }
 
         // Permet d'utiliser les fonctions contenues dans la classe FonctionsBD
@@ -40,7 +38,7 @@ class VerificationController
         $infoUser = $fonctionsBD->getInfoUser($idUser);
 
         // Renvois l'utilisateur à la page d'accueil si'il n'est pas connecté ou si son status n'est pas "En Attente"
-        if($_SESSION['connected'] === false || $infoUser['user_status'] != "En Attente")
+        if($infoUser['user_status'] != "En Attente")
         {
             header("Location: /");
             exit();
@@ -56,6 +54,7 @@ class VerificationController
                 $prenom  = $infoUser['prenom'];
                 $userStatus = "Actif";
 
+                $_SESSION['connected'] = true;
                 $fonctionsBD->updateUser($idUser, $userName, $nom, $prenom, $userStatus);
 
                 header("Location: /");

@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcd37fd6-b0e7-41b3-b15b-896e474b4198" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/loginInfo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/loginInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/modifierMDP.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DeconnexionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/connexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/connexion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/router/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VerificationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/style.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/style.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +51,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649310211337</updated>
-      <workItem from="1649310215958" duration="9907000" />
+      <workItem from="1649310215958" duration="14487000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

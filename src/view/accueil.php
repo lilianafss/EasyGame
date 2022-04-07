@@ -24,10 +24,12 @@ use EasyGame\Controller\AccueilController;
             </span>
             <span class="nav-container">
                 <ul class="nav" id="container-ul">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>
-                        <p class="icon-texte">Connexion</p>
-                    </li>
+
+                    <?php AccueilController::affichageConnexionDeconnexion() ?>
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>-->
+<!--                        <p class="icon-texte">Connexion</p>-->
+<!--                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
                         <p class="icon-texte">Liste d'envie</p>

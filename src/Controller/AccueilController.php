@@ -97,4 +97,26 @@
                 echo "<option value=".$elementListe[$champBd].">".$elementListe[$champBd]."</option>";
             } 
         }
+
+        public static function affichageConnexionDeconnexion()
+        {
+            if (!($_SESSION['connected']))
+            {
+                echo'
+                    <li class="nav-item">
+                        <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-user icon"></i></a>
+                        <p class="icon-texte">Connexion</p>
+                    </li>
+                ';
+            }
+            else
+            {
+                echo'
+                    <li class="nav-item">
+                        <a class="nav-link" href="/deconnexion"><i class="fa-solid fa-2x fa-door-open icon"></i></a>
+                        <p class="icon-texte">Déconnexion</p>
+                    </li>
+                ';
+            }
+        }
     }

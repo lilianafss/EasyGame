@@ -53,7 +53,7 @@ class ConnexionController
         //   $btnGoogle = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"><img src="/assets/image/googleLogo.png" alt=""/></a>';
     // }
     /******************************************************************************************/
-    //si idUser existe pas dans la session on va creer ses trois variables  
+    //si idUser n'existe pas dans la session on va creer ses trois variables
     if (!isset($_SESSION['idUser'])) {
       $_SESSION = [
         'idUser' => '',
