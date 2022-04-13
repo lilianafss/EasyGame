@@ -22,11 +22,13 @@ class JeuxController
 
         if ($idJeux != "") {
 
-            
+            $content = "";
+            $formulaire = "";
             $stringUser = "";
             $stringNote = "";
             $stringCommentaire = "";
             $stringDate = "";
+            $finTitre="</h4>";
             $userUtilisateur = $_SESSION['idUser'];
             $envoiePanier = filter_input(INPUT_POST, 'panier');
 
