@@ -2,7 +2,8 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\UserModel;
 
 class ConnexionController
 {
@@ -64,6 +65,12 @@ class ConnexionController
       ];
     }
 
+    if($_SESSION['connected'])
+    {
+        header("location: /");
+        exit();
+    }
+
     //varible pour récupérer le boutton
     $submit = filter_input(INPUT_POST, 'btnSubmit', FILTER_SANITIZE_SPECIAL_CHARS);
     $erreur = "";
@@ -77,14 +84,14 @@ class ConnexionController
         //si les deux sont egale à rien on va mettre un message d'erreur
         if ($email != "" && $password != "")
         {
-            if (FonctionsBD::getIdUser($email))
+            if (UserModel::getIdUser($email))
             {
-                $_SESSION['idUser'] = FonctionsBD::getIdUser($email)['idUser'];
+                $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
 
                 //si le mot de passe est correct par rapport à l'email on va etre connecté
-                if (password_verify($password, FonctionsBD::getInfoUser($_SESSION['idUser'])['password']))
+                if (password_verify($password, UserModel::getInfoUser($_SESSION['idUser'])['password']))
                 {
-                    $_SESSION['admin'] = boolval(FonctionsBD::getInfoUser($_SESSION['idUser'])['admin']);
+                    $_SESSION['admin'] = boolval(UserModel::getInfoUser($_SESSION['idUser'])['admin']);
                     $_SESSION['connected'] = true;
 
                     header("location: http://easygame.ch");

@@ -1,6 +1,8 @@
 <?php
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\PegiModel;
+use EasyGame\model\PlatformModel;
+use EasyGame\model\GenreModel;
 use EasyGame\Controller\AccueilController;
 
 @ini_set('display_errors', 'on');
@@ -33,19 +35,19 @@ use EasyGame\Controller\AccueilController;
                 <ul class="nav">
                     <li class="nav-item filtre-container">
                         <select name="age" id="age" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
-                            <?php AccueilController::affichageFiltre("Age", FonctionsBD::getPegi(), "pegi"); ?>
+                            <?php AccueilController::affichageFiltre("Age", PegiModel::getPegi(), "pegi"); ?>
                         </select>
                     </li>
 
                     <li class="nav-item filtre-container">
                         <select name="plateforme" id="plateforme" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
-                            <?php AccueilController::affichageFiltre("Plateforme", FonctionsBD::getPlatform(), "plateforme"); ?>
+                            <?php AccueilController::affichageFiltre("Plateforme", PlatformModel::getPlatform(), "plateforme"); ?>
                         </select>
                     </li>
 
                     <li class="nav-item filtre-container">
                         <select name="genre" id="genre" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
-                            <?php AccueilController::affichageFiltre("Genre", FonctionsBD::getGenre(), "genre"); ?>
+                            <?php AccueilController::affichageFiltre("Genre", GenreModel::getGenre(), "genre"); ?>
                         </select>
                     </li>
 

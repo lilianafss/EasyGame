@@ -2,7 +2,16 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\GameModel;
+use EasyGame\model\GenreModel;
+use EasyGame\model\HistoriqueModel;
+use EasyGame\model\NoteModel;
+use EasyGame\model\PanierModel;
+use EasyGame\model\PegiModel;
+use EasyGame\model\PlatformModel;
+use EasyGame\model\UserModel;
+use EasyGame\model\WishlistModel;
 
 class PanierController
 {
@@ -14,15 +23,15 @@ class PanierController
         $content = "";
         $info = "";
         $userUtilisateur = $_SESSION['idUser'];
-        $infoJeux = FonctionsBD::getGameById($idJeux);
-        $tableauxPanier = FonctionsBD::getPanier($userUtilisateur);
+        $infoJeux = GameModel::getGameById($idJeux);
+        $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $content .= '';
         $total = 0;
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
                 echo "s";
-                FonctionsBD::deleteGameToPanier($idJeux);
+                PanierModel::deleteGameToPanier($idJeux);
             }
         }
         // $prix_total   = 0;
