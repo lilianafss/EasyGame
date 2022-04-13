@@ -1,3 +1,8 @@
+<?php
+
+use EasyGame\model\FonctionsBD;
+
+?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -26,7 +31,43 @@
             </form>
 
             <table>
-                <?= $stringTableJeux ?>
+                <?php
+
+                if ($montrerJeux == "yesJeux" && $_SESSION['btnJeux']) {
+
+                    $_SESSION['btnJeux'] = false; //on mets dans la session false pour savoir qu'on a cliqué
+
+                    $stringTableJ .= "
+                      <tr>
+                      <th>IdJeux</th>
+                      <th>Nom</th>
+                      <th>Description</th>
+                      <th>Prix</th>
+                      <th>Pegi</th>
+                      <th>Image</th>
+                      <tr>
+                      ";
+
+                    foreach ($jeux as $unJeux) {
+                        $stringTableJ .= " 
+                        <tr>
+                        <td>" . $unJeux['idJeux'] . "</td>
+                        <td>" . $unJeux['nom'] . "</td>
+                        <td>" . $unJeux['description'] . "</td>
+                        <td>" . $unJeux['prix'] . "</td>
+                        <td>" . $unJeux['pegi'] . "</td>
+                        <td><img class=\"card-img\" src=\"data:image/jpeg;base64," . base64_encode($unJeux['image']) . "\"/></td>
+                        <td><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer<a/><td>
+                        <td><a href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier<a/><td>
+                        </tr>";
+                    }
+                } else {
+                    $_SESSION['btnJeux'] = true; //on mets dans la session true pour savoir qu'on a cliqué une deuxieme fois
+
+                    $stringTableJ = ""; // on mets la variable a rien pour rien montrer
+                }
+                echo $stringTableJ;
+                ?>
             </table>
             <form method="POST">
                 <div>
@@ -37,7 +78,49 @@
             </form>
 
             <table>
-                <?= $stringTableUsers ?>
+                <?php
+                //$stringTableUsers 
+                if ($montrerUsers == "yesUsers" && $_SESSION['btnUser']) {
+
+                    $_SESSION['btnUser'] = false; //on mets dans la session false pour savoir qu'on a cliqué
+
+                    $stringTableU .= "
+                    <tr>
+                    <th>IdUser</th>
+                    <th>Pseudo</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>USER_STATUS</th>
+                    <tr>
+                    ";
+
+                    foreach ($users as $unUser) {
+                        $stringTableU .= " 
+                      <tr>
+                      <td>" . $unUser['idUser'] . "</td>
+                      <td>" . $unUser['pseudo'] . "</td>
+                      <td>" . $unUser['nom'] . "</td>
+                      <td>" . $unUser['prenom'] . "</td>
+                      <td>" . $unUser['email'] . "</td>
+                      <td>" . $unUser['admin'] . "</td>
+                      <td>" . $unUser['user_status'] . "</td>
+                      <td><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer<a/><td>
+                      <td><a href='http://easygame.ch/effacer?disabled=" . $unUser['idUser'] . "'>Disabled<a/></td>
+                      <td><a href='http://easygame.ch/effacer?actif=" . $unUser['idUser'] . "'>Actif<a/></td>
+                      </tr>";
+                    }
+                } else {
+
+                    $_SESSION['btnUser'] = true; //on mets dans la session true pour savoir qu'on a cliqué une deuxieme fois
+                    
+                    $stringTableU = "";
+                }
+                
+                echo $stringTableU;
+
+                ?>
             </table>
         </div>
     </main>
