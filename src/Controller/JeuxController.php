@@ -12,6 +12,7 @@ class JeuxController
         session_start();
 
         $idJeux = filter_input(INPUT_GET, 'idJeux');
+        
 
 
         if ($idJeux != "") {
