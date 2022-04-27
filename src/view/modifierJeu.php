@@ -14,7 +14,6 @@
     <main class="h-100">
         <h1>Modifier</h1>
         <table>
-            <?= $montrerGenPlat ?>
         </table>
         <form method="POST">
             <label>
