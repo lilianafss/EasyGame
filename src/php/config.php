@@ -17,4 +17,4 @@ const MAIL_USERNAME ='site.easygame@gmail.com';
 const MAIL_PASSWORD ='aHi!Lc5_n8L0-ya';
 
 //test
-$test = "1234";
+$test = "abc";
