@@ -21,8 +21,8 @@ class PanierController
       
         $total=0;
         $userUtilisateur = $_SESSION['idUser'];
-        $tableauxPanier = FonctionsBD::getPanier($userUtilisateur); 
-        $jeux=FonctionsBD::getGames($userUtilisateur);   
+        $tableauxPanier = PanierModel::getPanier($userUtilisateur); 
+        $jeux=GameModel::getGames($userUtilisateur);   
        
         foreach ($tableauxPanier as $panier)
         {
@@ -40,7 +40,7 @@ class PanierController
             if ($_POST['trash']) 
             {
         
-                FonctionsBD::deleteGameToPanier($_SESSION["test"]);
+                PanierModel::deleteGameToPanier($_SESSION["test"]);
         }  }
             //echo "$total2";
         
