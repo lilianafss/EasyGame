@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee9d27e4-e476-45cf-a2f3-d6d4f0bb544b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/php/smtpMailer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AjouterJeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AjouterJeuxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DeconnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DeconnexionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EffacerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EffacerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModifierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BaseDonnee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BaseDonnee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/CommentaireModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CommentaireModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/GameModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GenreModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/GenreModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/HistoriqueModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/HistoriqueModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/NoteModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/NoteModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PanierModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PanierModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PegiModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PegiModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PlatformModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PlatformModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/WishlistModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/WishlistModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/php/tools.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/tools.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panier.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +67,7 @@
       <workItem from="1649852380243" duration="2594000" />
       <workItem from="1650867857426" duration="788000" />
       <workItem from="1651038756794" duration="512000" />
-      <workItem from="1651039295263" duration="4769000" />
+      <workItem from="1651039295263" duration="5877000" />
     </task>
     <servers />
   </component>
