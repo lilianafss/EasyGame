@@ -1,4 +1,5 @@
 <?php
+
 use EasyGame\Model\PanierModel;
 
 $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
@@ -53,12 +54,13 @@ $idJeux = filter_input(INPUT_POST, 'idJeux');
         </div>
         </td>
         <td data-th="Price"><?= $panier['prix'] ?></td>
-        
+
 
         <td class="actions" data-th="">
 
 
-            <input type="submit" name="trash" value="Supprimer"><span><!--<i class="fa fa-trash-o">--></i>
+            <input type="submit" name="trash" value="Supprimer"><span>
+                <!--<i class="fa fa-trash-o">--></i>
 
         </td>
         </tr>
@@ -70,18 +72,19 @@ $idJeux = filter_input(INPUT_POST, 'idJeux');
 
     </table>
     </div>
-    <div id="paiement-container">
-        <div class="container p-0">
-            <div class="card px-3">
+    <form method="POST">
+        <div id="paiement-container">
+            <div class="container p-0">
+                <div class="card px-3">
 
-                <p class="h8 py-3">Information du paiement</p>
-                <div class="row gx-3">
-                    <div class="col-12">
-                        <div class="d-flex flex-column">
-                            <p class="text mb-1">Nom du proprietaire</p> <input class="form-control mb-3" type="text" placeholder="Name" ">
-                    </div>
-                </div>
-                <div class=" col-12">
+                    <p class="h8 py-3">Information du paiement</p>
+                    <div class="row gx-3">
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <p class="text mb-1">Nom du proprietaire</p> <input class="form-control mb-3" type="text" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class=" col-12">
                             <div class="d-flex flex-column">
                                 <p class="text mb-1">Numero de carte</p> <input class="form-control mb-3" type="text" placeholder="1234 5678 435 678">
                             </div>
@@ -97,7 +100,8 @@ $idJeux = filter_input(INPUT_POST, 'idJeux');
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="btn btn-primary mb-3"> <span class="ps-3">Payer <?php echo $_SESSION['total'];  ?></span> <span class="fas fa-arrow-right"></span> </div>
+                            <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?>" class="btn btn-primary mb-3"></div>
+                            <!--<div class="btn btn-primary mb-3"> <span class="ps-3">Payer <?php echo $_SESSION['total'];  ?></span> <span class="fas fa-arrow-right"></span> </div>-->
                         </div>
                     </div>
                 </div>

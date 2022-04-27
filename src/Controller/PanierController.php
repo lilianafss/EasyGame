@@ -51,13 +51,17 @@ class PanierController
            
         }
         //si le bouton est cliquer on supprime un jeux
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+       
             if ($_POST['trash']) {
 
                 PanierModel::deleteGameToPanier($_SESSION["test"]);
             }
-        }
-
+           
+        
+            if($_POST['payer']){
+                echo"test";
+            }
+        
         $apiContext = new ApiContext(
             new OAuthTokenCredential(
                 'AbKsXTdNOD_GjL8Zwq6B-d38-X5QMIxDrB4MkDiTdR0rVxB3igW4IGXHx5hTBlZTyy74Ekodpev-gW2X', //client ID
