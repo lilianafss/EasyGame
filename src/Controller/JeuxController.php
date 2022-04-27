@@ -2,7 +2,13 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\CommentaireModel;
+use EasyGame\model\GameModel;
+use EasyGame\model\NoteModel;
+use EasyGame\model\PanierModel;
+use EasyGame\model\UserModel;
+
 
 //@ini_set('display_errors', 'on');
 class JeuxController
@@ -27,9 +33,9 @@ class JeuxController
             $userUtilisateur = $_SESSION['idUser'];
             $envoiePanier = filter_input(INPUT_POST, 'panier');
 
-            $infoJeux = FonctionsBD::getGameById($idJeux);
-            $tableauxCommentaire = FonctionsBD::getComments($idJeux);
-            $tableauxNotes = FonctionsBD::getNotes($idJeux);
+            $infoJeux = GameModel::getGameById($idJeux);
+            $tableauxCommentaire = CommentaireModel::getComments($idJeux);
+            $tableauxNotes = NoteModel::getNotes($idJeux);
 
             $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -40,35 +46,36 @@ class JeuxController
                 //Récupération des notes et commentaires
                 $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_NUMBER_INT);
                 $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_SPECIAL_CHARS);
-                //Si les input commentaire et note n'est pas egal a vide
+                //Si les inputs commentaire et note n'est pas egal a vide
                 if ($commentaire != "" && $note != "" &&  $userUtilisateur != "") {
                     //ajouter les notes et commentaires a la base de donnees
-                    FonctionsBD::addCommentToGame($commentaire, $idJeux, $userUtilisateur);
-                    FonctionsBD::addNoteToGame($note, $idJeux, $userUtilisateur);
+                    CommentaireModel::addCommentToGame($commentaire, $idJeux, $userUtilisateur);
+                    NoteModel::addNoteToGame($note, $idJeux, $userUtilisateur);
                 } elseif ($commentaire != "" && $userUtilisateur != "") {
-                    FonctionsBD::addCommentToGame($commentaire, $idJeux, $userUtilisateur);
+                    CommentaireModel::addCommentToGame($commentaire, $idJeux, $userUtilisateur);
                 }
             }
 
             //Parcourir les tableaux des notes 
             foreach ($tableauxNotes as $note) {
-                //garder les notes dans une variables
+                //garder les notes dans une variable
                 $stringNote .= $note['note'];
             }
 
             //Parcourir les tableaux des commentaires
             foreach ($tableauxCommentaire as $commentaire) {
                 //garder le idUser dans la variable user
-                $user = FonctionsBD::getInfoUser($commentaire['idUser']);
-                $stringUser .= "<h4>" . $user['pseudo'];
-                $stringCommentaire .= "<p>" .$commentaire['commentaire']."</p>";
-                $stringDate .= "<span>" .$commentaire['date']."</span>";
+                $user = UserModel::getInfoUser($commentaire['idUser']);
+                $stringUser .= $user['pseudo'];
+                $stringCommentaire .= $commentaire['commentaire'];
+                $stringDate .= $commentaire['date'];
             }
 
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if ($_POST['panier']) {
-                    echo"s";
-                    $panier = FonctionsBD::addGameToPanier($userUtilisateur, $idJeux);
+            if ($_SERVER['REQUEST_METHOD'] == "POST")
+            {
+                if ($_POST['panier'])
+                {
+                    $panier = PanierModel::addGameToPanier($userUtilisateur, $idJeux);
                     $envoiePanier = "Dans le panier";
                 }
             }
@@ -150,7 +157,6 @@ class JeuxController
             header("Location: http://easygame.ch/");
             
         }
-
         require '../src/view/jeux.php';
     }
 }

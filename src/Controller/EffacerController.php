@@ -1,12 +1,22 @@
 <?php
 
     namespace EasyGame\Controller;
-    use EasyGame\model\FonctionsBD;
+
+    use EasyGame\model\BaseDonnee;
+    use EasyGame\model\GameModel;
+    use EasyGame\model\GenreModel;
+    use EasyGame\model\HistoriqueModel;
+    use EasyGame\model\NoteModel;
+    use EasyGame\model\PanierModel;
+    use EasyGame\model\PegiModel;
+    use EasyGame\model\PlatformModel;
+    use EasyGame\model\UserModel;
+    use EasyGame\model\WishlistModel;
 
     class EffacerController
     {
         /**
-        * fonction principale de la page effacer
+        * Fonction principale de la page effacer
         *
         * @return void
         * @author De Castilho E Sousa Rodrigo
@@ -14,7 +24,7 @@
         public static function effacer(){
             session_start();
             
-            //si on est pas connecté en tant administrateur on va être rederiger vers la page d'accueil
+            //si on n'est pas connecté en tant administrateur on va être rederiger vers la page d'accueil
             if (!$_SESSION['admin']) {
                 header("location: http://easygame.ch");
                 exit();
@@ -26,25 +36,25 @@
                 $actifUser = filter_input(INPUT_GET,'actif');
                 
                 if($effacerjeux != ""){
-                    FonctionsBD::deleteGame($effacerjeux); //effacer le jeu avec l'id
+                    GameModel::deleteGame($effacerjeux); //effacer le jeu avec l'id
                     header("location: http://easygame.ch/admin");
                     exit();
                 }
                 elseif($effacerUser != ""){
 
-                    FonctionsBD::deleteUser($effacerUser); //effacer le user avec l'id
+                    UserModel::deleteUser($effacerUser); //effacer le user avec l'id
                     header("location: http://easygame.ch/admin");
                     exit();
                 }
                 elseif($disabledUser != ""){
-                    
-                    FonctionsBD::updateUserStatos($disabledUser,"Disabled");
+
+                    UserModel::updateUserStatus($disabledUser,"Disabled");
                     header("location: http://easygame.ch/admin");
                     exit();
                 }
                 //changer le status de l'utilisateur
                 elseif($actifUser != ""){
-                    FonctionsBD::updateUserStatos($actifUser,"Actif");
+                    UserModel::updateUserStatus($actifUser,"Actif");
                     header("location: http://easygame.ch/admin");
                     exit();
                 }else{

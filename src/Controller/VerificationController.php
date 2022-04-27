@@ -2,7 +2,16 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\GameModel;
+use EasyGame\model\GenreModel;
+use EasyGame\model\HistoriqueModel;
+use EasyGame\model\NoteModel;
+use EasyGame\model\PanierModel;
+use EasyGame\model\PegiModel;
+use EasyGame\model\PlatformModel;
+use EasyGame\model\UserModel;
+use EasyGame\model\WishlistModel;
 use PDOException;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -28,14 +37,11 @@ class VerificationController
             ];
         }
 
-        // Permet d'utiliser les fonctions contenues dans la classe FonctionsBD
-        $fonctionsBD = new FonctionsBD();
-
         // Récupère l'id de l'utilisateur dans la session
         $idUser = $_SESSION['idUser'];
 
         // Récupère les informations de l'utilisateur avec l'idUser
-        $infoUser = $fonctionsBD->getInfoUser($idUser);
+        $infoUser = UserModel::getInfoUser($idUser);
 
         // Renvois l'utilisateur à la page d'accueil si'il n'est pas connecté ou si son status n'est pas "En Attente"
         if($infoUser['user_status'] != "En Attente")
@@ -55,7 +61,7 @@ class VerificationController
                 $userStatus = "Actif";
 
                 $_SESSION['connected'] = true;
-                $fonctionsBD->updateUser($idUser, $userName, $nom, $prenom, $userStatus);
+                UserModel::updateUser($idUser, $userName, $nom, $prenom, $userStatus);
 
                 header("Location: /");
                 exit();

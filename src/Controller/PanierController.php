@@ -2,7 +2,16 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\GameModel;
+use EasyGame\model\GenreModel;
+use EasyGame\model\HistoriqueModel;
+use EasyGame\model\NoteModel;
+use EasyGame\model\PanierModel;
+use EasyGame\model\PegiModel;
+use EasyGame\model\PlatformModel;
+use EasyGame\model\UserModel;
+use EasyGame\model\WishlistModel;
 
 class PanierController
 {

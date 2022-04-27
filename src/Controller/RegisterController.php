@@ -2,7 +2,16 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\GameModel;
+use EasyGame\model\GenreModel;
+use EasyGame\model\HistoriqueModel;
+use EasyGame\model\NoteModel;
+use EasyGame\model\PanierModel;
+use EasyGame\model\PegiModel;
+use EasyGame\model\PlatformModel;
+use EasyGame\model\UserModel;
+use EasyGame\model\WishlistModel;
 use PDOException;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -34,8 +43,11 @@ class RegisterController
             ];
         }
 
-        // Permet d'utiliser les fonctions contenues dans la classe FonctionsBD
-        $fonctionsBD = new FonctionsBD();
+        if($_SESSION['connected'])
+        {
+            header("location: /");
+            exit();
+        }
 
         // Filtre les inputs
         $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -75,10 +87,10 @@ class RegisterController
                     try
                     {
                         // Crée l'utilisateur
-                        $fonctionsBD->newUser($userName, $lastName, $firstName, $email, $passwordHash);
+                        UserModel::newUser($userName, $lastName, $firstName, $email, $passwordHash);
 
                         // Récupère l'id de l'utilisateur et on le met dans la session
-                        $_SESSION['idUser'] = $fonctionsBD->getIdUser($email)['idUser'];
+                        $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
 
                         // Envoie un mail de confirmation pour activer le compte
                         $message = $this->smtpmailer($to, $from, $name, $subj, $msg);

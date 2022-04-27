@@ -2,13 +2,16 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
-use Exception;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\GameModel;
+use EasyGame\model\GenreModel;
+use EasyGame\model\PlatformModel;
+
 
 class AjouterJeuxController
 {
     /**
-     * Fonction de la page de ajouter jeux
+     * Fonction de la page d'ajouter jeux
      * @return array|false|void
      * @author Rodrigo De Castilho E Sousa
      */
@@ -33,7 +36,7 @@ class AjouterJeuxController
         $tableauGenre = [];
         $tableauPlatform = [];
 
-        //si on est pas connecté en tant de admin on va a la page d'accueil
+        //si on n'est pas connecté en tant d'admin on va à la page d'accueil
         if (!$_SESSION['admin']) {
             header("location: http://easygame.ch");
             exit();
@@ -47,7 +50,7 @@ class AjouterJeuxController
             }
             
             $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
-            //on essaye de ajouter le jeu si on touche le bouton Envoyer
+            //on essaye d'ajouter le jeu si on touche le bouton Envoyer
             if ($submit == "Envoyer" ) {
 
                 //recuperer les donnees et l'image
@@ -58,7 +61,7 @@ class AjouterJeuxController
                 $image = $_FILES['imageJeu']['tmp_name'];
 
                 if($_SESSION['nbGenre'] != ""){
-                    //prendre les valeurs et les stoker dans une variable
+                    //prendre les valeurs et les stocks dans une variable
                     for($i = 1 ; $i <= $_SESSION['nbGenre']; $i++){
                         
                         $tableauGenre[$i] = filter_input(INPUT_POST, 'nbGenre'.$i, FILTER_SANITIZE_NUMBER_INT);
@@ -69,7 +72,7 @@ class AjouterJeuxController
                 }
 
                 if($_SESSION['nbPlatform'] != ""){
-                    //prendre les valeurs et les stoker dans une variable
+                    //prendre les valeurs et les stocks dans une variable
                     for($i = 1 ; $i <= $_SESSION['nbPlatform']; $i++){
                         
                         $tableauPlatform[$i] = filter_input(INPUT_POST, 'nbPlatform'.$i, FILTER_SANITIZE_NUMBER_INT);
@@ -83,9 +86,9 @@ class AjouterJeuxController
                 if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "" && $tableauGenre != [] && $tableauPlatform != []) {
                     $img = file_get_contents($image);
                     
-                    FonctionsBD::newGame($nomJeux, $description, $prix, $idPegi, $img, $tableauGenre, $tableauPlatform);
+                    GameModel::newGame($nomJeux, $description, $prix, $idPegi, $img, $tableauGenre, $tableauPlatform);
                 } else {
-                    //affichage de la message d'erreur
+                    //affichage du message d'erreur
                     $messageErreur = "<p id='messageErreur'>Tous les champs doivent être remplis</p>";
                 }
             }
@@ -100,7 +103,7 @@ class AjouterJeuxController
         for($i = 1;$i <= $nbGenre; $i++){ 
             $tableau .='<select name="nbGenre'.$i.'">';
 
-            foreach(FonctionsBD::getGenre() as $genre){
+            foreach(GenreModel::getGenre() as $genre){
              
                 $tableau .='<option value="'.$genre['idGenre'].'">'.$genre['genre'].'</option>';
             }
@@ -110,7 +113,7 @@ class AjouterJeuxController
         for($i = 1;$i <= $nbPlatform; $i++){
             $tableau .='<select name="nbPlatform'.$i.'">';
 
-            foreach(FonctionsBD::getPlatform() as $platform){
+            foreach(PlatformModel::getPlatform() as $platform){
              
                 $tableau .='<option value="'.$platform['idPlateforme'].'">'.$platform['plateforme'].'</option>';
             }

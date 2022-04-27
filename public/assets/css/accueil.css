@@ -22,15 +22,14 @@ a
 .nav-container
 {
     display: flex;
-    justify-content: left;
-    width: 55%;
+    justify-content: center;
+    width: 100%;
 }
 
 #logo-container
 {
-    width: 45%;
-    justify-content: right;
-    padding-right: 15px;
+    width: 100%;
+    justify-content: center;
 }
 
 #logo
@@ -41,7 +40,7 @@ a
 
 #container-ul
 {
-    width: 450px;
+    width: 50%;
 }
 
 #icon-container
@@ -199,6 +198,11 @@ a
     {
         width: 70%;
     }
+
+    #container-ul
+    {
+        width: 80%;
+    }
 }
 
 @media only screen and (max-width: 769px)
@@ -214,16 +218,8 @@ a
         text-align: center;
     }
 
-    #logo-container
+    #container-ul
     {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-
-    .nav-container
-    {
-        justify-content: center;
         width: 100%;
     }
 }

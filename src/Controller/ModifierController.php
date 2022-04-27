@@ -2,7 +2,16 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\model\BaseDonnee;
+use EasyGame\model\GameModel;
+use EasyGame\model\GenreModel;
+use EasyGame\model\HistoriqueModel;
+use EasyGame\model\NoteModel;
+use EasyGame\model\PanierModel;
+use EasyGame\model\PegiModel;
+use EasyGame\model\PlatformModel;
+use EasyGame\model\UserModel;
+use EasyGame\model\WishlistModel;
 use PDOException;
 
 
@@ -30,7 +39,7 @@ class ModifierController
     }
 
     public function showGame($idJeux){
-        $jeu = FonctionsBD::getGameById($idJeux);
+        $jeu = GameModel::getGameById($idJeux);
 
         $montrerJeu = '
         <form method="POST">
@@ -100,8 +109,8 @@ class ModifierController
     }
 
     public function showGameTypePlat($idJeux){
-        $genres = FonctionsBD::getGameGenre($idJeux);
-        $platforms = FonctionsBD::getGamePlatform($idJeux);
+        $genres = GenreModel::getGameGenre($idJeux);
+        $platforms = PlatformModel::getGamePlatform($idJeux);
 
         $montrerGenPlat = "
         <tr>
