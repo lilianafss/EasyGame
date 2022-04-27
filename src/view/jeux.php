@@ -36,25 +36,13 @@ $stringUser .='
 
             <input type="submit" name="panier" id="panier" value="Ajouter au panier"><br>
             
-            <?php if($stringCommentaire!=""){?> 
+            <?php if($commentaire['commentaire']!=""){?> 
                 <h3>Notes et Comentaires</h3>
-                <div class="review-list">
-                    <ul>
-                        <li>
-                            <div class="right">
-                                <h4><?=$stringUser?></h4>
-                                <span class="publish py-3 d-inline-block w-100"><?=$stringDate?></span>
-                                <div class="review-description">
-                                    <?=$stringCommentaire?>
-                                </div>
-                                
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                
             <?php
+               echo $content;
             }?>
-            <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
+            <!-- <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
                 <h5 class="mb-4">Laisse votre avis</h5>
                 <label>Note</p>
                 <input type="number" min="1" max="5" name="note" id="note"><br>
@@ -63,10 +51,10 @@ $stringUser .='
                     <textarea class="form-control" name="commentaire" id="commentaire"></textarea>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Ajouter commentaire" name="envoyer">
+                    <input type="submit" value="Ajouter commentaire" name="submit">
                 </div>
 
-            </div>
+            </div> -->
         </form>
     </main>
     <?php require_once "footer.php"; ?>
