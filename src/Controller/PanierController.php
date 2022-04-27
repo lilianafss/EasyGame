@@ -5,22 +5,20 @@ namespace EasyGame\Controller;
 //require_once 'vendor/autoload.php';
 
 //use pour les requete a la base de donnée
-use EasyGame\model\BaseDonnee;
-use EasyGame\model\GameModel;
-use EasyGame\model\GenreModel;
-use EasyGame\model\HistoriqueModel;
-use EasyGame\model\NoteModel;
-use EasyGame\model\PanierModel;
-use EasyGame\model\PegiModel;
-use EasyGame\model\PlatformModel;
-use EasyGame\model\UserModel;
-use EasyGame\model\WishlistModel;
+use EasyGame\Model\BaseDonnee;
+use EasyGame\Model\GameModel;
+use EasyGame\Model\GenreModel;
+use EasyGame\Model\HistoriqueModel;
+use EasyGame\Model\NoteModel;
+use EasyGame\Model\PanierModel;
+use EasyGame\Model\PegiModel;
+use EasyGame\Model\PlatformModel;
+use EasyGame\Model\UserModel;
+use EasyGame\Model\WishlistModel;
 
 //use pour api paypal
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
-use PayPalApiItem;
-use PayPalApiItemList;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Payer;
@@ -50,6 +48,7 @@ class PanierController
             $_SESSION["test"] = $idJeux;
             $items = $panier['nom'];
             $_SESSION['item'] = $items;
+           
         }
         //si le bouton est cliquer on supprime un jeux
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
