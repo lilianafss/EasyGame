@@ -21,6 +21,7 @@
     "require": {
         "pecee/simple-router": "4.3.7.2",
         "phpmailer/phpmailer": "^6.6",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "paypal/rest-api-sdk-php": "*"
     }
 }

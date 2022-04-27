@@ -1,3 +1,3 @@
-/vendor/
-src/model/config.php
-composer.json
+vendor
+**/src/php/config.php
+**/composer.json

@@ -1,34 +1,34 @@
 <?php
 
-namespace EasyGame\model;
+namespace EasyGame\Model;
 
-use EasyGame\model\BaseDonnee;
+use EasyGame\Model\BaseDonnee;
 use Exception;
 use PDO;
 use PDOException;
 
-class WishlistModel
+class HistoriqueModel
 {
     /*------------------------- Select -------------------------*/
     #region Select
     /**
-     * Récupère la wishlist dans la base de données
+     * Récupère l'historique dans la base de données
      * @param int $idUser
      * @return array|false|void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function getWishlist( $idUser)
+    public static function getHistory($idUser)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
                 SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix` 
-                FROM `jeux`, `ajouter_wishlist`, `user`, `wishlist` 
-                WHERE `jeux`.`idJeux` = `ajouter_wishlist`.`idJeux`
+                FROM `jeux`, `voir_historique`, `user`, `historique` 
+                WHERE `jeux`.`idJeux` = `voir_historique`.`idJeux`
                 AND `user`.`idUser` = ?
-                AND `wishlist`.idUser = ?
-                AND `ajouter_wishlist`.`idWishlist` = `wishlist`.`idWishlist` 
+                AND `historique`.idUser = ?
+                AND `voir_historique`.`idHistorique` = `historique`.`idHistorique` 
             ");
             $query->execute([$idUser, $idUser]);
             return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -43,20 +43,19 @@ class WishlistModel
     /*------------------------- Insert -------------------------*/
     #region Insert
     /**
-     * Ajoute un jeux a sa wishlist
-     *
+     * Ajoute un jeu à son historique d'achat
      * @param int $idJeux
      * @param int $idUser
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addGameToWishlist( $idUser,  $idJeux)
+    public static function addGameToHistorique( $idUser,  $idJeux)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                INSERT INTO `ajouter_wishlist`(`idWishlist`, `idJeux`) 
+                INSERT INTO `voir_historique`(`idHistorique`, `idJeux`) 
                 VALUES (?,?)
             ");
             $query->execute([$idUser, $idJeux]);

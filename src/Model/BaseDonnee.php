@@ -6,12 +6,12 @@ Date        : 02/2022
 Version     : 1.0.0.0
 */
 
-namespace EasyGame\model;
+namespace EasyGame\Model;
 use Exception;
 use PDO;
 use PDOException;
 
-require "config.php";
+require "../src/php/config.php";
 
 class BaseDonnee
 {

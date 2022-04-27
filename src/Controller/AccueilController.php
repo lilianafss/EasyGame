@@ -2,8 +2,8 @@
 
     namespace EasyGame\Controller;
 
-    use EasyGame\model\BaseDonnee;
-    use EasyGame\model\GameModel;
+    use EasyGame\Model\BaseDonnee;
+    use EasyGame\Model\GameModel;
 
     class AccueilController
     {
@@ -68,7 +68,7 @@
                     }
                 }
             }
-            elseif($listeFiltre==true && $recherche =="")
+            elseif($listeFiltre == true && $recherche =="")
             {
                 foreach($listeFiltre  as $elementListe)
                 {
@@ -100,6 +100,9 @@
             } 
         }
 
+        /**
+         * @return void
+         */
         public static function affichageConnexionDeconnexion()
         {
             if (!($_SESSION['connected']))
@@ -108,6 +111,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-arrow-right-to-bracket icon"></i></a>
                         <p class="icon-texte">Connexion</p>
+                    </li>
+                    <li class="nav-item nav-li">
+                        <a class="nav-link" href="/nouveau"><i class="fa-solid fa-2x fa-user-plus icon"></i></a>
+                        <p class="icon-texte">S\'inscrire</p>
                     </li>
                 ';
             }
