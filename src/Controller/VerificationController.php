@@ -2,16 +2,7 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\BaseDonnee;
-use EasyGame\model\GameModel;
-use EasyGame\model\GenreModel;
-use EasyGame\model\HistoriqueModel;
-use EasyGame\model\NoteModel;
-use EasyGame\model\PanierModel;
-use EasyGame\model\PegiModel;
-use EasyGame\model\PlatformModel;
-use EasyGame\model\UserModel;
-use EasyGame\model\WishlistModel;
+use EasyGame\Model\UserModel;
 use PDOException;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

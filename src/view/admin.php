@@ -1,6 +1,6 @@
 <?php
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\Model\FonctionsBD;
 
 ?>
 <!DOCTYPE html>

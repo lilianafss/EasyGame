@@ -2,12 +2,12 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\BaseDonnee;
-use EasyGame\model\CommentaireModel;
-use EasyGame\model\GameModel;
-use EasyGame\model\NoteModel;
-use EasyGame\model\PanierModel;
-use EasyGame\model\UserModel;
+use EasyGame\Model\BaseDonnee;
+use EasyGame\Model\CommentaireModel;
+use EasyGame\Model\GameModel;
+use EasyGame\Model\NoteModel;
+use EasyGame\Model\PanierModel;
+use EasyGame\Model\UserModel;
 
 
 //@ini_set('display_errors', 'on');

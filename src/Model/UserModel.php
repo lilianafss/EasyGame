@@ -1,8 +1,8 @@
 <?php
 
-namespace EasyGame\model;
+namespace EasyGame\Model;
 
-use EasyGame\model\BaseDonnee;
+use EasyGame\Model\BaseDonnee;
 use Exception;
 use PDO;
 use PDOException;

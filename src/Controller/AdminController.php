@@ -2,9 +2,9 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\BaseDonnee;
-use EasyGame\model\GameModel;
-use EasyGame\model\UserModel;
+use EasyGame\Model\BaseDonnee;
+use EasyGame\Model\GameModel;
+use EasyGame\Model\UserModel;
 
 class AdminController
 {

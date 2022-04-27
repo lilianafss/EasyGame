@@ -1,7 +1,5 @@
 <?php
-
-use EasyGame\model\FonctionsBD;
-use EasyGame\model\PanierModel;
+use EasyGame\Model\PanierModel;
 
 $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
 $idJeux = filter_input(INPUT_POST, 'idJeux');

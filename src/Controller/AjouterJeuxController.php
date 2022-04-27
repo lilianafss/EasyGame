@@ -2,10 +2,10 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\BaseDonnee;
-use EasyGame\model\GameModel;
-use EasyGame\model\GenreModel;
-use EasyGame\model\PlatformModel;
+use EasyGame\Model\BaseDonnee;
+use EasyGame\Model\GameModel;
+use EasyGame\Model\GenreModel;
+use EasyGame\Model\PlatformModel;
 
 
 class AjouterJeuxController
