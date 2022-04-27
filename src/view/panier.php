@@ -2,7 +2,7 @@
 
 <?php  
 
-use EasyGame\model\FonctionsBD;
+use EasyGame\Model\FonctionsBD;
 $tableauxPanier = FonctionsBD::getPanier($_SESSION['idUser']);
 
 

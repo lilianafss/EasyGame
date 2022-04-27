@@ -1,27 +1,28 @@
 <?php
 
-namespace EasyGame\model;
+namespace EasyGame\Model;
 
-use EasyGame\model\BaseDonnee;
+use EasyGame\Model\BaseDonnee;
 use Exception;
 use PDO;
 use PDOException;
 
-class GenreModel
+class PlatformModel
 {
     /*------------------------- Select -------------------------*/
     #region Select
-     /**
-      * Récupère tout les genres
-      * @return array|false|void
-      * @author Rodrigo De Castilho E Sousa
-      */
-    public static function getGenre()
+    /**
+     * Récupère toutes les plateformes
+     * @return array|false|void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function getPlatform()
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `genre`, `idGenre` FROM `easygame`.`genre`
+                SELECT `plateforme`, `idPlateforme` FROM `easygame`.`plateforme`
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -33,22 +34,22 @@ class GenreModel
     }
 
     /**
-     * Récupère le(s) genre(s) d'un jeu
+     * Récupère la(les) plateforme(s) d'un jeu(x)
      * @param int $idJeux
      * @return array|false|void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function getGameGenre( $idJeux)
+    public static function getGamePlatform($idJeux)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `genre` 
-                    FROM `genre`, `filtre_jeux` 
-                    WHERE `genre`.`idGenre` = `filtre_jeux`.`idGenre` 
-                    AND `filtre_jeux`.`idJeux` = ?
-                ");
+                SELECT DISTINCT `plateforme` 
+                FROM `plateforme`, `ou_jouer` 
+                WHERE `plateforme`.`idPlateforme` = `ou_jouer`.`idPlateforme` 
+                AND `ou_jouer`.`idJeux` = ?
+            ");
             $query->execute([$idJeux]);
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }

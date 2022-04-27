@@ -1,8 +1,8 @@
 <?php
 
-use EasyGame\model\PegiModel;
-use EasyGame\model\PlatformModel;
-use EasyGame\model\GenreModel;
+use EasyGame\Model\PegiModel;
+use EasyGame\Model\PlatformModel;
+use EasyGame\Model\GenreModel;
 use EasyGame\Controller\AccueilController;
 
 @ini_set('display_errors', 'on');

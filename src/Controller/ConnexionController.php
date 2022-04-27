@@ -2,8 +2,8 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\BaseDonnee;
-use EasyGame\model\UserModel;
+use EasyGame\Model\BaseDonnee;
+use EasyGame\Model\UserModel;
 
 class ConnexionController
 {

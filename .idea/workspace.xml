@@ -2,25 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee9d27e4-e476-45cf-a2f3-d6d4f0bb544b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/CommentaireModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/GameModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/GenreModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/HistoriqueModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/NoteModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/PanierModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/PegiModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/PlatformModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/UserModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/WishlistModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/php/tools.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/php/smtpMailer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/accueil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AjouterJeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AjouterJeuxController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionGoogle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionGoogle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DeconnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DeconnexionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/EffacerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EffacerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuxController.php" afterDir="false" />
@@ -29,11 +21,23 @@
       <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BaseDonnee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BaseDonnee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/FonctionsBD.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BaseDonnee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BaseDonnee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/CommentaireModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CommentaireModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GameModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/GameModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GenreModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/GenreModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/HistoriqueModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/HistoriqueModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/NoteModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/NoteModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PanierModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PanierModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PegiModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PegiModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PlatformModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PlatformModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/WishlistModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/WishlistModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/php/tools.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/tools.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panier.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +50,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Controller/AccueilController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/view/accueil.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/view/header.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,20 +71,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/php" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="\\wsl$\Ubuntu-20.04\var\www\html\easygame\src\php" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="\\wsl$\Ubuntu-20.04\var\www\html\easygame\src\model" />
       <recent name="\\wsl$\Ubuntu-20.04\var\www\html\easygame\src\php" />
+      <recent name="\\wsl$\Ubuntu-20.04\var\www\html\easygame\src\model" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -89,7 +98,10 @@
       <workItem from="1649659044351" duration="4139000" />
       <workItem from="1649827916839" duration="1021000" />
       <workItem from="1649829201370" duration="14333000" />
-      <workItem from="1649852380243" duration="790000" />
+      <workItem from="1649852380243" duration="2594000" />
+      <workItem from="1650867857426" duration="788000" />
+      <workItem from="1651038756794" duration="512000" />
+      <workItem from="1651039295263" duration="4769000" />
     </task>
     <servers />
   </component>

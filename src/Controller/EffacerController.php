@@ -2,16 +2,16 @@
 
     namespace EasyGame\Controller;
 
-    use EasyGame\model\BaseDonnee;
-    use EasyGame\model\GameModel;
-    use EasyGame\model\GenreModel;
-    use EasyGame\model\HistoriqueModel;
-    use EasyGame\model\NoteModel;
-    use EasyGame\model\PanierModel;
-    use EasyGame\model\PegiModel;
-    use EasyGame\model\PlatformModel;
-    use EasyGame\model\UserModel;
-    use EasyGame\model\WishlistModel;
+    use EasyGame\Model\BaseDonnee;
+    use EasyGame\Model\GameModel;
+    use EasyGame\Model\GenreModel;
+    use EasyGame\Model\HistoriqueModel;
+    use EasyGame\Model\NoteModel;
+    use EasyGame\Model\PanierModel;
+    use EasyGame\Model\PegiModel;
+    use EasyGame\Model\PlatformModel;
+    use EasyGame\Model\UserModel;
+    use EasyGame\Model\WishlistModel;
 
     class EffacerController
     {

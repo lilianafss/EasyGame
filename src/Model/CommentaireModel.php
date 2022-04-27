@@ -1,34 +1,35 @@
 <?php
 
-namespace EasyGame\model;
+namespace EasyGame\Model;
 
-use EasyGame\model\BaseDonnee;
+use EasyGame\Model\BaseDonnee;
 use Exception;
 use PDO;
 use PDOException;
 
-class NoteModel
+class CommentaireModel
 {
     /*------------------------- Select -------------------------*/
     #region Select
     /**
-     * Récupère les notes de la base de données
+     * Récupérer les commentaires du jeu
      * @param int $idJeux
      * @return array|false|void
+     *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function getNotes( $idJeux)
+    public static function getComments( $idJeux)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `note`, `idUser` FROM `notes` 
-                WHERE `notes`.`idJeux` = ?;
+                SELECT `commentaire`, `idUser`, `date` FROM `commentaires`
+                WHERE `commentaires`.`idJeux` = ?;
             ");
             $query->execute([$idJeux]);
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
-        catch(PDOException $e)
+        catch (PDOException $e)
         {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
@@ -38,36 +39,55 @@ class NoteModel
     /*------------------------- Insert -------------------------*/
     #region Insert
     /**
-     * Ajoute une note à un jeu choisi
-     *
-     * @param int $note
+     * Ajoute un commentaire à un jeu choisi
+     * @param string $commentaire
      * @param int $idJeux
      * @param int $idUser
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addNoteToGame( $note,  $idJeux,  $idUser)
+    public static function addCommentToGame($commentaire, $idJeux, $idUser)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                INSERT INTO notes(note, idUser, idJeux) 
-                VALUES (?,?,?)
+                INSERT INTO `commentaires`(`commentaire`, `date`, `idUser`, `idJeux`) 
+                VALUES (?,CURDATE(),?,?)
             ");
-            $query->execute([$note, $idUser, $idJeux]);
+            $query->execute([$commentaire, $idUser, $idJeux]);
         }
         catch (Exception $e)
         {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
-
     #endregion
 
     /*------------------------- Delete -------------------------*/
     #region Delete
 
+    /**
+     * Supprime un commentaire
+     * @param $idComment
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deleteComment($idComment)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                DELETE FROM `commentaires` WHERE `idComentaire` = ?
+            ");
+            $query->execute([$idComment]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     #endregion
 
     /*------------------------- Update -------------------------*/

@@ -2,16 +2,16 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\model\BaseDonnee;
-use EasyGame\model\GameModel;
-use EasyGame\model\GenreModel;
-use EasyGame\model\HistoriqueModel;
-use EasyGame\model\NoteModel;
-use EasyGame\model\PanierModel;
-use EasyGame\model\PegiModel;
-use EasyGame\model\PlatformModel;
-use EasyGame\model\UserModel;
-use EasyGame\model\WishlistModel;
+use EasyGame\Model\BaseDonnee;
+use EasyGame\Model\GameModel;
+use EasyGame\Model\GenreModel;
+use EasyGame\Model\HistoriqueModel;
+use EasyGame\Model\NoteModel;
+use EasyGame\Model\PanierModel;
+use EasyGame\Model\PegiModel;
+use EasyGame\Model\PlatformModel;
+use EasyGame\Model\UserModel;
+use EasyGame\Model\WishlistModel;
 use PDOException;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -128,44 +128,4 @@ class MotDePasseOublierController
 //        }
 //        require '../src/view/register.php';
 //    }
-
-    /** Email de vérification
-     * @param $to
-     * @param $from
-     * @param $from_name
-     * @param $subject
-     * @param $body
-     * @return string
-     * @throws Exception
-     */
-    public function smtpmailer($to, $from, $from_name, $subject, $body): string
-    {
-        $mail = new PHPMailer(true);
-        $mail->IsSMTP();
-        $mail->SMTPAuth = true;
-
-        $mail->SMTPSecure = 'ssl';
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = 465;
-        $mail->Username = 'site.easygame@gmail.com';
-        $mail->Password = 'Super2022!';
-
-        $mail->IsHTML(true);
-        $mail->From = 'site.easygame@gmail.com';
-        $mail->FromName = $from_name;
-        $mail->Sender = $from;
-        $mail->AddReplyTo($from, $from_name);
-        $mail->Subject = $subject;
-        $mail->Body = $body;
-        $mail->AddAddress($to);
-
-        if ($mail->send())
-        {
-            return "L'email de confirmation à été envoyé";
-        }
-        else
-        {
-            return "Malheureusement l'email n'as pas pu être envoyé";
-        }
-    }
 }
