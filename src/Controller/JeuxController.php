@@ -23,9 +23,7 @@ class JeuxController
 
         if ($idJeux != "") {
 
-            $content = "";
-            $stringNote = "";
-            $stringCommentaire = "";
+           
             $userUtilisateur = $_SESSION['idUser'];
             $envoiePanier = filter_input(INPUT_POST, 'panier');
 
@@ -51,46 +49,7 @@ class JeuxController
                     CommentaireModel::addCommentToGame($commentaire, $idJeux, $userUtilisateur);
                 }
             }
-
-            //Parcourir les tableaux des notes 
-            foreach ($tableauxNotes as $note) {
-                //garder les notes dans une variable
-                $stringNote .='
-                <span class="gig-rating text-body-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-                        <path
-                            fill="currentColor"
-                            d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
-                        ></path>
-                    </svg>
-                    '.$note['note'].'
-                </span>';
-            }
-
-            //Parcourir les tableaux des commentaires
-            foreach ($tableauxCommentaire as $commentaire) {
-                //garder le idUser dans la variable user
-                $user = UserModel::getInfoUser($commentaire['idUser']);
-                $content.='<div class="review-list">
-                    <ul>
-                        <li>
-                            <div class="right">
-                                <h4>'. $user['pseudo'].'
-                                    
-                                    '.$stringNote.'
-                                    </span>
-                                </h4>
-                                <span class="publish py-3 d-inline-block w-100">'.$commentaire['date'].'</span>
-                                <div class="review-description">
-                                    '.$commentaire['commentaire'].'
-                                </div>
-                                
-                            </div>
-                        </li>
-                    </ul>
-                </div>';
-            }
-
+            
             if ($_SERVER['REQUEST_METHOD'] == "POST")
             {
                 if ($_POST['panier'])
@@ -103,34 +62,17 @@ class JeuxController
 
             //Affichage des l'informations du jeux
             
-            if ($userUtilisateur != "") {
-                $formulaire = '<div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
-                    <h5 class="mb-4">Laisse votre avis</h5>
-                    <label>Note</p>
-                    <input type="number" min="1" max="5" name="note" id="note"><br>
-                    <div class="form-group">
-                        <label>Votre commentaire</label>
-                        <textarea class="form-control" name="commentaire" id="commentaire" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Ajouter commentaire" name="envoyer">
-                    </div>
-
-                </div>';  
-
-
-                foreach ($tableauxNotes as $note) {
-                    if ($userUtilisateur == $note['idUser']) {
-                        $formulaire = '<div class="evaluation">
-                            <label for="commentaire" >Commentaire: </label>
-                            <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
-                           <input type="submit" value="Ajouter" name="submit">
-                        </div>'; 
-                    }
-                }
-
-                $content .= $formulaire;
-            }
+            //     foreach ($tableauxNotes as $note) {
+            //         if ($userUtilisateur == $note['idUser']) {
+            //             $formulaire = '<div class="evaluation">
+            //                 <label for="commentaire" >Commentaire: </label>
+            //                 <textarea name="commentaire" id="commentaire" cols="50" rows="5" required></textarea>
+            //                <input type="submit" value="Ajouter commentaire" name="submit">
+            //             </div>'; 
+            //         }
+            //     }
+            //     $content .= $formulaire;
+            // }
         } else {
             header("Location: http://easygame.ch/");
             
