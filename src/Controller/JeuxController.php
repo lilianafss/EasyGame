@@ -17,6 +17,7 @@ class JeuxController
         session_start();
 
         $idJeux = filter_input(INPUT_GET, 'idJeux');
+        var_dump($idJeux);
         
         if ($idJeux != "") {
            
@@ -50,6 +51,7 @@ class JeuxController
                 {
                     CommentaireModel::addCommentToGame($commentaire, $idJeux, $idUser);
                 }
+                header("Refresh: 0;url=jeux?idJeux=$idJeux");
             }
 
             if ($_SERVER['REQUEST_METHOD'] == "POST")

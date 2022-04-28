@@ -1,6 +1,7 @@
 <?php
     use EasyGame\Model\UserModel;
     use EasyGame\Model\NoteModel;
+
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -70,6 +71,7 @@
                     <input type="submit" value="AjouterCommentaire" name="envoyer">
                 </div>
             </div>
+           
         </form>
     </main>
     <?php require_once "footer.php"; ?>
