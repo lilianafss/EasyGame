@@ -45,8 +45,9 @@ class UserModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status` 
-                FROM `user` WHERE `idUser` = ?
+                SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`
+                FROM `user`
+                WHERE `user`.`idUser` = ?
             ");
             $query->execute([$idUser]);
             return $query->fetch(PDO::FETCH_ASSOC);

@@ -33,6 +33,30 @@ class NoteModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+    /**
+     * Récupère la note d'un jeu, d'un utilisateur
+     * @param int $idJeux
+     * @param int $idUser
+     * @return array|false|void
+     * @author Flavio Soares Rodrigues
+     */
+    public static function getNoteByUserForOneGame($idJeux, $idUser)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                SELECT `note` FROM `notes` 
+                WHERE `notes`.`idJeux` = ? AND `notes`.`idUser` = ?;
+            ");
+            $query->execute([$idJeux, $idUser]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     #endregion
 
     /*------------------------- Insert -------------------------*/
