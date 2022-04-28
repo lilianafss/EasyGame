@@ -17,6 +17,12 @@ use PDOException;
 
 class ModifierController
 {
+    /**
+     * Modification du joue choisi
+     *
+     * @return void
+     * @author De Castilho E Sousa Rodrigo
+     */
     public function modifierJeu()
     {
         session_start();
@@ -26,45 +32,16 @@ class ModifierController
             exit();
         } else {
 
+            //recuperer l'id du joue
             $idJeux = filter_input(INPUT_GET,'idJeux');
 
+            //recuperer les informations du joue
             $jeu = GameModel::getGameById($idJeux);
-            
-            $montrerGenPlat = ModifierController::showGameTypePlat($idJeux);
+            //recuperer les genres du joue
+            $genres = GenreModel::getGameGenre($idJeux);
+            //recuperer les plateformes du joue
+            $platforms = PlatformModel::getGamePlatform($idJeux);
         }
         require '../src/view/modifierJeu.php';
-    }
-
-    public function showGameTypePlat($idJeux){
-        $genres = GenreModel::getGameGenre($idJeux);
-        $platforms = PlatformModel::getGamePlatform($idJeux);
-
-        $montrerGenPlat = "
-        <tr>
-        <th>Genres</th>
-        </tr>";
-
-        foreach($genres as $genre){
-
-            $montrerGenPlat .= "<tr>
-            <td>".$genre['genre']."</td>
-            </tr>";
-
-            $montrerGenPlat .= "";
-        }
-
-        $montrerGenPlat .= "
-        <tr>
-        <th>Plateformes</th>
-        </tr>";
-
-        foreach($platforms as $platform){
-
-            $montrerGenPlat .= "<tr>
-            <td>".$platform['plateforme']."</td>
-            </tr>";
-        }
-        
-        return $montrerGenPlat;
     }
 }

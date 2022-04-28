@@ -35,7 +35,9 @@ class MotDePasseOublierController
                 'connected' => false,
                 'admin' => false,
                 'btnJeux' => false,
-                'btnUser' => false
+                'btnUser' => false,
+                'nbGenre' =>'',
+                'nbPlatform'=>''
             ];
         }
         require '../src/view/loginInfo.php';

@@ -27,7 +27,9 @@ class RegisterController
                 'connected' => false,
                 'admin' => false,
                 'btnJeux' => false,
-                'btnUser' => false
+                'btnUser' => false,
+                'nbGenre' =>'',
+                'nbPlatform'=>''
             ];
         }
 
