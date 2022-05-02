@@ -22,6 +22,8 @@
         "pecee/simple-router": "4.3.7.2",
         "phpmailer/phpmailer": "^6.6",
         "ext-pdo": "*",
-        "paypal/rest-api-sdk-php": "*"
+        "paypal/rest-api-sdk-php": "*",
+        "ligue/omnipay" : "^3.0" ,
+        "omnipay/paypal": "^3.0"
     }
 }
