@@ -17,6 +17,7 @@ use EasyGame\Controller\MotDePasseOublierController;
 use EasyGame\Controller\DeconnexionController;
 use EasyGame\Controller\ModifierController;
 
+
 SimpleRouter::form('/', [AccueilController::class, 'accueil']); // page d'accueil du site
 SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion']); // page de connexion au site
 SimpleRouter::form('/nouveau', [RegisterController::class, 'nouveauCompte']); // page de création de compte

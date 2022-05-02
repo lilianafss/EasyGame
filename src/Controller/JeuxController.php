@@ -60,6 +60,7 @@ class JeuxController
                 {
                     $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                     $envoiePanier = "Dans le panier";
+                    
                 }
             }
         }
