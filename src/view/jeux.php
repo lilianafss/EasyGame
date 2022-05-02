@@ -32,7 +32,6 @@
         </form>
 
         <h3>Notes et Comentaires</h3>
-        
 
         <?php      
             foreach ($tableauxCommentaire as $commentaire) {
@@ -55,11 +54,16 @@
         <form action="#" method="POST">
             <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
                 <?php
-                if($userNote['note'] == ""){
+                $test = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
+                var_dump($idJeux);
+                var_dump($_SESSION['idUser']);
+                var_dump($test);
+                var_dump($test['note']);
+                if(!$test['note']){
                 ?>
                     <h5 class="mb-4">Laissez votre avis</h5>
-                    <label>Note</p>
-                    <input type="number" min="1" max="5" name="note" id="note"><br>
+                    <label>Note</label>
+                    <input type="number" min="1" max="5" name="note" id="note" required><br>
                 <?php
                 }
                 ?>

@@ -15,9 +15,7 @@ class JeuxController
     public static function jeux()
     {
         session_start();
-
         $idJeux = filter_input(INPUT_GET, 'idJeux');
-        var_dump($idJeux);
         
         if ($idJeux != "") {
            
@@ -34,9 +32,6 @@ class JeuxController
             $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_NUMBER_INT);
             $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_SPECIAL_CHARS);
 
-
-
-            
             //Si le button envoyer est egal a "AjouterCommentaire"
             if ($submit == "AjouterCommentaire")
             {
