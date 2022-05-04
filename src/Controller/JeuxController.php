@@ -29,9 +29,10 @@ class JeuxController
             $infoJeux = GameModel::getGameById($idJeux);
             $tableauxCommentaire = CommentaireModel::getComments($idJeux);
             $tableauxNotes = NoteModel::getNotes($idJeux);
-            $tableauxPanier = PanierModel::getPanier($idUser);
+            $numeroCommentaires=CommentaireModel::countComments($idJeux);
 
             $submit = filter_input(INPUT_POST, 'envoyer', FILTER_SANITIZE_SPECIAL_CHARS);
+            $btnPanier = filter_input(INPUT_POST, 'panier', FILTER_SANITIZE_SPECIAL_CHARS);
 
             //Récupération des notes et commentaires
             $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_NUMBER_INT);
@@ -65,11 +66,18 @@ class JeuxController
             {
                 if ($_POST['panier'])
                 {
-                    $panier = PanierModel::addGameToPanier($idUser, $idJeux);
-                    $envoiePanier = "Dans le panier";
+                    if (!$_SESSION['connected'])
+                    {
+                        header("Location: http://easygame.ch/connexion");
+                        $_SESSION['idJeux'] = $idJeux;
+                    }else{
+                        $panier = PanierModel::addGameToPanier($idUser, $idJeux);
+                        header("Location: http://easygame.ch/panier");
+                    }
                     
                 }
             }
+
         }
         else
         {

@@ -16,85 +16,89 @@
 
 </head>
 
-<body class="h-100">
+<body class="d-flex flex-column h-100">
     <?php require_once "header.php"; ?>
 
     <main class="flex-shrink-0">
 
-        <div class="description">
+        <div id="descriptionJeuxContainer">
+            <!-- Description du jeux -->
             <h1><?= $infoJeux['nom'] ?></h1>
             <?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($infoJeux['image']) . '"/>'; ?>
             <h3>A propos du jeu</h3>
             <p><?= $infoJeux['description'] ?></p>
             
-        </div>
-        <?php
-        if($idUser != null){
-        ?>
-        <button onclick="Affichage()" id="AffichageForm">Donner un avis</button>
-        <form action="#" method="POST">
-            <div id="evaluation">
-                <h5 class="mb-4">Laissez votre avis</h5>
-                <?php
-                $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-                if(!$noteUSer['note']){
-                ?>
-                    <label for="note">Note : </p>
-                    <input type="number" min="1" max="5" name="note" id="note"><br>
-                <?php
-                }
-                ?>
-                <div class="">
-                    <label for="commentaire">Votre commentaire : </label>
-                    <textarea class="form-control" name="commentaire" id="commentaire" required></textarea>
-                </div>
-                <div class="">
-                    <input type="submit" value="AjouterCommentaire" name="envoyer">
-                </div>
-            </div>
-           
-        </form>
-        <?php 
-        }
-        if($tableauxCommentaire){   
-        ?>
-           <h3>Notes et Comentaires</h3>
-        <?php   
         
-            foreach ($tableauxCommentaire as $commentaire) {        
-            $user = UserModel::getInfoUser($commentaire['idUser']);
-            $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
-        ?>
-            <ul>
-                <li>
-                    <div class="right">
-                        <h4> <?php echo ($user['pseudo']." ".$userNote['note']);?></h4>
-                        <span class="publish py-3 d-inline-block w-100"><?=$commentaire['date']?></span>
-                        <div class="review-description">
-                            <?=$commentaire['commentaire']?>
-                        </div>
+            <!-- Si l'utilisateur n'est pas connecte le formulaire d'avis ne vas pas s'afficher -->
+            <?php
+            if($idUser != null){
+            ?>
+            <button onclick="Affichage()" id="AffichageForm">Donner un avis</button>
+            <form action="#" method="POST">
+                <div id="evaluation">
+                    <h5 class="mb-4">Laissez votre avis</h5>
+                    <?php
+                    $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
+                    if(!$noteUSer['note']){
+                    ?>
+                        <label for="note">Note : </p>
+                        <input type="number" min="1" max="5" name="note" id="note"><br>
+                    <?php
+                    }
+                    ?>
+                    <div class="">
+                        <label for="commentaire">Votre commentaire : </label>
+                        <textarea class="form-control" name="commentaire" id="commentaire" required></textarea>
                     </div>
-                </li>
-            </ul>
-        <?php
+                    <div class="">
+                        <input type="submit" value="AjouterCommentaire" name="envoyer">
+                    </div>
+                </div>
+            
+            </form>
+            <?php 
             }
-        }
-        ?>
-    </main>
-    <aside>
-         <p class="prix"><?= $infoJeux['prix']." CHF" ?></p>
-        <form method="POST">
-            <input class="btn boutton" type="submit" name="panier" id="panier" value="Ajouter au panier"><br>
-        </form>
-        <button class="btn boutton" >Wishlist</button> <br>
-        <?php
+            if($tableauxCommentaire){   
+            ?>
+            <h3>Notes et Comentaires</h3>
+                <p><?=$numeroCommentaires['nbCommentaires']?> commentaire(s)</p>
+                
+            <?php   
+                foreach ($tableauxCommentaire as $commentaire) {        
+                $user = UserModel::getInfoUser($commentaire['idUser']);
+                $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
+            ?>
+                <ul>
+                    <li>
+                        <div class="right">
+                            <h4> <?php echo ($user['pseudo']." ".$userNote['note']);?></h4>
+                            <span class="publish py-3 d-inline-block w-100"><?=$commentaire['date']?></span>
+                            <div class="review-description">
+                                <?=$commentaire['commentaire']?>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            <?php
+                }
+            }
+            ?>
+        </div>
+        <div id="asideContainer">
+            <p class="prix"><?= $infoJeux['prix']." CHF" ?></p>
+            <form method="POST">
+                <input class="btn boutton" type="submit" name="panier" id="panier" value="Ajouter au panier"><br>
+            </form>
+            <!-- <button class="btn boutton" >Wishlist</button> <br> -->
+            <?php
 
-            $moyenne=NoteModel::averageByGame($idJeux);
-            if($moyenne!=""){
-                echo "Moyenne : ". $moyenne['average']."/5";
-            } 
-        ?>
-    </aside>
+                $moyenne=NoteModel::averageByGame($idJeux);
+                if($moyenne!=""){
+                    echo "Moyenne : ". $moyenne['average']."/5";
+                } 
+            ?>
+        </div>
+    </main>
     <?php require_once "footer.php"; ?>
 
     <script>
