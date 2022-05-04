@@ -35,7 +35,6 @@ class PanierController
         session_start();
         //initialisation variable
         $total = 0;
-        $prix=0;
         $userUtilisateur = $_SESSION['idUser'];
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $jeux = GameModel::getGames($userUtilisateur);
@@ -55,11 +54,9 @@ class PanierController
             if ($_POST['trash']) {
                 $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
                 foreach ($tableauxPanier as $panier) {
-                    echo ($panier["idJeux"] . "et" . $idJeux);
                     if($panier["idJeux"] == $idJeux){
                         $_SESSION["total"] = $_SESSION["total"] - $panier["prix"];
                         $_SESSION['totalPanier']=$_SESSION['total'];
-                        echo  "total:" .$_SESSION["total"];
                     }
                 }
                 PanierModel::deleteGameToPanier($idJeux);

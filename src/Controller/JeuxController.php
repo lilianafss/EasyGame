@@ -17,19 +17,20 @@ class JeuxController
         session_start();
         $idJeux = filter_input(INPUT_GET, 'idJeux');
 
-        
+
         if ($idJeux != "") {
-          
-            $note="";
-            $commentaire="";
-            $quantite=0;
+
+            $note = "";
+            $commentaire = "";
+            $quantite = 0;
             $envoiePanier = filter_input(INPUT_POST, 'panier');
             $idUser = $_SESSION['idUser'];
 
             $infoJeux = GameModel::getGameById($idJeux);
             $tableauxCommentaire = CommentaireModel::getComments($idJeux);
             $tableauxNotes = NoteModel::getNotes($idJeux);
-            $numeroCommentaires=CommentaireModel::countComments($idJeux);
+            $tableauxPanier = PanierModel::getPanier($idUser);
+            $numeroCommentaires = CommentaireModel::countComments($idJeux);
 
             $submit = filter_input(INPUT_POST, 'envoyer', FILTER_SANITIZE_SPECIAL_CHARS);
             $btnPanier = filter_input(INPUT_POST, 'panier', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -39,48 +40,34 @@ class JeuxController
             $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_SPECIAL_CHARS);
 
             //Si le button envoyer est egal a "AjouterCommentaire"
-            if ($submit == "AjouterCommentaire")
-            {
+            if ($submit == "AjouterCommentaire") {
                 //Si les inputs commentaire et note n'est pas egal a vide
-                if ($commentaire != "" && $note != "" &&  $idUser != "")
-                {
+                if ($commentaire != "" && $note != "" &&  $idUser != "") {
                     //ajouter les notes et commentaires a la base de donnees
                     CommentaireModel::addCommentToGame($commentaire, $idJeux, $idUser);
                     NoteModel::addNoteToGame($note, $idJeux, $idUser);
-                }
-                elseif ($commentaire != "" && $idUser != "")
-                {
+                } elseif ($commentaire != "" && $idUser != "") {
                     CommentaireModel::addCommentToGame($commentaire, $idJeux, $idUser);
                 }
                 header("Refresh: 0;url=jeux?idJeux=$idJeux");
             }
-            foreach ($tableauxPanier as $panier) {
-              
-               $quantite++;
-               $_SESSION["quantite"]=$quantite;
-             
-            }
-           
 
-            if ($_SERVER['REQUEST_METHOD'] == "POST")
-            {
-                if ($_POST['panier'])
-                {
-                    if (!$_SESSION['connected'])
-                    {
+
+            
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                if ($_POST['panier']) {
+                    $quantite++;
+                    $_SESSION["quantite"] = $quantite;
+                    if (!$_SESSION['connected']) {
                         header("Location: http://easygame.ch/connexion");
                         $_SESSION['idJeux'] = $idJeux;
-                    }else{
+                    } else {
                         $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                         header("Location: http://easygame.ch/panier");
                     }
-                    
                 }
             }
-
-        }
-        else
-        {
+        } else {
             header("Location: http://easygame.ch/");
         }
         require '../src/view/jeux.php';
