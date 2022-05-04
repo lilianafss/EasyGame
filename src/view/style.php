@@ -44,6 +44,7 @@
         if ($_SERVER['PHP_SELF'] == "/index.php/jeux")
         {
             echo '<link rel="stylesheet" href="/assets/css/header.css">';
+            echo '<link rel="stylesheet" href="/assets/css/jeux.css">';
         }
 
         // Page de récupération d'email pour le mot de passe oublié

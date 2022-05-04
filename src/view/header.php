@@ -43,7 +43,7 @@
                         </li>
                         
                         <li class="nav-item nav-li">
-                            <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
+                            <a class="nav-link" href="/wishlist"><i class="fa-solid fa-2x fa-heart icon"></i></a>
                             <p class="icon-texte">Wishlist</p>
                         </li>
                         
