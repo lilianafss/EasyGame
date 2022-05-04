@@ -92,6 +92,21 @@ class PanierModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+    public static function deletePanier($idUser)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                DELETE FROM `ajouter_panier`WHERE `idPanier`= ?
+            ");
+            $query->execute([$idUser]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+    
     #endregion
 
     /*------------------------- Update -------------------------*/

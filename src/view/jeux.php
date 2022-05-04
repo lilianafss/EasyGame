@@ -1,6 +1,10 @@
 <?php
-    use EasyGame\Model\UserModel;
-    use EasyGame\Model\NoteModel;
+
+use EasyGame\Model\UserModel;
+use EasyGame\Model\NoteModel;
+use EasyGame\Model\PanierModel;
+
+$tableauxPanier = PanierModel::getPanier($idUser);
 
 ?>
 <!DOCTYPE html>
@@ -27,75 +31,88 @@
             <?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($infoJeux['image']) . '"/>'; ?>
             <h3>A propos du jeu</h3>
             <p><?= $infoJeux['description'] ?></p>
-            
-        
+
+
             <!-- Si l'utilisateur n'est pas connecte le formulaire d'avis ne vas pas s'afficher -->
             <?php
-            if($idUser != null){
+            if ($idUser != null) {
             ?>
-            <button onclick="Affichage()" id="AffichageForm">Donner un avis</button>
-            <form action="#" method="POST">
-                <div id="evaluation">
-                    <h5 class="mb-4">Laissez votre avis</h5>
-                    <?php
-                    $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-                    if(!$noteUSer['note']){
-                    ?>
-                        <label for="note">Note : </p>
-                        <input type="number" min="1" max="5" name="note" id="note"><br>
-                    <?php
-                    }
-                    ?>
-                    <div class="">
-                        <label for="commentaire">Votre commentaire : </label>
-                        <textarea class="form-control" name="commentaire" id="commentaire" required></textarea>
-                    </div>
-                    <div class="">
-                        <input type="submit" value="AjouterCommentaire" name="envoyer">
-                    </div>
-                </div>
-            
-            </form>
-            <?php 
-            }
-            if($tableauxCommentaire){   
-            ?>
-            <h3>Notes et Comentaires</h3>
-                <p><?=$numeroCommentaires['nbCommentaires']?> commentaire(s)</p>
-                
-            <?php   
-                foreach ($tableauxCommentaire as $commentaire) {        
-                $user = UserModel::getInfoUser($commentaire['idUser']);
-                $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
-            ?>
-                <ul>
-                    <li>
-                        <div class="right">
-                            <h4> <?php echo ($user['pseudo']." ".$userNote['note']);?></h4>
-                            <span class="publish py-3 d-inline-block w-100"><?=$commentaire['date']?></span>
-                            <div class="review-description">
-                                <?=$commentaire['commentaire']?>
+                <button onclick="Affichage()" id="AffichageForm">Donner un avis</button>
+                <form action="#" method="POST">
+                    <div id="evaluation">
+                        <h5 class="mb-4">Laissez votre avis</h5>
+                        <?php
+                        $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
+                        if (!$noteUSer['note']) {
+                        ?>
+                            <label for="note">Note : </p>
+                                <input type="number" min="1" max="5" name="note" id="note"><br>
+                            <?php
+                        }
+                            ?>
+                            <div class="">
+                                <label for="commentaire">Votre commentaire : </label>
+                                <textarea class="form-control" name="commentaire" id="commentaire" required></textarea>
                             </div>
-                        </div>
-                    </li>
-                </ul>
+                            <div class="">
+                                <input type="submit" value="AjouterCommentaire" name="envoyer">
+                            </div>
+                    </div>
+
+                </form>
+            <?php
+            }
+            if ($tableauxCommentaire) {
+            ?>
+                <h3>Notes et Comentaires</h3>
+                <p><?= $numeroCommentaires['nbCommentaires'] ?> commentaire(s)</p>
+
+                <?php
+                foreach ($tableauxCommentaire as $commentaire) {
+                    $user = UserModel::getInfoUser($commentaire['idUser']);
+                    $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
+                ?>
+                    <ul>
+                        <li>
+                            <div class="right">
+                                <h4> <?php echo ($user['pseudo'] . " " . $userNote['note']); ?></h4>
+                                <span class="publish py-3 d-inline-block w-100"><?= $commentaire['date'] ?></span>
+                                <div class="review-description">
+                                    <?= $commentaire['commentaire'] ?>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
             <?php
                 }
             }
             ?>
         </div>
         <div id="asideContainer">
-            <p class="prix"><?= $infoJeux['prix']." CHF" ?></p>
+            <p class="prix"><?= $infoJeux['prix'] . " CHF" ?></p>
             <form method="POST">
-                <input class="btn boutton" type="submit" name="panier" id="panier" value="Ajouter au panier"><br>
+                <input class="btn boutton" type="submit" name="panier" id="panier" value="
+                <?php
+                $BOOL=false;
+                    foreach ($tableauxPanier as $panier) {
+                        if ($panier["idJeux"] == $idJeux) {
+                            $BOOL=TRUE;
+                                echo"Dans le panier";
+                            }
+                            
+                        } if($BOOL==false){
+                            echo"Ajouter dans le panier";
+                        }
+                        
+                        ?>"><br>
             </form>
             <!-- <button class="btn boutton" >Wishlist</button> <br> -->
             <?php
 
-                $moyenne=NoteModel::averageByGame($idJeux);
-                if($moyenne!=""){
-                    echo "Moyenne : ". $moyenne['average']."/5";
-                } 
+            $moyenne = NoteModel::averageByGame($idJeux);
+            if ($moyenne != "") {
+                echo "Moyenne : " . $moyenne['average'] . "/5";
+            }
             ?>
         </div>
     </main>
@@ -103,7 +120,8 @@
 
     <script>
         document.getElementById("evaluation").style.display = "none";
-        function Affichage(){
+
+        function Affichage() {
             ///Pour afficher la division :
             document.getElementById("evaluation").style.display = "block";
             document.getElementById("AffichageForm").style.display = "none";
