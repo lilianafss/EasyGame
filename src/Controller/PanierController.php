@@ -28,9 +28,6 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
 use PayPal\Exception\PayPalConnectionException;
 
-
-
-
 class PanierController
 {
     public function panier()
@@ -61,20 +58,13 @@ class PanierController
         }
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['payer']) {
-            
-
-
-
-
-
-
-
                 $apiContext = new ApiContext(
                     new OAuthTokenCredential(
                         'AbKsXTdNOD_GjL8Zwq6B-d38-X5QMIxDrB4MkDiTdR0rVxB3igW4IGXHx5hTBlZTyy74Ekodpev-gW2X', //client ID
                         'EAIXKpk8-2RIcrj5GMtm5-IIMAHCsrxK0yg131m6X0Wj1v5A2zPGizM8GiabluWub7f13DWJ-ZlWwmXO' //client Secret
                     )
                 );
+                
                 //config de l'api
                 $apiContext->setConfig(
                     array(
@@ -88,6 +78,8 @@ class PanierController
                 $payer = new Payer();
                 $payer->setPaymentMethod('paypal');
 
+
+                var_dump($payer);
                 //config du prix,de la quantité et de la monnaie
                 $item1 = new Item();
                 $item1->setName($_SESSION['item'])
@@ -112,7 +104,7 @@ class PanierController
                 //redirection avec des urls selon si le paiement a reussi ou echoué
                 $redirectUrls = new RedirectUrls();
                 echo $redirectUrls;
-                $redirectUrls->setReturnUrl("http://easygame.ch/success.php")
+                $redirectUrls->setReturnUrl("http://easygame.ch/")
                     ->setCancelUrl("http://easygame.ch/error.php");
 
                 //paiement
@@ -123,8 +115,7 @@ class PanierController
                     ->setRedirectUrls($redirectUrls);
                 try {
                     $payement->create($apiContext);
-
-                    header('location' . $payement->getApprovalLink());
+                    header('Location' . $payement->getApprovalLink());
                 } catch (PayPalConnectionException $ex) {
                     echo $ex->getData();
                 }
