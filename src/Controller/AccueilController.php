@@ -7,6 +7,7 @@
     use EasyGame\Model\PegiModel;
     use EasyGame\Model\PlatformModel;
 use EasyGame\Model\GenreModel;
+use EasyGame\Model\PanierModel;
 
     class AccueilController
     {
@@ -22,9 +23,16 @@ use EasyGame\Model\GenreModel;
                     'idUser' => '',
                     'connected' => false,
                     'admin' => false,
+                    'idJeux' => ''
                 ];
             }
             
+            if($_SESSION['connected'] && $_SESSION['idJeux']!=""){
+                PanierModel::addGameToPanier($_SESSION['idUser'], $_SESSION['idJeux']);
+                $_SESSION['idJeux']="";
+                header("Location: http://easygame.ch/panier");
+            }
+
             $recherche = filter_input(INPUT_GET,'recherche');
             $pegi = filter_input(INPUT_GET,'age');
             $plateforme = filter_input(INPUT_GET,'plateforme');
@@ -32,10 +40,9 @@ use EasyGame\Model\GenreModel;
         
             $listeJeux=GameModel::getGames();
             $listeFiltre=GameModel::getGameByFilters($pegi,$genre,$plateforme);
-
             $stringJeux = "";
 
-            if($listeFiltre==false && $recherche=="")
+            if($listeFiltre=="" && $recherche=="")
             {
                 foreach($listeJeux as $elementListe)
                 {
@@ -48,7 +55,7 @@ use EasyGame\Model\GenreModel;
                 </div>';
                 }
             }
-            elseif($listeFiltre==false && $recherche!="")
+            elseif($listeFiltre=="" && $recherche!="")
             {
                
                 $requete=GameModel::searchGame($recherche);
@@ -69,11 +76,10 @@ use EasyGame\Model\GenreModel;
                     $stringJeux .= '<p>Aucun resultat</p>';
                 }              
             }
-            elseif($listeFiltre == true && $recherche =="")
+            elseif($listeFiltre && $recherche =="")
             { 
                 foreach($listeFiltre  as $elementListe)
                 {
-                    echo"okokok";
                     $stringJeux .= '
                     <div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')" >
                         <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
