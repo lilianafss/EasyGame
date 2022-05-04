@@ -1,13 +1,10 @@
 
-function cliquerPlatGenres(genre, plateforme) {
-
-    let tableau = "";
+function cliquerGenres(genre) {
 
     let nbGenre = document.getElementById("nbGenre").value;
-    let nbPlateforme = document.getElementById("nbPlatform").value;
-
+    let tableau = "";
     let genreModel = genre;
-    let plateformeModel = plateforme;
+
 
     for (let i = 1; i <= nbGenre; i++) {
         tableau += '<select name="nbGenre' + i + '">';
@@ -17,6 +14,14 @@ function cliquerPlatGenres(genre, plateforme) {
         }
         tableau += '</select><br>';
     }
+    document.getElementById("selectedGenres").innerHTML = tableau;
+}
+
+function cliquerPlateformes(plateforme){
+
+    let nbPlateforme = document.getElementById("nbPlatform").value;
+    let tableau = "";
+    let plateformeModel = plateforme;
 
     for (let i = 1; i <= nbPlateforme; i++) {
         tableau += '<select name="nbPlatform' + i + '">';
@@ -26,5 +31,5 @@ function cliquerPlatGenres(genre, plateforme) {
         }
         tableau += '</select><br>';
     }
-    document.getElementById("selectedTableau").innerHTML = tableau;
+    document.getElementById("selectedPlateformes").innerHTML = tableau;
 }
