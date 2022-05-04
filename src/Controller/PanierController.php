@@ -35,6 +35,7 @@ class PanierController
         session_start();
         //initialisation variable
         $total = 0;
+        $prix=0;
         $userUtilisateur = $_SESSION['idUser'];
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $jeux = GameModel::getGames($userUtilisateur);
@@ -53,7 +54,17 @@ class PanierController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
                 $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
+                foreach ($tableauxPanier as $panier) {
+                    echo ($panier["idJeux"] . "et" . $idJeux);
+                    if($panier["idJeux"] == $idJeux){
+                        $_SESSION["total"] = $_SESSION["total"] - $panier["prix"];
+                        $_SESSION['totalPanier']=$_SESSION['total'];
+                        echo  "total:" .$_SESSION["total"];
+                    }
+                }
                 PanierModel::deleteGameToPanier($idJeux);
+                header("Refresh: 0");
+                $_SESSION['quantite']--;
             }
         }
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -115,10 +126,14 @@ class PanierController
                     ->setRedirectUrls($redirectUrls);
                 try {
                     $payement->create($apiContext);
-                    header('Location' . $payement->getApprovalLink());
+                    
+                    header('Location:' . $payement->getApprovalLink());
+                   
                 } catch (PayPalConnectionException $ex) {
                     echo $ex->getData();
                 }
+               
+
             }
         }
 

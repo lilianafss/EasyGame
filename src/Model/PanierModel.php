@@ -24,7 +24,7 @@ class PanierModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix`,`jeux`.`image` 
+                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix`,`jeux`.`image`
                 FROM `jeux`, `ajouter_panier`, `user`, `panier` 
                 WHERE `jeux`.`idJeux` = `ajouter_panier`.`idJeux`
                 AND `user`.`idUser` = ?
