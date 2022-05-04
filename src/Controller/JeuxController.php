@@ -16,17 +16,20 @@ class JeuxController
     {
         session_start();
         $idJeux = filter_input(INPUT_GET, 'idJeux');
+
         
         if ($idJeux != "") {
           
             $note="";
             $commentaire="";
+            $quantite=0;
             $envoiePanier = filter_input(INPUT_POST, 'panier');
             $idUser = $_SESSION['idUser'];
 
             $infoJeux = GameModel::getGameById($idJeux);
             $tableauxCommentaire = CommentaireModel::getComments($idJeux);
             $tableauxNotes = NoteModel::getNotes($idJeux);
+            $tableauxPanier = PanierModel::getPanier($idUser);
 
             $submit = filter_input(INPUT_POST, 'envoyer', FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -50,6 +53,13 @@ class JeuxController
                 }
                 header("Refresh: 0;url=jeux?idJeux=$idJeux");
             }
+            foreach ($tableauxPanier as $panier) {
+              
+               $quantite++;
+               $_SESSION["quantite"]=$quantite;
+             
+            }
+           
 
             if ($_SERVER['REQUEST_METHOD'] == "POST")
             {

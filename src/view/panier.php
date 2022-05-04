@@ -45,7 +45,10 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                             </div>
                 </div>
         </td>
-        <td data-th="Price"><?= $panier['prix'] ?></td>
+   
+
+        <td data-th="Price"><?= number_format($panier['prix'],2)  ?>CHF</td>
+
 
 
         <td class="actions" data-th="">
@@ -94,8 +97,12 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?>" class="btn btn-primary mb-3"></div>
-                                    <!-- <div class="btn btn-primary mb-3"> <span class="ps-3">Payer <?php echo $_SESSION['total'];  ?></span> <span class="fas fa-arrow-right"></span> </div>-->
+                                <?php if($_SESSION['quantite']!=0){?>
+                                    <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3"></div>
+                                    <?php } elseif($_SESSION['quantite']==0){?>
+                                        <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['totalPanier']?> CHF" class="btn btn-primary mb-3"></div>
+                                        <?php  } ?>
+                                    <!-- <div class="btn btn-primary mb-3"> <span class="ps-3">Payer ></span> <span class="fas fa-arrow-right"></span> </div>-->
                                 </div>
                             </div>
                         </div>
