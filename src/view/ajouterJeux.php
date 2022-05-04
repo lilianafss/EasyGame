@@ -42,7 +42,8 @@
                 </p>
                 <p>
                     <label>Combien de genres:</label>
-                    <select id="nbGenre">
+                    <select onchange='cliquerGenres(<?php echo json_encode($genre)?>)' id='nbGenre'>
+                        <option></option>
                         <option value="10">10</option>
                         <option value="9">9</option>
                         <option value="8">8</option>
@@ -57,18 +58,18 @@
                 </p>
                 <p>
                     <label>Combien de plateformes:</label>
-                    <select id="nbPlatform">
+                    <select  onclick='cliquerPlateformes(<?php echo json_encode($plateforme) ?>)' id="nbPlatform">
+                        <option></option>
                         <option value="4">4</option>
                         <option value="3">3</option>
                         <option value="2">2</option>
                         <option value="1">1</option>
                     </select>
                 </p>
-                <p>
-                    <input class="btn" type="button" onclick='cliquerPlatGenres(<?php echo json_encode($genre)?>, <?php echo json_encode($plateforme)?>)' value="Plateforme et Genre">
-                </p>
 
-                <p id="selectedTableau">
+                <p id="selectedGenres">
+                </p>
+                <p id="selectedPlateformes">
                 </p>
 
                 <p>
@@ -78,7 +79,7 @@
 
                 <p>
                     <input class="btn" type="submit" name="submit" value="Ajouter jeu">
-                </p> 
+                </p>
                 <?= $messageErreur ?>
             </div>
         </form>
