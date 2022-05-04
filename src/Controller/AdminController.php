@@ -23,49 +23,22 @@ class AdminController
         'idUser' => '',
         'connected' => false,
         'admin' => false,
-        'btnJeux' => false,
-        'btnUser' => false,
-        'nbGenre' =>'',
-        'nbPlatform'=>''
       ];
     }
-
-    $stringTableJ = ""; //la variable vaut rien parce que on a pas cliquer le bouton
-    $nomBoutonJeux = "Montrer jeux"; //au debut le bouton va montrer ça
-
-    $stringTableU = ""; //la variable vaut rien parce que on a pas cliquer le bouton
-    $nomBoutonUsers = "Montrer users"; //au debut le bouton va montrer ça
-
-
 
     if (!$_SESSION['admin']) {
       header("location: http://easygame.ch");
       exit();
     } else {
+
+      $stringTableJ = ""; //la variable vaut rien parce que on a pas cliquer le bouton
+    
+      $stringTableU = ""; //la variable vaut rien parce que on a pas cliquer le bouton
+
       //recuperer les jeux de la base de donnée
       $jeux = GameModel::getGames();
       //recuperer les utilisateurs de la base de donneé
-      $users = UserModel::getUsers();
-
-      //variable pour savoir si on a touché le bouton
-      $montrerJeux = filter_input(INPUT_POST, 'showGames', FILTER_SANITIZE_SPECIAL_CHARS);
-
-      /*Condition pour modifier le nom des boutons*/
-      if ($_SESSION['btnJeux']) {
-        $nomBoutonJeux = "Cacher jeux";
-      } else {
-        $nomBoutonJeux = "Montrer jeux";
-      }
-
-      //variable pour savoir si on a touché le bouton
-      $montrerUsers = filter_input(INPUT_POST, 'showUsers', FILTER_SANITIZE_SPECIAL_CHARS);
-
-      /*Condition pour modifier le nom des boutons*/
-      if ($_SESSION['btnUser']) {
-        $nomBoutonUsers = "Cacher users";
-      } else {
-        $nomBoutonUsers = "Montrer users";
-      }
+      $users = UserModel::getUsers();  
     }
     require '../src/view/admin.php';
   }

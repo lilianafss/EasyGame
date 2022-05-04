@@ -64,4 +64,9 @@
         if($_SERVER['PHP_SELF'] == "/index.php/modifier"){
             echo'<link rel="stylesheet" href="assets/css/modifierJeu.css">';
         }
+
+        // Page admin 
+        if($_SERVER['PHP_SELF'] == "/index.php/admin"){
+            echo'<link rel="stylesheet" href="assets/css/admin.css">';
+        }
     #endregion

@@ -10,72 +10,84 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-<?php require_once "header.php"; ?>
+    <?php require_once "header.php"; ?>
     <main>
         <h1>Ajouter jeux</h1>
 
         <form method="POST" enctype="multipart/form-data">
-            <div>
-                <label>Nom du jeu :</label>
-                <input type="text" name="nomJeu">
+            <div class="d-flex flex-column">
+                <p>
+                    <label>Nom du jeu :</label>
+                    <input type="text" name="nomJeu">
+                </p>
+                <p>
+                    <label>Description :</label>
+                    <textarea type="text" name="descrifJeu"></textarea>
 
-                <br>
+                </p>
+                <p>
+                    <label>Prix du jeu :</label>
+                    <input type="number" step="0.01" name="prixJeu">
+                </p>
 
-                <label>Description du jeu :</label>
-                <textarea type="text" name="descrifJeu"></textarea>
+                <p>
+                    <label>Pegi du jeu :</label>
+                    <select name="pegiJeu">
+                        <option value="5">18</option>
+                        <option value="4">16</option>
+                        <option value="3">12</option>
+                        <option value="2">7</option>
+                        <option value="1">3</option>
+                    </select>
+                </p>
+                <p>
+                    <label>Combien de genres:</label>
+                    <select id="nbGenre">
+                        <option value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                </p>
+                <p>
+                    <label>Combien de plateformes:</label>
+                    <select id="nbPlatform">
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                </p>
+                <p>
+                    <input class="btn" type="button" onclick='cliquerPlatGenres(<?php echo json_encode($genre)?>, <?php echo json_encode($plateforme)?>)' value="Plateforme et Genre">
+                </p>
 
-                <br>
+                <p id="selectedTableau">
+                </p>
 
-                <label>Prix du jeu :</label>
-                <input type="number"  step="0.01" name="prixJeu">
+                <p>
+                    <label for="formFile" class="form-label">Choisissez une image</label>
+                    <input class="form-control" type="file" name="imageJeu" id="formFile">
+                </p>
 
-                <br>
-
-                <label>Pegi du jeu :</label>
-                <select name="pegiJeu">
-                    <option value="5">18</option>
-                    <option value="4">16</option>
-                    <option value="3">12</option>
-                    <option value="2" >7</option>
-                    <option value="1" >3</option>
-                </select>
-
-                <br>
-
-                <label>Combien de genres:</label>
-                <select name="nbGenre">
-                    <option value="10">10</option>
-                    <option value="9">9</option>
-                    <option value="8">8</option>
-                    <option value="7">7</option>
-                    <option value="6">6</option>
-                    <option value="5">5</option>
-                    <option value="4">4</option>
-                    <option value="3">3</option>
-                    <option value="2" >2</option>
-                    <option value="1" >1</option>
-                </select>
-                <label>Combien de plateformes:</label>
-                <select name="nbPlatform">
-                    <option value="4">4</option>
-                    <option value="3">3</option>
-                    <option value="2" >2</option>
-                    <option value="1" >1</option>
-                </select>
-                <input class="btn" type="submit" value="Submit Platform et Genre" name="btnGenrePlateform">
-                <br>
-                    <?=$tableau?>
-                <br>
-                <label>L'image du jeu :</label>
-                <input class="btn" type="file" name="imageJeu">
-            </div>
-            <div>
-                <input class="btn" type="submit" name="submit" value="Envoyer">
+                <p>
+                    <input class="btn" type="submit" name="submit" value="Ajouter jeu">
+                </p> 
+                <?= $messageErreur ?>
             </div>
         </form>
-        <?=$messageErreur?>
+
     </main>
     <?php require_once "footer.php"; ?>
+
+    <script src="assets/js/ajouterJeux.js"></script>
+
 </body>
 
 </html>

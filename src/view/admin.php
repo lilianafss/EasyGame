@@ -19,25 +19,13 @@ use EasyGame\Model\FonctionsBD;
     <main>
         <h1>Page d'Admin</h1>
         <div>
-
-            <form method="POST">
-                <div>
-                    <a href="http://easygame.ch/ajouterJeux">Ajouter jeux</a>
-                </div>
-                <div>
-                    <h3>Les jeux</h3>
-                    <button name="showGames" value="yesJeux"><?= $nomBoutonJeux ?></button>
-                </div>
-            </form>
-
+            <div>
+                <a id="ajouterJoue" href="http://easygame.ch/ajouterJeux">Ajouter jeux</a>
+            </div>
             <table>
                 <?php
 
-                if ($montrerJeux == "yesJeux" && $_SESSION['btnJeux']) {
-
-                    $_SESSION['btnJeux'] = false; //on mets dans la session false pour savoir qu'on a cliqué
-
-                    $stringTableJ .= "
+                $stringTableJ .= "
                       <tr>
                       <th>IdJeux</th>
                       <th>Nom</th>
@@ -48,8 +36,8 @@ use EasyGame\Model\FonctionsBD;
                       <tr>
                       ";
 
-                    foreach ($jeux as $unJeux) {
-                        $stringTableJ .= " 
+                foreach ($jeux as $unJeux) {
+                    $stringTableJ .= " 
                         <tr>
                         <td>" . $unJeux['idJeux'] . "</td>
                         <td>" . $unJeux['nom'] . "</td>
@@ -57,34 +45,18 @@ use EasyGame\Model\FonctionsBD;
                         <td>" . $unJeux['prix'] . "</td>
                         <td>" . $unJeux['pegi'] . "</td>
                         <td><img class=\"card-img\" src=\"data:image/jpeg;base64," . base64_encode($unJeux['image']) . "\"/></td>
-                        <td><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer<a/><td>
-                        <td><a href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier<a/><td>
+                        <td><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer<a/></td>
+                        <td><a href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier<a/></td>
                         </tr>";
-                    }
-                } else {
-                    $_SESSION['btnJeux'] = true; //on mets dans la session true pour savoir qu'on a cliqué une deuxieme fois
-
-                    $stringTableJ = ""; // on mets la variable a rien pour rien montrer
                 }
+
                 echo $stringTableJ;
                 ?>
             </table>
-            <form method="POST">
-                <div>
-                    <h3>Les utilisateurs</h3>
-                    <button name="showUsers" value="yesUsers"><?= $nomBoutonUsers ?></button>
-                </div>
-
-            </form>
-
             <table>
                 <?php
-                //$stringTableUsers 
-                if ($montrerUsers == "yesUsers" && $_SESSION['btnUser']) {
 
-                    $_SESSION['btnUser'] = false; //on mets dans la session false pour savoir qu'on a cliqué
-
-                    $stringTableU .= "
+                $stringTableU .= "
                     <tr>
                     <th>IdUser</th>
                     <th>Pseudo</th>
@@ -96,8 +68,8 @@ use EasyGame\Model\FonctionsBD;
                     <tr>
                     ";
 
-                    foreach ($users as $unUser) {
-                        $stringTableU .= " 
+                foreach ($users as $unUser) {
+                    $stringTableU .= " 
                       <tr>
                       <td>" . $unUser['idUser'] . "</td>
                       <td>" . $unUser['pseudo'] . "</td>
@@ -106,18 +78,13 @@ use EasyGame\Model\FonctionsBD;
                       <td>" . $unUser['email'] . "</td>
                       <td>" . $unUser['admin'] . "</td>
                       <td>" . $unUser['user_status'] . "</td>
-                      <td><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer<a/><td>
+                      <td><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer<a/></td>
                       <td><a href='http://easygame.ch/effacer?disabled=" . $unUser['idUser'] . "'>Disabled<a/></td>
                       <td><a href='http://easygame.ch/effacer?actif=" . $unUser['idUser'] . "'>Actif<a/></td>
                       </tr>";
-                    }
-                } else {
-
-                    $_SESSION['btnUser'] = true; //on mets dans la session true pour savoir qu'on a cliqué une deuxieme fois
-                    
-                    $stringTableU = "";
                 }
-                
+
+
                 echo $stringTableU;
 
                 ?>

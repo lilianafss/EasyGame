@@ -17,108 +17,56 @@ class ConnexionController
     {
         session_start();
 
-        //FonctionsBD::deleteGame(6);
-        //FonctionBD::deleteComment(3);
+        //si idUser n'existe pas dans la session on va creer ses trois variables
+        if (!isset($_SESSION['idUser'])) {
+            $_SESSION = [
+                'idUser' => '',
+                'connected' => false,
+                'admin' => false,
+            ];
+        }
 
-        // //require_once 'ConnexionGoogle.php';
+        if ($_SESSION['connected']) {
+            header("location: /");
+            exit();
+        }
 
-        // $gClient = "";
-        // $google_oauthV2 = "";
-        // userGoogle($gClient, $google_oauthV2);
+        //varible pour récupérer le boutton
+        $submit = filter_input(INPUT_POST, 'btnSubmit', FILTER_SANITIZE_SPECIAL_CHARS);
+        $erreur = "";
 
-        // if (isset($_GET['code'])) {
+        //si la variable submit = "Se connecter" on prend l'email et le mot de passe
+        if ($submit == "Se connecter") {
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        //   $gClient->authenticate($_GET['code']);
-        //   $_SESSION['token'] = $gClient->getAccessToken();
-        //   header('Location: ' . filter_var(GOOGLE_REDIRECT_URL, FILTER_SANITIZE_URL));
-        // }
+            //si les deux sont egale à rien on va mettre un message d'erreur
+            if ($email != "" && $password != "") {
+                if (UserModel::getIdUser($email)) {
+                    $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
 
-        // if(isset($_SESSION['token'])){
-        //   $gClient->setAccessToken($_SESSION['token']);
-        // }
-        // if($gClient->getAccessToken()){
-        //   // Get user profile data from google
-        //   $gpUserProfile = $google_oauthV2->userinfo->get();
+                    //si le mot de passe est correct par rapport à l'email on va etre connecté
+                    if (password_verify($password, UserModel::getInfoUser($_SESSION['idUser'])['password'])) {
+                        $_SESSION['admin'] = boolval(UserModel::getInfoUser($_SESSION['idUser'])['admin']);
+                        $_SESSION['connected'] = true;
 
-        //   $_SESSION['email'] = $gpUserProfile['email'];
-
-        //   $_SESSION['prenom'] = $gpUserProfile['given_name'];
-
-        //   $_SESSION['nom'] = $gpUserProfile['family_name'];
-
-        // }
-        // else{
-        //   $authUrl = $gClient->createAuthUrl();
-
-        //   // Render google login button
-        //   $btnGoogle = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"><img src="/assets/image/googleLogo.png" alt=""/></a>';
-    // }
-    /******************************************************************************************/
-    //si idUser n'existe pas dans la session on va creer ses trois variables
-    if (!isset($_SESSION['idUser'])) {
-      $_SESSION = [
-        'idUser' => '',
-        'connected' => false,
-        'admin' => false,
-        'btnJeux' => false,
-        'btnUser' => false,
-        'nbGenre' =>'',
-        'nbPlatform'=>''
-      ];
-    }
-
-    if($_SESSION['connected'])
-    {
-        header("location: /");
-        exit();
-    }
-
-    //varible pour récupérer le boutton
-    $submit = filter_input(INPUT_POST, 'btnSubmit', FILTER_SANITIZE_SPECIAL_CHARS);
-    $erreur = "";
-
-    //si la variable submit = "Se connecter" on prend l'email et le mot de passe
-    if ($submit == "Se connecter")
-    {
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
-
-        //si les deux sont egale à rien on va mettre un message d'erreur
-        if ($email != "" && $password != "")
-        {
-            if (UserModel::getIdUser($email))
-            {
-                $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
-
-                //si le mot de passe est correct par rapport à l'email on va etre connecté
-                if (password_verify($password, UserModel::getInfoUser($_SESSION['idUser'])['password']))
-                {
-                    $_SESSION['admin'] = boolval(UserModel::getInfoUser($_SESSION['idUser'])['admin']);
-                    $_SESSION['connected'] = true;
-
-                    header("location: http://easygame.ch");
-                    exit();
-                }
-                else
-                {
-                    $_SESSION = [
-                        'idUser' => "",
-                        'connected' => false,
-                        'admin' => false
-                    ];
+                        header("location: http://easygame.ch");
+                        exit();
+                    } else {
+                        $_SESSION = [
+                            'idUser' => "",
+                            'connected' => false,
+                            'admin' => false
+                        ];
+                        $erreur = "Email ou mot de passe incorrect.";
+                    }
+                } else {
                     $erreur = "Email ou mot de passe incorrect.";
                 }
-            }
-            else
-            {
-                $erreur = "Email ou mot de passe incorrect.";
+            } else {
+                $erreur = "Saisissez votre email et mot de passe.";
             }
         }
-        else
-        {
-            $erreur = "Saisissez votre email et mot de passe.";
-        }
-    }
-    require '../src/view/connexion.php';
+        require '../src/view/connexion.php';
     }
 }

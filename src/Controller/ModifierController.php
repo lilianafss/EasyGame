@@ -18,7 +18,7 @@ use PDOException;
 class ModifierController
 {
     /**
-     * Modification du joue choisi
+     * Modification du jeu choisi
      *
      * @return void
      * @author De Castilho E Sousa Rodrigo
@@ -32,15 +32,15 @@ class ModifierController
             exit();
         } else {
 
-            //recuperer l'id du joue
-            $idJeux = filter_input(INPUT_GET,'idJeux');
+            //recuperer l'id du jeu
+            $idJeu = filter_input(INPUT_GET,'idJeux');
 
-            //recuperer les informations du joue
-            $jeu = GameModel::getGameById($idJeux);
-            //recuperer les genres du joue
-            $genres = GenreModel::getGameGenre($idJeux);
-            //recuperer les plateformes du joue
-            $platforms = PlatformModel::getGamePlatform($idJeux);
+            //recuperer les informations du jeu
+            $jeu = GameModel::getGameById($idJeu);
+            //recuperer les genres du jeu
+            $genres = GenreModel::getGameGenre($idJeu);
+            //recuperer les plateformes du jeu
+            $platforms = PlatformModel::getGamePlatform($idJeu);
         }
         require '../src/view/modifierJeu.php';
     }
