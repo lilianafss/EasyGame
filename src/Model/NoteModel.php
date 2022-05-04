@@ -57,6 +57,29 @@ class NoteModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+    /**
+     * Récupère les notes de la base de données
+     * @param int $idJeux
+     * @return array|false|void
+     * @author Liliana Santos
+     */
+    public static function averageByGame( $idJeux)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                SELECT ROUND(AVG(note),1) as average FROM `notes` 
+                WHERE `notes`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     #endregion
 
     /*------------------------- Insert -------------------------*/

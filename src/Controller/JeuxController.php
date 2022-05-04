@@ -17,10 +17,11 @@ class JeuxController
         session_start();
 
         $idJeux = filter_input(INPUT_GET, 'idJeux');
-        var_dump($idJeux);
         
         if ($idJeux != "") {
-           
+          
+            $note="";
+            $commentaire="";
             $envoiePanier = filter_input(INPUT_POST, 'panier');
             $idUser = $_SESSION['idUser'];
 

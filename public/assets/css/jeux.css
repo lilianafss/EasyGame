@@ -3,8 +3,7 @@ h1 {
 }
 
 img,
-.description,
-.evaluation {
+.description {
     width: 1100px;
     display: block;
     margin: auto;
@@ -14,59 +13,28 @@ h3 {
     margin: 0 10px
 }
 
-input[type=submit] {
-    display: block;
-    margin: auto;
+.prix {
+    font-size: 2rem;
 }
 
-body {
-    margin-top: 20px;
-    background: #eee;
+main {
+    float: left;
+    width: 80%;
 }
 
-.review-list ul li .right h4 {
-    font-size: 16px;
-    margin: 0;
-    display: flex;
+aside {
+    text-align: center;
+    margin-top: 80px;
+    float: right;
+    width: 15%;
 }
 
-.review-list ul li .right h4 .gig-rating {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    color: #ffbf00;
+.boutton {
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
+    margin: 5px;
 }
 
-.review-list ul li .right h4 .gig-rating svg {
-    margin: 0 4px 0 0px;
-}
-
-.review-list ul li {
-    border-bottom: 1px solid #dadbdd;
-    padding: 0 0 30px;
-    margin: 0 0 30px;
-}
-
-.review-list ul li .right {
-    flex: auto;
-}
-
-.review-list ul li .review-description {
-    margin: 20px 0 0;
-}
-
-.review-list ul li .review-description p {
-    font-size: 14px;
-    margin: 0;
-}
-
-.review-list ul li .publish {
-    font-size: 13px;
-    color: #95979d;
-}
-
-ul,
-ul li {
-    list-style: none;
-    margin: 0px;
+.boutton:hover {
+    color: #DDDDDD;
 }
