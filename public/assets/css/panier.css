@@ -74,8 +74,8 @@ a
     border: none;
     transition: 0.5s;
     background-size: 200% auto */
-} 
-.btn.btn.btn-primary:hover {
+ }
+ .btn.btn.btn-primary:hover {
     background-position: right center;
     color: #fff;
     text-decoration: none
@@ -83,10 +83,10 @@ a
 .btn.btn-primary:hover .fas.fa-arrow-right {
     transform: translate(15px);
     transition: transform 0.2s ease-in
-}
+} 
 /*--------------------Main--------------------*/
 /*#region Main*/
-#jeux-container
+ #jeux-container
 {
     width: 1000px;
     display: flex;
@@ -99,7 +99,7 @@ a
    font-weight: 600;
    font-size: 18px;
     float: right;
-}
+} 
 
 /*--------------------Cards--------------------*/
 /*#region Cards*/
@@ -165,7 +165,7 @@ a
 
 /*--------------------Media--------------------*/
 /*#region Media*/
-@media only screen and (max-width: 1400px)
+ @media only screen and (max-width: 1400px)
 {
     .card
     {
@@ -209,7 +209,7 @@ a
         justify-content: center;
     }
     
-}
+} 
 /*#endregion */
 
 

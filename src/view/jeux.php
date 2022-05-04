@@ -33,7 +33,7 @@
         ?>
         <button onclick="Affichage()" id="AffichageForm">Donner un avis</button>
         <form action="#" method="POST">
-            <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page" id="evaluation">
+            <div id="evaluation">
                 <h5 class="mb-4">Laissez votre avis</h5>
                 <?php
                 $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
@@ -44,11 +44,11 @@
                 <?php
                 }
                 ?>
-                <div class="form-group">
+                <div class="">
                     <label for="commentaire">Votre commentaire : </label>
                     <textarea class="form-control" name="commentaire" id="commentaire" required></textarea>
                 </div>
-                <div class="form-group">
+                <div class="">
                     <input type="submit" value="AjouterCommentaire" name="envoyer">
                 </div>
             </div>

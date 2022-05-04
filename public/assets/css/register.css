@@ -24,7 +24,11 @@ h1
 {
     margin-top: 10px;
     margin-bottom: 10px;
+}
 
+form
+{
+    width: 40%;
 }
 
 /* label et input du formulaire */
@@ -38,6 +42,7 @@ h1
 {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 /* checkbox qui affiche/cache le mot de passe */
@@ -48,38 +53,37 @@ h1
 }
 
 /* div qui englobe le boutton Valider et Annuler */
-#containerBtn
+#container-form-bot
 {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
+    width: 100%;
+    margin-top: 30px;
 }
 
 /* Button Valider et Annuler */
 .btnSubmit
 {
-    width: 48%;
+    width: 30%;
     color: #fff;
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
 }
+
 .btnSubmit:hover
 {
     color: #DDDDDD;
 }
 
-#errorMessage
+.error-msg
 {
-    display: flex;
-    justify-content: center;
+    display: none;
+    color: #f00;
 
     font-weight: bold;
     font-style: italic;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-
-    background:-webkit-linear-gradient(left, #211E36, #3C3661);
-    -webkit-background-clip:text;
-    color:transparent;
+    font-size: 1rem;
 }
+
 /*#endregion*/
 
 
@@ -87,12 +91,45 @@ h1
 
 
 /*--------------------Media--------------------*/
-/*#region Media (Screen under 600px)*/
+/*#region Media*/
+@media only screen and (max-width: 1000px)
+{
+    form
+    {
+        width: 60%;
+    }
+
+    /* label et input du formulaire */
+    .label-input
+    {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px)
+{
+    form
+    {
+        width: 80%;
+    }
+
+    /* label et input du formulaire */
+    .label-input
+    {
+        width: 100%;
+    }
+}
+
 @media only screen and (max-width: 600px)
 {
     body
     {
         overflow: auto;
+    }
+
+    form
+    {
+        width: 90%;
     }
 
     /* div qui sont dans le formulaire */
@@ -109,7 +146,7 @@ h1
     /* label et input du formulaire */
     .label-input
     {
-        width: 83.33%;
+        width: 100%;
     }
 
     /* checkbox qui affiche/cache le mot de passe */
@@ -126,7 +163,7 @@ h1
         margin-right: 30px;
     }
 }
-/*#endregion */
+/*#endregion*/
 
 
 

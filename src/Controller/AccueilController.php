@@ -19,11 +19,13 @@ use EasyGame\Model\GenreModel;
             session_start();
             if (!isset($_SESSION['idUser'])) {
                 $_SESSION = [
-                  'idUser' => '',
-                  'connected' => false,
-                  'admin' => false,
-                  'btnJeux' => false,
-                  'btnUser' => false
+                    'idUser' => '',
+                    'connected' => false,
+                    'admin' => false,
+                    'btnJeux' => false,
+                    'btnUser' => false,
+                    'nbGenre' =>'',
+                    'nbPlatform'=>''
                 ];
             }
             

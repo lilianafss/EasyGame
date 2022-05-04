@@ -19,6 +19,7 @@ use EasyGame\Controller\ModifierController;
 use EasyGame\Controller\ProfilController;
 use EasyGame\Controller\WishlistController;
 
+
 SimpleRouter::form('/', [AccueilController::class, 'accueil']); // page d'accueil du site
 SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion']); // page de connexion au site
 SimpleRouter::form('/nouveau', [RegisterController::class, 'nouveauCompte']); // page de création de compte

@@ -56,7 +56,13 @@
         // Page du panier
         if ($_SERVER['PHP_SELF'] == "/index.php/panier")
         {
-            echo'<link rel="stylesheet" href="assets/css/panier.css">';
-            echo '<link rel="stylesheet" href="/assets/css/header.css">';
+            
+           echo'<link rel="stylesheet" href="assets/css/panier.css">';
+           
+        }
+
+        // Page modifier jeu
+        if($_SERVER['PHP_SELF'] == "/index.php/modifier"){
+            echo'<link rel="stylesheet" href="assets/css/modifierJeu.css">';
         }
     #endregion
