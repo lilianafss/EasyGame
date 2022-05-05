@@ -7,6 +7,7 @@ use EasyGame\Model\GameModel;
 use EasyGame\Model\GenreModel;
 use EasyGame\Model\PlatformModel;
 
+require_once('../src/php/tools.php');
 
 class AjouterJeuxController
 {
@@ -17,24 +18,14 @@ class AjouterJeuxController
      */
     public static function ajouterJeux()
     {
-        //start la fonction
-        session_start();
-        if (!isset($_SESSION['idUser'])) {
-            $_SESSION = [
-                'idUser' => '',
-                'connected' => false,
-                'admin' => false,
-                'btnJeux' => false,
-                'btnUser' => false,
-            ];
-        }
+        // Crée la session si elle n'existe pas
+        SessionStart();
 
         $messageErreur = "";
         $tableauGenre = [];
         $tableauPlatform = [];
 
-
-        //si on n'est pas connecté en tant d'admin on va à la page d'accueil
+        //si on n'est pas connecté en tant d'admin, on va à la page d'accueil
         if (!$_SESSION['admin']) {
             header("location: http://easygame.ch");
             exit();
@@ -44,15 +35,7 @@ class AjouterJeuxController
             $plateforme = PlatformModel::getPlatform();
 
             $message = filter_input(INPUT_GET, "valid");
-            if ($message == "ok") {
-                //affichage du message d'erreur
-                $messageErreur = "<p style='color: green;  font-size: 25px;' id='messageErreur'>Le jeu a bien été créé</p>";
-            } elseif ($message == "not") {
-                //affichage du message d'erreur
-                $messageErreur = "<p id='messageErreur' style='color: red;  font-size: 25px;'>Tous les champs doivent être remplis</p>";
-            } else {
-                $messageErreur = "";
-            }
+
 
             $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
             //on essaye d'ajouter le jeu si on touche le bouton Ajouter jeu

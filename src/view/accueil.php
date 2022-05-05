@@ -53,7 +53,7 @@ use EasyGame\Controller\AccueilController;
 
                     <li class="nav-item filtre-li">
                         <input id="search" class="border-0 rounded shadow" type="Search" placeholder="Recherche" name="recherche">
-                        <button id="filtre-submit" class="btn btn-primary" type="submit">Rechercher</button>
+                        <button id="filtre-submit" class="btn" type="submit">Rechercher</button>
                     </li>
                 </ul>
             </form>

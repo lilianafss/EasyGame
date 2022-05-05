@@ -8,15 +8,17 @@ use EasyGame\Model\GameModel;
 use EasyGame\Model\NoteModel;
 use EasyGame\Model\PanierModel;
 
+require_once('../src/php/tools.php');
 
 //@ini_set('display_errors', 'on');
 class JeuxController
 {
     public static function jeux()
     {
-        session_start();
-        $idJeux = filter_input(INPUT_GET, 'idJeux');
+        // Crée la session si elle n'existe pas
+        SessionStart();
 
+        $idJeux = filter_input(INPUT_GET, 'idJeux');
 
         if ($idJeux != "") {
 

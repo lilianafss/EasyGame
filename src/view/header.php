@@ -12,7 +12,7 @@
                 echo '
                     <li class="nav-item nav-li">
                         <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-house icon"></i></a>
-                        <p class="icon-texte">Accueil</p>
+                        <p class="texte-icon">Accueil</p>
                     </li>
                 ';
 
@@ -21,11 +21,11 @@
                     echo '
                         <li class="nav-item nav-li">
                             <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-arrow-right-to-bracket icon"></i></a>
-                            <p class="icon-texte">Connexion</p>
+                            <p class="texte-icon">Connexion</p>
                         </li>
                         <li class="nav-item nav-li">
                             <a class="nav-link" href="/nouveau"><i class="fa-solid fa-2x fa-user-plus icon"></i></a>
-                            <p class="icon-texte">S\'inscrire</p>
+                            <p class="texte-icon">S\'inscrire</p>
                         </li>
                     ';
                 }
@@ -34,22 +34,22 @@
                     echo '
                         <li class="nav-item nav-li">
                             <a class="nav-link" href="/profil"><i class="fa-solid fa-2x fa-user icon"></i></a>
-                            <p class="icon-texte">Profil</p>
+                            <p class="texte-icon">Profil</p>
                         </li>
                         
                         <li class="nav-item nav-li">
                             <a class="nav-link" href="/panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
-                            <p class="icon-texte">Panier</p>
+                            <p class="texte-icon">Panier</p>
                         </li>
                         
                         <li class="nav-item nav-li">
                             <a class="nav-link" href="/wishlist"><i class="fa-solid fa-2x fa-heart icon"></i></a>
-                            <p class="icon-texte">Wishlist</p>
+                            <p class="texte-icon">Wishlist</p>
                         </li>
                         
                         <li class="nav-item nav-li">
                             <a class="nav-link" href="/deconnexion"><i class="fa-solid fa-2x fa-arrow-right-from-bracket icon"></i></a>
-                            <p class="icon-texte">Déconnexion</p>
+                            <p class="texte-icon">Déconnexion</p>
                         </li>
                         
                     ';
@@ -59,7 +59,7 @@
                         echo '
                             <li class="nav-item nav-li">
                                 <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
-                                <p class="icon-texte">Admin</p>
+                                <p class="texte-icon">Admin</p>
                             </li>
                         ';
                     }

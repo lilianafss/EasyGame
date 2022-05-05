@@ -1,13 +1,14 @@
 <?php
-
     namespace EasyGame\Controller;
 
     use EasyGame\Model\BaseDonnee;
     use EasyGame\Model\GameModel;
     use EasyGame\Model\PegiModel;
     use EasyGame\Model\PlatformModel;
-use EasyGame\Model\GenreModel;
-use EasyGame\Model\PanierModel;
+    use EasyGame\Model\GenreModel;
+    use EasyGame\Model\PanierModel;
+
+    require_once('../src/php/tools.php');
 
     class AccueilController
     {
@@ -17,15 +18,8 @@ use EasyGame\Model\PanierModel;
          */
         public static function accueil()
         {
-            session_start();
-            if (!isset($_SESSION['idUser'])) {
-                $_SESSION = [
-                    'idUser' => '',
-                    'connected' => false,
-                    'admin' => false,
-                    'idJeux' => ''
-                ];
-            }
+            // Crée la session si elle n'existe pas
+            SessionStart();
             
             if($_SESSION['connected'] && $_SESSION['idJeux']!=""){
                 PanierModel::addGameToPanier($_SESSION['idUser'], $_SESSION['idJeux']);

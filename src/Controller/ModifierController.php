@@ -14,6 +14,7 @@ use EasyGame\Model\UserModel;
 use EasyGame\Model\WishlistModel;
 use PDOException;
 
+require_once('../src/php/tools.php');
 
 class ModifierController
 {
@@ -25,7 +26,8 @@ class ModifierController
      */
     public function modifierJeu()
     {
-        session_start();
+        // Crée la session si elle n'existe pas
+        SessionStart();
 
         if (!$_SESSION['admin']) {
             header("location: http://easygame.ch");
@@ -34,6 +36,9 @@ class ModifierController
 
             //recuperer l'id du jeu
             $idJeu = filter_input(INPUT_GET,'idJeux');
+            
+            $genreChange = GenreModel::getGenre();
+            $plateformeChange = PlatformModel::getPlatform();
 
             //recuperer les informations du jeu
             $jeu = GameModel::getGameById($idJeu);

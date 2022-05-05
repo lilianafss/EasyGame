@@ -1,4 +1,4 @@
-function VerifForm()
+function VerifForm(error_message, sucess_message)
 {
     let userName = document.getElementById('userName');
     let lastName = document.getElementById('lastName');
@@ -7,13 +7,16 @@ function VerifForm()
     let password = document.getElementById('password');
     let password2 = document.getElementById('password2');
 
-    let message = 'error-msg-password2';
-
     if (userName.value === '') {
-        document.getElementById('error-msg-userName').innerHTML= 'Veuillez indiquer votre nom d\'utilisateur';
-        document.getElementById('error-msg-userName').style.display='block';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Veuillez indiquer votre nom d\'utilisateur</p>';
+        document.getElementById('error_msg').style.display = 'block';
         document.getElementById('userName').focus();
-        return false;
+    }
+    else if(error_message === "pseudo")
+    {
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Ce nom d\'utilisateur est déjà utilisé</p>';
+        document.getElementById('error_msg').style.display = 'block';
+        document.getElementById('userName').focus();
     }
     else
     {
@@ -22,74 +25,58 @@ function VerifForm()
 
     if (lastName.value === '')
     {
-        document.getElementById('error-msg-lastName').innerHTML= 'Veuillez indiquer votre nom';
-        document.getElementById('error-msg-lastName').style.display='block';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Veuillez indiquer votre nom</p>';
+        document.getElementById('error_msg').style.display = 'block';
         document.getElementById('lastName').focus();
-        return false;
-    }
-    else
-    {
-        document.getElementById('error-msg-lastName').style.display='none';
     }
 
     if (firstName.value === '')
     {
-        document.getElementById('error-msg-firstName').innerHTML= 'Veuillez indiquer votre prénom';
-        document.getElementById('error-msg-firstName').style.display='block';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Veuillez indiquer votre prénom</p>';
+        document.getElementById('error_msg').style.display = 'block';
         document.getElementById('firstName').focus();
-        return false;
-    }
-    else
-    {
-        document.getElementById('error-msg-firstName').style.display='none';
     }
 
     if (email.value === '')
     {
-        document.getElementById('error-msg-email').innerHTML= 'Veuillez indiquer votre email';
-        document.getElementById('error-msg-email').style.display='block';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Veuillez indiquer votre email</p>';
+        document.getElementById('error_msg').style.display = 'block';
         document.getElementById('email').focus();
-        return false;
     }
-    else
+    else if(error_message === "email")
     {
-        document.getElementById('error-msg-email').style.display='none';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Cette adresse mail est déjà utilisée</p>';
+        document.getElementById('error_msg').style.display = 'block';
+        document.getElementById('email').focus();
     }
 
     if (password.value === '')
     {
-        document.getElementById('error-msg-password').innerHTML= 'Veuillez indiquer votre mot de passe';
-        document.getElementById('error-msg-password').style.display='block';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Veuillez indiquer votre mot de passe</p>';
+        document.getElementById('error_msg').style.display = 'block';
         document.getElementById('password').focus();
-        return false;
-    }
-    else
-    {
-        document.getElementById('error-msg-password').style.display='none';
     }
 
     if (password2.value === '')
     {
-        document.getElementById('error-msg-password2').innerHTML= 'Veuillez confirmer votre mot de passe';
-        document.getElementById('error-msg-password2').style.display='block';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -Veuillez confirmer votre mot de passe</p>';
+        document.getElementById('error_msg').style.display = 'block';
         document.getElementById('password2').focus();
-        return false;
     }
-    else
+    else if (password.value !== password2.value)
     {
-        document.getElementById('error-msg-password2').style.display='none';
+        document.getElementById('error_msg').innerHTML += '<p class="error_msg"> -les mots de passe ne sont pas identiques</p>';
+        document.getElementById('error_msg').style.display = 'block';
+        document.getElementById('password2').focus();
     }
 
-    if (password.value !== password2.value)
+    if(sucess_message === "sucess")
     {
-        document.getElementById('error-msg-password2').innerHTML= 'les mots de passe ne sont pas identiques';
-        document.getElementById('error-msg-password2').style.display='block';
-        document.getElementById('password2').focus();
-        return false;
+        document.getElementById('sucess_message').style.display='block';
     }
     else
     {
-        document.getElementById('error-msg-password2').style.display='none';
+        document.getElementById('sucess_message').style.display='none';
     }
 }
 

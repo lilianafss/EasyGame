@@ -2,16 +2,7 @@
 
 namespace EasyGame\Controller;
 
-use EasyGame\Model\BaseDonnee;
-use EasyGame\Model\GameModel;
-use EasyGame\Model\GenreModel;
-use EasyGame\Model\HistoriqueModel;
-use EasyGame\Model\NoteModel;
-use EasyGame\Model\PanierModel;
-use EasyGame\Model\PegiModel;
-use EasyGame\Model\PlatformModel;
-use EasyGame\Model\UserModel;
-use EasyGame\Model\WishlistModel;
+require_once('../src/php/tools.php');
 
 class DeconnexionController
 {
