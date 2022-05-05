@@ -4,6 +4,10 @@
 
     use EasyGame\Model\BaseDonnee;
     use EasyGame\Model\GameModel;
+    use EasyGame\Model\PegiModel;
+    use EasyGame\Model\PlatformModel;
+use EasyGame\Model\GenreModel;
+use EasyGame\Model\PanierModel;
 
     class AccueilController
     {
@@ -19,13 +23,16 @@
                     'idUser' => '',
                     'connected' => false,
                     'admin' => false,
-                    'btnJeux' => false,
-                    'btnUser' => false,
-                    'nbGenre' =>'',
-                    'nbPlatform'=>''
+                    'idJeux' => ''
                 ];
             }
             
+            if($_SESSION['connected'] && $_SESSION['idJeux']!=""){
+                PanierModel::addGameToPanier($_SESSION['idUser'], $_SESSION['idJeux']);
+                $_SESSION['idJeux']="";
+                header("Location: http://easygame.ch/panier");
+            }
+
             $recherche = filter_input(INPUT_GET,'recherche');
             $pegi = filter_input(INPUT_GET,'age');
             $plateforme = filter_input(INPUT_GET,'plateforme');
@@ -33,10 +40,9 @@
         
             $listeJeux=GameModel::getGames();
             $listeFiltre=GameModel::getGameByFilters($pegi,$genre,$plateforme);
-
             $stringJeux = "";
 
-            if($listeFiltre==false && $recherche=="")
+            if($listeFiltre=="" && $recherche=="")
             {
                 foreach($listeJeux as $elementListe)
                 {
@@ -44,34 +50,34 @@
                     <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                     <div class="card-block">
                         <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                        <p class="card-prix">'.$elementListe['prix'].'</p>
+                        <p class="card-prix">'.$elementListe['prix'].' CHF</p>
                     </div>
                 </div>';
                 }
             }
-            elseif($listeFiltre==false && $recherche!="")
+            elseif($listeFiltre=="" && $recherche!="")
             {
-                if(isset($recherche))
+               
+                $requete=GameModel::searchGame($recherche);
+                if($requete!=null)
                 {
-                    $stringJeux= '<p> Vous avez recherché : ' . $recherche . '</p>';
-                    $requete=GameModel::searchGame($recherche);
-                    if($requete!="")
+                    $stringJeux .= '<p> Vous avez recherché : ' . $recherche . '</p>';
+                    foreach($requete as $elementListe)
                     {
-                        foreach($requete as $elementListe)
-                        {
-                            $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')">
-                            <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
-                            <div class="card-block">
-                                <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                                <p class="card-prix">'.$elementListe['prix'].'</p>
-                            </div>
-                        </div>';
-                        }
+                        $stringJeux .= '<div class="card m-4" onclick="Redirection('.$elementListe['idJeux'].')">
+                        <img class="card-img" src="data:image/jpeg;base64,'.base64_encode($elementListe['image'] ).'"/>
+                        <div class="card-block">
+                            <h4 class="card-title">'.$elementListe['nom'].'</h4>
+                            <p class="card-prix">'.$elementListe['prix'].' CHF</p>
+                        </div>
+                    </div>';
                     }
-                }
+                }else{
+                    $stringJeux .= '<p>Aucun resultat</p>';
+                }              
             }
-            elseif($listeFiltre == true && $recherche =="")
-            {
+            elseif($listeFiltre && $recherche =="")
+            { 
                 foreach($listeFiltre  as $elementListe)
                 {
                     $stringJeux .= '
@@ -79,13 +85,17 @@
                         <img class="card-img" src="data:image/jpeg;base64,'.base64_encode( $elementListe['image'] ).'"/>
                         <div class="card-block">
                             <h4 class="card-title">'.$elementListe['nom'].'</h4>
-                            <p class="card-prix">'.$elementListe['prix'].'</p>
+                            <p class="card-prix">'.$elementListe['prix'].' CHF</p>
                         </div>
-                    </div>';
-                }
-            }
+                    </div>'; 
+                }    
+                               
+            } elseif($listeFiltre == null){
+                $stringJeux .= '<p>Aucun resultat</p>';
+            }            
             require "../src/view/accueil.php";
         }
+        
 
         /**
         * @param $nomliste
@@ -134,7 +144,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-heart icon"></i></a>
+                        <a class="nav-link" href="/wishlist"><i class="fa-solid fa-2x fa-heart icon"></i></a>
                         <p class="icon-texte">Wishlist</p>
                     </li>
             

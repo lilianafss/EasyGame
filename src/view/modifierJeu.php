@@ -49,7 +49,7 @@
 
         <div>
             <form method="POST">
-                <h2>Changer le nom, la description, et le prix du joue</h2>
+                <h2>Changer le nom, la description, et le prix du jeu</h2>
 
                 <label>
                     Nom du jeu:
@@ -78,7 +78,7 @@
 
         <form method="POST">
 
-            <h2>Changer les genres, les plateformes et le pegi du joue</h2>
+            <h2>Changer les genres, les plateformes et le pegi du jeu</h2>
 
             <label>Combien de genres:</label>
             <select name="nbGenre">

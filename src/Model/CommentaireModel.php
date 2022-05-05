@@ -34,6 +34,30 @@ class CommentaireModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+    /**
+     * Récupérer les commentaires du jeu
+     * @param int $idJeux
+     * @return array|false|void
+     *
+     * @author Liliana Santos
+     */
+    public static function countComments( $idJeux)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+            SELECT count(commentaire) as 'nbCommentaires' FROM `commentaires`
+            WHERE `commentaires`.`idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     #endregion
 
     /*------------------------- Insert -------------------------*/

@@ -23,10 +23,6 @@ class VerificationController
                 'idUser' => '',
                 'connected' => false,
                 'admin' => false,
-                'btnJeux' => false,
-                'btnUser' => false,
-                'nbGenre' =>'',
-                'nbPlatform'=>''
             ];
         }
 

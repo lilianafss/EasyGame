@@ -1,3 +1,6 @@
+*{
+margin: 0;
+}
 /*--------------------Header--------------------*/
 /*#region Header*/
 header
@@ -20,7 +23,25 @@ a
 
     
    
-   
+.rounded {
+    border-radius: 1rem
+}
+
+.nav-pills .nav-link {
+    color: #555
+}
+
+.nav-pills .nav-link.active {
+    color: white
+}
+
+input[type="radio"] {
+    margin-right: 5px
+}
+
+.bold {
+    font-weight: bold
+}
 /*--------------------Link-Nav--------------------*/
 /*#region Link-Nav*/
 .nav-container
@@ -88,18 +109,29 @@ a
 /*#region Main*/
  #jeux-container
 {
-    width: 1000px;
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    float: left;
+    /* justify-content: center; */
+    width: 60%; 
 }
+
 #paiement-container{
-    width: 900px;
    font-weight: 600;
    font-size: 18px;
-    float: right;
 } 
+
+#test
+{
+    display: flex;
+    width: 30%;
+    margin: auto;
+}
+
+main
+{
+    width: 100%;
+    display: flex;
+}
 
 /*--------------------Cards--------------------*/
 /*#region Cards*/
@@ -108,7 +140,6 @@ a
     display: flex;
     flex-direction: column;
 
-    width: 30%;
     height: auto;
 
     border-radius: 20px;
@@ -129,39 +160,7 @@ a
     border-radius: 20px;
 }
 
-.card-block
-{
-    display: flex;
-    flex-direction: column;
 
-    justify-content: center;
-    align-items: center;
-
-    height: 35%;
-}
-
-.card-title
-{
-    width: 100%;
-    height: 40%;
-    margin-top: 15px;
-
-    font: italic bold 1.4em Calibri, serif ;
-    text-align: center;
-    color:#3C3661;
-
-}
-
-.card-prix
-{
-    width: 100%;
-    height: 60%;
-
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    color: #3C3661;
-}
 
 /*--------------------Media--------------------*/
 /*#region Media*/

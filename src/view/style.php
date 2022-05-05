@@ -44,6 +44,7 @@
         if ($_SERVER['PHP_SELF'] == "/index.php/jeux")
         {
             echo '<link rel="stylesheet" href="/assets/css/header.css">';
+            echo '<link rel="stylesheet" href="/assets/css/jeux.css">';
         }
 
         // Page de récupération d'email pour le mot de passe oublié
@@ -63,5 +64,10 @@
         // Page modifier jeu
         if($_SERVER['PHP_SELF'] == "/index.php/modifier"){
             echo'<link rel="stylesheet" href="assets/css/modifierJeu.css">';
+        }
+
+        // Page admin 
+        if($_SERVER['PHP_SELF'] == "/index.php/admin"){
+            echo'<link rel="stylesheet" href="assets/css/admin.css">';
         }
     #endregion

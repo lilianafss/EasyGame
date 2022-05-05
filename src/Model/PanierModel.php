@@ -24,7 +24,7 @@ class PanierModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix`,`jeux`.`image` 
+                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix`,`jeux`.`image`
                 FROM `jeux`, `ajouter_panier`, `user`, `panier` 
                 WHERE `jeux`.`idJeux` = `ajouter_panier`.`idJeux`
                 AND `user`.`idUser` = ?
@@ -92,6 +92,21 @@ class PanierModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+    public static function deletePanier($idUser)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                DELETE FROM `ajouter_panier`WHERE `idPanier`= ?
+            ");
+            $query->execute([$idUser]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+    
     #endregion
 
     /*------------------------- Update -------------------------*/

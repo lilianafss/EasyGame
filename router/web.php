@@ -16,6 +16,8 @@ use EasyGame\Controller\EffacerController;
 use EasyGame\Controller\MotDePasseOublierController;
 use EasyGame\Controller\DeconnexionController;
 use EasyGame\Controller\ModifierController;
+use EasyGame\Controller\ProfilController;
+use EasyGame\Controller\WishlistController;
 
 
 SimpleRouter::form('/', [AccueilController::class, 'accueil']); // page d'accueil du site
@@ -30,3 +32,5 @@ SimpleRouter::form('/effacer', [EffacerController::class, 'effacer']); // page e
 SimpleRouter::form('/loginInfo', [MotDePasseOublierController::class, 'loginInfo']); // page de récupération de l'email pour mdp oublié
 SimpleRouter::form('/deconnexion', [DeconnexionController::class, 'deconnexion']); // page de déconnnexion
 SimpleRouter::form('/modifier', [ModifierController::class, 'modifierJeu']); //pade de modification de jeu
+SimpleRouter::form('/profil', [ProfilController::class, 'profil']); // page d'accueil du site
+SimpleRouter::form('/wishlist', [WishlistController::class, 'wishlist']); // page d'accueil du site

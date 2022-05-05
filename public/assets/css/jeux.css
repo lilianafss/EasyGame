@@ -1,72 +1,79 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 h1 {
     text-align: center;
-}
-
-img,
-.description,
-.evaluation {
-    width: 1100px;
-    display: block;
-    margin: auto;
 }
 
 h3 {
     margin: 0 10px
 }
 
-input[type=submit] {
-    display: block;
+.prix {
+    font-size: 2rem;
+}
+
+main {
+    width: 100%;
+    display: flex;
+}
+
+#descriptionJeuxContainer {
+    width: 60%;
+    margin-left: 10%;
+}
+
+#asideContainer {
+    font-weight: 600;
+    font-size: 18px;
     margin: auto;
+    text-align: center;
 }
 
-body {
-    margin-top: 20px;
-    background: #eee;
+.boutton {
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
+    margin: 5px;
 }
 
-.review-list ul li .right h4 {
-    font-size: 16px;
-    margin: 0;
-    display: flex;
+.boutton:hover {
+    color: #DDDDDD;
 }
 
-.review-list ul li .right h4 .gig-rating {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    color: #ffbf00;
+#commentaireContainer {
+    border: black solid 1px;
+    margin: 3% auto 0 auto;
+    text-align: left;
 }
 
-.review-list ul li .right h4 .gig-rating svg {
-    margin: 0 4px 0 0px;
+
+/* Enleve les radio buttons */
+
+.starrating>input {
+    display: none;
 }
 
-.review-list ul li {
-    border-bottom: 1px solid #dadbdd;
-    padding: 0 0 30px;
-    margin: 0 0 30px;
+.starrating>label:before {
+    /*code pour l'etoile*/
+    content: "\f005";
+    margin: 2px;
+    font-size: 1em;
+    font-family: FontAwesome;
+    display: inline-block;
 }
 
-.review-list ul li .right {
-    flex: auto;
+
+/*quand l'etoile n'est pas clique*/
+
+.starrating>label {
+    color: #222222;
 }
 
-.review-list ul li .review-description {
-    margin: 20px 0 0;
+
+/*quand l'etoile estclique*/
+
+.starrating>input:checked~label {
+    color: #ffca08;
 }
 
-.review-list ul li .review-description p {
-    font-size: 14px;
-    margin: 0;
-}
-
-.review-list ul li .publish {
-    font-size: 13px;
-    color: #95979d;
-}
-
-ul,
-ul li {
-    list-style: none;
-    margin: 0px;
+.starrating>input:hover~label {
+    color: #ffca08;
 }
