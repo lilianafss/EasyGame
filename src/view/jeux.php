@@ -64,7 +64,7 @@ $tableauxPanier = PanierModel::getPanier($idUser);
                                 <h5>Laissez votre avis</h5>
                                 <?php
                                 $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-                                if(!$noteUSer['note']){
+                                
                                 ?>
                                 <div class="starrating risingstar d-flex flex-row-reverse">
                                     <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
@@ -73,9 +73,7 @@ $tableauxPanier = PanierModel::getPanier($idUser);
                                     <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="2 star"></label>
                                     <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
                                 </div>
-                                <?php
-                                }
-                                ?>
+                               
 
                                 <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
                     

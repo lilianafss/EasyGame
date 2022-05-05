@@ -55,7 +55,7 @@ $_SESSION['nbPanel'] = 1 ?>
         <td class="actions" data-th="">
 
 
-            <input type="submit" name="trash" value="Supprimer"><span>
+            <input class="rounded" type="submit" name="trash" value="Supprimer"><span>
                 <!--<i class="fa fa-trash-o">--></i>
 
         </td>
@@ -81,7 +81,7 @@ $_SESSION['nbPanel'] = 1 ?>
                                     <form action="" method="get">
                                         <!-- Credit card form tabs -->
                                         <ul id="moyen" role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-2">
-                                            <li class="nav-item"> <a data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  active"> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li>
+                                         <li id="credit" class="nav-item"> <a id = "creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "  > <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li>
                                             <li class="nav-item"> <a data-toggle="pill" href="?methodPayement=Paypal" class="nav-link "> <i class="fab fa-paypal mr-2" "></i> Paypal </a> </li>
                                         </ul>
                                     </form>
