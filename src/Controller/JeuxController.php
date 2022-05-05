@@ -55,8 +55,7 @@ class JeuxController
                 header("Refresh: 0;url=jeux?idJeux=$idJeux");
             }
 
-
-            
+           
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($_POST['panier']) {
                     $quantite++;

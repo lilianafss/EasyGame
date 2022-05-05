@@ -1,6 +1,10 @@
 <?php
-    use EasyGame\Model\UserModel;
-    use EasyGame\Model\NoteModel;
+
+use EasyGame\Model\UserModel;
+use EasyGame\Model\NoteModel;
+use EasyGame\Model\PanierModel;
+
+$tableauxPanier = PanierModel::getPanier($idUser);
 
 ?>
 <!DOCTYPE html>
@@ -31,11 +35,11 @@
             <?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($infoJeux['image']) . '"/>'; ?>
             <h3>A propos du jeu</h3>
             <p><?= $infoJeux['description'] ?></p>
-            
-        
+
+
             <!-- Si l'utilisateur n'est pas connecte le formulaire d'avis ne vas pas s'afficher -->
             <?php
-            if($idUser != null){
+            if ($idUser != null) {
             ?>
             <form action="#" method="POST">
                 <section>
@@ -103,14 +107,30 @@
             </div>
         </div>
         <div id="asideContainer">
-            <p class="prix"><?= $infoJeux['prix']." CHF" ?></p>
+            <p class="prix"><?= $infoJeux['prix'] . " CHF" ?></p>
+            <form method="POST">
+                <input class="btn boutton" type="submit" name="panier" id="panier" value="
+                <?php
+                $BOOL=false;
+                    foreach ($tableauxPanier as $panier) {
+                        if ($panier["idJeux"] == $idJeux) {
+                            $BOOL=TRUE;
+                                echo"Dans le panier";
+                            }
+                            
+                        } if($BOOL==false){
+                            echo"Ajouter dans le panier";
+                        }
+                        
+                        ?>"><br>
+            </form>
+            <!-- <button class="btn boutton" >Wishlist</button> <br> -->
             <?php
 
-                $moyenne=NoteModel::averageByGame($idJeux);
-                if($moyenne!=""){
-                    echo "Moyenne : ". $moyenne['average']."/5";
-                } 
-
+            $moyenne = NoteModel::averageByGame($idJeux);
+            if ($moyenne != "") {
+                echo "Moyenne : " . $moyenne['average'] . "/5";
+            }
             ?>
             <form method="POST">
                 <input class="btn boutton" type="submit" name="panier" id="panier" value="Ajouter au panier"><br>

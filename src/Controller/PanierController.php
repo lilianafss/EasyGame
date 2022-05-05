@@ -65,7 +65,10 @@ class PanierController
             }
         }
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+           
+      
             if ($_POST['payer']) {
+                
                 $apiContext = new ApiContext(
                     new OAuthTokenCredential(
                         'AbKsXTdNOD_GjL8Zwq6B-d38-X5QMIxDrB4MkDiTdR0rVxB3igW4IGXHx5hTBlZTyy74Ekodpev-gW2X', //client ID
@@ -126,9 +129,11 @@ class PanierController
                     
                     header('Location:' . $payement->getApprovalLink());
                    
+                   
                 } catch (PayPalConnectionException $ex) {
                     echo $ex->getData();
                 }
+                
                
 
             }
