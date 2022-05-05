@@ -84,6 +84,15 @@ input[type=submit] {
     padding: 0;
 } */
 
+#commentaire-pseudo {
+    width: 80%;
+}
+
+#commentaire-date {
+    width: 20%;
+    text-align: center;
+}
+
 .starrating {
     justify-content: left;
 }
