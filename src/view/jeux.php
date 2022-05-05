@@ -103,16 +103,14 @@ $tableauxPanier = PanierModel::getPanier($idUser);
             ?>
                 <div class="card">
                     <div class="row d-flex">
-                    <div class="d-flex flex-column">
-                        <h3 class="mt-2 mb-0"><?=$user['pseudo']?></h3>
-                        <div>
-                        <p class="text-left"><span class="text-muted"><?=$userNote['note']?></span>
-                        <span class="fa fa-star star-active ml-3"></span>
+                        <div class="d-flex">
+                            <h3 id="commentaire-pseudo" class="mt-2 mb-0"><?=$user['pseudo']?></h3>
+                            <p id="commentaire-date" class="text-muted pt-5 pt-sm-3"><?=$commentaire['date']?></p>
                         </div>
-                    </div>
-                    <div class="ml-auto">
-                        <p class="text-muted pt-5 pt-sm-3"><?=$commentaire['date']?></p>
-                    </div>
+                        <div>
+                            <p class="text-left"><span class="text-muted"><?=$userNote['note']?></span>
+                            <span class="fa fa-star star-active ml-3"></span>
+                        </div>
                     </div>
                     <div class="row text-left">
                         <p class="content"><?=$commentaire['commentaire']?></p>
