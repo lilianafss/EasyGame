@@ -88,6 +88,13 @@ a
 
     margin: 3px 5px 7px 10px;
     padding: 5px;
+
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 400;
+    
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 10%, #211E36 100%);
+    border: 1px solid white;
 }
 /*#endregion*/
 /*#endregion*/
