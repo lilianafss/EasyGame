@@ -42,7 +42,10 @@ class PanierController
         $userUtilisateur = $_SESSION['idUser'];
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $jeux = GameModel::getGames($userUtilisateur);
-
+        $tableauxPanier = PanierModel::getPanier($userUtilisateur);
+        $quantite=0;
+       
+        
 
         //parcourir le panier
         foreach ($tableauxPanier as $panier) {
@@ -51,9 +54,10 @@ class PanierController
             $_SESSION['total'] = $total;
             $items = $panier['nom'];
             $_SESSION['item'] = $items;
+            $quantite+=1;
         }
-
-        //si le bouton est cliqué on supprime un jeu
+        $_SESSION['quantite']=$quantite;
+        //si le bouton est cliquer on supprime un jeux
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
                 $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
