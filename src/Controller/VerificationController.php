@@ -23,6 +23,7 @@ class VerificationController
                 'idUser' => '',
                 'connected' => false,
                 'admin' => false,
+                'idJeux' => ''
             ];
         }
 

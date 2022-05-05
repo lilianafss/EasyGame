@@ -2,11 +2,12 @@ h1{
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    color: black;
-
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+    color: white;
     text-align: center;
 }
-/* main {
+
+main {
     border: 2px double black;
     border-radius: 5px;
     width: 60%;
@@ -14,24 +15,21 @@ h1{
     padding: auto;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
-} */
+    text-align: center;
+} 
 
-table:first-of-type{
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 5px;
+.btn{
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
 }
-table:last-of-type{
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 5px;
+.btn:hover{
+    color: white;
 }
 
 #ajouterJoue{
-    margin-left: 10%;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: none;
+    margin: 0 auto 10px auto;
 }
 
 tr{

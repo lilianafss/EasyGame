@@ -34,6 +34,7 @@ class MotDePasseOublierController
                 'idUser' => '',
                 'connected' => false,
                 'admin' => false,
+                'idJeux' => ''
             ];
         }
         require '../src/view/loginInfo.php';

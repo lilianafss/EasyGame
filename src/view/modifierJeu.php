@@ -12,9 +12,8 @@
 <body class="d-flex flex-column h-100">
     <?php require_once "header.php"; ?>
     <main class="h-100">
-        <h1>Modifier</h1>
-        
-            <?php
+        <h1>Modifier</h1> 
+        <?php
             $montrerGenPlat = "
             <table>
             <tr>
@@ -46,81 +45,86 @@
 
             echo $montrerGenPlat;
             ?>
-
-        <div>
+        <div class="d-flex flex-column">
             <form method="POST">
-                <h2>Changer le nom, la description, et le prix du jeu</h2>
+                <p>
+                    <label>
+                        Nom du jeu:
+                    </label>
+                    <input type="text" style="width:30%;" name="nomJeu" value="<?= $jeu['nom'] ?>">
 
-                <label>
-                    Nom du jeu:
-                </label>
-                <input type="text" style="width:30%;" name="nomJeu" value="<?= $jeu['nom'] ?>">
+                </p>
+                <p>
+                    <label>
+                        Description du jeu:
+                    </label>
+                    <textarea name="desriptionJeu" rows="5" cols="80"> <?= $jeu['description'] ?></textarea>
+                </p>
 
-                <br>
+                <p>
+                    <label>
+                        Prix du jeu:
+                    </label>
+                    <input type="number" step="0.01" name="prixJeu" value="<?= $jeu['prix'] ?>">
+                </p>
+                <p>
+                    <label>Pegi actuel du jeu: <?= $jeu['pegi'] ?></label>
+                </p>
+                <p>
+                    <label>Changer le pegi du jeu :</label>
+                    <select name="pegiJeu">
+                        <option value=""></option>
+                        <option value="5">18</option>
+                        <option value="4">16</option>
+                        <option value="3">12</option>
+                        <option value="2">7</option>
+                        <option value="1">3</option>
+                    </select>
+                </p>
+                <p>
+                    <label>Combien de genres:</label>
+                    <select onchange='cliquerGenres(<?php echo json_encode($genreChange) ?>)' id='nbGenre'>
+                        <option></option>
+                        <option value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                </p>
+                <p>
+                    <label>Combien de plateformes:</label>
+                    <select onchange='cliquerPlateformes(<?php echo json_encode($plateformeChange) ?>)' id="nbPlatform">
+                        <option></option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                    </select>
+                </p>
 
-                <label>
-                    Description du jeu:
-                </label>
-                <textarea name="desriptionJeu" rows="5" cols="80"> <?= $jeu['description'] ?></textarea>
+                <p id="selectedGenres">
 
-                <br>
+                </p>
+                <p id="selectedPlateformes">
 
-                <label>
-                    Prix du jeu:
-                </label>
-                <input type="number" step="0.01" name="prixJeu" value="<?= $jeu['prix'] ?>">
+                </p>
 
-                <br>
+                <p>
+                    <button class="btn" type="submit" name="btnNomDePrix">Changer</button>
+                </p>
 
-                <button type="submit" name="btnNomDePrix">Changer</button>
             </form>
         </div>
-
-        <form method="POST">
-
-            <h2>Changer les genres, les plateformes et le pegi du jeu</h2>
-
-            <label>Combien de genres:</label>
-            <select name="nbGenre">
-                <option value=""></option>
-                <option value="10">10</option>
-                <option value="9">9</option>
-                <option value="8">8</option>
-                <option value="7">7</option>
-                <option value="6">6</option>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select>
-            <label>Combien de plateformes:</label>
-            <select name="nbPlatform">
-                <option value=""></option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select>
-            <input type="submit" value="Submit nombre de Platform et Genre" name="btnGenrePlateform">
-            <br>
-            <label>Pegi actuel du jeu: <?= $jeu['pegi'] ?></label>
-            <br>
-            <label>Changer le pegi du jeu :</label>
-            <select name="pegiJeu">
-                <option value=""></option>
-                <option value="5">18</option>
-                <option value="4">16</option>
-                <option value="3">12</option>
-                <option value="2">7</option>
-                <option value="1">3</option>
-            </select>
-            <br>
-            <button type="submit" name="btnGenresPlatPegi">Changer</button>
-
-        </form>
     </main>
     <?php require_once "footer.php"; ?>
+
+    <script src="assets/js/ajouterJeux.js"></script>
 </body>
 
 </html>

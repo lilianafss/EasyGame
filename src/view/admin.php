@@ -1,8 +1,3 @@
-<?php
-
-use EasyGame\Model\FonctionsBD;
-
-?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -19,13 +14,12 @@ use EasyGame\Model\FonctionsBD;
     <main>
         <h1>Page d'Admin</h1>
         <div>
-            <div>
-                <a id="ajouterJoue" href="http://easygame.ch/ajouterJeux">Ajouter jeux</a>
-            </div>
-            <table>
-                <?php
+            <button class="btn" id="ajouterJoue" onclick="allerPageAjouterJeux()">Ajouter jeux</button>
+        </div>
+        <table>
+            <?php
 
-                $stringTableJ .= "
+            $stringTableJ .= "
                       <tr>
                       <th>IdJeux</th>
                       <th>Nom</th>
@@ -33,11 +27,11 @@ use EasyGame\Model\FonctionsBD;
                       <th>Prix</th>
                       <th>Pegi</th>
                       <th>Image</th>
-                      <tr>
+                      </tr>
                       ";
 
-                foreach ($jeux as $unJeux) {
-                    $stringTableJ .= " 
+            foreach ($jeux as $unJeux) {
+                $stringTableJ .= " 
                         <tr>
                         <td>" . $unJeux['idJeux'] . "</td>
                         <td>" . $unJeux['nom'] . "</td>
@@ -45,18 +39,18 @@ use EasyGame\Model\FonctionsBD;
                         <td>" . $unJeux['prix'] . "</td>
                         <td>" . $unJeux['pegi'] . "</td>
                         <td><img class=\"card-img\" src=\"data:image/jpeg;base64," . base64_encode($unJeux['image']) . "\"/></td>
-                        <td><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer<a/></td>
-                        <td><a href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier<a/></td>
+                        <td><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer</a></td>
+                        <td><a href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier</a></td>
                         </tr>";
-                }
+            }
 
-                echo $stringTableJ;
-                ?>
-            </table>
-            <table>
-                <?php
+            echo $stringTableJ;
+            ?>
+        </table>
+        <table>
+            <?php
 
-                $stringTableU .= "
+            $stringTableU .= "
                     <tr>
                     <th>IdUser</th>
                     <th>Pseudo</th>
@@ -65,11 +59,11 @@ use EasyGame\Model\FonctionsBD;
                     <th>Email</th>
                     <th>Admin</th>
                     <th>USER_STATUS</th>
-                    <tr>
+                    </tr>
                     ";
 
-                foreach ($users as $unUser) {
-                    $stringTableU .= " 
+            foreach ($users as $unUser) {
+                $stringTableU .= " 
                       <tr>
                       <td>" . $unUser['idUser'] . "</td>
                       <td>" . $unUser['pseudo'] . "</td>
@@ -78,20 +72,21 @@ use EasyGame\Model\FonctionsBD;
                       <td>" . $unUser['email'] . "</td>
                       <td>" . $unUser['admin'] . "</td>
                       <td>" . $unUser['user_status'] . "</td>
-                      <td><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer<a/></td>
-                      <td><a href='http://easygame.ch/effacer?disabled=" . $unUser['idUser'] . "'>Disabled<a/></td>
-                      <td><a href='http://easygame.ch/effacer?actif=" . $unUser['idUser'] . "'>Actif<a/></td>
+                      <td><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer</a></td>
+                      <td><a href='http://easygame.ch/effacer?disabled=" . $unUser['idUser'] . "'>Disabled</a></td>
+                      <td><a href='http://easygame.ch/effacer?actif=" . $unUser['idUser'] . "'>Actif</a></td>
                       </tr>";
-                }
+            }
 
 
-                echo $stringTableU;
+            echo $stringTableU;
 
-                ?>
-            </table>
-        </div>
+            ?>
+        </table>
+
     </main>
     <?php require_once "footer.php"; ?>
+    <script src="assets/js/admin.js"></script>
 </body>
 
 </html>

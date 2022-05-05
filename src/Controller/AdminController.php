@@ -23,6 +23,7 @@ class AdminController
         'idUser' => '',
         'connected' => false,
         'admin' => false,
+        'idJeux' => ''
       ];
     }
 

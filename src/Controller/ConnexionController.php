@@ -23,6 +23,7 @@ class ConnexionController
                 'idUser' => '',
                 'connected' => false,
                 'admin' => false,
+                'idJeux' => ''
             ];
         }
 

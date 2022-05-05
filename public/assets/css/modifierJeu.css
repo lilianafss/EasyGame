@@ -1,15 +1,30 @@
 main{
-    text-align: center;
+    text-align: center;    
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 20%;
+    margin-left: 20%;
 }
 
 table{
     margin-left: 47%;
 }
 
-form{
-    border: 2px solid black;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    margin-right: 20%;
-    margin-left: 20%;
+h1{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+    color: white;
+    text-align: center;
+}
+
+textarea{
+    vertical-align: top;
+}
+
+.btn{
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
 }
