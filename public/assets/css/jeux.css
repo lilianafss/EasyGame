@@ -1,12 +1,6 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 h1 {
     text-align: center;
-}
-
-img,
-.description {
-    width: 1100px;
-    display: block;
-    margin: auto;
 }
 
 h3 {
@@ -18,15 +12,20 @@ h3 {
 }
 
 main {
-    float: left;
-    width: 80%;
+    width: 100%;
+    display: flex;
 }
 
-aside {
+#descriptionJeuxContainer {
+    width: 60%;
+    margin-left: 10%;
+}
+
+#asideContainer {
+    font-weight: 600;
+    font-size: 18px;
+    margin: auto;
     text-align: center;
-    margin-top: 80px;
-    float: right;
-    width: 15%;
 }
 
 .boutton {
@@ -37,4 +36,44 @@ aside {
 
 .boutton:hover {
     color: #DDDDDD;
+}
+
+#commentaireContainer {
+    border: black solid 1px;
+    margin: 3% auto 0 auto;
+    text-align: left;
+}
+
+
+/* Enleve les radio buttons */
+
+.starrating>input {
+    display: none;
+}
+
+.starrating>label:before {
+    /*code pour l'etoile*/
+    content: "\f005";
+    margin: 2px;
+    font-size: 1em;
+    font-family: FontAwesome;
+    display: inline-block;
+}
+
+
+/*quand l'etoile n'est pas clique*/
+
+.starrating>label {
+    color: #222222;
+}
+
+
+/*quand l'etoile estclique*/
+
+.starrating>input:checked~label {
+    color: #ffca08;
+}
+
+.starrating>input:hover~label {
+    color: #ffca08;
 }

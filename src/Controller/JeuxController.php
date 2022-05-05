@@ -21,6 +21,7 @@ class JeuxController
         if ($idJeux != "") {
 
             $note = "";
+            $content = "";
             $commentaire = "";
             $quantite = 0;
             $envoiePanier = filter_input(INPUT_POST, 'panier');
@@ -31,6 +32,7 @@ class JeuxController
             $tableauxNotes = NoteModel::getNotes($idJeux);
             $tableauxPanier = PanierModel::getPanier($idUser);
             $numeroCommentaires = CommentaireModel::countComments($idJeux);
+            $etoiles="\f005";
 
             $submit = filter_input(INPUT_POST, 'envoyer', FILTER_SANITIZE_SPECIAL_CHARS);
             $btnPanier = filter_input(INPUT_POST, 'panier', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -40,12 +42,13 @@ class JeuxController
             $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_SPECIAL_CHARS);
 
             //Si le button envoyer est egal a "AjouterCommentaire"
-            if ($submit == "AjouterCommentaire") {
+            if ($submit == "Ajouter commentaire") {
                 //Si les inputs commentaire et note n'est pas egal a vide
                 if ($commentaire != "" && $note != "" &&  $idUser != "") {
                     //ajouter les notes et commentaires a la base de donnees
                     CommentaireModel::addCommentToGame($commentaire, $idJeux, $idUser);
                     NoteModel::addNoteToGame($note, $idJeux, $idUser);
+                    $content.=$etoiles;
                 } elseif ($commentaire != "" && $idUser != "") {
                     CommentaireModel::addCommentToGame($commentaire, $idJeux, $idUser);
                 }
