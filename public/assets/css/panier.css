@@ -123,8 +123,8 @@ input[type="radio"] {
 #test
 {
     display: flex;
-    width: 30%;
-    margin: auto;
+    width: 50%;
+    margin: 0;
 }
 
 main
@@ -133,6 +133,13 @@ main
     display: flex;
 }
 
+#payement{
+    width: 700px;
+    
+}
+#moyen{
+    width: 100%;
+}
 /*--------------------Cards--------------------*/
 /*#region Cards*/
 .card

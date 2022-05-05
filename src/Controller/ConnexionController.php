@@ -4,7 +4,7 @@ namespace EasyGame\Controller;
 
 use EasyGame\Model\BaseDonnee;
 use EasyGame\Model\UserModel;
-
+use EasyGame\Model\PanierModel;
 class ConnexionController
 {
     /**
@@ -16,6 +16,8 @@ class ConnexionController
     public static function connexion()
     {
         session_start();
+        $userUtilisateur = $_SESSION['idUser'];
+
 
         //si idUser n'existe pas dans la session on va creer ses trois variables
         if (!isset($_SESSION['idUser'])) {

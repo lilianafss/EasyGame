@@ -58,8 +58,10 @@ class JeuxController
            
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($_POST['panier']) {
+                    
                     $quantite++;
                     $_SESSION["quantite"] = $quantite;
+                
                     if (!$_SESSION['connected']) {
                         header("Location: http://easygame.ch/connexion");
                         $_SESSION['idJeux'] = $idJeux;

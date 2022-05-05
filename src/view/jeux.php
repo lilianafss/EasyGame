@@ -5,7 +5,18 @@ use EasyGame\Model\NoteModel;
 use EasyGame\Model\PanierModel;
 
 $tableauxPanier = PanierModel::getPanier($idUser);
-
+                $BOOL=false;
+                    foreach ($tableauxPanier as $panier) {
+                        if ($panier["idJeux"] == $idJeux) {
+                            $BOOL=TRUE;
+                                $dedans="Dans le panier";
+                            }
+                            
+                        } if($BOOL==false){
+                            $dedans="Ajouter dans le panier";
+                        }
+                        
+            
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -109,20 +120,8 @@ $tableauxPanier = PanierModel::getPanier($idUser);
         <div id="asideContainer">
             <p class="prix"><?= $infoJeux['prix'] . " CHF" ?></p>
             <form method="POST">
-                <input class="btn boutton" type="submit" name="panier" id="panier" value="
-                <?php
-                $BOOL=false;
-                    foreach ($tableauxPanier as $panier) {
-                        if ($panier["idJeux"] == $idJeux) {
-                            $BOOL=TRUE;
-                                echo"Dans le panier";
-                            }
-                            
-                        } if($BOOL==false){
-                            echo"Ajouter dans le panier";
-                        }
-                        
-                        ?>"><br>
+                <input class="btn boutton" type="submit" name="panier" id="panier" value="<?php echo $dedans?>">
+                <br>
             </form>
             <!-- <button class="btn boutton" >Wishlist</button> <br> -->
             <?php
