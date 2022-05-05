@@ -13,7 +13,6 @@ class RegisterController
 {
     /**
      * Crée un nouveau Compte
-     * @return void
      * @throws Exception
      * @author Flavio Soares Rodrigues
      */
@@ -28,12 +27,12 @@ class RegisterController
                 'admin' => false,
                 'btnJeux' => false,
                 'btnUser' => false,
-                'nbGenre' =>'',
-                'nbPlatform'=>''
+                'nbGenre' => '',
+                'nbPlatform' => ''
             ];
         }
 
-        if($_SESSION['connected'])
+        if ($_SESSION['connected'])
         {
             header("location: /");
             exit();
@@ -47,7 +46,9 @@ class RegisterController
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
         $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_SPECIAL_CHARS);
         $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
-        $message = "";
+
+        $error_message = "";
+        $sucess_message = "";
 
         $key = rand(10000000, 99999999);
 
@@ -83,34 +84,31 @@ class RegisterController
                         $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
 
                         // Envoie un mail de confirmation pour activer le compte
-                        $message = smtpmailer($to, $from, $name, $subj, $msg);
+                        $error_message = smtpmailer($to, $from, $name, $subj, $msg);
+
+                        // Efface les valeurs contenues dans le formulaire
+                        $userName = "";
+                        $lastName = "";
+                        $firstName = "";
+                        $email = "";
+                        $password = "";
+                        $password2 = "";
+
+                        $sucess_message = "sucess";
                     }
                     catch (PDOException $e)
                     {
                         if (strpos($e->getMessage(), 'email'))
                         {
-                            $message = "email déjà existant";
+                            $error_message = "email";
                         }
                         else if (strpos($e->getMessage(), 'pseudo'))
                         {
-                            $message = "nom d'utilisateur déjà existant";
+                            $error_message = "pseudo";
                         }
                     }
                 }
-                else
-                {
-                    $message = "Ces mots de passe ne correspondent pas. Veuillez réessayer.";
-                }
             }
-            else
-            {
-                $message = "Veuillez Remplir tout les champs";
-            }
-        }
-        else if ($submit == "Annuler")
-        {
-            header("location: /connexion");
-            exit();
         }
         require '../src/view/register.php';
     }

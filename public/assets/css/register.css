@@ -1,14 +1,54 @@
 /*--------------------Main--------------------*/
 /*#region Main*/
+#sucess_message
+{
+    display: none;
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 80px;
+
+    height: 80px;
+    width: 100%;
+
+    margin: 10px 0 20px 0;
+    border: 2px solid darkgreen;
+    border-radius: 5px;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: rgba(30, 190, 50, 0.5);
+    color:darkgreen;
+}
+
+#error_msg
+{
+    display: none;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+
+    margin: 10px 0 20px 0;
+    border: 2px solid darkred;
+    border-radius: 5px;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+    color:darkred;
+    background: rgba(200, 30, 50, 0.5);
+}
+
+.error_msg
+{
+    margin: 0;
+}
 
 h1
 {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    text-align: left;
-
     color: #332E52;
+    font-weight: bold;
 }
 
 /* div dans le main qui englobe le formulaire */
@@ -22,19 +62,21 @@ h1
 /* div qui sont dans le formulaire */
 .divForm
 {
+    display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 form
 {
-    width: 40%;
+    width: 60%;
 }
 
 /* label et input du formulaire */
 .label-input
 {
     width: 100%;
+    font-weight: bold;
 }
 
 /* label de l'affichage du mot de passe */
@@ -58,32 +100,24 @@ form
     display: flex;
     justify-content: end;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 /* Button Valider et Annuler */
 .btnSubmit
 {
-    width: 30%;
+    width: 25%;
     color: #fff;
+    font-size: 1.1rem;
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    font-weight: bold;
 }
 
 .btnSubmit:hover
 {
     color: #DDDDDD;
 }
-
-.error-msg
-{
-    display: none;
-    color: #f00;
-
-    font-weight: bold;
-    font-style: italic;
-    font-size: 1rem;
-}
-
 /*#endregion*/
 
 
@@ -92,11 +126,19 @@ form
 
 /*--------------------Media--------------------*/
 /*#region Media*/
+@media only screen and (max-width: 1100px)
+{
+    form
+    {
+        width: 70%;
+    }
+}
+
 @media only screen and (max-width: 1000px)
 {
     form
     {
-        width: 60%;
+        width: 85%;
     }
 
     /* label et input du formulaire */
@@ -108,9 +150,19 @@ form
 
 @media only screen and (max-width: 800px)
 {
+    #sucess_message
+    {
+        line-height: 40px;
+
+        height: 80px;
+        width: 100%;
+
+        font-size: 1.2rem;
+    }
+
     form
     {
-        width: 80%;
+        width: 90%;
     }
 
     /* label et input du formulaire */
@@ -122,16 +174,6 @@ form
 
 @media only screen and (max-width: 600px)
 {
-    body
-    {
-        overflow: auto;
-    }
-
-    form
-    {
-        width: 90%;
-    }
-
     /* div qui sont dans le formulaire */
     .divForm
     {
@@ -147,20 +189,6 @@ form
     .label-input
     {
         width: 100%;
-    }
-
-    /* checkbox qui affiche/cache le mot de passe */
-    #showPassWord
-    {
-        width: 24%;
-    }
-
-    /* Button Valider et Annuler */
-    .btnSubmit
-    {
-        justify-content: space-between;
-        margin-left: 30px;
-        margin-right: 30px;
     }
 }
 /*#endregion*/
