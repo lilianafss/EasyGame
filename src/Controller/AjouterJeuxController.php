@@ -35,15 +35,7 @@ class AjouterJeuxController
             $plateforme = PlatformModel::getPlatform();
 
             $message = filter_input(INPUT_GET, "valid");
-            if ($message == "ok") {
-                //affichage du message d'erreur
-                $messageErreur = "<p style='color: green;  font-size: 25px;' id='messageErreur'>Le jeu a bien été créé</p>";
-            } elseif ($message == "not") {
-                //affichage du message d'erreur
-                $messageErreur = "<p id='messageErreur' style='color: red;  font-size: 25px;'>Tous les champs doivent être remplis</p>";
-            } else {
-                $messageErreur = "";
-            }
+
 
             $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
             //on essaye d'ajouter le jeu si on touche le bouton Ajouter jeu

@@ -36,6 +36,9 @@ class ModifierController
 
             //recuperer l'id du jeu
             $idJeu = filter_input(INPUT_GET,'idJeux');
+            
+            $genreChange = GenreModel::getGenre();
+            $plateformeChange = PlatformModel::getPlatform();
 
             //recuperer les informations du jeu
             $jeu = GameModel::getGameById($idJeu);
