@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require'../src/php/smtpMailer.php';
+require_once('../src/php/tools.php');
 
 class RegisterController
 {
@@ -18,15 +19,8 @@ class RegisterController
      */
     public function nouveauCompte()
     {
-        session_start();
-        if (!isset($_SESSION['idUser']))
-        {
-            $_SESSION = [
-                'idUser' => '',
-                'connected' => false,
-                'admin' => false,
-            ];
-        }
+        // Crée la session si elle n'existe pas
+        SessionStart();
 
         if ($_SESSION['connected'])
         {

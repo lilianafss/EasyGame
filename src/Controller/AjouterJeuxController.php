@@ -7,6 +7,7 @@ use EasyGame\Model\GameModel;
 use EasyGame\Model\GenreModel;
 use EasyGame\Model\PlatformModel;
 
+require_once('../src/php/tools.php');
 
 class AjouterJeuxController
 {
@@ -17,24 +18,14 @@ class AjouterJeuxController
      */
     public static function ajouterJeux()
     {
-        //start la fonction
-        session_start();
-        if (!isset($_SESSION['idUser'])) {
-            $_SESSION = [
-                'idUser' => '',
-                'connected' => false,
-                'admin' => false,
-                'btnJeux' => false,
-                'btnUser' => false,
-            ];
-        }
+        // Crée la session si elle n'existe pas
+        SessionStart();
 
         $messageErreur = "";
         $tableauGenre = [];
         $tableauPlatform = [];
 
-
-        //si on n'est pas connecté en tant d'admin on va à la page d'accueil
+        //si on n'est pas connecté en tant d'admin, on va à la page d'accueil
         if (!$_SESSION['admin']) {
             header("location: http://easygame.ch");
             exit();

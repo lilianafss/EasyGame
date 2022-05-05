@@ -13,6 +13,8 @@
     use EasyGame\Model\UserModel;
     use EasyGame\Model\WishlistModel;
 
+    require_once('../src/php/tools.php');
+
     class EffacerController
     {
         /**
@@ -22,7 +24,9 @@
         * @author De Castilho E Sousa Rodrigo
         */
         public static function effacer(){
-            session_start();
+
+            // Crée la session si elle n'existe pas
+            SessionStart();
             
             //si on n'est pas connecté en tant administrateur on va être rederiger vers la page d'accueil
             if (!$_SESSION['admin']) {

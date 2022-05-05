@@ -10,21 +10,14 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 require '../vendor/phpmailer/phpmailer/src/Exception.php';
-
+require_once('../src/php/tools.php');
 
 class VerificationController
 {
     public function VerifierCompte()
     {
-        session_start();
-        if (!isset($_SESSION['idUser']))
-        {
-            $_SESSION = [
-                'idUser' => '',
-                'connected' => false,
-                'admin' => false,
-            ];
-        }
+        // Crée la session si elle n'existe pas
+        SessionStart();
 
         // Récupère l'id de l'utilisateur dans la session
         $idUser = $_SESSION['idUser'];

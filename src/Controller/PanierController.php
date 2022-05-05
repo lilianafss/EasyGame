@@ -28,11 +28,15 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
 use PayPal\Exception\PayPalConnectionException;
 
+require_once('../src/php/tools.php');
+
 class PanierController
 {
     public function panier()
     {
-        session_start();
+        // Crée la session si elle n'existe pas
+        SessionStart();
+
         //initialisation variable
         $total = 0;
         $userUtilisateur = $_SESSION['idUser'];
@@ -42,14 +46,14 @@ class PanierController
 
         //parcourir le panier
         foreach ($tableauxPanier as $panier) {
-            //calcule du total, recuperation idJeux et nom du jeux
+            //calcule du total, recuperation idJeux et nom du jeu
             $total += $panier['prix'];
             $_SESSION['total'] = $total;
             $items = $panier['nom'];
             $_SESSION['item'] = $items;
         }
 
-        //si le bouton est cliquer on supprime un jeux
+        //si le bouton est cliqué on supprime un jeu
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
                 $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);

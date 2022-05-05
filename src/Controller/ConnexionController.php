@@ -5,6 +5,8 @@ namespace EasyGame\Controller;
 use EasyGame\Model\BaseDonnee;
 use EasyGame\Model\UserModel;
 
+require_once('../src/php/tools.php');
+
 class ConnexionController
 {
     /**
@@ -15,16 +17,8 @@ class ConnexionController
      */
     public static function connexion()
     {
-        session_start();
-
-        //si idUser n'existe pas dans la session on va creer ses trois variables
-        if (!isset($_SESSION['idUser'])) {
-            $_SESSION = [
-                'idUser' => '',
-                'connected' => false,
-                'admin' => false,
-            ];
-        }
+        // Crée la session si elle n'existe pas
+        SessionStart();
 
         if ($_SESSION['connected']) {
             header("location: /");
