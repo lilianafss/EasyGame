@@ -7,7 +7,7 @@ use PDOException;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require'../src/php/smtpMailer.php';
+require_once('../src/php/smtpMailer.php');
 require_once('../src/php/tools.php');
 
 class RegisterController
@@ -88,13 +88,13 @@ class RegisterController
                     }
                     catch (PDOException $e)
                     {
-                        if (strpos($e->getMessage(), 'email'))
+                        if (strpos($e->getMessage(), 'pseudo'))
                         {
-                            $error_message = "email";
+                            $error_message = "<script>ErrorMessage('Ce nom d\'utilisateur est déjà utilisé.', 'userName', 'false');</script>";
                         }
-                        else if (strpos($e->getMessage(), 'pseudo'))
+                        else if (strpos($e->getMessage(), 'email'))
                         {
-                            $error_message = "pseudo";
+                            $error_message = "<script>ErrorMessage('Cette adresse mail est déjà utilisée.', 'email', 'false');</script>";
                         }
                     }
                 }

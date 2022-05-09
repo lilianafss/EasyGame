@@ -17,10 +17,12 @@
 
         <div id="divMain">
 
-            <form onsubmit='VerifForm(<?= json_encode($error_message)?>, <?= json_encode($sucess_message)?>)' method="POST">
+            <form onsubmit='return VerifForm(<?= json_encode($sucess_message)?>)' method="POST">
 
                 <div class="divForm">
-                    <div id="error_msg"></div>
+                    <div id="error_div">
+                        <?php echo $error_message; ?>
+                    </div>
                     <p id="sucess_message">Votre compte a été crée. Veuillez vérifier votre mail pour activer votre compte.</p>
                 </div>
 

@@ -21,9 +21,10 @@
     color:darkgreen;
 }
 
-#error_msg
+#error_div
 {
     display: none;
+    flex-direction: column-reverse;
     align-content: center;
     text-align: center;
     width: 100%;
