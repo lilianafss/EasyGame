@@ -14,8 +14,6 @@ function VerifForm(sucess_message)
     // Efface le contenu de la div où sont stockés les messages d'erreurs
     document.getElementById('error_div').innerHTML = '';
 
-
-
     // Confirmation mot de passe
     if (password2.value === '')
     {
@@ -67,7 +65,6 @@ function VerifForm(sucess_message)
     {
         document.getElementById('sucess_message').style.display='none';
     }
-
     return isValid;
 }
 

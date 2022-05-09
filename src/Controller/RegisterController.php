@@ -90,10 +90,12 @@ class RegisterController
                     {
                         if (strpos($e->getMessage(), 'pseudo'))
                         {
+                            // Senser afficher un message d'erreur
                             $error_message = "<script>ErrorMessage('Ce nom d\'utilisateur est déjà utilisé.', 'userName', 'false');</script>";
                         }
                         else if (strpos($e->getMessage(), 'email'))
                         {
+                            // Senser afficher un message d'erreur
                             $error_message = "<script>ErrorMessage('Cette adresse mail est déjà utilisée.', 'email', 'false');</script>";
                         }
                     }
