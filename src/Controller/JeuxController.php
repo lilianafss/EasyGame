@@ -45,6 +45,7 @@ class JeuxController
 
             //Si le button envoyer est egal a "AjouterCommentaire"
             if ($submit == "Ajouter commentaire") {
+               
                 //Si les inputs commentaire et note n'est pas egal a vide
                 if ($commentaire != "" && $note != "" &&  $idUser != "") {
                     //ajouter les notes et commentaires a la base de donnees
@@ -60,7 +61,7 @@ class JeuxController
            
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($_POST['panier']) {
-                    
+                   
                     $quantite++;
                     $_SESSION["quantite"] = $quantite;
                 

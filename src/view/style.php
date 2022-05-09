@@ -70,4 +70,10 @@
         if($_SERVER['PHP_SELF'] == "/index.php/admin"){
             echo'<link rel="stylesheet" href="assets/css/admin.css">';
         }
+        if($_SERVER['PHP_SELF'] == "/index.php/success"){
+            echo'<link rel="stylesheet" href="assets/css/success.css">';
+        }
+        if($_SERVER['PHP_SELF'] == "/index.php/error"){
+            echo'<link rel="stylesheet" href="assets/css/error.css">';
+        }
     #endregion

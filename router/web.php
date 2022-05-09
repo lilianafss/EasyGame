@@ -18,7 +18,8 @@ use EasyGame\Controller\DeconnexionController;
 use EasyGame\Controller\ModifierController;
 use EasyGame\Controller\ProfilController;
 use EasyGame\Controller\WishlistController;
-
+use EasyGame\Controller\errorController;
+use EasyGame\Controller\successController;
 
 SimpleRouter::form('/', [AccueilController::class, 'accueil']); // page d'accueil du site
 SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion']); // page de connexion au site
@@ -34,3 +35,5 @@ SimpleRouter::form('/deconnexion', [DeconnexionController::class, 'deconnexion']
 SimpleRouter::form('/modifier', [ModifierController::class, 'modifierJeu']); //pade de modification de jeu
 SimpleRouter::form('/profil', [ProfilController::class, 'profil']); // page d'accueil du site
 SimpleRouter::form('/wishlist', [WishlistController::class, 'wishlist']); // page d'accueil du site
+SimpleRouter::form('/error', [errorController::class, 'error']); // page d'error pour paypal
+SimpleRouter::form('/success', [successController::class, 'success']); // page de succes pour paypal

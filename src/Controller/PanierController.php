@@ -43,9 +43,11 @@ class PanierController
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $jeux = GameModel::getGames($userUtilisateur);
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
-        $quantite=0;
-       
-        
+        $quantite = 0;
+
+
+
+
 
         //parcourir le panier
         foreach ($tableauxPanier as $panier) {
@@ -54,17 +56,17 @@ class PanierController
             $_SESSION['total'] = $total;
             $items = $panier['nom'];
             $_SESSION['item'] = $items;
-            $quantite+=1;
+            $quantite += 1;
         }
-        $_SESSION['quantite']=$quantite;
+        $_SESSION['quantite'] = $quantite;
         //si le bouton est cliquer on supprime un jeux
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
                 $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
                 foreach ($tableauxPanier as $panier) {
-                    if($panier["idJeux"] == $idJeux){
+                    if ($panier["idJeux"] == $idJeux) {
                         $_SESSION["total"] = $_SESSION["total"] - $panier["prix"];
-                        $_SESSION['totalPanier']=$_SESSION['total'];
+                        $_SESSION['totalPanier'] = $_SESSION['total'];
                     }
                 }
                 PanierModel::deleteGameToPanier($idJeux);
@@ -73,17 +75,18 @@ class PanierController
             }
         }
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-           
-      
+
+
             if ($_POST['payer']) {
-                
+
                 $apiContext = new ApiContext(
                     new OAuthTokenCredential(
-                        'AbKsXTdNOD_GjL8Zwq6B-d38-X5QMIxDrB4MkDiTdR0rVxB3igW4IGXHx5hTBlZTyy74Ekodpev-gW2X', //client ID
-                        'EAIXKpk8-2RIcrj5GMtm5-IIMAHCsrxK0yg131m6X0Wj1v5A2zPGizM8GiabluWub7f13DWJ-ZlWwmXO' //client Secret
+                        'AXHuFZprDDdz67bEgvtu4ds0_nhdUlhmKS5KQVGuPD8XwcQINPZrPk3FnzcsQGB3ZR8A9Nk0Ns4c4cdw', //client ID
+                        'EJQyWN_nESO64cePV3jf4VpDff_a_Y6WnthoAfQsq6mRZ-Oa-1HBACRsx6FqxykdNiG_SOocvbX29IPC' //client Secret
+
                     )
                 );
-                
+
                 //config de l'api
                 $apiContext->setConfig(
                     array(
@@ -91,6 +94,7 @@ class PanierController
                         'log.FileName' => 'PayPal.log',
                         'log.LogLevel' => 'DEBUG',
                         'mode' => 'sandbox',
+
                     )
                 );
                 //moyent de paiement 
@@ -105,6 +109,7 @@ class PanierController
                     ->setCurrency('CHF')
                     ->setQuantity(1)
                     ->setPrice($_SESSION['total']);
+
 
                 $itemList = new ItemList();
                 $itemList->setItems(array($item1));
@@ -122,11 +127,11 @@ class PanierController
 
                 //redirection avec des urls selon si le paiement a reussi ou echoué
                 $redirectUrls = new RedirectUrls();
-                echo $redirectUrls;
-                $redirectUrls->setReturnUrl("http://easygame.ch/")
-                    ->setCancelUrl("http://easygame.ch/error.php");
+                $redirectUrls->setReturnUrl("http://easygame.ch/success")
+                    ->setCancelUrl("http://easygame.ch/error");
 
                 //paiement
+              
                 $payement = new Payment();
                 $payement->setIntent('sale')
                     ->setPayer($payer)
@@ -134,16 +139,11 @@ class PanierController
                     ->setRedirectUrls($redirectUrls);
                 try {
                     $payement->create($apiContext);
-                    
-                    header('Location:' . $payement->getApprovalLink());
-                   
-                   
+
+                    header('Location:' . $payement->getApprovalLink() . "&locale.x=fr_FR&langTgl=fr");
                 } catch (PayPalConnectionException $ex) {
                     echo $ex->getData();
                 }
-                
-               
-
             }
         }
 
