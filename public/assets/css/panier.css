@@ -3,6 +3,11 @@ margin: 0;
 }
 /*--------------------Header--------------------*/
 /*#region Header*/
+input[type=submit] {
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
+    margin: 5px;
+}
 header
 {
     margin-bottom: 20px;
@@ -18,11 +23,16 @@ ul
 a
 {
     text-align: center;
+
 }
 
-
-    
-   
+#credit{
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+  
+}
+#creditText{
+    color: white;
+}
 .rounded {
     border-radius: 1rem
 }
