@@ -134,6 +134,8 @@ $tableauxPanier = PanierModel::getPanier($idUser);
             
             <form method="POST">
                 <input class="btn boutton" type="submit" name="panier" id="panier" value="<?php echo $dedans?>">
+                <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="Ajouter a la wishlist">
+
                 <br>
             </form>
             <!-- <button class="btn boutton" >Wishlist</button> <br> -->

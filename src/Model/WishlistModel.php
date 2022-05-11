@@ -23,7 +23,7 @@ class WishlistModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix` 
+                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix` ,`jeux`.`image`
                 FROM `jeux`, `ajouter_wishlist`, `user`, `wishlist` 
                 WHERE `jeux`.`idJeux` = `ajouter_wishlist`.`idJeux`
                 AND `user`.`idUser` = ?
