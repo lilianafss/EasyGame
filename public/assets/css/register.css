@@ -2,9 +2,8 @@
 /*#region Main*/
 #sucess_message
 {
-    display: none;
-    align-content: center;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     vertical-align: middle;
     line-height: 80px;
 
@@ -84,7 +83,6 @@ form
 #containerShowPassWord
 {
     display: flex;
-    justify-content: space-between;
     width: 100%;
 }
 
@@ -93,6 +91,7 @@ form
 {
     width:25px;
     height:25px;
+    margin-right: 10px;
 }
 
 /* div qui englobe le boutton Valider et Annuler */

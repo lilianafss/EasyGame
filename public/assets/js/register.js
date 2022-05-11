@@ -1,4 +1,4 @@
-function VerifForm(sucess_message)
+function VerifForm()
 {
     // Récupère les valeurs du formulaire HTML
     let userName = document.getElementById('userName');
@@ -54,16 +54,6 @@ function VerifForm(sucess_message)
     if (userName.value === '')
     {
         ErrorMessage ('Veuillez indiquer votre nom d\'utilisateur.', 'userName', 'false');
-    }
-
-    // Création de compte réussi
-    if(sucess_message === "sucess")
-    {
-        document.getElementById('sucess_message').style.display='block';
-    }
-    else
-    {
-        document.getElementById('sucess_message').style.display='none';
     }
     return isValid;
 }

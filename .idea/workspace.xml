@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee9d27e4-e476-45cf-a2f3-d6d4f0bb544b" name="Changes" comment="" />
+    <list default="true" id="ee9d27e4-e476-45cf-a2f3-d6d4f0bb544b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +104,8 @@
       <workItem from="1651668508656" duration="6763000" />
       <workItem from="1651730818922" duration="19466000" />
       <workItem from="1651820172856" duration="7000" />
-      <workItem from="1652074764403" duration="11946000" />
+      <workItem from="1652074764403" duration="13666000" />
+      <workItem from="1652250875408" duration="8388000" />
     </task>
     <servers />
   </component>

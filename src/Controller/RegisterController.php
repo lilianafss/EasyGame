@@ -22,6 +22,7 @@ class RegisterController
         // Crée la session si elle n'existe pas
         SessionStart();
 
+        // renvois à la page d'accueil si déjà connectée
         if ($_SESSION['connected'])
         {
             header("location: /");
@@ -37,11 +38,10 @@ class RegisterController
         $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_SPECIAL_CHARS);
         $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $error_message = "";
-        $sucess_message = "";
+        $users = UserModel::getUsers(); // Récupère tout les utilisateurs
 
+        // Clés
         $key = rand(10000000, 99999999);
-
         $_SESSION['key'] = $key;
 
         $to = $email;
@@ -52,6 +52,8 @@ class RegisterController
                 <button type="submit">
                     <a href="http://easygame.ch/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
                 </button>';
+
+        $sucess_message = "";
 
         // Si le boutton "Valider" est pressé
         if ($submit == "Valider")
@@ -64,17 +66,27 @@ class RegisterController
                     // Hash le mot de passe
                     $passwordHash = password_hash($password, PASSWORD_BCRYPT);;
 
-                    // Ajoute un nouvel utilisateur dans la base de données
-                    try
+                    // Récupère la fonction verifUserInfo
+                    $exists = UserModel::verifUserInfo ($userName, $email);
+
+                    // Retourne un message d'erreur si le pseudo ou l'email existe déjà dans la base de donné
+                    if ($exists['pseudo_exists'] === 1)
                     {
-                        // Crée l'utilisateur
+                        echo "<script>ErrorMessage('Ce nom d\'utilisateur est déjà utilisé.', 'userName', 'false');</script>";
+                    }
+                    else if ($exists['email_exists'] === 1)
+                    {
+                        echo "<script>ErrorMessage('Cette adresse mail est déjà utilisée.', 'email', 'false');</script>";
+                    }
+                    else
+                    {
                         UserModel::newUser($userName, $lastName, $firstName, $email, $passwordHash);
 
                         // Récupère l'id de l'utilisateur et on le met dans la session
                         $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
 
                         // Envoie un mail de confirmation pour activer le compte
-                        $error_message = smtpmailer($to, $from, $name, $subj, $msg);
+                        smtpmailer($to, $from, $name, $subj, $msg);
 
                         // Efface les valeurs contenues dans le formulaire
                         $userName = "";
@@ -84,20 +96,7 @@ class RegisterController
                         $password = "";
                         $password2 = "";
 
-                        $sucess_message = "sucess";
-                    }
-                    catch (PDOException $e)
-                    {
-                        if (strpos($e->getMessage(), 'pseudo'))
-                        {
-                            // Senser afficher un message d'erreur
-                            $error_message = "<script>ErrorMessage('Ce nom d\'utilisateur est déjà utilisé.', 'userName', 'false');</script>";
-                        }
-                        else if (strpos($e->getMessage(), 'email'))
-                        {
-                            // Senser afficher un message d'erreur
-                            $error_message = "<script>ErrorMessage('Cette adresse mail est déjà utilisée.', 'email', 'false');</script>";
-                        }
+                        $sucess_message = "<div id='sucess_message'> <p>Votre compte a été crée. Veuillez vérifier votre mail pour activer votre compte.</p></div>";
                     }
                 }
             }

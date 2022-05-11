@@ -17,13 +17,13 @@
 
         <div id="divMain">
 
-            <form onsubmit='return VerifForm(<?= json_encode($sucess_message)?>)' method="POST">
+            <form onsubmit='return VerifForm()' method="POST">
 
                 <div class="divForm">
                     <div id="error_div">
-                        <?php echo $error_message; ?>
+                        <?= $error_message; ?>
                     </div>
-                    <p id="sucess_message">Votre compte a été crée. Veuillez vérifier votre mail pour activer votre compte.</p>
+                    <?=$sucess_message?>
                 </div>
 
                 <div class="divForm">
@@ -58,8 +58,8 @@
 
                 <div class="divForm" id="container-form-bot">
                     <label for="showPassWord" id="containerShowPassWord">
-                        <input type="checkbox" name="showPassWord" class="col-1" id="showPassWord" onclick="HidePassword()">
-                        <span class="col-11">Afficher le mot de passe</span>
+                        <input type="checkbox" name="showPassWord" id="showPassWord" onclick="HidePassword()">
+                        <span class="ml-2">Afficher le mot de passe</span>
                     </label>
                     <input class="btnSubmit btn" type="submit" name="submit" value="Valider">
                 </div>

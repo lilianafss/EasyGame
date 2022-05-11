@@ -65,7 +65,7 @@ class UserModel
      * @return mixed|void
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function getIdUser( $email)
+    public static function getIdUser($email)
     {
         try
         {
@@ -74,6 +74,30 @@ class UserModel
                 FROM `user` WHERE `email` = ?
             ");
             $query->execute([$email]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /**
+     * Vérifie l'existance du pseudo et de l'email
+     * @param string $pseudo
+     * @param string $email
+     * @return mixed|void
+     * @author Flavio Soares Rodrigues
+     */
+    public static function verifUserInfo (string $pseudo, string $email)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                SELECT EXISTS( SELECT `pseudo` FROM `user` WHERE `pseudo` = ?) AS pseudo_exists,
+                EXISTS( SELECT `email` FROM `user` WHERE `email` = ?) AS email_exists;
+            ");
+            $query->execute([$pseudo, $email]);
             return $query->fetch(PDO::FETCH_ASSOC);
         }
         catch(PDOException $e)
