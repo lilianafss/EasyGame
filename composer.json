@@ -23,7 +23,7 @@
         "phpmailer/phpmailer": "^6.6",
         "ext-pdo": "*",
         "paypal/rest-api-sdk-php": "*",
-        "ligue/omnipay" : "^3.0" ,
+        "ligue/omnipay": "^3.0",
         "omnipay/paypal": "^3.0"
     }
 }

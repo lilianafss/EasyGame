@@ -70,4 +70,19 @@
         if($_SERVER['PHP_SELF'] == "/index.php/admin"){
             echo'<link rel="stylesheet" href="assets/css/admin.css">';
         }
+        if($_SERVER['PHP_SELF'] == "/index.php/success"){
+            echo'<link rel="stylesheet" href="assets/css/success.css">';
+        }
+        if($_SERVER['PHP_SELF'] == "/index.php/error"){
+            echo'<link rel="stylesheet" href="assets/css/error.css">';
+        }
+
+        // Page de profil
+        if ($_SERVER['PHP_SELF'] == "/index.php/profil")
+        {
+            
+           echo'<link rel="stylesheet" href="assets/css/profil.css">';
+           echo'<link rel="stylesheet" href="assets/css/wishlist.css">';
+        }
+       
     #endregion

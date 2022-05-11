@@ -1,3 +1,10 @@
+<?php
+
+use EasyGame\Model\WishlistModel;
+
+$tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
+
+?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 <head>
@@ -10,7 +17,8 @@
 <body class="d-flex flex-column h-100">
     <?php require_once "header.php"; ?>
 
-    <h1>Page en construction</h1>
+   
+	
 
     <?php require_once "footer.php"; ?>
 </body>

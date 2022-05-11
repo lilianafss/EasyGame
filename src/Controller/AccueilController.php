@@ -35,7 +35,8 @@
             $listeJeux=GameModel::getGames();
             $listeFiltre=GameModel::getGameByFilters($pegi,$genre,$plateforme);
             $stringJeux = "";
-
+          
+            
             if($listeFiltre=="" && $recherche=="")
             {
                 foreach($listeJeux as $elementListe)
