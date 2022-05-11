@@ -72,7 +72,7 @@ $_SESSION['nbPanel'] = 1 ?>
     <div id="test">
     
         <form method="POST" action="/panier">
-
+        <?php if ($_SESSION['quantite'] != 0) { ?>
             <div id="payement" class="container py-1">
                     <div class="col-lg-6 mx-auto">
                         <div class="card ">
@@ -147,6 +147,7 @@ $_SESSION['nbPanel'] = 1 ?>
 
                                                                 </form>
                                                             </div>
+                                                        
 
 
                                 </div>
@@ -154,6 +155,13 @@ $_SESSION['nbPanel'] = 1 ?>
                         </div>
                     </div>
                 </div>
+                <?php } else{?>
+                <div id="sansJeux">
+               
+                    <h1>Veuillez ajouter des jeux aux panier</h1>
+              
+                </div>
+                <?php }?>
                 <script>
                     $(function() {
                         $('[data-toggle="tooltip"]').tooltip()

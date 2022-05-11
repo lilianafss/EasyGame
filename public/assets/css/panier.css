@@ -150,6 +150,9 @@ main
 #moyen{
     width: 100%;
 }
+#sansJeux{
+text-align: center;
+}
 /*--------------------Cards--------------------*/
 /*#region Cards*/
 .card
