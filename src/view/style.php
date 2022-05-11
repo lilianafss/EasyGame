@@ -76,4 +76,12 @@
         if($_SERVER['PHP_SELF'] == "/index.php/error"){
             echo'<link rel="stylesheet" href="assets/css/error.css">';
         }
+
+        // Page de profil
+        if ($_SERVER['PHP_SELF'] == "/index.php/profil")
+        {
+            
+           echo'<link rel="stylesheet" href="assets/css/profil.css">';
+           
+        }
     #endregion
