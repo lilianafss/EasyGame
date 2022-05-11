@@ -70,7 +70,29 @@ class WishlistModel
 
     /*------------------------- Delete -------------------------*/
     #region Delete
-
+    /**
+     * Ajoute un jeux a sa wishlist
+     *
+     * @param int $idJeux
+     * @param int $idUser
+     * @return void
+     *
+     *  @author Ania Marostica
+     */
+    public static function deleteGameToWishlist($idJeux)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                DELETE FROM `ajouter_wishlist`WHERE `idJeux`= ?
+            ");
+            $query->execute([$idJeux]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     #endregion
 
     /*------------------------- Update -------------------------*/

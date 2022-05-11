@@ -50,7 +50,7 @@ class PanierModel
      * @param $idUser
      * @param $idJeux
      *
-     * Rodrigo De Castilho E Sousa
+     *  @author Ania Marostica
      */
     public static function addGameToPanier($idUser, $idJeux)
     {
@@ -76,7 +76,7 @@ class PanierModel
      * @param int $idJeux
      * @return void
      *
-     * @author Rodrigo De Castilho E Sousa
+     * @author Ania Marostica
      */
     public static function deleteGameToPanier($idJeux)
     {

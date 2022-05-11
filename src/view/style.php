@@ -82,8 +82,7 @@
         {
             
            echo'<link rel="stylesheet" href="assets/css/profil.css">';
-           
-        if($_SERVER['PHP_SELF'] == "/index.php/wishlist"){
-            echo'<link rel="stylesheet" href="assets/css/wishlist.css">';
+           echo'<link rel="stylesheet" href="assets/css/wishlist.css">';
         }
+       
     #endregion
