@@ -58,7 +58,15 @@ nav {
 .nav-link:focus {
     color: silver;
 }
-
+.badge{
+    margin: 0 0.3em;
+    font-size: 1em;
+}
+#panier{
+    text-align: left;
+    padding-left: 0.5em ;
+    padding-top: 0;
+}
 
 /*#endregion*/
 

@@ -61,7 +61,7 @@ class JeuxController
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['wishlist']) {
                 WishlistModel::addGameToWishlist($idUser, $idJeux);
-                header("location: http://easygame.ch/profil");
+               
             }
         }
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
