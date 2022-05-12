@@ -6,6 +6,7 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="/assets/css/body.css">
             <link rel="stylesheet" href="/assets/css/footer.css">
+            
         ';
     #endregion
 
@@ -80,9 +81,8 @@
         // Page de profil
         if ($_SERVER['PHP_SELF'] == "/index.php/profil")
         {
-            
+        echo'<link rel="stylesheet" href="assets/css/wishlist.css">';
            echo'<link rel="stylesheet" href="assets/css/profil.css">';
-           echo'<link rel="stylesheet" href="assets/css/wishlist.css">';
         }
        
     #endregion

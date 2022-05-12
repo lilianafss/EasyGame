@@ -6,18 +6,18 @@ use EasyGame\Model\PanierModel;
 use EasyGame\Model\PlatformModel;
 
 $tableauxPanier = PanierModel::getPanier($idUser);
-                $BOOL=false;
-                    foreach ($tableauxPanier as $panier) {
-                        if ($panier["idJeux"] == $idJeux) {
-                            $BOOL=TRUE;
-                                $dedans="Dans le panier";
-                            }
-                            
-                        } if($BOOL==false){
-                            $dedans="Ajouter dans le panier";
-                        }
-                        
-            
+$BOOL = false;
+foreach ($tableauxPanier as $panier) {
+    if ($panier["idJeux"] == $idJeux) {
+        $BOOL = TRUE;
+        $dedans = "Dans le panier";
+    }
+}
+if ($BOOL == false) {
+    $dedans = "Ajouter dans le panier";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -52,70 +52,70 @@ $tableauxPanier = PanierModel::getPanier($idUser);
             <?php
             if ($idUser != null) {
             ?>
-            <form action="#" method="POST">
-                <section>
-                    <div class="container my-5 py-5 text-dark">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-10 col-lg-8 col-xl-6">
-                        <div class="card">
-                            <div class="card-body p-4">
-                            <div class="d-flex flex-start w-100">
-                                <div class="w-100">
-                                <h5>Laissez votre avis</h5>
-                                <?php
-                                $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-                                
-                                ?>
-                                <div class="starrating risingstar d-flex flex-row-reverse">
-                                    <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
-                                    <input type="radio" id="star4" name="note" value="4" /><label for="star4" title="4 star"></label>
-                                    <input type="radio" id="star3" name="note" value="3" /><label for="star3" title="3 star"></label>
-                                    <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="2 star"></label>
-                                    <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
-                                </div>
-                               
+                <form action="#" method="POST">
+                    <section>
+                        <div class="container my-5 py-5 text-dark">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-10 col-lg-8 col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex flex-start w-100">
+                                                <div class="w-100">
+                                                    <h5>Laissez votre avis</h5>
+                                                    <?php
+                                                    $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
 
-                                <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
-                    
-                                <div class="d-flex justify-content-center mt-3">
-                                    <input type="submit" value="Ajouter commentaire" name="envoyer">
-                                </div>
+                                                    ?>
+                                                    <div class="starrating risingstar d-flex flex-row-reverse">
+                                                        <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
+                                                        <input type="radio" id="star4" name="note" value="4" /><label for="star4" title="4 star"></label>
+                                                        <input type="radio" id="star3" name="note" value="3" /><label for="star3" title="3 star"></label>
+                                                        <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="2 star"></label>
+                                                        <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
+                                                    </div>
+
+
+                                                    <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
+
+                                                    <div class="d-flex justify-content-center mt-3">
+                                                        <input type="submit" value="Ajouter commentaire" name="envoyer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            </form>
-            <?php 
+                    </section>
+                </form>
+            <?php
             }
-            if($tableauxCommentaire){   
+            if ($tableauxCommentaire) {
             ?>
-            <h3>Avis des joueurs</h3>
-            <p id="nbcommentaires"><?=$numeroCommentaires['nbCommentaires']?> commentaire(s)</p>
-           
-            <?php   
-                foreach ($tableauxCommentaire as $commentaire) {        
-                $user = UserModel::getInfoUser($commentaire['idUser']);
-                $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
-            ?>
-                <div class="card">
-                    <div class="row d-flex">
-                        <div class="d-flex">
-                            <h3 id="commentaire-pseudo" class="mt-2 mb-0"><?=$user['pseudo']?></h3>
-                            <p id="commentaire-date" class="text-muted pt-5 pt-sm-3"><?=$commentaire['date']?></p>
+                <h3>Avis des joueurs</h3>
+                <p id="nbcommentaires"><?= $numeroCommentaires['nbCommentaires'] ?> commentaire(s)</p>
+
+                <?php
+                foreach ($tableauxCommentaire as $commentaire) {
+                    $user = UserModel::getInfoUser($commentaire['idUser']);
+                    $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
+                ?>
+                    <div class="card">
+                        <div class="row d-flex">
+                            <div class="d-flex">
+                                <h3 id="commentaire-pseudo" class="mt-2 mb-0"><?= $user['pseudo'] ?></h3>
+                                <p id="commentaire-date" class="text-muted pt-5 pt-sm-3"><?= $commentaire['date'] ?></p>
+                            </div>
+                            <div>
+                                <p class="text-left"><span class="text-muted"><?= $userNote['note'] ?></span>
+                                    <span class="fa fa-star star-active ml-3"></span>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-left"><span class="text-muted"><?=$userNote['note']?></span>
-                            <span class="fa fa-star star-active ml-3"></span>
+                        <div class="row text-left">
+                            <p class="content"><?= $commentaire['commentaire'] ?></p>
                         </div>
                     </div>
-                    <div class="row text-left">
-                        <p class="content"><?=$commentaire['commentaire']?></p>
-                    </div>    
-                </div>
             <?php
                 }
             }
@@ -131,9 +131,9 @@ $tableauxPanier = PanierModel::getPanier($idUser);
                 echo "Moyenne des joueurs: " . $moyenne['average'] . "/5";
             }
             ?>
-            
+
             <form method="POST">
-                <input class="btn boutton" type="submit" name="panier" id="panier" value="<?php echo $dedans?>">
+                <input class="btn boutton" type="submit" name="panier" id="panier" value="<?php echo $dedans ?>">
                 <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="Ajouter a la wishlist">
 
                 <br>
