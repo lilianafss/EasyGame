@@ -26,31 +26,32 @@
         echo $messageErreur;
         ?>
        
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST"  enctype="multipart/form-data">
             <div class="d-flex flex-column">
                 <p>
                     <label>Nom du jeu :</label>
-                    <input type="text" name="nomJeu">
+                    <input type="text" id="nomJeu" name="nomJeu" >
                 </p>
                 <p>
                     <label>Description :</label>
-                    <textarea type="text" name="descrifJeu"></textarea>
+                    <textarea type="text" id="descrifJeu" name="descrifJeu"></textarea>
 
                 </p>
                 <p>
                     <label>Prix du jeu :</label>
-                    <input type="number" step="0.01" name="prixJeu">
+                    <input type="number" id="prix" step="0.01" name="prixJeu">
                 </p>
 
                 <p>
                     <label>Pegi du jeu :</label>
-                    <select name="pegiJeu">
-                        <option value="5">18</option>
-                        <option value="4">16</option>
-                        <option value="3">12</option>
-                        <option value="2">7</option>
-                        <option value="1">3</option>
-                    </select>
+                    <?php
+                    $tableau = '<select id="pegi" name="pegiJeu"><option></option>';
+                    foreach($pegis as $pegi){
+                        $tableau .= "<option value=".$pegi['idPegi'].">".$pegi['pegi']."</option>";
+                    }
+                    $tableau .= ' </select>';
+                    echo $tableau;
+                    ?>
                 </p>
                 <p>
                     <label>Combien de genres:</label>
@@ -90,7 +91,7 @@
                 </p>
 
                 <p>
-                    <input class="btn" type="submit" name="submit" value="Ajouter jeu">
+                    <input class="btn" onclick='return stickyForm("<?=$message?>")' type="submit" name="submit" value="Ajouter jeu">
                 </p>
 
             </div>
@@ -99,7 +100,9 @@
     </main>
     <?php require_once "footer.php"; ?>
 
-    <script src="assets/js/ajouterJeux.js"></script>
+    <script src="assets/js/ajouterJeux.js">
+        
+    </script>
 
 </body>
 

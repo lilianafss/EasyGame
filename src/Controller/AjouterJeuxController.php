@@ -6,6 +6,7 @@ use EasyGame\Model\BaseDonnee;
 use EasyGame\Model\GameModel;
 use EasyGame\Model\GenreModel;
 use EasyGame\Model\PlatformModel;
+use EasyGame\Model\PegiModel;
 
 require_once('../src/php/tools.php');
 
@@ -30,17 +31,20 @@ class AjouterJeuxController
             header("location: http://easygame.ch");
             exit();
         } else {
-
+            
             $genre = GenreModel::getGenre();
             $plateforme = PlatformModel::getPlatform();
-
+            $pegis = PegiModel::getPegi();
+            
             $message = filter_input(INPUT_GET, "valid");
 
-
             $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
+
+            echo "OKOKO1";
+            var_dump($submit);
             //on essaye d'ajouter le jeu si on touche le bouton Ajouter jeu
             if ($submit == "Ajouter jeu") {
-
+                echo "OKOKO2";
                 //recuperer les donnees et l'image
                 $nomJeux = filter_input(INPUT_POST, 'nomJeu', FILTER_SANITIZE_SPECIAL_CHARS);
                 $description = filter_input(INPUT_POST, 'descrifJeu', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -61,8 +65,6 @@ class AjouterJeuxController
                 //pas avoir la même valeur deux ou plusieurs fois
                 $tableauGenre = array_unique($tableauGenre);
 
-
-
                 //prendre les valeurs et les stocks dans une variable
                 for ($i = 1; $i <= 4; $i++) {
 
@@ -75,7 +77,6 @@ class AjouterJeuxController
                 }
                 //pas avoir la même valeur deux ou plusieurs fois
                 $tableauPlatform = array_unique($tableauPlatform);
-
 
                 //si tout est rempli on l'ajoute a la base de donnée
                 if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "" && $tableauGenre != [] && $tableauPlatform != []) {

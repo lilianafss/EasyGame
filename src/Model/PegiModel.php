@@ -22,7 +22,7 @@ class PegiModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `pegi` FROM `easygame`.`pegis`
+                SELECT `idPegi`,`pegi` FROM `easygame`.`pegis`
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);

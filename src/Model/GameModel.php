@@ -289,6 +289,50 @@ class GameModel
             $query->execute([$key]);
         }
     }
+
+
+     /**
+     * Ajoute les plateformes a un jeu
+     *
+     * @param array $plateformes
+     * @param int $idJeux
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function ajouterPlateformes($idJeux, $plateformes)
+    {
+        foreach($plateformes as $key)
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                INSERT INTO `ou_jouer`(`idJeux`, `idPlateforme`) 
+                VALUES (?, ?);
+            ");
+            $query->execute([$idJeux,$key]);
+        }
+    }
+
+     /**
+     * Ajoute les genres a un jeu
+     *
+     * @param array $genres
+     * @param int $idJeux
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function ajouterGenres($idJeux,$genres)
+    {
+        foreach($genres as $key)
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                INSERT INTO `filtre_jeux`(`idJeux`, `idGenre`) 
+                VALUES (?, ?);
+            ");
+            $query->execute([$idJeux, $key]);
+        }
+    }
+
     #endregion
 
     /*------------------------- Delete -------------------------*/
@@ -300,7 +344,7 @@ class GameModel
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function deleteGame( $idJeux)
+    public static function deleteGame($idJeux)
     {
         try
         {
@@ -357,6 +401,49 @@ class GameModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+    /**
+     * Efface les plateformes d'un jeu
+     * @param int $idJeux
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deletePlateformes($idJeux)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `ou_jouer` WHERE `idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+        }catch (Exception $e)
+        {
+                echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }   
+
+    /**
+     * Efface les plateformes d'un jeu
+     * @param int $idJeux
+     * @return void
+     *
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function deleteGenres($idJeux)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+            DELETE FROM `filtre_jeux` WHERE `idJeux` = ?;
+            ");
+            $query->execute([$idJeux]);
+        }catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }   
+
     #endregion
 
     /*------------------------- Update -------------------------*/
@@ -374,21 +461,23 @@ class GameModel
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function updateGame( $idJeux,  $nom,  $description,  $prix,  $idPegi,  $image)
+    public static function updateGame( $idJeux,  $nom,  $description,  $prix,  $idPegi,)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
                 UPDATE `jeux` 
-                SET `nom`= ?,`description`= ?,`prix`= ?,`idPegi`= ?,`image`= ? 
+                SET `nom`= ?,`description`= ?,`prix`= ?,`idPegi`= ? 
                 WHERE `idJeux` = ?
             ");
-            $query->execute([$nom, $description, $prix, $idPegi, $image, $idJeux]);
+            $query->execute([$nom, $description, $prix, $idPegi, $idJeux]);
         }
         catch (Exception $e)
         {
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+
     #endregion
 }
