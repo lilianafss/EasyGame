@@ -63,7 +63,7 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
                 <input type="submit" value="Valider">
             </form>
         </div>
-        
+
 
         <div id="historiqueAchat" class="tabcontent">
             <h3>Historique d'achat</h3>
@@ -76,7 +76,7 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
         </div>
 
         <div id="wishlist" class="tabcontent">
-            <h3>Wishlist</h3>
+            <h3>Whislist</h3>
             <div class="cart-wrap">
                 <div class="container">
                     <div class="row">
@@ -111,7 +111,7 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
                                                     <td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
 
                                                     <td width="15%"><input type="submit" name="AjoutPanier" value="Ajouter aux panier"></td>
-                                                    <td width="10%" class="text-center"><a href="#" class="trash-icon"><i class="far fa-trash-alt"></i></a></td>
+                                                    <td width="10%" class="text-center"><input type="submit" name="supprimer" value="supprimer"></td>
                                                 </tr>
                                                 <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
                                             </form>
@@ -123,11 +123,16 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
                     </div>
                 </div>
             </div>
+
         </div>
+
+
     </div>
+
     <script src="assets/js/profil.js"> </script>
 
-    <?php //require_once "footer.php"; ?>
+    <?php //require_once "footer.php"; 
+    ?>
 </body>
 
 </html>
