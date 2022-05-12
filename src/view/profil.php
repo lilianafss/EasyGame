@@ -97,7 +97,7 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
 					        		<td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
                                     			        		
 					        		<td width="15%"><input type="submit" name="AjoutPanier" value="Ajouter aux panier"></td>
-					        		<td width="10%" class="text-center"><a href="#" class="trash-icon"><i class="far fa-trash-alt"></i></a></td>
+					        		<td width="10%" class="text-center"><input type="submit" name="supprimer" value="supprimer"></td>
 					        	</tr>  
                                 <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
 					        	</form>	
