@@ -9,7 +9,10 @@ footer
     justify-content: space-between;
     justify-items: center;
 
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+    background-color: #3c3c3c;
+    /*background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);*/
+    /*background: linear-gradient(90deg, #00c8c8 0%, #00b3b3 15%, #009f9f 30%, #008b8b 50%, #007676 65%, #006262 85%, #004d4d 100%);*/
+    /*background: linear-gradient(90deg, #8ddfaf, #03e5b7);*/
 }
 /* div dans le footer qui sert de container*/
 #divFooter

@@ -3,7 +3,7 @@
 header
 {
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+    background-color: transparent;
 }
 
 ul
@@ -52,7 +52,7 @@ a
 
 .icon
 {
-    color: #fff;
+    color: #ffffff;
 }
 
 .icon-texte
@@ -86,15 +86,17 @@ a
     height: 35px;
     width: 105px;
 
+    vertical-align: middle;
+    line-height: 20px;
+
     margin: 3px 5px 7px 10px;
     padding: 5px;
 
-    color: #FFF;
-    font-size: 17px;
-    font-weight: 400;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
 
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 30%, #211E36 60%, #1B182C 90%, #110E2C 100%);
-    border: 1px solid white;
+    background: linear-gradient(#fe5f75, #fc9842);
 }
 /*#endregion*/
 /*#endregion*/
@@ -122,12 +124,14 @@ a
     border-radius: 20px;
     border: 0;
 
-    background-color: #332E52;
+    background-color: transparent;
+
 }
+
 
 .card:hover
 {
-    background-color: #3C3661;
+    background: linear-gradient(#fe5f75 70%, #fc9842 100%);
     cursor: pointer;
 }
 
@@ -294,12 +298,7 @@ a
 /* Couleur de la scroll-bar */
 ::-webkit-scrollbar-thumb
 {
-    background: linear-gradient(0deg, #3C3661 0%, #332E52 60%, #211E36 100%);
+    background: linear-gradient(#fe5f75, #fc9842);
 }
 
-/* Couleur de la scroll-bar (hover) */
-::-webkit-scrollbar-thumb:hover
-{
-    background: #3C3661;
-}
 /*#endregion*/

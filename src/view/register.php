@@ -17,13 +17,10 @@
 
         <div id="divMain">
 
-            <form onsubmit='return VerifForm()' method="POST">
+            <form method="POST">
 
                 <div class="divForm">
-                    <div id="error_div">
-                        <?= $error_message; ?>
-                    </div>
-                    <?=$sucess_message?>
+                    <p id="error"><?=$errorMessage?></p>
                 </div>
 
                 <div class="divForm">
@@ -67,6 +64,6 @@
         </div>
     </main>
     <?php require_once "footer.php"?>
-    <script  src="assets/js/register.js"></script>
+    <script src="assets/js/register.js"></script>
 </body>
 </html>
