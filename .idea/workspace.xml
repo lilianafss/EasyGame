@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="747c5722-3723-4c68-8b26-1de0f02e4280" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/body.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/body.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/footer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652690596270</updated>
-      <workItem from="1652690600570" duration="14083000" />
+      <workItem from="1652690600570" duration="15400000" />
     </task>
     <servers />
   </component>
