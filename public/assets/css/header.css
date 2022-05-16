@@ -7,7 +7,7 @@ header {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
+    background: linear-gradient(90deg, #271037 0%, #3D135A 20%, #621D93 50%, #8021C1 80%, #920FED 100%);
 }
 
 #logoContainer {

@@ -30,7 +30,7 @@ class ModifierController
         SessionStart();
 
         //declaration de la message d'erreur
-        $message = filter_input(INPUT_GET, "message");
+        $messageErreur = "";
 
         $tableauPlatform = [];
         $tableauGenre = [];
@@ -89,26 +89,29 @@ class ModifierController
                 //pas avoir la même valeur deux ou plusieurs fois
                 $tableauPlatform = array_unique($tableauPlatform);
 
-                var_dump($tableauGenre);
-                var_dump($tableauPlatform);
-                if($nomJeu != "" && $description != "" && $prixJeu != "" && $prixJeu > 0 && $pegi != ""){
-                    if($tableauGenre != []){
+                if($nomJeu != "" && $description != "" && $prixJeu != "" && $pegi != ""){
+                    if($prixJeu > 0){
+                        if($tableauGenre != []){
                         GameModel::deleteGenres($idJeu);
                         GameModel::ajouterGenres($idJeu, $tableauGenre);
-                    }
+                        }
 
-                    if($tableauPlatform != []){
-                        GameModel::deletePlateformes($idJeu);
-                        GameModel::ajouterPlateformes($idJeu, $tableauPlatform);
+                        if($tableauPlatform != []){
+                            GameModel::deletePlateformes($idJeu);
+                            GameModel::ajouterPlateformes($idJeu, $tableauPlatform);
+                        }
+
+                        GameModel::updateGame($idJeu, $nomJeu, $description, $prixJeu, $pegi);
+        
+                        $messageErreur = "<p class='messageReussi'>Le jeu a bien été modifié</p>";
+                    }
+                    else{
+                        $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";
                     }
                     
-                    GameModel::updateGame($idJeu, $nomJeu, $description, $prixJeu, $pegi);
-                    $message .= "<p>Le jeu a bien été modifier</p>";
-                    header("Location:http://easygame.ch/modifier?idJeux=".$idJeu."&message=ok");
                 }
                 else{
-                    $message = "Les champs doivent être remplis";
-                    header("Location:http://easygame.ch/modifier?idJeux=".$idJeu."&message=non");
+                    $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis sauf les genres et les plateformes</p>";
                 }
             }
         }

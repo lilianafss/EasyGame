@@ -1,41 +1,21 @@
 /*--------------------Main--------------------*/
 /*#region Main*/
-#sucess_message
+
+#error
 {
+    width: 100%;
+
     display: flex;
     justify-content: center;
     vertical-align: middle;
     line-height: 80px;
 
-    height: 80px;
-    width: 100%;
-
     margin: 10px 0 20px 0;
-    border: 2px solid darkgreen;
     border-radius: 5px;
 
     font-size: 1.3rem;
     font-weight: bold;
-    background: rgba(30, 190, 50, 0.5);
-    color:darkgreen;
-}
-
-#error_div
-{
-    display: none;
-    flex-direction: column-reverse;
-    align-content: center;
     text-align: center;
-    width: 100%;
-
-    margin: 10px 0 20px 0;
-    border: 2px solid darkred;
-    border-radius: 5px;
-
-    font-size: 1.3rem;
-    font-weight: bold;
-    color:darkred;
-    background: rgba(200, 30, 50, 0.5);
 }
 
 .error_msg
@@ -47,7 +27,8 @@ h1
 {
     display: flex;
     justify-content: center;
-    color: #332E52;
+    /*color: #332E52;*/
+    color: white;
     font-weight: bold;
 }
 
@@ -110,7 +91,8 @@ form
     width: 25%;
     color: #fff;
     font-size: 1.1rem;
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    /*background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);*/
+    background-color: #3c3c3c;
     font-weight: bold;
 }
 
@@ -118,6 +100,7 @@ form
 {
     color: #DDDDDD;
 }
+
 /*#endregion*/
 
 
@@ -150,16 +133,6 @@ form
 
 @media only screen and (max-width: 800px)
 {
-    #sucess_message
-    {
-        line-height: 40px;
-
-        height: 80px;
-        width: 100%;
-
-        font-size: 1.2rem;
-    }
-
     form
     {
         width: 90%;

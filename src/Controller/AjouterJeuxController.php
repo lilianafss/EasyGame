@@ -21,6 +21,12 @@ class AjouterJeuxController
     {
         // Crée la session si elle n'existe pas
         SessionStart();
+        $nomJeux ="";
+        $description = "";
+        $prix = "";
+        $idPegi = "";
+        $nbGenre = "";
+        $nbPlateforme = "";
 
         $messageErreur = "";
         $tableauGenre = [];
@@ -39,22 +45,21 @@ class AjouterJeuxController
             $message = filter_input(INPUT_GET, "valid");
 
             $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
-
-            echo "OKOKO1";
-            var_dump($submit);
             //on essaye d'ajouter le jeu si on touche le bouton Ajouter jeu
             if ($submit == "Ajouter jeu") {
-                echo "OKOKO2";
                 //recuperer les donnees et l'image
                 $nomJeux = filter_input(INPUT_POST, 'nomJeu', FILTER_SANITIZE_SPECIAL_CHARS);
                 $description = filter_input(INPUT_POST, 'descrifJeu', FILTER_SANITIZE_SPECIAL_CHARS);
                 $prix = floatval(filter_input(INPUT_POST, 'prixJeu', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
                 $idPegi = filter_input(INPUT_POST, 'pegiJeu', FILTER_SANITIZE_NUMBER_INT);
-                $image = $_FILES['imageJeu']['tmp_name'];
 
+                $nbGenre = filter_input(INPUT_POST, 'nbGenre', FILTER_SANITIZE_NUMBER_INT);
+                $nbPlateforme = filter_input(INPUT_POST, 'nbPlateforme', FILTER_SANITIZE_NUMBER_INT);
+
+                $image = $_FILES['imageJeu']['tmp_name'];
+                
                 //prendre les valeurs et les stocks dans une variable
                 for ($i = 1; $i <= 10; $i++) {
-
                     $test = filter_input(INPUT_POST, 'nbGenre' . $i, FILTER_SANITIZE_NUMBER_INT);
                     //condition pour savoir si test a des valeurs
                     if ($test) {
@@ -67,7 +72,6 @@ class AjouterJeuxController
 
                 //prendre les valeurs et les stocks dans une variable
                 for ($i = 1; $i <= 4; $i++) {
-
                     $test = filter_input(INPUT_POST, 'nbPlatform' . $i, FILTER_SANITIZE_NUMBER_INT);
                     //condition pour savoir si test a des valeurs
                     if ($test) {
@@ -81,11 +85,18 @@ class AjouterJeuxController
                 //si tout est rempli on l'ajoute a la base de donnée
                 if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "" && $tableauGenre != [] && $tableauPlatform != []) {
                     $img = file_get_contents($image);
-                    GameModel::newGame($nomJeux, $description, $prix, $idPegi, $img, $tableauGenre, $tableauPlatform);
-                    header("Location:http://easygame.ch/ajouterJeux?valid=ok");
-                } else {
-                    header("Location:http://easygame.ch/ajouterJeux?valid=not");
+
+                    if($prix > 0){
+                        GameModel::newGame($nomJeux, $description, $prix, $idPegi, $img, $tableauGenre, $tableauPlatform);
+                        $messageErreur = "<p class='messageReussi'>Le jeu a bien été créer</p>";
+                    }
+                    else{
+                        $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";
+                    }
                 }
+                else{
+                    $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis</p>";
+                } 
             }
         }
         require '../src/view/ajouterJeux.php';
