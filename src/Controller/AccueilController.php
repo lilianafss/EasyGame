@@ -22,7 +22,7 @@ class AccueilController
         // Crée la session si elle n'existe pas
         SessionStart();
 
-        if ($_SESSION['connected'] && isset($_SESSION['idJeux']) != "") {
+        if ($_SESSION['connected'] && $_SESSION['idJeux'] != "") {
             PanierModel::addGameToPanier($_SESSION['idUser'], $_SESSION['idJeux']);
             $_SESSION['idJeux'] = "";
             header("Location: http://easygame.ch/panier");
