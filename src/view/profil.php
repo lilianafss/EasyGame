@@ -37,46 +37,51 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
         <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'info')" id="defaultOpen"><i class="fa-solid fa-user"></i> Informations personnelles</button>
-            <button class="tablinks" onclick="openCity(event, 'motPasse')"><i class="fa-solid fa-lock"></i> mot de passe</button>
             <button class="tablinks" onclick="openCity(event, 'historiqueAchat')"> <i class="fa-solid fa-basket-shopping"></i> Historique d'achat</button>
             <button class="tablinks" onclick="openCity(event, 'wishlist')"><i class="fa-solid fa-heart"></i> Whislist</button>
         </div>
+       
 
-        <div id="info" class="tabcontent">
-            <h3>Informations personnelles</h3>
+        <form action="" method="post">
+            <div id="info" class="tabcontent">
+            <button id="editProfil" onclick="editProfil()"><i class="fa-solid fa-user-pen"></i></button>
+            
+                <h3>Informations personnelles</h3>
 
-            <h5>Nom </h5>
-            <p><?= $infoUser['nom'] ?></p>
+                <h5>Nom </h5>
+                <p id="nom"><?= $infoUser['nom'] ?></p>
+                <input type="text" name="editNom" id="editNom" value="<?= $infoUser['nom'] ?>" style="display:none">
 
-            <h5>Prenom </h5>
-            <p><?= $infoUser['prenom'] ?></p>
+                <h5>Prenom </h5>
+                <p id="prenom"><?= $infoUser['prenom'] ?></p>
+                <input type="text" name="editPrenom" id="editPrenom" value="<?= $infoUser['prenom'] ?>" style="display:none">
 
-            <h5>Pseudo </h5>
-            <p><?= $infoUser['pseudo'] ?></p>
+                <h5>Pseudo </h5>
+                <p id="pseudo"><?= $infoUser['pseudo'] ?></p>
+                <input type="text" name="editPseudo" id="editPseudo" value="<?= $infoUser['pseudo'] ?>" style="display:none">
 
-            <h5>Email : </h5>
-            <p><?= $infoUser['email'] ?></p>
+                <h5>Email : </h5>
+                <p id="email"><?= $infoUser['email'] ?></p>
+                <input type="text" name="editEmail" id="editEmail" value="<?= $infoUser['email'] ?>" style="display:none">
 
-  
 
-        </div>
+                <!-- <h3>Changer votre mot de passe</h3>
+                <form action="">
+                    <label for="">Votre mot de passe actuel :</label>
+                    <input type="text" value=""><br>
 
-        
-        <div id="motPasse" class="tabcontent">
-            <h3>Changer votre mot de passe</h3>
-            <form action="">
-                <label for="">Votre mot de passe actuel :</label>
-                <input type="text" value=""><br>
+                    <label for="">Nouveau mot de passe :</label>
+                    <input type="text" value=""><br>
 
-                <label for="">Nouveau mot de passe :</label>
-                <input type="text" value=""><br>
+                    <label for="">Confirmation du nouveau mot de passe : </label>
+                    <input type="text" value=""><br>
 
-                <label for="">Confirmation du nouveau mot de passe : </label>
-                <input type="text" value=""><br>
+                    <input type="submit" value="Valider">
+                </form> -->
 
-                <input type="submit" value="Valider">
-            </form>
-        </div>
+                <input type="submit" value="Valider" name="valider" onclick="valider()" >
+            </div>
+        </form>
 
 
         <div id="historiqueAchat" class="tabcontent">
@@ -153,7 +158,6 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
     </div>
 
     <script src="assets/js/profil.js"> </script>
-
     <?php require_once "footer.php";
     ?>
 </body>
