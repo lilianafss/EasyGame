@@ -23,7 +23,7 @@ class HistoriqueModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix` 
+                SELECT `jeux`.`idJeux`,`jeux`.`nom`, `jeux`.`description`, `jeux`.`prix` ,`jeux`.`image`
                 FROM `jeux`, `voir_historique`, `user`, `historique` 
                 WHERE `jeux`.`idJeux` = `voir_historique`.`idJeux`
                 AND `user`.`idUser` = ?

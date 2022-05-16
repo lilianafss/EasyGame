@@ -15,15 +15,20 @@ class successController
 
         SessionStart();
         $idJeux = filter_input(INPUT_POST, 'idJeux');
+       
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            if ($_POST['test']) {
-        var_dump($idJeux);
+            if ($_POST['retourPageAccueil']) {
+              
         HistoriqueModel::addGameToHistorique($_SESSION['idUser'], $idJeux);
+        PanierModel::deletePanier($_SESSION['idUser']);
+        $_SESSION['total'] = 0;
+        $_SESSION['totalPanier'] = 0;
+        $_SESSION['quantite']=0;
+        header("location: http://easygame.ch/");
+
             }
         }
-        // PanierModel::deletePanier($_SESSION['idUser']);
-        // $_SESSION['total'] = 0;
-        // $_SESSION['totalPanier'] = 0;
+   
 
        
         require '../src/view/success.php';

@@ -45,13 +45,13 @@ class WishlistModel
     /**
      * Ajoute un jeux a sa wishlist
      *
-     * @param int $idJeux
      * @param int $idUser
+     * @param int $idJeux
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addGameToWishlist( $idUser,  $idJeux)
+    public static function addGameToWishlist($idUser, $idJeux)
     {
         try
         {
@@ -74,7 +74,6 @@ class WishlistModel
      * Ajoute un jeux a sa wishlist
      *
      * @param int $idJeux
-     * @param int $idUser
      * @return void
      *
      *  @author Ania Marostica
@@ -84,7 +83,7 @@ class WishlistModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                DELETE FROM `ajouter_wishlist`WHERE `idJeux`= ?
+                DELETE FROM `ajouter_wishlist` WHERE `idJeux`= ?
             ");
             $query->execute([$idJeux]);
         }

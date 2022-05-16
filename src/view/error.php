@@ -8,7 +8,7 @@
     <?php require_once "style.php" ?>
 </head>
 <body>
-<div class="container">
+<div id="div-container" class="container">
    <div class="row">
       <div class="col-md-6 mx-auto mt-5">
          <div class="payment">
