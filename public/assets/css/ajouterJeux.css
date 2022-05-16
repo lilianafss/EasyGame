@@ -1,13 +1,3 @@
-#messageErreur{
-    margin: 10px auto 20px auto; 
-    font-size: 25px;
-    border-radius: 5px;
-    width: 50%;
-    font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 main {
     border: 2px double black;
     border-radius: 5px;
@@ -19,8 +9,6 @@ main {
 }
 
 form > div {
-    /* margin-bottom: 20px; */
-    /* margin-left: 30%; */
     align-items: center;
 }
 

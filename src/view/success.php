@@ -1,3 +1,10 @@
+<?php
+
+use EasyGame\Model\PanierModel;
+
+$tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +16,13 @@
     <?php require_once "style.php" ?>
 </head>
 <body>
+<form method="POST">
+<?php foreach ($tableauxPanier as $panier) { ?>
+   <input type="text" name="idJeux" value="<?= $panier['idJeux'] ?>">
+   <input type="submit" name="test" value="id">
+
+   <?php } ?>
+</form>
 <div id="div-container" class="container">
    <div class="row">
       <div class="col-md-6 mx-auto mt-5">

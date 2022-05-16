@@ -270,6 +270,24 @@ class UserModel
         }
     }
 
+    public static function updatePseudo($idUser, $userName)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                UPDATE `user`
+                SET `pseudo`= ?
+                WHERE `idUser` = ?
+            ");
+            $query->execute([$userName, $idUser]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
+
+
     // (à faire) function updateUserPassword
     #endregion
 }

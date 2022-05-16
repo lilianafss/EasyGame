@@ -13,76 +13,81 @@
     <?php require_once "header.php"; ?>
     <main>
         <h1>Ajouter jeux</h1>
-        <?php
-        if ($message == "ok") {
-            //affichage du message d'erreur
-            $messageErreur = "<p style='color: darkgreen;  border: 2px solid darkgreen; background:rgba(30, 190, 50, 0.5);' id='messageErreur'>Le jeu a bien été créé</p>";
-        } elseif ($message == "not") {
-            //affichage du message d'erreur
-            $messageErreur = "<p id='messageErreur' style='color: darkred; border: 2px solid darkred;  background:rgba(200, 30, 50, 0.5);'>Tous les champs doivent être remplis</p>";
-        } else {
-            $messageErreur = "";
-        } 
-        echo $messageErreur;
-        ?>
-       
+
+        <?=$messageErreur?>
+
         <form method="POST" enctype="multipart/form-data">
             <div class="d-flex flex-column">
                 <p>
                     <label>Nom du jeu :</label>
-                    <input type="text" name="nomJeu">
+                    <input type="text" id="nomJeu" value="<?=$nomJeux?>" name="nomJeu" >
                 </p>
                 <p>
                     <label>Description :</label>
-                    <textarea type="text" name="descrifJeu"></textarea>
+                    <textarea type="text" id="descrifJeu" name="descrifJeu"><?=$description?></textarea>
 
                 </p>
                 <p>
                     <label>Prix du jeu :</label>
-                    <input type="number" step="0.01" name="prixJeu">
+                    <input type="number" id="prix" value="<?=$prix?>" step="0.01" name="prixJeu">
                 </p>
 
                 <p>
                     <label>Pegi du jeu :</label>
-                    <select name="pegiJeu">
-                        <option value="5">18</option>
-                        <option value="4">16</option>
-                        <option value="3">12</option>
-                        <option value="2">7</option>
-                        <option value="1">3</option>
-                    </select>
-                </p>
-                <p>
-                    <label>Combien de genres:</label>
-                    <select onchange='cliquerGenres(<?php echo json_encode($genre) ?>)' id='nbGenre'>
-                        <option></option>
-                        <option value="10">10</option>
-                        <option value="9">9</option>
-                        <option value="8">8</option>
-                        <option value="7">7</option>
-                        <option value="6">6</option>
-                        <option value="5">5</option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                    </select>
-                </p>
-                <p>
-                    <label>Combien de plateformes:</label>
-                    <select onclick='cliquerPlateformes(<?php echo json_encode($plateforme) ?>)' id="nbPlatform">
-                        <option></option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                    </select>
+                    <?php
+                    $tableau = '<select id="pegi" name="pegiJeu"><option></option>';
+                    foreach($pegis as $pegi){
+                        if($idPegi == $pegi['idPegi']){
+                            $tableau .= "<option  value=".$pegi['idPegi']." selected>".$pegi['pegi']."</option>";
+                        }
+                        else{
+                            $tableau .= "<option value=".$pegi['idPegi'].">".$pegi['pegi']."</option>";
+                        }
+                    }
+                    $tableau .= ' </select>';
+                    echo $tableau;
+                    ?>
                 </p>
 
-                <p id="selectedGenres">
+                <p>
+                    <label>Combien de genres:</label>
+                    <?php
+                    $tableau = "<select id='nbGenre' onclick='cliquerGenres(".json_encode($genre).")' name='nbGenre'><option></option>";
+                    for($i = 1; $i <= 10; $i++){
+                        if($i == $nbGenre){
+                            $tableau .= "<option  value=".$i." selected>".$i."</option>";
+                            //echo "<script src='assets/js/ajouterJeux.js'> 'cliquerGenres(".json_encode($genre).")';</script>";
+                        }
+                        else{
+                            $tableau .= "<option value=".$i.">".$i."</option>";
+                        }
+                    }
+                    $tableau .= ' </select>';
+                    echo $tableau;
+                    ?>
+                </p>  
+
+                <p id="selectedGenres"></p>
+                
+                <p>
+                    <label>Combien de plateformes:</label>
+                    <?php
+                    $tableau = "<select id='nbPlatform' onclick='cliquerPlateformes(".json_encode($plateforme).")' name='nbPlateforme'><option></option>";
+                    for($i = 1; $i <= 4; $i++){
+                        if($i == $nbPlateforme){
+                            $tableau .= "<option  value=".$i." selected>".$i."</option>";
+                            //echo "<script> 'cliquerPlateformes(".json_encode($plateforme).")';</script>";
+                        }
+                        else{
+                            $tableau .= "<option value=".$i.">".$i."</option>";
+                        }
+                    }
+                    $tableau .= ' </select>';
+                    echo $tableau;
+                    ?>
                 </p>
-                <p id="selectedPlateformes">
-                </p>
+
+                <p id="selectedPlateformes"></p>
 
                 <p>
                     <label for="formFile" class="form-label">Choisissez une image</label>
@@ -90,9 +95,8 @@
                 </p>
 
                 <p>
-                    <input class="btn" type="submit" name="submit" value="Ajouter jeu">
+                    <input class="btn"  type="submit" name="submit" value="Ajouter jeu">
                 </p>
-
             </div>
         </form>
 

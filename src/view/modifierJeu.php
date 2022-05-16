@@ -11,120 +11,137 @@
 
 <body class="d-flex flex-column h-100">
     <?php require_once "header.php"; ?>
-    <main class="h-100">
-        <h1>Modifier</h1> 
-        <?php
-            $montrerGenPlat = "
-            <table>
-            <tr>
-            <th>Genres</th>
-            </tr>";
-
-            foreach ($genres as $genre) {
-
-                $montrerGenPlat .= "<tr>
-            <td>" . $genre['genre'] . "</td>
-            </tr>";
-
-                $montrerGenPlat .= "";
-            }
-
-            $montrerGenPlat .= "
-            <tr>
-            <th>Plateformes</th>
-            </tr>";
-
-            foreach ($platforms as $platform) {
-
-                $montrerGenPlat .= "<tr>
-            <td>" . $platform['plateforme'] . "</td>
-            </tr>";
-            }
-
-            $montrerGenPlat .= "</table>";
-
-            echo $montrerGenPlat;
-            ?>
-        <div class="d-flex flex-column">
+    <main>
+        <h1>Modifier</h1>
+        <div>
+            <?= $messageErreur ?>
+        </div>
+        <div>
             <form method="POST">
                 <p>
                     <label>
                         Nom du jeu:
                     </label>
-                    <input type="text" style="width:30%;" name="nomJeu" value="<?= $jeu['nom'] ?>">
+                    <input type="text" style="width:20%;" name="nomJeu" value="<?= $jeu['nom'] ?>">
 
                 </p>
                 <p>
                     <label>
                         Description du jeu:
                     </label>
-                    <textarea name="desriptionJeu" rows="5" cols="80"> <?= $jeu['description'] ?></textarea>
+                    <textarea name="desriptionJeu" rows="6" cols="50"><?= $jeu['description'] ?></textarea>
                 </p>
 
                 <p>
                     <label>
                         Prix du jeu:
                     </label>
-                    <input type="number" step="0.01" name="prixJeu" value="<?= $jeu['prix'] ?>">
+                    <input type="number" style="width:20%;" step="0.01" name="prixJeu" value="<?= $jeu['prix'] ?>">
                 </p>
                 <p>
-                    <label>Pegi actuel du jeu: <?= $jeu['pegi'] ?></label>
-                </p>
-                <p>
-                    <label>Changer le pegi du jeu :</label>
-                    <select name="pegiJeu">
-                        <option value=""></option>
-                        <option value="5">18</option>
-                        <option value="4">16</option>
-                        <option value="3">12</option>
-                        <option value="2">7</option>
-                        <option value="1">3</option>
-                    </select>
-                </p>
-                <p>
-                    <label>Combien de genres:</label>
-                    <select onchange='cliquerGenres(<?php echo json_encode($genreChange) ?>)' id='nbGenre'>
-                        <option></option>
-                        <option value="10">10</option>
-                        <option value="9">9</option>
-                        <option value="8">8</option>
-                        <option value="7">7</option>
-                        <option value="6">6</option>
-                        <option value="5">5</option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                    </select>
-                </p>
-                <p>
-                    <label>Combien de plateformes:</label>
-                    <select onchange='cliquerPlateformes(<?php echo json_encode($plateformeChange) ?>)' id="nbPlatform">
-                        <option></option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                    </select>
-                </p>
 
-                <p id="selectedGenres">
-
-                </p>
-                <p id="selectedPlateformes">
+                    <label>Pegi du jeu :</label>
+                    <?php
+                    $tableau = '<select id="pegi" name="pegiJeu">';
+                    foreach ($pegis as $pegi) {
+                        if ($jeu['pegi'] == $pegi['pegi']) {
+                            $tableau .= "<option  value=" . $pegi['idPegi'] . " selected>" . $pegi['pegi'] . "</option>";
+                        } else {
+                            $tableau .= "<option value=" . $pegi['idPegi'] . ">" . $pegi['pegi'] . "</option>";
+                        }
+                    }
+                    $tableau .= ' </select>';
+                    echo $tableau;
+                    ?>
 
                 </p>
 
-                <p>
-                    <button class="btn" type="submit" name="btnNomDePrix">Changer</button>
-                </p>
+                <div class="d-flex flex-row justify-content-center">
+                    <fieldset>
+                        <legend>Changer les Genres du jeu</legend>
+                        <?php
+                        $montrerGen = "
+                        <table>
+                        <tr>
+                        <th>Genres</th>
+                        </tr>";
 
+                        for ($i = 0; $i < count($genres); $i++) {
+                            $montrerGen .= "<tr>
+                            <td>" . $genres[$i]['genre'] . "</td>
+                            ";
+                            $montrerGen .= "</tr>";
+                        }
+                        $montrerGen .= "</table>";
+                        echo $montrerGen;
+                        ?>
+
+                        <p>
+                            <label>Combien de genres:</label>
+                            <select onclick='cliquerGenres(<?php echo json_encode($genreChange) ?>)' id='nbGenre'>
+                                <option></option>
+                                <option value="10">10</option>
+                                <option value="9">9</option>
+                                <option value="8">8</option>
+                                <option value="7">7</option>
+                                <option value="6">6</option>
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </p>
+
+                        <p id="selectedGenres"></p>
+
+                    </fieldset>
+                    <fieldset>
+                    <legend>Changer les Plateformes du jeu</legend>
+                        <?php
+                        
+                          $montrerPlat = "
+                          <table>
+                          <tr>
+                          <th>Plateformes</th>
+                          </tr>";
+  
+  
+                          for ($i = 0; $i < count($plateformes); $i++) {
+                              $montrerPlat .= "<tr>
+                              <td>" . $plateformes[$i]['plateforme'] . "</td>
+                              ";
+                              $montrerPlat .= "</tr>";
+                          }
+                          $montrerPlat .= "</table>";
+                          echo $montrerPlat
+                        ?>
+                        <p>
+                            <label>Combien de plateformes:</label>
+                            <select onclick='cliquerPlateformes(<?php echo json_encode($plateformeChange) ?>)' id="nbPlatform">
+                                <option></option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </p>
+
+                        <p id="selectedPlateformes"></p>
+
+                    </fieldset>
+                </div>
+                <div>
+                    <p>
+                        <button class="btn" type="submit" name="submit" id="changer" value="changer">Changer</button>
+                    </p>
+                </div>
             </form>
         </div>
     </main>
     <?php require_once "footer.php"; ?>
 
-    <script src="assets/js/ajouterJeux.js"></script>
+    <script src="assets/js/modifierJeu.js"></script>
 </body>
 
 </html>

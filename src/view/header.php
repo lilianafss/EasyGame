@@ -9,6 +9,7 @@
 
         <ul class="nav">
             <?php
+        
                 echo '
                     <li class="nav-item nav-li">
                         <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-house icon"></i></a>
@@ -36,18 +37,20 @@
                             <a class="nav-link" href="/profil"><i class="fa-solid fa-2x fa-user icon"></i></a>
                             <p class="texte-icon">Profil</p>
                         </li>
+                    
                         
                         <li class="nav-item nav-li">
-                            <a class="nav-link" href="/panier"><i class="fa-solid fa-2x fa-basket-shopping icon"></i></a>
-                            <p class="texte-icon">Panier</p>
-                        </li>
+                                 
+                        <a class="nav-link" href="/panier">
+                            <i class="fa-solid fa-2x fa-basket-shopping icon"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger"></span>
+                        </a>
+                        <p id="panier" class="texte-icon">Panier</p>
+                       
+                    </li>
+                      
                         
-                        <li class="nav-item nav-li">
-                            <a class="nav-link" href="/wishlist"><i class="fa-solid fa-2x fa-heart icon"></i></a>
-                            <p class="texte-icon">Wishlist</p>
-                        </li>
-                        
-                        <li class="nav-item nav-li">
+                       <li class="nav-item nav-li">
                             <a class="nav-link" href="/deconnexion"><i class="fa-solid fa-2x fa-arrow-right-from-bracket icon"></i></a>
                             <p class="texte-icon">Déconnexion</p>
                         </li>

@@ -44,10 +44,12 @@ class PanierController
         $jeux = GameModel::getGames($userUtilisateur);
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $quantite = 0;
+        
+        $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
 
 
 
-
+       
 
         //parcourir le panier
         foreach ($tableauxPanier as $panier) {
@@ -57,12 +59,14 @@ class PanierController
             $items = $panier['nom'];
             $_SESSION['item'] = $items;
             $quantite += 1;
+         
         }
         $_SESSION['quantite'] = $quantite;
         //si le bouton est cliquer on supprime un jeux
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
-                $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
+                $_SESSION['test']=$idJeux;
+                var_dump($_SESSION['test']);
                 foreach ($tableauxPanier as $panier) {
                     if ($panier["idJeux"] == $idJeux) {
                         $_SESSION["total"] = $_SESSION["total"] - $panier["prix"];
@@ -78,7 +82,8 @@ class PanierController
 
 
             if ($_POST['payer']) {
-
+               
+                
                 $apiContext = new ApiContext(
                     new OAuthTokenCredential(
                         'AXHuFZprDDdz67bEgvtu4ds0_nhdUlhmKS5KQVGuPD8XwcQINPZrPk3FnzcsQGB3ZR8A9Nk0Ns4c4cdw', //client ID

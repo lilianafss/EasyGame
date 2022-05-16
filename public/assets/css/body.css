@@ -10,3 +10,29 @@ body
     overflow-x: hidden;
 
 }
+
+.messageReussi{
+    margin: 10px auto 20px auto; 
+    font-size: 25px;
+    border-radius: 5px;
+    width: 50%;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: darkgreen;  
+    border: 2px solid darkgreen; 
+    background:rgba(30, 190, 50, 0.5);
+}
+
+.messageFaux{
+    margin: 10px auto 20px auto; 
+    font-size: 25px;
+    border-radius: 5px;
+    width: 50%;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: darkred; 
+    border: 2px solid darkred;  
+    background:rgba(200, 30, 50, 0.5);
+}

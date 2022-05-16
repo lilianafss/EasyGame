@@ -1,140 +1,122 @@
 /*--------------------Header--------------------*/
+
+
 /*#region Header*/
-header
-{
-    display:flex;
+
+header {
+    display: flex;
     justify-content: center;
     margin-bottom: 20px;
     background: linear-gradient(90deg, #271037 0%, #3D135A 20%, #621D93 50%, #8021C1 80%, #920FED 100%);
 }
 
-#logoContainer
-{
-    display:flex;
+#logoContainer {
+    display: flex;
     justify-content: right;
     width: 38%;
 }
 
-#logo
-{
+#logo {
     width: 167px;
     height: 100px;
 }
 
-nav
-{
+nav {
     width: 100%;
 }
 
-.texte-icon
-{
+.texte-icon {
     width: 100px;
     margin-bottom: 0;
-
     text-align: center;
     font-size: 14px;
     color: white;
     font-weight: bold;
 }
 
-ul
-{
+.nav {
     width: 55%;
     padding-bottom: 10px;
     padding-top: 20px;
 }
 
-.nav-link
-{
+.nav-link {
     justify-content: center;
     width: 100px;
     display: flex;
     color: white;
 }
 
-.nav-link:visited
-{
+.nav-link:visited {
     color: white;
 }
 
-.nav-link:hover
-{
+.nav-link:hover {
     color: silver;
 }
 
-.nav-link:focus
-{
+.nav-link:focus {
     color: silver;
 }
+.badge{
+    margin: 0 0.3em;
+    font-size: 1em;
+}
+#panier{
+    text-align: left;
+    padding-left: 0.5em ;
+    padding-top: 0;
+}
+
 /*#endregion*/
 
-@media only screen and (max-width: 1024px)
-{
-    #logoContainer
-    {
+@media only screen and (max-width: 1024px) {
+    #logoContainer {
         width: 100%;
         justify-content: center;
     }
-
-    ul
-    {
+    .nav {
         width: 100%;
         justify-content: center;
     }
 }
 
-@media only screen and (max-width: 769px)
-{
-    #logoContainer
-    {
+@media only screen and (max-width: 769px) {
+    #logoContainer {
         width: 100%;
         justify-content: center;
     }
-
-    ul
-    {
+    .nav {
         width: 100%;
         justify-content: center;
     }
-
-    .nav-link
-    {
+    .nav-link {
         margin-right: 5px;
         margin-left: 5px;
     }
 }
 
-@media only screen and (max-width: 600px)
-{
-    .nav-link
-    {
+@media only screen and (max-width: 600px) {
+    .nav-link {
         margin-right: 0;
         margin-left: 0;
     }
 }
 
-@media only screen and (max-width: 480px)
-{
-    .nav-li
-    {
+@media only screen and (max-width: 480px) {
+    .nav-li {
         width: 80px;
         padding-bottom: 15px;
     }
-
-    .nav-link
-    {
+    .nav-link {
         padding: 4px;
         width: 80px;
     }
-
-    .icon-texte
-    {
+    .icon-texte {
         width: 80px;
         text-align: center;
     }
-
-    nav
-    {
+    nav {
         width: 70%;
     }
 }
