@@ -14,7 +14,24 @@
     <main>
         <h1>Ajouter jeux</h1>
 
-        <?=$messageErreur?>
+        <?php
+        if($bool){
+            $bool = false;
+            if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "" && $tableauGenre != [] && $tableauPlatform != []) {
+                if($prix > 0){
+                   
+                    $messageErreur = "<p class='messageReussi'>Le jeu a bien été créer</p>";
+                }
+                else{
+                    $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";
+                }
+            }
+            else{
+                $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis</p>";
+            } 
+        }  
+        echo($messageErreur);
+        ?>
 
         <form method="POST" enctype="multipart/form-data">
             <div class="d-flex flex-column">

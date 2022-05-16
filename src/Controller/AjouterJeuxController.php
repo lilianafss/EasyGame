@@ -28,6 +28,8 @@ class AjouterJeuxController
         $nbGenre = "";
         $nbPlateforme = "";
 
+        $bool = false;
+
         $messageErreur = "";
         $tableauGenre = [];
         $tableauPlatform = [];
@@ -47,6 +49,7 @@ class AjouterJeuxController
             $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
             //on essaye d'ajouter le jeu si on touche le bouton Ajouter jeu
             if ($submit == "Ajouter jeu") {
+                $bool = true;
                 //recuperer les donnees et l'image
                 $nomJeux = filter_input(INPUT_POST, 'nomJeu', FILTER_SANITIZE_SPECIAL_CHARS);
                 $description = filter_input(INPUT_POST, 'descrifJeu', FILTER_SANITIZE_SPECIAL_CHARS);

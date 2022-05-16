@@ -14,7 +14,22 @@
     <main>
         <h1>Modifier</h1>
         <div>
-            <?= $messageErreur ?>
+            <?php
+            if ($bool) {
+                $bool = false;
+                if ($nomJeu != "" && $description != "" && $prixJeu != "" && $pegi != "") {
+                    if ($prixJeu > 0) {
+                        $messageErreur = "<p class='messageReussi'>Le jeu a bien été modifié</p>";
+                    } else {
+                        $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";
+                    }
+                } else {
+                    $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis sauf les genres et les plateformes</p>";
+                }
+            }
+
+            echo $messageErreur;
+            ?>
         </div>
         <div>
             <form method="POST">
@@ -29,7 +44,7 @@
                     <label>
                         Description du jeu:
                     </label>
-                    <textarea name="desriptionJeu" rows="6" cols="50"><?= $jeu['description'] ?></textarea>
+                    <textarea name="desriptionJeu" rows="6" cols="40"><?= $jeu['description'] ?></textarea>
                 </p>
 
                 <p>
@@ -97,24 +112,24 @@
 
                     </fieldset>
                     <fieldset>
-                    <legend>Changer les Plateformes du jeu</legend>
+                        <legend>Changer les Plateformes du jeu</legend>
                         <?php
-                        
-                          $montrerPlat = "
+
+                        $montrerPlat = "
                           <table>
                           <tr>
                           <th>Plateformes</th>
                           </tr>";
-  
-  
-                          for ($i = 0; $i < count($plateformes); $i++) {
-                              $montrerPlat .= "<tr>
+
+
+                        for ($i = 0; $i < count($plateformes); $i++) {
+                            $montrerPlat .= "<tr>
                               <td>" . $plateformes[$i]['plateforme'] . "</td>
                               ";
-                              $montrerPlat .= "</tr>";
-                          }
-                          $montrerPlat .= "</table>";
-                          echo $montrerPlat
+                            $montrerPlat .= "</tr>";
+                        }
+                        $montrerPlat .= "</table>";
+                        echo $montrerPlat
                         ?>
                         <p>
                             <label>Combien de plateformes:</label>
