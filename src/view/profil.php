@@ -1,8 +1,11 @@
 <?php
 
 use EasyGame\Model\WishlistModel;
+use EasyGame\Model\HistoriqueModel;
 
 $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
+$tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
+
 
 ?>
 <!DOCTYPE html>
@@ -15,6 +18,14 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
 
     <title>Document</title>
     <?php require_once "style.php" ?>
+
+    <style>
+        input[type="submit"] {
+            font-family: FontAwesome; 
+        }
+
+
+    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -46,8 +57,11 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
             <h5>Email : </h5>
             <p><?= $infoUser['email'] ?></p>
 
+  
+
         </div>
 
+        
         <div id="motPasse" class="tabcontent">
             <h3>Changer votre mot de passe</h3>
             <form action="">
@@ -67,62 +81,71 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
 
         <div id="historiqueAchat" class="tabcontent">
             <h3>Historique d'achat</h3>
-            <div class="card m-4">
-                <img class="card-img" src="https://images-na.ssl-images-amazon.com/images/I/A1b0TAVpyEL.jpg" />
-                <div class="card-block">
-                    <h4 class="card-title">God of war</h4>
-                </div>
-            </div>
-        </div>
 
-        <div id="wishlist" class="tabcontent">
-            <h3>Whislist</h3>
-            <div class="cart-wrap">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="main-heading mb-10">My wishlist</div>
-                            <div class="table-wishlist">
-                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th width="45%">Product Name</th>
-                                            <th width="15%">prix</th>
-
-                                            <th width="15%"></th>
-                                            <th width="10%"></th>
-                                        </tr>
-                                    </thead>
-                                    <?php foreach ($tableauxWishlist as $wishlist) { ?>
-                                        <tbody>
-                                            <form action="" method="POST">
-                                                <tr>
-                                                    <td width="45%">
-                                                        <div class="display-flex align-center">
-                                                            <div class="img-product">
-                                                                <?php
-                                                                echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
-                                                            </div>
-                                                            <div class="name-product">
-                                                                <?= $wishlist['nom'] ?>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
-
-                                                    <td width="15%"><input type="submit" name="AjoutPanier" value="Ajouter aux panier"></td>
-                                                    <td width="10%" class="text-center"><input type="submit" name="supprimer" value="🗑"></td>
-                                                </tr>
-                                                <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
-                                            </form>
-                                        </tbody>
-                                    <?php } ?>
-                                </table>
+            <?php foreach ($tableauxHistorique as $historique) { ?>
+                <div id="container-historique" class="container">
+                    <div id="historique" class="card m-4">
+                        <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
+                        <div class="overlay">
+                            <div> <?php echo $historique['nom'] ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+    
+            <?php } ?>
+        </div>
+
+        <div id="wishlist" class="tabcontent">
+            <h3>Whislist</h3> 
+          
+      
+                <div class="cart-wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-heading mb-10">My wishlist</div>
+                                <div class="table-wishlist">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th width="45%">Product Name</th>
+                                                <th width="15%">prix</th>
+
+                                                <th width="15%"></th>
+                                                <th width="10%"></th>
+                                            </tr>
+                                        </thead>
+                                        <?php foreach ($tableauxWishlist as $wishlist) { ?>
+                                            <tbody>
+                                                <form action="" method="POST">
+                                                    <tr>
+                                                        <td width="45%">
+                                                            <div class="display-flex align-center">
+                                                                <div class="img-product">
+                                                                    <?php
+                                                                    echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
+                                                                </div>
+                                                                <div class="name-product">
+                                                                    <?= $wishlist['nom'] ?>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
+
+                                                        <td width="15%"><input type="submit" name="AjoutPanier" value="&#xf07a;"></td>
+                                                        <td width="10%" class="text-center"><input type="submit" name="supprimer" value="&#xf014;"></td>
+                                                    </tr>
+                                                    <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
+                                                </form>
+                                            </tbody>
+                                        <?php } ?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
         </div>
 
@@ -131,7 +154,7 @@ $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
 
     <script src="assets/js/profil.js"> </script>
 
-    <?php require_once "footer.php"; 
+    <?php require_once "footer.php";
     ?>
 </body>
 

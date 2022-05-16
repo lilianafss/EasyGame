@@ -2,7 +2,11 @@ body
 {
     background:#f2f2f2;
 }
-
+#div-container
+{
+    margin-top: 30vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}
 .payment
 {
     border:1px solid #f01b1b;

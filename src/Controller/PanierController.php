@@ -65,7 +65,7 @@ class PanierController
         //si le bouton est cliquer on supprime un jeux
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
-                $_SESSION['test']=$idJeux;
+              
                 var_dump($_SESSION['test']);
                 foreach ($tableauxPanier as $panier) {
                     if ($panier["idJeux"] == $idJeux) {
@@ -83,7 +83,7 @@ class PanierController
 
             if ($_POST['payer']) {
                
-                
+                $_SESSION['test']=$idJeux;
                 $apiContext = new ApiContext(
                     new OAuthTokenCredential(
                         'AXHuFZprDDdz67bEgvtu4ds0_nhdUlhmKS5KQVGuPD8XwcQINPZrPk3FnzcsQGB3ZR8A9Nk0Ns4c4cdw', //client ID
