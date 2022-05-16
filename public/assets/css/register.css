@@ -27,8 +27,6 @@ h1
 {
     display: flex;
     justify-content: center;
-    /*color: #332E52;*/
-    color: white;
     font-weight: bold;
 }
 
@@ -91,8 +89,7 @@ form
     width: 25%;
     color: #fff;
     font-size: 1.1rem;
-    /*background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);*/
-    background-color: #3c3c3c;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     font-weight: bold;
 }
 
