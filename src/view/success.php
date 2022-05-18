@@ -37,7 +37,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                      <h1>Paiement reussi !</h1>
                      <p>Votre achat a bien été effectuer</p>
                      <input type="submit" name="retourPageAccueil" value="Retourner vers la page d'accueil">
-                     <a href="http://easygame.ch" name="lien1">Retourner vers la page d'accueil</a>
+                    
                   </div>
 
                </div>
