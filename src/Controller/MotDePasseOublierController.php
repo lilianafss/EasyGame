@@ -26,12 +26,12 @@ class MotDePasseOublierController
     /**
      * @return void
      */
-    public function loginInfo()
+    public function motDePasseOublier()
     {
         // Crée la session si elle n'existe pas
         SessionStart();
 
-        require '../src/view/loginInfo.php';
+        require '../src/view/motDePasseOublier.php';
     }
 
 //    /**

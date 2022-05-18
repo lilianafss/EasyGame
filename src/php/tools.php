@@ -13,7 +13,8 @@ function SessionStart()
             'idUser' => '',
             'connected' => false,
             'admin' => false,
-            'idJeux' => ''
+            'idJeux' => '',
+            'quantite' => 0
         ];
     }
 }
