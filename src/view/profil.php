@@ -1,10 +1,6 @@
 <?php
 
-use EasyGame\Model\WishlistModel;
-use EasyGame\Model\HistoriqueModel;
 
-$tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
-$tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser']);
 
 ?>
 <!DOCTYPE html>
@@ -54,6 +50,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser']);
 
         <form action="" method="post">
             <div id="info" class="tabcontent">
+
                 <h3>Informations personnelles</h3>
 
                 <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
@@ -94,19 +91,20 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser']);
 
         <div id="historiqueAchat" class="tabcontent">
             <h3>Historique d'achat</h3>
+            
+                <div id="container-historique">
+                    <?php foreach ($tableauxHistorique as $historique) { ?>
+                        <div id="historique" class="m-4 container">
+                            <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
+                            <div class="overlay">
+                                <div id="text"> <?php echo $historique['nom'] ?> </div>
 
-            <?php foreach ($tableauxHistorique as $historique) { ?>
-                <div id="container-historique" class="container">
-                    <div id="historique" class="card m-4">
-                        <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
-                        <div class="overlay">
-                            <div> <?php echo $historique['nom'] ?>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-            <?php } ?>
+                    <?php } ?>
+                </div>
+            
         </div>
 
         <div id="wishlist" class="tabcontent">
@@ -137,7 +135,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser']);
                                                         <div class="display-flex align-center">
                                                             <div class="img-product">
                                                                 <?php
-                                                                echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
+                                                                echo '<img id="imgWishlist"  src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
                                                             </div>
                                                             <div class="name-product">
                                                                 <?= $wishlist['nom'] ?>

@@ -1,11 +1,3 @@
-<?php
-
-use EasyGame\Model\PanierModel;
-
-$tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,11 +12,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
 
 <body>
    <form method="POST">
-      <?php foreach ($tableauxPanier as $panier) { ?>
-         <input type="hidden" name="idJeux" value="<?= $panier['idJeux'] ?>">
-
-
-      <?php } ?>
+  
 
       <div id="div-container" class="container">
          <div class="row">
@@ -37,7 +25,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                      <h1>Paiement reussi !</h1>
                      <p>Votre achat a bien été effectuer</p>
                      <input type="submit" name="retourPageAccueil" value="Retourner vers la page d'accueil">
-                     <a href="http://easygame.ch" name="lien1">Retourner vers la page d'accueil</a>
+                    
                   </div>
 
                </div>

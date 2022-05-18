@@ -1,13 +1,25 @@
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
 }
 
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
-
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(0deg, #3C3661 0%, #332E52 60%, #211E36 100%);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3C3661;
+}
 
 /* #info,
 #motPasse,
@@ -75,43 +87,70 @@ button {
 .overlay {
     position: absolute;
     top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+
+    left: 3%;
+    right: 6%;
     height: 100%;
-    width: 100%;
+    width: 93.5%;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 10px;
 }
 
 .container:hover .overlay {
     opacity: 1;
-    width: 30%;
+    width: 93.5%;
 }
-#imageHistorique{
-    height: 30%;
-    width: 30%;
+
+#historique {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 23%;
 }
-.text {
+
+
+
+#imageHistorique {
+    width: 100%;
+
+    border-radius: 10px;
+   
+}
+
+
+#text {
     color: white;
     font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     text-align: center;
+
 }
 
 
-#container-historique{
-    width: 100%;
+#container-historique {
+    width: 1500px;
+    display: flex;
+    flex-wrap: wrap;
+  
+    height: 150px;
+    gap: 25px;
 }
+#historiqueAchat{
+    width: 1000px;
+    display: flex;
+  
+    
+}
+
+
+
 /*#endregion*/
 /*--------------------Wishlist--------------------*/
 /*#region Wishlist*/
+
 * {
     margin: 0;
 }
@@ -125,6 +164,10 @@ button {
 #logo-container {
     justify-content: right;
     padding-right: 15px;
+}
+#imgWishlist{
+    
+    width: 100px;
 }
 
 #logo {
@@ -277,17 +320,9 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+::-webkit-scrollbar {
+    width: 10px;
+}
 
 
 /*#endregion*/

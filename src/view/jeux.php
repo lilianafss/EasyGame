@@ -7,6 +7,18 @@ use EasyGame\Model\PlatformModel;
 
 $tableauxPanier = PanierModel::getPanier($idUser);
 $BOOL = false;
+$boolWishlist=false;
+foreach ($tableauxWishlist as $wishlist) { 
+if($wishlist['panier']==$idJeux){
+$boolWishlist=true;
+$dedansWislist="❤";
+}
+
+}
+if($boolWishlist==false){
+    $dedansWislist="♡";
+}
+//si le jeux est deja dans le panier on change la vaule du button
 foreach ($tableauxPanier as $panier) {
     if ($panier["idJeux"] == $idJeux) {
         $BOOL = TRUE;
@@ -133,7 +145,7 @@ if ($BOOL == false) {
 
             <form method="POST">
                 <input class="btn boutton" type="submit" name="panier" id="panier" value="<?php echo $dedans ?>">
-                <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="Ajouter a la wishlist">
+                <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="<?php echo $dedansWislist ?>">
 
                 <br>
             </form>

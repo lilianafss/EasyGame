@@ -40,10 +40,9 @@ class VerificationController
                 $userName   = $infoUser['pseudo'];
                 $nom   = $infoUser['nom'];
                 $prenom  = $infoUser['prenom'];
-                $userStatus = "Actif";
 
                 $_SESSION['connected'] = true;
-                UserModel::updateUser($idUser, $userName, $nom, $prenom, $userStatus);
+                UserModel::updateUser($idUser, $userName, $nom, $prenom, "Actif");
 
                 header("Location: /");
                 exit();
