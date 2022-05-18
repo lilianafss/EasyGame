@@ -78,7 +78,7 @@ class PanierController
 
             if ($_POST['payer']) {
 
-                $_SESSION['test'] = $idJeux;
+        
                 $apiContext = new ApiContext(
                     new OAuthTokenCredential(
                         'AXHuFZprDDdz67bEgvtu4ds0_nhdUlhmKS5KQVGuPD8XwcQINPZrPk3FnzcsQGB3ZR8A9Nk0Ns4c4cdw', //client ID

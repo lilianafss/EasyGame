@@ -3,6 +3,7 @@ namespace EasyGame\Controller;
 use EasyGame\Model\PanierModel;
 use EasyGame\Model\WishlistModel;
 use EasyGame\Model\UserModel;
+use EasyGame\Model\HistoriqueModel;
 
 require_once('../src/php/tools.php');
 
@@ -14,6 +15,9 @@ class ProfilController{
         $idUser = $_SESSION['idUser'];
 
         $infoUser = UserModel::getInfoUser($idUser);
+
+        $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
+        $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser']);
 
         $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
         $submit = filter_input(INPUT_POST, 'valider', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -32,6 +36,7 @@ class ProfilController{
         
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if($_POST['supprimer']){
+                header("Refresh: 0");
                 WishlistModel::deleteGameToWishlist($idJeux);
             }
             if ($_POST['AjoutPanier']) {

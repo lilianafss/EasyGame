@@ -1,10 +1,6 @@
 <?php
 
-use EasyGame\Model\WishlistModel;
-use EasyGame\Model\HistoriqueModel;
 
-$tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
-$tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
 
 ?>
@@ -84,7 +80,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
         <div id="historiqueAchat" class="tabcontent">
             <h3>Historique d'achat</h3>
-            <div class="flex-container wrap">
+            
                 <div id="container-historique">
                     <?php foreach ($tableauxHistorique as $historique) { ?>
                         <div id="historique" class="m-4 container">
@@ -97,7 +93,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
                     <?php } ?>
                 </div>
-            </div>
+            
         </div>
 
         <div id="wishlist" class="tabcontent">
@@ -128,7 +124,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                                                         <div class="display-flex align-center">
                                                             <div class="img-product">
                                                                 <?php
-                                                                echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
+                                                                echo '<img id="imgWishlist"  src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
                                                             </div>
                                                             <div class="name-product">
                                                                 <?= $wishlist['nom'] ?>
