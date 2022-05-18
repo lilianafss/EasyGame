@@ -60,6 +60,7 @@ class JeuxController
             }
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['wishlist']) {
+                header("Refresh: 0");
                 WishlistModel::addGameToWishlist($idUser, $idJeux);
                
             }
