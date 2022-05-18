@@ -4,8 +4,7 @@ use EasyGame\Model\WishlistModel;
 use EasyGame\Model\HistoriqueModel;
 
 $tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
-$tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
-
+$tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser']);
 
 ?>
 <!DOCTYPE html>
@@ -16,15 +15,20 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <title>Document</title>
     <?php require_once "style.php" ?>
 
     <style>
-        input[type="submit"] {
-            font-family: FontAwesome; 
+        .main-container form:first-of-type {
+            width: 900px;
         }
 
-
+        #info button {
+            font-family: FontAwesome;
+            width: 20%;
+            float: right;
+        }
     </style>
 </head>
 
@@ -32,54 +36,58 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
     <?php require_once "header.php"; ?>
 
+
+    <div class="alert alert-success" role="alert">
+        <?php echo $errorMessage;?>
+
+    </div>
+
+
+
     <div class="main-container">
-
-
         <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'info')" id="defaultOpen"><i class="fa-solid fa-user"></i> Informations personnelles</button>
             <button class="tablinks" onclick="openCity(event, 'historiqueAchat')"> <i class="fa-solid fa-basket-shopping"></i> Historique d'achat</button>
             <button class="tablinks" onclick="openCity(event, 'wishlist')"><i class="fa-solid fa-heart"></i> Whislist</button>
         </div>
-       
+
 
         <form action="" method="post">
             <div id="info" class="tabcontent">
-            <button id="editProfil" onclick="editProfil()"><i class="fa-solid fa-user-pen"></i></button>
-            
                 <h3>Informations personnelles</h3>
 
+                <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
                 <h5>Nom </h5>
                 <p id="nom"><?= $infoUser['nom'] ?></p>
-                <input type="text" name="editNom" id="editNom" value="<?= $infoUser['nom'] ?>" style="display:none">
+                <input type="text" name="editNom" id="editNom" placeholder="<?= $infoUser['nom'] ?> " style="display:none">
 
                 <h5>Prenom </h5>
                 <p id="prenom"><?= $infoUser['prenom'] ?></p>
-                <input type="text" name="editPrenom" id="editPrenom" value="<?= $infoUser['prenom'] ?>" style="display:none">
+                <input type="text" name="editPrenom" id="editPrenom" placeholder="<?= $infoUser['prenom'] ?>" style="display:none">
 
                 <h5>Pseudo </h5>
                 <p id="pseudo"><?= $infoUser['pseudo'] ?></p>
-                <input type="text" name="editPseudo" id="editPseudo" value="<?= $infoUser['pseudo'] ?>" style="display:none">
+                <input type="text" name="editPseudo" id="editPseudo" placeholder="<?= $infoUser['pseudo'] ?>" style="display:none">
 
-                <h5>Email : </h5>
-                <p id="email"><?= $infoUser['email'] ?></p>
-                <input type="text" name="editEmail" id="editEmail" value="<?= $infoUser['email'] ?>" style="display:none">
+                <div id="email" style="display:block">
+                    <h5>Email : </h5>
+                    <p><?= $infoUser['email'] ?></p>
+                </div>
+                
+                <div id="nouveauPassword" style="display:none">
+                    <h3>Changer votre mot de passe</h3>
 
-
-                <!-- <h3>Changer votre mot de passe</h3>
-                <form action="">
                     <label for="">Votre mot de passe actuel :</label>
-                    <input type="text" value=""><br>
+                    <input type="password" value="" name="motPasseActuel" minlength="8"><br>
 
                     <label for="">Nouveau mot de passe :</label>
-                    <input type="text" value=""><br>
+                    <input type="password" value="" name="nouveauMotPasse" minlength="8"><br>
 
                     <label for="">Confirmation du nouveau mot de passe : </label>
-                    <input type="text" value=""><br>
+                    <input type="password" value="" name="nouveauMotPasse2" minlength="8"><br>
+                </div>
 
-                    <input type="submit" value="Valider">
-                </form> -->
-
-                <input type="submit" value="Valider" name="valider" onclick="valider()" >
+                <input type="submit" value="Valider" name="valider" id="valider" style="display:none">
             </div>
         </form>
 
@@ -97,60 +105,60 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                         </div>
                     </div>
                 </div>
-    
+
             <?php } ?>
         </div>
 
         <div id="wishlist" class="tabcontent">
-            <h3>Whislist</h3> 
-          
-      
-                <div class="cart-wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="main-heading mb-10">My wishlist</div>
-                                <div class="table-wishlist">
-                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th width="45%">Product Name</th>
-                                                <th width="15%">prix</th>
+            <h3>Whislist</h3>
 
-                                                <th width="15%"></th>
-                                                <th width="10%"></th>
-                                            </tr>
-                                        </thead>
-                                        <?php foreach ($tableauxWishlist as $wishlist) { ?>
-                                            <tbody>
-                                                <form action="" method="POST">
-                                                    <tr>
-                                                        <td width="45%">
-                                                            <div class="display-flex align-center">
-                                                                <div class="img-product">
-                                                                    <?php
-                                                                    echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
-                                                                </div>
-                                                                <div class="name-product">
-                                                                    <?= $wishlist['nom'] ?>
-                                                                </div>
+
+            <div class="cart-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-heading mb-10">My wishlist</div>
+                            <div class="table-wishlist">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="45%">Product Name</th>
+                                            <th width="15%">prix</th>
+
+                                            <th width="15%"></th>
+                                            <th width="10%"></th>
+                                        </tr>
+                                    </thead>
+                                    <?php foreach ($tableauxWishlist as $wishlist) { ?>
+                                        <tbody>
+                                            <form action="" method="POST">
+                                                <tr>
+                                                    <td width="45%">
+                                                        <div class="display-flex align-center">
+                                                            <div class="img-product">
+                                                                <?php
+                                                                echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
                                                             </div>
-                                                        </td>
-                                                        <td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
+                                                            <div class="name-product">
+                                                                <?= $wishlist['nom'] ?>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
 
-                                                        <td width="15%"><input type="submit" name="AjoutPanier" value="&#xf07a;"></td>
-                                                        <td width="10%" class="text-center"><input type="submit" name="supprimer" value="&#xf014;"></td>
-                                                    </tr>
-                                                    <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
-                                                </form>
-                                            </tbody>
-                                        <?php } ?>
-                                    </table>
-                                </div>
+                                                    <td width="15%"><input type="submit" name="AjoutPanier" value="&#xf07a;"></td>
+                                                    <td width="10%" class="text-center"><input type="submit" name="supprimer" value="&#xf014;"></td>
+                                                </tr>
+                                                <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
+                                            </form>
+                                        </tbody>
+                                    <?php } ?>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
         </div>
 
@@ -158,8 +166,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
     </div>
 
     <script src="assets/js/profil.js"> </script>
-    <?php require_once "footer.php";
-    ?>
+    <!-- <?php require_once "footer.php"; ?> -->
 </body>
 
 </html>
