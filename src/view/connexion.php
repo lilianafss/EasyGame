@@ -39,7 +39,7 @@
 
                 </form>
 
-                <a href="/loginInfo">Mot de passe oublié?</a>
+                <a href="/motDePasseOublier">Mot de passe oublié?</a>
             </div>
 
             <div>

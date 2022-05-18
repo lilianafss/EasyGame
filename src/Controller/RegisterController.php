@@ -79,7 +79,7 @@ class RegisterController
                                         $passwordHash = password_hash($password, PASSWORD_BCRYPT);;
 
                                         // Récupère la fonction verifUserInfo
-                                        $exists = UserModel::verifUserInfo ($userName, $email);
+                                        $exists = UserModel::verifUserExists ($userName, $email);
 
                                         // Retourne un message d'erreur si le pseudo ou l'email existe déjà dans la base de donné
                                         if ($exists['pseudo_exists'] === 1)

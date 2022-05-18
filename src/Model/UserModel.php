@@ -21,7 +21,7 @@ class UserModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                    SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `admin`, `user_status` 
+                    SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `admin`, `user_status`, `dateCreation`
                     FROM `user`
                 ");
             $query->execute();
@@ -45,7 +45,7 @@ class UserModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`
+                SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`, `dateCreation`
                 FROM `user`
                 WHERE `user`.`idUser` = ?
             ");
@@ -89,7 +89,7 @@ class UserModel
      * @return mixed|void
      * @author Flavio Soares Rodrigues
      */
-    public static function verifUserInfo (string $pseudo, string $email)
+    public static function verifUserExists (string $pseudo, string $email)
     {
         try
         {
@@ -112,11 +112,11 @@ class UserModel
     /**
      * Ajoute des nouveaux utilisateurs dans la base de données
      *
-     * @param string $pseudo
-     * @param string $nom
-     * @param string $prenom
-     * @param string $email
-     * @param string $password
+     * @param $pseudo
+     * @param $nom
+     * @param $prenom
+     * @param $email
+     * @param $password
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
@@ -124,8 +124,8 @@ class UserModel
     public static function newUser( $pseudo,  $nom,  $prenom,  $email,  $password)
     {
         $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`) 
-            VALUES ( ?, ?, ?, ?, ?, false, 'En Attente');
+            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`, `dateCreation`) 
+            VALUES ( ?, ?, ?, ?, ?, false, 'En Attente', DATE(NOW()) );
         ");
         $query->execute([$pseudo, $nom, $prenom, $email, $password]);
 
@@ -223,6 +223,7 @@ class UserModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
     #endregion
 
     /*------------------------- Update -------------------------*/
@@ -254,7 +255,13 @@ class UserModel
         }
     }
 
-    public static function updateUserStatus($idUser,$userStatus){
+    /**
+     * @param $idUser
+     * @param $userStatus
+     * @return void
+     * @author Rodrigo De Castilho E Sousa
+     */
+    public static function updateUserStatus($idUser, $userStatus){
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
