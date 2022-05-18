@@ -32,6 +32,13 @@ class ModifierController
         //declaration de la message d'erreur
         $messageErreur = "";
 
+        $nomJeu = "";
+        $description = "";
+        $prixJeu = "";
+        $pegi = "";
+        
+        $bool = false;
+
         $tableauPlatform = [];
         $tableauGenre = [];
 
@@ -56,6 +63,9 @@ class ModifierController
             $submit = filter_input(INPUT_POST,'submit', FILTER_SANITIZE_SPECIAL_CHARS);
             
             if($submit == "changer"){
+                
+                $bool = true;
+
                 $nomJeu = filter_input(INPUT_POST,'nomJeu', FILTER_SANITIZE_SPECIAL_CHARS);
                 $description = filter_input(INPUT_POST,'desriptionJeu', FILTER_SANITIZE_SPECIAL_CHARS);
                 $prixJeu = floatval(filter_input(INPUT_POST, 'prixJeu', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
@@ -103,7 +113,7 @@ class ModifierController
 
                         GameModel::updateGame($idJeu, $nomJeu, $description, $prixJeu, $pegi);
         
-                        $messageErreur = "<p class='messageReussi'>Le jeu a bien été modifié</p>";
+                      
                     }
                     else{
                         $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";

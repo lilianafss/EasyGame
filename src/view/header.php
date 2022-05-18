@@ -43,7 +43,7 @@
                                  
                         <a class="nav-link" href="/panier">
                             <i class="fa-solid fa-2x fa-basket-shopping icon"></i>
-                            <span class="badge rounded-pill badge-notification bg-danger"></span>
+                            <span class="badge rounded-pill badge-notification bg-danger">'.$_SESSION['quantite'].'</span>
                         </a>
                         <p id="panier" class="texte-icon">Panier</p>
                        
