@@ -1,9 +1,9 @@
 <?php
 
-
-
+$idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -18,6 +18,9 @@
     <style>
         input[type="submit"] {
             font-family: FontAwesome;
+            background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+            color: white;
+            margin: 5px;
         }
     </style>
 </head>
@@ -80,20 +83,21 @@
 
         <div id="historiqueAchat" class="tabcontent">
             <h3>Historique d'achat</h3>
-            
-                <div id="container-historique">
-                    <?php foreach ($tableauxHistorique as $historique) { ?>
-                        <div id="historique" class="m-4 container">
-                            <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
-                            <div class="overlay">
-                                <div id="text"> <?php echo $historique['nom'] ?> </div>
 
-                            </div>
+            <div id="container-historique">
+                <?php foreach ($tableauxHistorique as $historique) { ?>
+                    <input type="hidden" name="idJeux" value="<?php $historique['idJeux'] ?>">
+                    <div id="historique" class="m-4 container" onclick=" Redirection(<?php $idJeux ?>) ">
+                        <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
+                        <div class="overlay">
+                            <div id="text"> <?php echo $historique['nom'] ?> </div>
+
                         </div>
+                    </div>
 
-                    <?php } ?>
-                </div>
-            
+                <?php } ?>
+            </div>
+
         </div>
 
         <div id="wishlist" class="tabcontent">
@@ -104,12 +108,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="main-heading mb-10">My wishlist</div>
+
                             <div class="table-wishlist">
                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th width="45%">Product Name</th>
+                                            <th width="45%">Nom du produit</th>
                                             <th width="15%">prix</th>
 
                                             <th width="15%"></th>
@@ -152,7 +156,7 @@
 
     </div>
 
-    <script src="assets/js/profil.js"> </script>
+    <script src="assets/js/profil.js"></script>
     <?php require_once "footer.php";
     ?>
 </body>
