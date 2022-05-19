@@ -81,7 +81,6 @@
         // Page de profil
         if ($_SERVER['PHP_SELF'] == "/index.php/profil")
         {
-        echo'<link rel="stylesheet" href="assets/css/wishlist.css">';
            echo'<link rel="stylesheet" href="assets/css/profil.css">';
         }
        
