@@ -45,3 +45,10 @@ function editProfil() {
         return false;
     }
 }
+
+function Redirection(id) {
+
+    let stringUrl = "http://easygame.ch/jeux?idJeux=" + id;
+
+    window.location.replace(stringUrl);
+}

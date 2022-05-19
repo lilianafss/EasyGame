@@ -4,20 +4,24 @@ use EasyGame\Model\UserModel;
 use EasyGame\Model\NoteModel;
 use EasyGame\Model\PanierModel;
 use EasyGame\Model\PlatformModel;
+use EasyGame\Model\WishlistModel;
 
 $tableauxPanier = PanierModel::getPanier($idUser);
+$tableauxWishlist = WishlistModel::getWishlist($_SESSION['idUser']);
 $BOOL = false;
-$boolWishlist=false;
-foreach ($tableauxWishlist as $wishlist) { 
-if($wishlist['panier']==$idJeux){
-$boolWishlist=true;
-$dedansWislist="❤";
+$boolWishlist = false;
+foreach ($tableauxWishlist as $wishlist) {
+    if ($wishlist['idJeux'] == $idJeux) {
+        $boolWishlist = true;
+        $dedansWislist = "&#xf004";
+      
+    }
+}
+if ($boolWishlist == false) {
+    $dedansWislist = "&#x2661";
+   
 }
 
-}
-if($boolWishlist==false){
-    $dedansWislist="♡";
-}
 //si le jeux est deja dans le panier on change la vaule du button
 foreach ($tableauxPanier as $panier) {
     if ($panier["idJeux"] == $idJeux) {
@@ -43,7 +47,11 @@ if ($BOOL == false) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
     <title><?= $infoJeux['nom'] ?></title>
     <?php require_once "style.php" ?>
-
+    <style>
+        #asideContainer input[type="submit"]:last-of-type {
+            font-family: FontAwesome;
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
