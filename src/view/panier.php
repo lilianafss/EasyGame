@@ -92,7 +92,7 @@ $_SESSION['nbPanel'] = 1 ?>
                                 <form action="" method="get">
                                     <!-- Credit card form tabs -->
                                     <ul id="moyen" role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-2">
-                                        <li id="credit" class="nav-item"> <a id="creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li>
+                                        <!-- <li id="credit" class="nav-item"> <a id="creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li> -->
                                         <li class="nav-item"> <a data-toggle="pill" href="?methodPayement=Paypal" class="nav-link "> <i class="fab fa-paypal mr-2" "></i> Paypal </a> </li>
                                         </ul>
                                     </form>
@@ -101,26 +101,23 @@ $_SESSION['nbPanel'] = 1 ?>
                                 
                                 <div class=" tab-content">
                                                     <?php
-
-                                                    if (isset($_GET["methodPayement"])) {
-                                                        if ($_GET["methodPayement"] == "Paypal") {
-                                                            $_SESSION['nbPanel'] = 2 ?>
-                                                            <div id="paypal">
-                                                                <?php if ($_SESSION['quantite'] != 0) { ?>
-                                                                    <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3"></div>
-                                                                <?php } elseif ($_SESSION['quantite'] == 0) { ?>
-                                                                    <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
-                                                                <?php  } ?>
-
-
-                                                                <p class="text-muted"> Note:Après avoir cliqué sur le bouton, vous serez dirigé vers une passerelle sécurisée pour le paiement. Après avoir terminé le processus de paiement, vous serez redirigé vers la page d'accueil du site</p>
-                                                            </div>
-
-                                                        <?php } ?>
-                                                    <?php  } ?>
-                                                    <?php
                                                     if ($_SESSION['nbPanel'] == 1) {
-                                                    ?>
+                                                   { ?>
+                                                                <div id="paypal">
+                                                                    <?php if ($_SESSION['quantite'] != 0) { ?>
+                                                                        <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3"></div>
+                                                                    <?php } elseif ($_SESSION['quantite'] == 0) { ?>
+                                                                        <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
+                                                                    <?php  } ?>
+
+
+                                                                    <p class="text-muted"> Note:Après avoir cliqué sur le bouton, vous serez dirigé vers une passerelle sécurisée pour le paiement. Après avoir terminé le processus de paiement, vous serez redirigé vers la page d'accueil du site</p>
+                                                                </div>
+
+                                                            <?php } ?>
+                                                        <?php  } ?>
+                                                        <?php  }?>
+                                                        <!--                                                    
 
                                                         <div id="credit-card" class="tab-pane fade show active pt-3">
                                                             <form role="form" onsubmit="event.preventDefault()">
@@ -147,17 +144,17 @@ $_SESSION['nbPanel'] = 1 ?>
                                                                                 <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                                                                             </label> <input type="text" required class="form-control"> </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> 
 
                                                                 <?php if ($_SESSION['quantite'] != 0) { ?>
                                                                     <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3"></div>
                                                                 <?php } elseif ($_SESSION['quantite'] == 0) { ?>
                                                                     <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
                                                                 <?php  } ?>
-                                                            <?php } ?>
+                                                        
 
                                                             </form>
-                                                        </div>
+                                                        </div>-->
 
 
 
@@ -166,7 +163,7 @@ $_SESSION['nbPanel'] = 1 ?>
                     </div>
                 </div>
             </div>
-        <?php } ?>
+    
 
 
 
