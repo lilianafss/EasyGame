@@ -69,20 +69,19 @@ class MotDePasseOublierController
 
                     // message de success
                     $message = "Un lien de vérification de votre compte a été envoyé à ". $email;
-                    $script = "<script>Message(" . json_encode('sucess') . ");</script>";
-
+                    $script = "Message(" . json_encode('success').",". json_encode('') . ");";
                     $email = "";
                 }
                 else
                 {
                     $message = "Désolé, nous n'avons pas pu trouver d'adresse e-mail correspondant à votre recherche.";
-                    $script = "<script>Message(" . json_encode('fail') . ");</script>";
+                    $script = "Message(" . json_encode('fail').",". json_encode('email') . ");";
                 }
             }
             else
             {
                 $message = "Aucune adresse e-mail à été saisie, veuillez remplir le champ avant de soumettre votre requête.";
-                $script = "<script>Message(" . json_encode('fail') . ");</script>";
+                $script = "Message(" . json_encode('fail').",". json_encode('email') . ");";
             }
         }
         require '../src/view/motDePasseOublier.php';

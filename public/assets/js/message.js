@@ -1,12 +1,12 @@
-function Message (statment)
+function Message (statment, idInput)
 {
     if (statment === "fail")
     {
-        document.getElementById('message').style.display = 'block';
-        document.getElementById('email').focus();
+        document.getElementById('msg').id = 'failMessage';
+        document.getElementById(idInput).focus();
     }
-    else if (statment === "sucess")
+    else if (statment === "success")
     {
-        document.getElementById('message').style.display = 'block';
+        document.getElementById('msg').id = 'successMessage';
     }
 }
