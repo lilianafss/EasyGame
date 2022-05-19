@@ -158,12 +158,17 @@ $_SESSION['nbPanel'] = 1 ?>
 
                                                             </form>
                                                         </div>
+
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         <?php } ?>
+
+
 
         <script>
             $(function() {

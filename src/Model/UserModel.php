@@ -299,16 +299,24 @@ class UserModel
         }
     }
 
-    public static function updatePseudo($idUser, $userName)
+    /**
+     * @param string $idUser id de l'utilisateur
+     * @param string $colonneBd collonne de la base de donnees
+     * @param string $champModifie Informations a changer 
+     * @return void
+     * 
+     * @author Liliana Santos
+     */
+    public static function updateInfoUser($idUser, $colonneBd,$champModifie)
     {
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
                 UPDATE `user`
-                SET `pseudo`= ?
+                SET `$colonneBd`= ?
                 WHERE `idUser` = ?
             ");
-            $query->execute([$userName, $idUser]);
+            $query->execute([$champModifie, $idUser]);
         }
         catch (Exception $e)
         {

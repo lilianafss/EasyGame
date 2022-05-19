@@ -19,72 +19,46 @@
         </div>
         <table>
             <?php
-
-            $stringTableJ .= "
-                      <tr>
-                      <th>IdJeux</th>
-                      <th>Nom</th>
-                      <th>Description</th>
-                      <th>Prix</th>
-                      <th>Pegi</th>
-                      <th>Image</th>
-                      </tr>
-                      ";
-
+            //affichage des jeux
+                      
             foreach ($jeux as $unJeux) {
                 $stringTableJ .= " 
-                        <tr>
-                        <td>" . $unJeux['idJeux'] . "</td>
-                        <td>" . $unJeux['nom'] . "</td>
-                        <td>" . $unJeux['description'] . "</td>
-                        <td>" . $unJeux['prix'] . "</td>
-                        <td>" . $unJeux['pegi'] . "</td>
-                        <td><img class=\"card-img\" src=\"data:image/jpeg;base64," . base64_encode($unJeux['image']) . "\"/></td>
-                        <td><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer</a></td>
-                        <td><a href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier</a></td>
-                        </tr>";
+                    <div>
+                    <p> <b>IdJeux :</b>  " . $unJeux['idJeux'] . "</p>
+                    <p><b>Nom :</b> " . $unJeux['nom'] . "</p>
+                    <p> <b>Description :</b> " . $unJeux['description'] . "</p>
+                    <p> <b>Prix :</b> " . $unJeux['prix'] . "</p>
+                    <p> <b>Pegi :</b> " . $unJeux['pegi'] . "</p>
+                    <p> <b>Image :</b> <img class=\"card-img\" src=\"data:image/jpeg;base64," . base64_encode($unJeux['image']) . "\"/></p>
+                    <p><h3><small><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer</a> |
+                    <a class:'liens' href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier</a></small></h3></p>
+                    </div>";
             }
 
             echo $stringTableJ;
             ?>
-        </table>
-        <table>
             <?php
-
-            $stringTableU .= "
-                    <tr>
-                    <th>IdUser</th>
-                    <th>Pseudo</th>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Email</th>
-                    <th>Admin</th>
-                    <th>USER_STATUS</th>
-                    </tr>
-                    ";
+            //affichage des utilisateurs
 
             foreach ($users as $unUser) {
                 $stringTableU .= " 
-                      <tr>
-                      <td>" . $unUser['idUser'] . "</td>
-                      <td>" . $unUser['pseudo'] . "</td>
-                      <td>" . $unUser['nom'] . "</td>
-                      <td>" . $unUser['prenom'] . "</td>
-                      <td>" . $unUser['email'] . "</td>
-                      <td>" . $unUser['admin'] . "</td>
-                      <td>" . $unUser['user_status'] . "</td>
-                      <td><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer</a></td>
-                      <td><a href='http://easygame.ch/effacer?disabled=" . $unUser['idUser'] . "'>Disabled</a></td>
-                      <td><a href='http://easygame.ch/effacer?actif=" . $unUser['idUser'] . "'>Actif</a></td>
-                      </tr>";
+                    <div>
+                    <p><b>IdUser : </b>" . $unUser['idUser'] . "</p>
+                    <p><b>Pseudo : </b>" . $unUser['pseudo'] . "</p>
+                    <p><b>Nom : </b>" . $unUser['nom'] . "</p>
+                    <p><b>Prenom : </b>" . $unUser['prenom'] . "</p>
+                    <p><b>Email : </b>" . $unUser['email'] . "</p>
+                    <p><b>Admin : </b>" . $unUser['admin'] . "</p>
+                    <p><b>USER_STATUS : </b>" . $unUser['user_status'] . "</p>
+                    <p><h3><small><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer</a> |
+                    <a href='http://easygame.ch/effacer?disabled=" . $unUser['idUser'] . "'>Disabled</a> |
+                    <a href='http://easygame.ch/effacer?actif=" . $unUser['idUser'] . "'>Actif</a></h3></small></p>
+                    </div>";
             }
-
 
             echo $stringTableU;
 
             ?>
-        </table>
-
     </main>
     <?php require_once "footer.php"; ?>
     <script src="assets/js/admin.js"></script>

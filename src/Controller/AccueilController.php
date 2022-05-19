@@ -11,6 +11,8 @@ use EasyGame\Model\PanierModel;
 
 require_once('../src/php/tools.php');
 
+
+
 class AccueilController
 {
     /** ---------Description de la Fonction----------------------

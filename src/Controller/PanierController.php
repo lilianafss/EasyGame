@@ -44,13 +44,8 @@ class PanierController
         $jeux = GameModel::getGames($userUtilisateur);
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $quantite = 0;
-        
+
         $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
-
-
-
-       
-
         //parcourir le panier
         foreach ($tableauxPanier as $panier) {
             //calcule du total, recuperation idJeux et nom du jeu
@@ -59,13 +54,13 @@ class PanierController
             $items = $panier['nom'];
             $_SESSION['item'] = $items;
             $quantite += 1;
-         
         }
         $_SESSION['quantite'] = $quantite;
-        //si le bouton est cliquer on supprime un jeux
+        //si le bouton est cliqué on supprime un jeu
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
 
+                //quand le jeu est supprimé on réduit le total
                 foreach ($tableauxPanier as $panier) {
                     if ($panier["idJeux"] == $idJeux) {
                         $_SESSION["total"] = $_SESSION["total"] - $panier["prix"];
@@ -81,8 +76,7 @@ class PanierController
 
 
             if ($_POST['payer']) {
-               
-                $_SESSION['test']=$idJeux;
+
                 $apiContext = new ApiContext(
                     new OAuthTokenCredential(
                         'AXHuFZprDDdz67bEgvtu4ds0_nhdUlhmKS5KQVGuPD8XwcQINPZrPk3FnzcsQGB3ZR8A9Nk0Ns4c4cdw', //client ID
@@ -114,7 +108,7 @@ class PanierController
                     ->setQuantity(1)
                     ->setPrice($_SESSION['total']);
 
-
+                //creation de la liste de tout les jeux dans le panier
                 $itemList = new ItemList();
                 $itemList->setItems(array($item1));
 
@@ -135,7 +129,6 @@ class PanierController
                     ->setCancelUrl("http://easygame.ch/error");
 
                 //paiement
-              
                 $payement = new Payment();
                 $payement->setIntent('sale')
                     ->setPayer($payer)
@@ -144,6 +137,7 @@ class PanierController
                 try {
                     $payement->create($apiContext);
 
+                    //si le paiement est crée on redirige sur la page de paiement paypal
                     header('Location:' . $payement->getApprovalLink() . "&locale.x=fr_FR&langTgl=fr");
                 } catch (PayPalConnectionException $ex) {
                     echo $ex->getData();
