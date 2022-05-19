@@ -34,11 +34,20 @@ $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
 
 <body class="d-flex flex-column h-100">
 
-    <?php require_once "header.php"; ?>
-    <?php if ($errorMessage != "") { ?>
-        <div class="alert alert-success" role="alert">
-            <?= $errorMessage ?>
+    <?php require_once "header.php";
 
+    if ($sucessMessage != "") { ?>
+        <div class="alert alert-success" role="alert">
+            <?= $sucessMessage ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+    } ?>
+
+    <?php if ($errorMessage != "") { ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $errorMessage ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php
     } ?>

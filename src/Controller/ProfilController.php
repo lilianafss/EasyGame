@@ -21,12 +21,13 @@ class ProfilController
         $infoUser = UserModel::getInfoUser($idUser);
 
         $errorMessage = "";
+        $sucessMessage = "";
 
         $nom = filter_input(INPUT_POST, 'editNom', FILTER_SANITIZE_SPECIAL_CHARS);
         $prenom = filter_input(INPUT_POST, 'editPrenom', FILTER_SANITIZE_SPECIAL_CHARS);
         $pseudo = filter_input(INPUT_POST, 'editPseudo', FILTER_SANITIZE_SPECIAL_CHARS);
         $tableauxWishlist = WishlistModel::getWishlist($idUser);
-        $tableauxHistorique=HistoriqueModel::getHistory($idUser);
+        $tableauxHistorique = HistoriqueModel::getHistory($idUser);
         $motPasseActuelBD = UserModel::getInfoUser($idUser);
         $motPasseActuel = filter_input(INPUT_POST, 'motPasseActuel', FILTER_SANITIZE_SPECIAL_CHARS);
         $nouveauMotPasse = filter_input(INPUT_POST, 'nouveauMotPasse', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -35,28 +36,47 @@ class ProfilController
         $submit = filter_input(INPUT_POST, 'valider', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if ($submit == "Valider") {
-            if ($nom != "" || $pseudo != "" || $prenom != "" || $motPasseActuel != "" || $nouveauMotPasse != "" || $nouveauMotPasse2 != "") {
-                if ($nom != $infoUser['editNom']) {
+            if ($nom != "") {
+                if ($nom != $infoUser['nom']) {
                     UserModel::updateInfoUser($idUser, 'nom', $nom);
-                    $errorMessage .= "Le nom a bien été modifié";
-                } elseif ($prenom != $infoUser['editPrenom']) {
+                    $sucessMessage .= "<p>Le nom a bien été modifié</p>";
+                } elseif ($nom == $infoUser['nom']) {
+                    $errorMessage .= "<p>Le nom est identique</p>";
+                }
+            }
+
+            if ($prenom != "") {
+                if ($prenom != $infoUser['prenom']) {
                     UserModel::updateInfoUser($idUser, 'prenom', $prenom);
-                    $errorMessage .= "Le prenom a bien été modifié";
-                } elseif ($pseudo != $infoUser['editPseudo']) {
+                    $sucessMessage .= "<p>Le prenom a bien été modifié</p>";
+                } elseif ($prenom == $infoUser['prenom']) {
+                    $errorMessage .= "<p>Le prenom est identique</p>";
+                }
+            }
+
+            if ($pseudo != "") {
+                if ($pseudo != $infoUser['pseudo']) {
                     UserModel::updateInfoUser($idUser, 'pseudo', $pseudo);
-                    $errorMessage .= "Le pseudo a bien été modifié";
-                } elseif (password_verify($motPasseActuel, $motPasseActuelBD['password'])) {
+                    $sucessMessage .= "<p>Le pseudo a bien été modifié</p>";
+                } elseif ($pseudo == $infoUser['pseudo']) {
+                    $errorMessage .= "<p>Le pseudo est identique</p>";
+                }
+            }
+
+            if ($motPasseActuel != "" && $nouveauMotPasse != "" && $nouveauMotPasse2 != "") {
+                if (password_verify($motPasseActuel, $motPasseActuelBD['password'])) {
                     if ($nouveauMotPasse == $nouveauMotPasse2) {
                         $passwordHash = password_hash($nouveauMotPasse, PASSWORD_BCRYPT);
                         UserModel::updateInfoUser($idUser, 'password', $passwordHash);
-                        $errorMessage .= "Le mot de passe a bien été modifié";
+                        $sucessMessage .= "<p>Le mot de passe a bien été modifié</p>";
+                    } elseif ($nouveauMotPasse != $nouveauMotPasse2) {
+                        $errorMessage .= "<p>Les mot de passe ne sont pas identique</p>";
                     }
                 } else {
-                    $errorMessage = "pas bien";
+                    $errorMessage .= "<p>Le mot de passe erroné</p>";
                 }
-
-                $infoUser = UserModel::getInfoUser($idUser);
             }
+            $infoUser = UserModel::getInfoUser($idUser);
         }
 
         /* -------------- Page Wishlist --------------*/
