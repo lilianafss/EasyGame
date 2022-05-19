@@ -20,7 +20,22 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #3C3661;
 }
-
+#info-button {
+    font-family: FontAwesome;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
+    margin: 5px;
+    width: 20%;
+    float: right;
+}
+#editer{
+    font-family: FontAwesome;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
+    margin: 5px;
+    width: 20%;
+    float: right;
+}
 /* #info,
 #motPasse,
 #historiqueAchat,
@@ -78,7 +93,9 @@ button {
     padding: 0px 12px;
     
 }
-
+#info{
+    width: 1500px;
+}
 
 /*--------------------Historique--------------------*/
 
@@ -125,7 +142,7 @@ height: 150px;
     color: white;
     font-size: 20px;
     text-align: center;
-    margin-top: 75px;
+    margin-top: 20%;
 
 }
 
@@ -225,7 +242,9 @@ main{
 }
 
 
-
+.container{
+    width: 1500px;
+}
 
 
 .card {
@@ -305,25 +324,12 @@ main{
     font-weight: 600;
 }
 
-.table-wishlist tr td .quanlity {
-    position: relative;
-}
 
-.total {
-    font-size: 24px;
-    font-weight: 600;
-    color: #8660e9;
-}
 
 .display-flex {
     display: flex;
 }
 
-
-
-::-webkit-scrollbar {
-    width: 10px;
-}
 
 
 /*#endregion*/
