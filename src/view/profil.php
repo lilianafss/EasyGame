@@ -16,9 +16,9 @@
     <?php require_once "style.php" ?>
 
     <style>
-        .main-container form:first-of-type {
+        /* .main-container form:first-of-type {
             width: 900px;
-        }
+        } */
 
         #info button {
             font-family: FontAwesome;
@@ -32,12 +32,13 @@
 
     <?php require_once "header.php"; ?>
 
-
+<?php if($errorMessage!=""){?>
     <div class="alert alert-success" role="alert">
-        <?php echo $errorMessage;?>
+        <?=$errorMessage?>
 
     </div>
-
+<?php
+}?>
 
 
     <div class="main-container">
