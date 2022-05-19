@@ -15,14 +15,13 @@
     <main class="flex-shrink-0">
 
         <h1>Inscription</h1>
+        <div class="messageDiv" id="msg">
+            <?=$message?>
+        </div>
 
         <div id="divMain">
 
             <form method="POST">
-
-                <div class="divForm">
-                    <p id="error"><?=$errorMessage?></p>
-                </div>
 
                 <div class="divForm">
                     <label for="userName" class="label-input">Nom d'utilisateur</label>
@@ -65,6 +64,8 @@
         </div>
     </main>
     <?php require_once "footer.php"?>
+    <script src="assets/js/message.js"></script>
     <script src="assets/js/showPassword.js"></script>
+    <script><?=$script?></script>
 </body>
 </html>

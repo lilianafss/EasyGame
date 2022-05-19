@@ -56,7 +56,7 @@ class ModifierMotDePasseController
 
                             // Message de sucess
                             $message = "Le mot de passe à été modifié";
-                            $script = "<script>Message(" . json_encode('sucess') . ");</script>";
+                            $script = "Message(" . json_encode('success') . ");";
 
                             // efface les valeurs des variables
                             $_SESSION['email']= "";
@@ -66,19 +66,19 @@ class ModifierMotDePasseController
                         else
                         {
                             $message = "La confirmation du nouveau mot de passe n'est pas identique au nouveau mot de passe.";
-                            $script = "<script>Message(" . json_encode('fail') . ");</script>";
+                            $script = "Message(" . json_encode('fail') . ");";
                         }
                     }
                     else
                     {
                         $message = "Veuillez confirmer votre nouveau mot de passe.";
-                        $script = "<script>Message(" . json_encode('fail') . ");</script>";
+                        $script = "Message(" . json_encode('fail') . ");";
                     }
                 }
                 else
                 {
                     $message = "Aucun nouveau mot de passe n'a été saisie.";
-                    $script = "<script>Message(" . json_encode('fail') . ");</script>";
+                    $script = "Message(" . json_encode('fail') . ");";
                 }
             }
             require '../src/view/modifierMdp.php';
