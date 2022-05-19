@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="747c5722-3723-4c68-8b26-1de0f02e4280" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/modifierMdp.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/modifierMdp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/message.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/loginInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/motDePasseOublier.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/showPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/router/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/php/tools.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/tools.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ajouterJeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ajouterJeux.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/jeux.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/modifierJeu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/modifierJeu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/modifierMDP.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifierMotDePasseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/motDePasseOublier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/motDePasseOublier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/profil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/style.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/style.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/success.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/success.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +63,7 @@
       <updated>1652690596270</updated>
       <workItem from="1652690600570" duration="15995000" />
       <workItem from="1652853166297" duration="21480000" />
-      <workItem from="1652938762254" duration="10815000" />
+      <workItem from="1652938762254" duration="14784000" />
     </task>
     <servers />
   </component>
