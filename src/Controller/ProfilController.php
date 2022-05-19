@@ -25,7 +25,8 @@ class ProfilController
         $nom = filter_input(INPUT_POST, 'editNom', FILTER_SANITIZE_SPECIAL_CHARS);
         $prenom = filter_input(INPUT_POST, 'editPrenom', FILTER_SANITIZE_SPECIAL_CHARS);
         $pseudo = filter_input(INPUT_POST, 'editPseudo', FILTER_SANITIZE_SPECIAL_CHARS);
-
+        $tableauxWishlist = WishlistModel::getWishlist($idUser);
+        $tableauxHistorique=HistoriqueModel::getHistory($idUser);
         $motPasseActuelBD = UserModel::getInfoUser($idUser);
         $motPasseActuel = filter_input(INPUT_POST, 'motPasseActuel', FILTER_SANITIZE_SPECIAL_CHARS);
         $nouveauMotPasse = filter_input(INPUT_POST, 'nouveauMotPasse', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -34,44 +35,37 @@ class ProfilController
         $submit = filter_input(INPUT_POST, 'valider', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if ($submit == "Valider") {
-           if ($nom != "" || $pseudo != "" || $prenom != "" || $motPasseActuel != "" || $nouveauMotPasse != "" || $nouveauMotPasse2 != "") {
+            if ($nom != "" || $pseudo != "" || $prenom != "" || $motPasseActuel != "" || $nouveauMotPasse != "" || $nouveauMotPasse2 != "") {
                 if ($nom != $infoUser['editNom']) {
                     UserModel::updateInfoUser($idUser, 'nom', $nom);
-                    $errorMessage.="Le nom a bien été modifié";
-                     
-
-                }elseif ($prenom != $infoUser['editPrenom']) {
+                    $errorMessage .= "Le nom a bien été modifié";
+                } elseif ($prenom != $infoUser['editPrenom']) {
                     UserModel::updateInfoUser($idUser, 'prenom', $prenom);
                     $errorMessage .= "Le prenom a bien été modifié";
-
-                }
-                elseif ($pseudo != $infoUser['editPseudo']) {
+                } elseif ($pseudo != $infoUser['editPseudo']) {
                     UserModel::updateInfoUser($idUser, 'pseudo', $pseudo);
                     $errorMessage .= "Le pseudo a bien été modifié";
-
-
-                }elseif (password_verify($motPasseActuel, $motPasseActuelBD['password'])) {
+                } elseif (password_verify($motPasseActuel, $motPasseActuelBD['password'])) {
                     if ($nouveauMotPasse == $nouveauMotPasse2) {
                         $passwordHash = password_hash($nouveauMotPasse, PASSWORD_BCRYPT);
                         UserModel::updateInfoUser($idUser, 'password', $passwordHash);
                         $errorMessage .= "Le mot de passe a bien été modifié";
                     }
-                }else{
-                    $errorMessage="pas bien";
+                } else {
+                    $errorMessage = "pas bien";
                 }
 
                 $infoUser = UserModel::getInfoUser($idUser);
             }
-            
         }
-        
+
         /* -------------- Page Wishlist --------------*/
 
 
         $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            if($_POST['supprimer']){
+            if ($_POST['supprimer']) {
                 header("Refresh: 0");
                 WishlistModel::deleteGameToWishlist($idJeux);
             }
@@ -89,7 +83,7 @@ class ProfilController
                 }
             }
         }
-        
+
         require '../src/view/profil.php';
     }
 }

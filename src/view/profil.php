@@ -99,7 +99,8 @@ $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
             <div id="container-historique">
                 <?php foreach ($tableauxHistorique as $historique) { ?>
                     <input type="hidden" name="idJeux" value="<?php $historique['idJeux'] ?>">
-                    <div id="historique" class="m-4 container" onclick=" Redirection(<?php $idJeux ?>) ">
+             
+                    <div id="historique" class="m-4 container" onclick=" Redirection(<?= $historique['idJeux']?>) ">
                         <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
                         <div class="overlay">
                             <div id="text"> <?php echo $historique['nom'] ?> </div>
