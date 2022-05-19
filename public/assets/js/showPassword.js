@@ -4,7 +4,7 @@
  * @return true/false
  * @author Flavio Soares Rodrigues
  */
-function HidePassword()
+function ShowPassword()
 {
     let passwordField = document.getElementById("password");
     let passwordField2 = document.getElementById("password2");

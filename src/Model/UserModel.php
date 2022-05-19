@@ -105,6 +105,28 @@ class UserModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
+    /**
+     * Vérifie l'existance de l'email
+     * @param string $email
+     * @return mixed|void
+     * @author Flavio Soares Rodrigues
+     */
+    public static function emailExist (string $email)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                SELECT EXISTS( SELECT `email` FROM `user` WHERE `email` = ?) AS email_exists;
+            ");
+            $query->execute([$email]);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     #endregion
 
     /*------------------------- Insert -------------------------*/
@@ -295,6 +317,27 @@ class UserModel
     }
 
 
-    // (à faire) function updateUserPassword
+    /**
+     * Change le mot de passe de l'utilisateur grâce au nouveau mot de passe et à un e-mail donnée en paramètre
+     * @param $passwordHash
+     * @param $email
+     * @return void
+     */
+    public static function updatePasswordByEmail($passwordHash, $email)
+    {
+        try
+        {
+            $query = BaseDonnee::getConnexion()->prepare("
+                UPDATE `user`
+                SET `password`= ?
+                WHERE `email` = ?
+            ");
+            $query->execute([$passwordHash, $email]);
+        }
+        catch (Exception $e)
+        {
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+        }
+    }
     #endregion
 }

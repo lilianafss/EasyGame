@@ -11,6 +11,7 @@ function SessionStart()
     {
         $_SESSION = [
             'idUser' => '',
+            'email' => '',
             'connected' => false,
             'admin' => false,
             'idJeux' => '',

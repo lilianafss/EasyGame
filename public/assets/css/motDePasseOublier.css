@@ -1,0 +1,63 @@
+#message
+{
+    display: none;
+    text-align: center;
+
+    width: 60%;
+    height: 80px;
+
+    line-height: 80px;
+    margin: 2rem auto 1rem auto;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+
+fieldset
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+legend
+{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: royalblue;
+    text-align: center;
+}
+
+.inputContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+    color: royalblue;
+}
+
+#email
+{
+    width: 15%;
+    margin: auto;
+    text-align: center;
+}
+
+#submitContainer
+{
+    width: 100%;
+}
+
+#submit
+{
+    width: 8%;
+    color: #fff;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, royalblue, dodgerblue, deepskyblue);
+    font-weight: bold;
+    border: none;
+}

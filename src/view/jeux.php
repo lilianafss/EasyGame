@@ -32,6 +32,7 @@ if ($BOOL == false) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
     <title><?= $infoJeux['nom'] ?></title>
     <?php require_once "style.php" ?>
+    <link rel="stylesheet" href="/assets/css/jeux.css">
 
 </head>
 

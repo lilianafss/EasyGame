@@ -14,8 +14,8 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier</title>
-
     <?php require_once "style.php" ?>
+    <link rel="stylesheet" href="assets/css/panier.css">
 </head>
 <?php require_once "header.php";
 $_SESSION['nbPanel'] = 1 ?>
@@ -158,17 +158,12 @@ $_SESSION['nbPanel'] = 1 ?>
 
                                                             </form>
                                                         </div>
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         <?php } ?>
-
-
 
         <script>
             $(function() {

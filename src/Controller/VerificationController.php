@@ -1,5 +1,4 @@
 <?php
-
 namespace EasyGame\Controller;
 
 use EasyGame\Model\UserModel;
@@ -7,9 +6,9 @@ use PDOException;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../vendor/phpmailer/phpmailer/src/SMTP.php';
-require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require_once '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require_once '../vendor/phpmailer/phpmailer/src/SMTP.php';
+require_once '../vendor/phpmailer/phpmailer/src/Exception.php';
 require_once('../src/php/tools.php');
 
 class VerificationController

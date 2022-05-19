@@ -65,8 +65,7 @@ class PanierController
         //si le bouton est cliquer on supprime un jeux
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['trash']) {
-              
-                var_dump($_SESSION['test']);
+
                 foreach ($tableauxPanier as $panier) {
                     if ($panier["idJeux"] == $idJeux) {
                         $_SESSION["total"] = $_SESSION["total"] - $panier["prix"];

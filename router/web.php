@@ -1,4 +1,5 @@
 <?php
+
 use Pecee\SimpleRouter\SimpleRouter;
 use PHPMailer\PHPMailer\src\PHPMailer;
 use PHPMailer\PHPMailer\src\SMTP;
@@ -14,6 +15,7 @@ use EasyGame\Controller\AjouterJeuxController;
 use EasyGame\Controller\VerificationController;
 use EasyGame\Controller\EffacerController;
 use EasyGame\Controller\MotDePasseOublierController;
+use EasyGame\Controller\ModifierMotDePasseController;
 use EasyGame\Controller\DeconnexionController;
 use EasyGame\Controller\ModifierController;
 use EasyGame\Controller\ProfilController;
@@ -31,6 +33,7 @@ SimpleRouter::form('/ajouterJeux', [AjouterJeuxController::class, 'ajouterJeux']
 SimpleRouter::form('/verification', [VerificationController::class, 'VerifierCompte']); // page de vérification de compte
 SimpleRouter::form('/effacer', [EffacerController::class, 'effacer']); // page effacer
 SimpleRouter::form('/motDePasseOublier', [MotDePasseOublierController::class, 'motDePasseOublier']); // page de récupération de l'email pour mdp oublié
+SimpleRouter::form('/modifierMdp', [ModifierMotDePasseController::class, 'ModifierMdp']); // page de récupération de l'email pour mdp oublié
 SimpleRouter::form('/deconnexion', [DeconnexionController::class, 'deconnexion']); // page de déconnnexion
 SimpleRouter::form('/modifier', [ModifierController::class, 'modifierJeu']); //pade de modification de jeu
 SimpleRouter::form('/profil', [ProfilController::class, 'profil']); // page d'accueil du site

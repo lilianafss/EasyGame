@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <?php require_once "style.php" ?>
+    <link rel="stylesheet" href="/assets/css/register.css">
 </head>
 <body class="d-flex flex-column h-100">
 
@@ -40,7 +41,7 @@
 
                 <div class="divForm">
                     <label for="email" class="label-input">E-mail</label>
-                    <input id="email" class="label-input" type="email" name="email" placeholder="exemple@company.ch" value="<?=$email?>">
+                    <input id="email" class="label-input" type="email" name="email" placeholder="example@gmail.com" value="<?=$email?>">
                 </div>
 
                 <div class="divForm">
@@ -55,7 +56,7 @@
 
                 <div class="divForm" id="container-form-bot">
                     <label for="showPassWord" id="containerShowPassWord">
-                        <input type="checkbox" name="showPassWord" id="showPassWord" onclick="HidePassword()">
+                        <input type="checkbox" name="showPassWord" id="showPassWord" onclick="ShowPassword()">
                         <span class="ml-2">Afficher le mot de passe</span>
                     </label>
                     <input class="btnSubmit btn" type="submit" name="submit" value="Valider">
@@ -64,6 +65,6 @@
         </div>
     </main>
     <?php require_once "footer.php"?>
-    <script src="assets/js/register.js"></script>
+    <script src="assets/js/showPassword.js"></script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+h2
+{
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    width: 100%;
+}
+
+main
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+form
+{
+    width: 30%;
+}
+
+.formDiv
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#submit
+{
+    width: 75%;
+    color: #fff;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    font-weight: bold;
+}
+
+#message
+{
+    display: none;
+    text-align: center;
+
+    width: 60%;
+    height: 80px;
+
+    line-height: 80px;
+    margin: 2rem auto 1rem auto;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+
+#submitDiv
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+#showPassWord
+{
+    width:25px;
+    height:25px;
+    margin-right: 10px;
+}
+
+#containerShowPassWord
+{
+    display: flex;
+    width: 100%;
+}
