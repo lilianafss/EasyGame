@@ -21,12 +21,17 @@ class AjouterJeuxController
     {
         // Crée la session si elle n'existe pas
         SessionStart();
+
+        //declaration des variables
         $nomJeux ="";
         $description = "";
         $prix = "";
         $idPegi = "";
         $nbGenre = "";
         $nbPlateforme = "";
+
+        $scriptGenres = "";
+        $scriptPlateformes = "";
 
         $bool = false;
 

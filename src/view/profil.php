@@ -16,20 +16,6 @@ $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
     <title>Document</title>
     <?php require_once "style.php" ?>
 
-    <style>
-        /* .main-container form:first-of-type {
-            width: 900px;
-        } */
-
-        #info button {
-            font-family: FontAwesome;
-            background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
-            color: white;
-            margin: 5px;
-            width: 20%;
-            float: right;
-        }
-    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -159,8 +145,8 @@ $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
                                                         </td>
                                                         <td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
 
-                                                        <td width="15%"><input type="submit" name="AjoutPanier" value="&#xf07a;"></td>
-                                                        <td width="10%" class="text-center"><input type="submit" name="supprimer" value="&#xf014;"></td>
+                                                        <td width="15%"><input type="submit" id ="info-button" name="AjoutPanier" value="&#xf07a;"></td>
+                                                        <td width="10%" class="text-center"><input type="submit" id ="info-button" name="supprimer" value="&#xf014;"></td>
                                                     </tr>
                                                     <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
                                                 </form>

@@ -11,7 +11,7 @@
 
 <body class="d-flex flex-column h-100">
 
-    <?php require_once"header.php" ?>
+    <?php require_once "header.php" ?>
     <main>
         <div class="row d-flex justify-content-center" id="box">
 
