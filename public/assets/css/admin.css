@@ -10,13 +10,27 @@ h1{
 main {
     border: 2px double black;
     border-radius: 5px;
+    flex-direction: column;
     width: 60%;
     margin: auto;
-    padding: auto;
+    margin-bottom: 20px;
     display: flex;
-    flex-flow: column wrap;
+    flex-wrap: wrap;
     text-align: center;
+    justify-content: center;
 } 
+
+main p {
+    margin-bottom: 0px;
+}
+
+main div {
+    border-bottom: 1px solid black;
+}
+
+.liens{
+    font-size:  1.4rem;
+}
 
 .btn{
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
@@ -29,9 +43,9 @@ main {
 #ajouterJoue{
     font-size: 25px;
     text-decoration: none;
-    margin: 0 auto 10px auto;
+    margin-bottom: 10px;
 }
-
+/* 
 tr{
     border-radius: 25px;
     border: 2px solid black;
@@ -40,4 +54,4 @@ tr{
 }
 td, th{
     border: 1px solid black; 
-}
+} */

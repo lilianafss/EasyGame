@@ -15,19 +15,19 @@
         <h1>Modifier</h1>
         <div>
             <?php
-            if ($bool) {
-                $bool = false;
-                if ($nomJeu != "" && $description != "" && $prixJeu != "" && $pegi != "") {
-                    if ($prixJeu > 0) {
-                        $messageErreur = "<p class='messageReussi'>Le jeu a bien été modifié</p>";
-                    } else {
-                        $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";
+                //message d'erreur
+                if(isset($_GET['valid'])){
+                    if($_GET['valid'] == "ok"){
+                        $messageErreur = "<p class='messageReussi'>Les informations du jeu ont bien été modifiées</p>";
                     }
-                } else {
-                    $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis sauf les genres et les plateformes</p>";
+                    elseif($_GET['valid'] == "prix"){
+                        $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zéro</p>";
+                    }
+                    elseif($_GET['valid'] == "non"){
+                        $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis sauf les genres et les plateformes</p>";
+                    }
                 }
-            }
-
+            //affichage de la message d'erreur
             echo $messageErreur;
             ?>
         </div>
@@ -37,21 +37,21 @@
                     <label>
                         Nom du jeu:
                     </label>
-                    <input type="text" style="width:20%;" name="nomJeu" value="<?= $jeu['nom'] ?>">
+                    <input type="text" style="width:100%;" name="nomJeu" value="<?= $jeu['nom'] ?>">
 
                 </p>
                 <p>
                     <label>
                         Description du jeu:
                     </label>
-                    <textarea name="desriptionJeu" rows="6" cols="40"><?= $jeu['description'] ?></textarea>
+                    <textarea name="desriptionJeu" style="width:100%;" rows="6"><?= $jeu['description'] ?></textarea>
                 </p>
 
                 <p>
                     <label>
                         Prix du jeu:
                     </label>
-                    <input type="number" style="width:20%;" step="0.01" name="prixJeu" value="<?= $jeu['prix'] ?>">
+                    <input type="number" style="width:100%;" step="0.01" name="prixJeu" value="<?= $jeu['prix'] ?>">
                 </p>
                 <p>
 

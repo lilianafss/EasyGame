@@ -32,6 +32,7 @@ class ModifierController
         //declaration de la message d'erreur
         $messageErreur = "";
 
+        //declaration des variables
         $nomJeu = "";
         $description = "";
         $prixJeu = "";
@@ -112,16 +113,15 @@ class ModifierController
                         }
 
                         GameModel::updateGame($idJeu, $nomJeu, $description, $prixJeu, $pegi);
-        
+
+                        header('Location: http://easygame.ch/modifier?idJeux='.$idJeu.'&valid=ok');
                       
                     }
                     else{
-                        $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";
+                        header('Location: http://easygame.ch/modifier?idJeux='.$idJeu.'&valid=prix');
                     }
-                    
-                }
-                else{
-                    $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis sauf les genres et les plateformes</p>";
+                }else{
+                    header('Location: http://easygame.ch/modifier?idJeux='.$idJeu.'&valid=non');
                 }
             }
         }

@@ -47,7 +47,7 @@
                         </a>
                         <p id="panier" class="texte-icon">Panier</p>
                        
-                    </li>
+                        </li>
                       
                         
                        <li class="nav-item nav-li">
