@@ -48,7 +48,7 @@ class PanierController
         $quantite = 0;
 
         $btnSupprimer = filter_input(INPUT_POST, 'trash', FILTER_SANITIZE_SPECIAL_CHARS);
-//        $btnPayer = filter_input(INPUT_POST, 'payer', FILTER_SANITIZE_SPECIAL_CHARS);
+        $btnPayer = filter_input(INPUT_POST, 'payer', FILTER_SANITIZE_SPECIAL_CHARS);
 
         $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
         if (!$_SESSION['connected']) {
@@ -83,9 +83,7 @@ class PanierController
             }
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-
-                if ($_POST['payer']) {
-
+                if ($btnPayer == "Payer ".$_SESSION['total']." CHF") {
                     $apiContext = new ApiContext(
                         new OAuthTokenCredential(
                             'AXHuFZprDDdz67bEgvtu4ds0_nhdUlhmKS5KQVGuPD8XwcQINPZrPk3FnzcsQGB3ZR8A9Nk0Ns4c4cdw', //client ID

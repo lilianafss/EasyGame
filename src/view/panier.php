@@ -83,7 +83,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                         <?php if ($_SESSION['nbPanel'] == 1) { ?>
                                             <div id="paypal">
                                                 <?php if ($_SESSION['quantite'] != 0) { ?>
-                                                    <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mt-3 mb-3"></div>
+                                                    <div><input type="submit" name="payer" value="Payer <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mt-3 mb-3"></div>
                                                 <?php } elseif ($_SESSION['quantite'] == 0) { ?>
                                                     <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
                                                 <?php  } ?>
