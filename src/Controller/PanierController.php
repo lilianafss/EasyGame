@@ -30,6 +30,8 @@ use PayPal\Exception\PayPalConnectionException;
 
 require_once('../src/php/tools.php');
 
+
+
 class PanierController
 {
     public function panier()
@@ -44,7 +46,7 @@ class PanierController
         $jeux = GameModel::getGames($userUtilisateur);
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $quantite = 0;
-
+        $url=url('success');
         $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
         //parcourir le panier
         foreach ($tableauxPanier as $panier) {
@@ -125,8 +127,8 @@ class PanierController
 
                 //redirection avec des urls selon si le paiement a reussi ou echoué
                 $redirectUrls = new RedirectUrls();
-                $redirectUrls->setReturnUrl("http://easygame.ch/success")
-                    ->setCancelUrl("http://easygame.ch/error");
+                $redirectUrls->setReturnUrl(URL_PRINCIPAL.url("success"))
+                    ->setCancelUrl(URL_PRINCIPAL.url("error"));
 
                 //paiement
                 $payement = new Payment();

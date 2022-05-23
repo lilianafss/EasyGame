@@ -22,19 +22,20 @@ use EasyGame\Controller\ProfilController;
 use EasyGame\Controller\errorController;
 use EasyGame\Controller\successController;
 
-SimpleRouter::form('/', [AccueilController::class, 'accueil']); // page d'accueil du site
-SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion']); // page de connexion au site
-SimpleRouter::form('/nouveau', [RegisterController::class, 'nouveauCompte']); // page de création de compte
-SimpleRouter::form('/jeux', [JeuxController::class, 'jeux']); // page d'un jeu (idJeu)
-SimpleRouter::form('/panier', [PanierController::class, 'panier']); // page du panier
-SimpleRouter::form('/admin', [AdminController::class, 'admin']); // page administrateur
-SimpleRouter::form('/ajouterJeux', [AjouterJeuxController::class, 'ajouterJeux']); // page d'ajout de jeux
-SimpleRouter::form('/verification', [VerificationController::class, 'VerifierCompte']); // page de vérification de compte
-SimpleRouter::form('/effacer', [EffacerController::class, 'effacer']); // page effacer
-SimpleRouter::form('/motDePasseOublier', [MotDePasseOublierController::class, 'motDePasseOublier']); // page de récupération de l'email pour mdp oublié
-SimpleRouter::form('/modifierMdp', [ModifierMotDePasseController::class, 'ModifierMdp']); // page de récupération de l'email pour mdp oublié
-SimpleRouter::form('/deconnexion', [DeconnexionController::class, 'deconnexion']); // page de déconnnexion
-SimpleRouter::form('/modifier', [ModifierController::class, 'modifierJeu']); //pade de modification de jeu
-SimpleRouter::form('/profil', [ProfilController::class, 'profil']); // page d'accueil du site
-SimpleRouter::form('/error', [errorController::class, 'error']); // page d'error pour paypal
-SimpleRouter::form('/success', [successController::class, 'success']); // page de succes pour paypal
+SimpleRouter::form('/', [AccueilController::class, 'accueil'])->name('accueil'); // page d'accueil du site
+SimpleRouter::form('/connexion', [ConnexionController::class, 'connexion'])->name('connexion'); // page de connexion au site
+SimpleRouter::form('/nouveau', [RegisterController::class, 'nouveauCompte'])->name('nouveau'); // page de création de compte
+SimpleRouter::form('/jeux', [JeuxController::class, 'jeux'])->name('jeux'); // page d'un jeu (idJeu)
+SimpleRouter::form('/panier', [PanierController::class, 'panier'])->name('panier'); // page du panier
+SimpleRouter::form('/admin', [AdminController::class, 'admin'])->name('admin'); // page administrateur
+SimpleRouter::form('/ajouterJeux', [AjouterJeuxController::class, 'ajouterJeux'])->name('ajouterJeux'); // page d'ajout de jeux
+SimpleRouter::form('/verification', [VerificationController::class, 'VerifierCompte'])->name('VerifierCompte'); // page de vérification de compte
+SimpleRouter::form('/effacer', [EffacerController::class, 'effacer'])->name('effacer'); // page effacer
+SimpleRouter::form('/motDePasseOublier', [MotDePasseOublierController::class, 'motDePasseOublier'])->name('motDePasseOublier'); // page de récupération de l'email pour mdp oublié
+SimpleRouter::form('/modifierMdp', [ModifierMotDePasseController::class, 'ModifierMdp'])->name('ModifierMdp'); // page de récupération de l'email pour mdp oublié
+SimpleRouter::form('/deconnexion', [DeconnexionController::class, 'deconnexion'])->name('deconnexion'); // page de déconnnexion
+SimpleRouter::form('/modifier', [ModifierController::class, 'modifierJeu'])->name('modifierJeu'); //pade de modification de jeu
+SimpleRouter::form('/profil', [ProfilController::class, 'profil'])->name('profil'); // page d'accueil du site
+SimpleRouter::form('/error', [errorController::class, 'error'])->name('error'); // page d'error pour paypal
+SimpleRouter::form('/success', [successController::class, 'success'])->name('success'); // page de succes pour paypal
+

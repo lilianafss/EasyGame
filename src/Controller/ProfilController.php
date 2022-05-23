@@ -94,12 +94,12 @@ class ProfilController
                 $_SESSION["quantite"]++;
 
                 if (!$_SESSION['connected']) {
-                    header("Location: http://easygame.ch/connexion");
+                    header("Location:".URL_PRINCIPAL.url("connexion"));
                     $_SESSION['idJeux'] = $idJeux;
                 } else {
                     $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                     WishlistModel::deleteGameToWishlist($idJeux);
-                    header("Location: http://easygame.ch/panier");
+                    header("Location:".URL_PRINCIPAL.url("panier"));
                 }
             }
         }

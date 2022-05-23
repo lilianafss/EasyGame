@@ -27,7 +27,7 @@ class successController
                 $_SESSION['total'] = 0;
                 $_SESSION['totalPanier'] = 0;
                 $_SESSION['quantite'] = 0;
-                header("location: http://easygame.ch/");
+                header("location:".URL_PRINCIPAL);
             }
         }
 

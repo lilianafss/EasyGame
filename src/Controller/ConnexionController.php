@@ -44,7 +44,7 @@ class ConnexionController
                         $_SESSION['admin'] = boolval(UserModel::getInfoUser($_SESSION['idUser'])['admin']);
                         $_SESSION['connected'] = true;
 
-                        header("location: http://easygame.ch");
+                        header("location:".URL_PRINCIPAL);
                         exit();
                     } else {
                         $_SESSION = [

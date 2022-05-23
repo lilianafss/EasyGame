@@ -23,7 +23,7 @@ class AdminController
 
         if (!$_SESSION['admin'])
         {
-            header("location: http://easygame.ch");
+            header("location:".URL_PRINCIPAL);
             exit();
         }
         else

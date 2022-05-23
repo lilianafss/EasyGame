@@ -50,7 +50,7 @@ class RegisterController
         $subj = 'Email de confirmation';
         $msg = '<h1>Complètez votre création de compte en vérifiant votre email ci-dessous </h1>
                 <button type="submit">
-                    <a href="http://easygame.ch/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
+                    <a href="'.URL_PRINCIPAL.'/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
                 </button>';
 
         $errorMessage = "";

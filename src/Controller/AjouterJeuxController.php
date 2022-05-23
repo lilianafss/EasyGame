@@ -41,7 +41,7 @@ class AjouterJeuxController
 
         //si on n'est pas connecté en tant d'admin, on va à la page d'accueil
         if (!$_SESSION['admin']) {
-            header("location: http://easygame.ch");
+            header("location:".URL_PRINCIPAL);
             exit();
         } else {
             

@@ -27,7 +27,7 @@ class AccueilController
         if ($_SESSION['connected'] && $_SESSION['idJeux'] != "") {
             PanierModel::addGameToPanier($_SESSION['idUser'], $_SESSION['idJeux']);
             $_SESSION['idJeux'] = "";
-            header("Location: http://easygame.ch/panier");
+            header("Location:".URL_PRINCIPAL.url("panier"));
         }
 
         $recherche = filter_input(INPUT_GET, 'recherche');
