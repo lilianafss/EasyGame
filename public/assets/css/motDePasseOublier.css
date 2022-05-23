@@ -12,7 +12,7 @@
     font-weight: bold;
 }
 
-fieldset
+main
 {
     display: flex;
     flex-wrap: wrap;
@@ -21,13 +21,13 @@ fieldset
     width: 100%;
 }
 
-legend
+h1
 {
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: royalblue;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: 35px;
+    margin-bottom: 40px;
 }
 
 .inputContainer
@@ -36,13 +36,17 @@ legend
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    margin: 20px 0;
-    color: royalblue;
+    margin: 10px 0;
+}
+
+label
+{
+    margin-bottom: 5px;
 }
 
 #email
 {
-    width: 15%;
+    width: 20%;
     margin: auto;
     text-align: center;
 }
@@ -54,10 +58,26 @@ legend
 
 #submit
 {
-    width: 8%;
+    width: 20%;
     color: #fff;
     font-size: 1.1rem;
-    background: linear-gradient(90deg, royalblue, dodgerblue, deepskyblue);
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     font-weight: bold;
     border: none;
+    margin-bottom: 40px;
 }
+
+/*#region Media*/
+@media only screen and (max-width: 769px)
+{
+    #submit
+    {
+        width: 70%;
+    }
+
+    #email
+    {
+        width: 70%;
+    }
+}
+/*#endregion*/

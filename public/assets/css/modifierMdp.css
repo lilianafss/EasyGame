@@ -1,10 +1,13 @@
-h2
+
+h1
 {
     display: flex;
     justify-content: center;
-    font-weight: 500;
-    width: 100%;
+    font-weight: bold;
+    margin-top: 35px;
+    margin-bottom: 40px;
 }
+
 
 main
 {
@@ -70,3 +73,37 @@ form
     display: flex;
     width: 100%;
 }
+
+/*#region Media*/
+@media only screen and (max-width: 1400px)
+{
+    form
+    {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 1000px)
+{
+    form
+    {
+        width: 60%;
+    }
+
+    #submit
+    {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 769px)
+{
+    form
+    {
+        width: 90%;
+    }
+
+    #submit
+    {
+        width: 50%;
+    }
+}
+/*#endregion*/
