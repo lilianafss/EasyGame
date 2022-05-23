@@ -17,9 +17,10 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
     <?php require_once "style.php" ?>
     <link rel="stylesheet" href="/assets/css/panier.css">
 </head>
+
 <body class="d-flex flex-column h-100">
     <header>
-        <?php require_once "header.php"?>
+        <?php require_once "header.php" ?>
         <?php $_SESSION['nbPanel'] = 1 ?>
     </header>
 
@@ -74,7 +75,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                         <form action="" method="get">
                                             <!-- Credit card form tabs -->
                                             <ul id="moyen" role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-2">
-                                                <li id="credit" class="nav-item"> <a id="creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li>
+                                                <!-- <li id="credit" class="nav-item"> <a id="creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li> -->
                                                 <li class="nav-item"> <a data-toggle="pill" href="?methodPayement=Paypal" class="nav-link "> <i class="fab fa-paypal mr-2" "></i> Paypal </a> </li>
                                             </ul>
                                         </form>
@@ -82,75 +83,20 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
 
                                     <!-- Credit card form content -->
                                     <div class=" tab-content">
-                                        <?php if (isset($_GET["methodPayement"])) {
-                                            if ($_GET["methodPayement"] == "Paypal") {
-                                                $_SESSION['nbPanel'] = 2 ?>
-                                                <div id="paypal">
-                                                    <?php if ($_SESSION['quantite'] != 0) { ?>
-                                                        <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3"></div>
-                                                    <?php } elseif ($_SESSION['quantite'] == 0) { ?>
-                                                        <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
-                                                    <?php  } ?>
+                                        <?php if ($_SESSION['nbPanel'] == 1) { ?>
+                                            <div id="paypal">
+                                                <?php if ($_SESSION['quantite'] != 0) { ?>
+                                                    <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3"></div>
+                                                <?php } elseif ($_SESSION['quantite'] == 0) { ?>
+                                                    <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
+                                                <?php  } ?>
 
 
-                                                    <p class="text-muted"> Note:Après avoir cliqué sur le bouton, vous serez dirigé vers une passerelle sécurisée pour le paiement. Après avoir terminé le processus de paiement, vous serez redirigé vers la page d'accueil du site</p>
-                                                </div>
-                                            <?php } ?>
-                                        <?php  } ?>
-                                        <?php if ($_SESSION['nbPanel'] == 1) {?>
-                                            <div id="credit-card" class="tab-pane fade show active pt-3">
-                                                <form role="form" onsubmit="event.preventDefault()">
-                                                    <div class="form-group">
-                                                        <label class="label-payement" for="username">Propriétaire de la carte</label>
-                                                        <input type="text" name="username" placeholder="Nom du propriétaire de la carte" required class="form-control ">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="label-payement" for="cardNumber">Numéro de la carte</label>
-                                                        <div class="input-group">
-                                                            <input type="text" name="cardNumber" placeholder="Numéro de la carte" class="form-control " required>
-                                                            <div class="input-group-append">
-                                                                <span class="input-group-text text-muted">
-                                                                    <i class="fab fa-cc-visa mx-1"></i>
-                                                                    <i class="fab fa-cc-mastercard mx-1"></i>
-                                                                    <i class="fab fa-cc-amex mx-1"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-8">
-                                                            <div class="form-group">
-                                                                <label class="label-payement">
-                                                                    <span class="hidden-xs">Date d'expiration</span>
-                                                                </label>
-                                                                <div class="input-group">
-                                                                    <input type="number" placeholder="MM" name="month" class="form-control" required>
-                                                                    <input type="number" placeholder="YY" name="year" class="form-control" required>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group mb-4">
-                                                                <label class="label-payement" data-toggle="tooltip" title="Three digit CV code on the back of your card">
-                                                                    CVV <i class="fa fa-question-circle d-inline"></i>
-                                                                </label>
-                                                                <input type="text" required class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <?php if ($_SESSION['quantite'] != 0) { ?>
-                                                        <div>
-                                                            <input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3">
-                                                        </div>
-                                                    <?php } elseif ($_SESSION['quantite'] == 0) { ?>
-                                                        <div>
-                                                            <input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3">
-                                                        </div>
-                                                    <?php } ?>
-                                                </form>
+                                                <p class="text-muted"> Note:Après avoir cliqué sur le bouton, vous serez dirigé vers une passerelle sécurisée pour le paiement. Après avoir terminé le processus de paiement, vous serez redirigé vers la page d'accueil du site</p>
                                             </div>
+
                                         <?php } ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -167,4 +113,5 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
     </main>
     <?php require_once 'footer.php'; ?>
 </body>
+
 </html>
