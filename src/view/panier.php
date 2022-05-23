@@ -4,7 +4,7 @@ use EasyGame\Model\PanierModel;
 
 $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
 
-
+@ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -46,6 +46,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                             <div class="panier-container w-50">
                                 <div class="panier-item">
                                     <h4 class="nomargin"><?= $panier['nom'] ?></h4>
+                                    
                                     <input type="hidden" name="idJeux" value="<?= $panier['idJeux'] ?>">
                                 </div>
 

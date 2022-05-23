@@ -30,7 +30,7 @@ use PayPal\Exception\PayPalConnectionException;
 
 require_once('../src/php/tools.php');
 
-
+@ini_set('display_errors', 'on');
 
 class PanierController
 {
@@ -52,7 +52,7 @@ class PanierController
 
         $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
         if (!$_SESSION['connected']) {
-            header("location: http://easygame.ch");
+            header("location:".URL_PRINCIPAL);
             exit();
         } else {
             //parcourir le panier
