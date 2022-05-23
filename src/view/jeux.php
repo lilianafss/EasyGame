@@ -49,7 +49,6 @@ if ($BOOL == false) {
             <h3>A propos du jeu</h3>
             <p><?= $infoJeux['description'] ?></p>
 
-
             <!-- Si l'utilisateur n'est pas connecte le formulaire d'avis ne vas pas s'afficher -->
             <?php
             if ($idUser != null) {
@@ -65,8 +64,7 @@ if ($BOOL == false) {
                                                 <div class="w-100">
                                                     <h5>Laissez votre avis</h5>
                                                     <?php
-                                                    $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-
+                                                        $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
                                                     ?>
                                                     <div class="starrating risingstar d-flex flex-row-reverse">
                                                         <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>

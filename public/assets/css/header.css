@@ -111,7 +111,8 @@ header {
         width: 80px;
         text-align: center;
     }
-    nav {
-        width: 70%;
+    #logoContainer
+    {
+        flex-wrap: wrap;
     }
 }

@@ -6,12 +6,12 @@ margin: 0;
 h1
 {
     width: 100%;
+    margin: 30px auto;
 }
 
 input[type=submit] {
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
-    margin: 5px;
 }
 
 ul
@@ -83,10 +83,32 @@ input[type="radio"] {
 } 
 /*--------------------Main--------------------*/
 /*#region Main*/
- #jeux-container
+main
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: column;*/
+}
+
+#jeux-container
 {
     display: flex;
-    width: 60%; 
+    width: 65%;
+    margin: auto;
+}
+
+.panier-container
+{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 40px;
+}
+
+.panier-item
+{
+    width: 100%;
 }
 
 #paiement-container{
@@ -94,21 +116,29 @@ input[type="radio"] {
    font-size: 18px;
 } 
 
-#test
+#payement-container
 {
-    width: 50%;
-    margin: auto;
+    width: 30%;
+    margin: 0 auto;
 }
 
-main
+form
 {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+}
+
+td
+{
+    text-align: center;
+}
+
+.actions
+{
+    width: auto;
 }
 
 #payement{
-    width: 100%;
+    width: 90%;
     
 }
 #moyen{
@@ -142,21 +172,24 @@ main
 .card-img
 {
     width: 100%;
-    height: 65%;
+    height: 300px;
 
     border-radius: 20px;
 }
 
-
+.row
+{
+    display: block;
+}
 
 /*--------------------Media--------------------*/
 /*#region Media*/
  @media only screen and (max-width: 1400px)
 {
-    .card
-    {
-        width: 45%;
-    }
+    /*.card-img*/
+    /*{*/
+    /*    height: 250px;*/
+    /*}*/
 }
 
 @media only screen and (max-width: 1024px)

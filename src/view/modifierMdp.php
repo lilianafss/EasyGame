@@ -14,7 +14,7 @@
         <?php require_once "header.php" ?>
     </header>
     <main class="flex-shrink-0">
-        <h2>Modifier mon mot de passe</h2>
+        <h1>Modifier mon mot de passe</h1>
         <div class="w-100">
             <div class="messageDiv" id="msg"><?=$message?></div>
             <div class="w-100">
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="formDiv">
-                        <label for="password2">Confirmer nouveau mot de passe</label>
+                        <label for="password2">Confirmer le nouveau mot de passe</label>
                         <input id="password2" name="password2" type="password" minlength="8" placeholder="Doit être indentique au champ précédent" value="<?=$password2?>">
                     </div>
 
