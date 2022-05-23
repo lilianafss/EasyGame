@@ -34,7 +34,8 @@ class AdminController
             $submit = filter_input(INPUT_POST,'submit',FILTER_SANITIZE_SPECIAL_CHARS);
 
             if($submit == "ok"){
-                header("location: ".URL_PRINCIPAL.url('ajouterJeux'));
+                
+                header("Location:".URL_PRINCIPAL.url("ajouterJeux"));
             }
 
             //recuperer les jeux de la base de donnée

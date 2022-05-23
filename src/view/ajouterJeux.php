@@ -123,7 +123,7 @@
     </main>
     <?php require_once "footer.php"; ?>
 
-    <script src="assets/js/ajouterJeux.js"></script>
+    <script src="/assets/js/ajouterJeux.js"></script>
     <?= $scriptGenres ?>
     <?= $scriptPlateformes ?>
 </body>

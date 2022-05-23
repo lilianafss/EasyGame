@@ -2,7 +2,7 @@
 
     <div id="logoContainer">
         <a href="<?= url('accueil') ?>">
-            <img id="logo" alt="logo" src="assets/image/logo.png">
+            <img id="logo" alt="logo" src="/assets/image/logo.png">
         </a>
     </div>
 
