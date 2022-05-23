@@ -36,13 +36,12 @@
                     <div class="formItemsContainer">
                         <input class="btn boutton" type="submit" name="btnSubmit" value="Se connecter">
                     </div>
-
                 </form>
 
                 <a href="/motDePasseOublier">Mot de passe oublié?</a>
             </div>
 
-            <p>ou</p>
+            <p class="my-2">ou</p>
 
             <div class="col justify-content-center align-items-center" id="linkIncrit">
                 <a href="/nouveau">Crée un nouveau compte</a>
