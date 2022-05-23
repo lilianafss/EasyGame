@@ -3,28 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="34519622-e487-471c-a7c9-bf26681537de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/body.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/general.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/panier.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/panier.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ajouterJeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ajouterJeux.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/effacer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/effacer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/error.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/jeux.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/modifierJeu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/modifierJeu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/modifierMdp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/modifierMdp.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/motDePasseOublier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/motDePasseOublier.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/profil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/style.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/style.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/success.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/success.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653283973698</updated>
-      <workItem from="1653283974135" duration="9151000" />
+      <workItem from="1653283974135" duration="13097000" />
     </task>
     <servers />
   </component>
