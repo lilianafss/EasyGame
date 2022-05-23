@@ -15,35 +15,47 @@
         <?php require_once "header.php" ?>
     </header>
     <main>
+
         <h1>Page d'Admin</h1>
+
+
         <div>
             <form method="POST">
-                <button class="btn" id="ajouterJoue" name="submit" value="ok" type="submit">Ajouter jeux</button>
+                <button class="btn" id="ajouterJeu" name="submit" value="ok" type="submit">Ajouter jeux</button>
             </form>
+            <button class="btn btnUser"> <a class="btnUser" href="#utilisateur">Utilisateurs</a></button>
         </div>
-            <?php
-            //affichage des jeux
-                      
-            foreach ($jeux as $unJeux) {
-                $stringTableJ .= "<div>
+
+        <h2 id="jeux">Jeux du site</h2>
+        <?php
+        //affichage des jeux
+
+        foreach ($jeux as $unJeux) {
+            $stringTableJ .= "<div>
                     <p> <b>IdJeux :</b>  " . $unJeux['idJeux'] . "</p>
                     <p><b>Nom :</b> " . $unJeux['nom'] . "</p>
                     <p> <b>Description :</b> " . $unJeux['description'] . "</p>
                     <p> <b>Prix :</b> " . $unJeux['prix'] . "</p>
                     <p> <b>Pegi :</b> " . $unJeux['pegi'] . "</p>
                     <p> <b>Image :</b> <img class='img-fluid' src='data:image/jpeg;base64," . base64_encode($unJeux['image']) . "'/></p>
-                    <p><h3><small><a href='".URL_PRINCIPAL.url('effacer')."?idJeux=" . $unJeux['idJeux'] . "'>Effacer</a> |
-                    <a class:'liens' href='".URL_PRINCIPAL.url('modifierJeu')."?idJeux=" . $unJeux['idJeux'] . "'>Modifier</a></small></h3></p>
+                    <p><h3><small><a href='" . URL_PRINCIPAL . url('effacer') . "?idJeux=" . $unJeux['idJeux'] . "'>Effacer</a> |
+                    <a class:'liens' href='" . URL_PRINCIPAL . url('modifierJeu') . "?idJeux=" . $unJeux['idJeux'] . "'>Modifier</a></small></h3></p>
                     </div>";
-            }
+        }
 
-            echo $stringTableJ;
-            ?>
-            <?php
-            //affichage des utilisateurs
+        echo $stringTableJ;
+        ?>
+        <div>
+            <button class="btn btnJeux"> <a class="btnJeux" href="#jeux">Jeux du site</a></button>
 
-            foreach ($users as $unUser) {
-                $stringTableU .= " 
+        </div>
+        <h2 id="utilisateur">Utilisateurs</h2>
+
+        <?php
+        //affichage des utilisateurs
+
+        foreach ($users as $unUser) {
+            $stringTableU .= " 
                     <div>
                     <p><b>IdUser : </b>" . $unUser['idUser'] . "</p>
                     <p><b>Pseudo : </b>" . $unUser['pseudo'] . "</p>
@@ -52,15 +64,15 @@
                     <p><b>Email : </b>" . $unUser['email'] . "</p>
                     <p><b>Admin : </b>" . $unUser['admin'] . "</p>
                     <p><b>USER_STATUS : </b>" . $unUser['user_status'] . "</p>
-                    <p><h3><small><a href='".URL_PRINCIPAL.url('effacer')."?idUser=" . $unUser['idUser'] . "'>Effacer</a> |
-                    <a href='".URL_PRINCIPAL.url('effacer')."?disabled=" . $unUser['idUser'] . "'>Disabled</a> |
-                    <a href='".URL_PRINCIPAL.url('effacer')."?actif=" . $unUser['idUser'] . "'>Actif</a></h3></small></p>
+                    <p><h3><small><a href='" . URL_PRINCIPAL . url('effacer') . "?idUser=" . $unUser['idUser'] . "'>Effacer</a> |
+                    <a href='" . URL_PRINCIPAL . url('effacer') . "?disabled=" . $unUser['idUser'] . "'>Disabled</a> |
+                    <a href='" . URL_PRINCIPAL . url('effacer') . "?actif=" . $unUser['idUser'] . "'>Actif</a></h3></small></p>
                     </div>";
-            }
+        }
 
-            echo $stringTableU;
+        echo $stringTableU;
 
-            ?>
+        ?>
     </main>
     <?php require_once "footer.php"; ?>
     <script src="/assets/js/admin.js"></script>
