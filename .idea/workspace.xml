@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="34519622-e487-471c-a7c9-bf26681537de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/modifierMdp.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/modifierMdp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/motDePasseOublier.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/motDePasseOublier.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/panier.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/panier.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/connexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/connexion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/connexion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/jeux.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/modifierMdp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/modifierMdp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/motDePasseOublier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/motDePasseOublier.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panier.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

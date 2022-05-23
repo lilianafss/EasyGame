@@ -46,7 +46,10 @@ class PanierController
         $jeux = GameModel::getGames($userUtilisateur);
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $quantite = 0;
-        $url=url('success');
+
+        $btnSupprimer = filter_input(INPUT_POST, 'trash', FILTER_SANITIZE_SPECIAL_CHARS);
+//        $btnPayer = filter_input(INPUT_POST, 'payer', FILTER_SANITIZE_SPECIAL_CHARS);
+
         $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
         if (!$_SESSION['connected']) {
             header("location: http://easygame.ch");
@@ -64,7 +67,7 @@ class PanierController
             $_SESSION['quantite'] = $quantite;
             //si le bouton est cliqué on supprime un jeu
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if ($_POST['trash']) {
+                if ($btnSupprimer == "Supprimer") {
 
                     //quand le jeu est supprimé on réduit le total
                     foreach ($tableauxPanier as $panier) {

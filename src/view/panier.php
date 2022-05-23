@@ -37,8 +37,8 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
         <?php } else { ?>
             <h1 class="text-center">Panier</h1>
             <div id="jeux-container">
-                <form method="POST">
-                    <?php foreach ($tableauxPanier as $panier) { ?>
+                <?php foreach ($tableauxPanier as $panier) { ?>
+                    <form method="POST">
                         <div data-th="Product" class="panier-container">
                             <div class="panier-item w-50">
                                 <div class="hidden-xs"><?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($panier['image']) . '"/>'; ?></div>
@@ -58,8 +58,8 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                 </div>
                             </div>
                         </div>
-                    <?php } ?>
-                </form>
+                    </form>
+                <?php } ?>
             </div>
             <div id="payement-container">
                 <form method="POST" action="/panier">

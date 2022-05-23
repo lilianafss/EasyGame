@@ -17,10 +17,7 @@
     </header>
     <main>
         <div class="row d-flex justify-content-center" id="box">
-
-            <div class="row text-center" id="title">
-                <h3>Connexion</h3>
-            </div>
+            <h1 class="title">Connexion</h1>
 
             <div class="col justify-content-center align-items-center">
 
@@ -43,10 +40,6 @@
                 </form>
 
                 <a href="/motDePasseOublier">Mot de passe oublié?</a>
-            </div>
-
-            <div>
-                <hr id="line">
             </div>
 
             <p>ou</p>

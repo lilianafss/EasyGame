@@ -39,6 +39,7 @@ class JeuxController
 
             $submit = filter_input(INPUT_POST, 'envoyer', FILTER_SANITIZE_SPECIAL_CHARS);
             $btnPanier = filter_input(INPUT_POST, 'panier', FILTER_SANITIZE_SPECIAL_CHARS);
+            $btnWishlist = filter_input(INPUT_POST, 'wishlist', FILTER_SANITIZE_SPECIAL_CHARS);
 
             //Récupération des notes et commentaires
             $note = filter_input(INPUT_POST, 'note', FILTER_SANITIZE_NUMBER_INT);
@@ -58,28 +59,35 @@ class JeuxController
                 }
                 header("Refresh: 0;url=jeux?idJeux=$idJeux");
             }
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            if ($_POST['wishlist']) {
-                header("Refresh: 0");
-                WishlistModel::addGameToWishlist($idUser, $idJeux);
-               
-            }
-        }
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if ($_POST['panier']) {
+            if ($_SERVER['REQUEST_METHOD'] == "POST")
+            {
+                if ($btnWishlist == "Ajouter a la wishlist") {
+                    header("Refresh: 0");
+                    WishlistModel::addGameToWishlist($idUser, $idJeux);
+                }
 
+                if ($btnPanier == "Ajouter dans le panier")
+                {
                     $quantite++;
                     $_SESSION["quantite"] = $quantite;
 
-                    if (!$_SESSION['connected']) {
+                    if (!$_SESSION['connected'])
+                    {
                         $_SESSION['idJeux'] = $idJeux;
                         header("Location:".URL_PRINCIPAL.url("connexion"));
                         exit();
-                    } else {
+                    }
+                    else
+                    {
                         $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                         header("Location:".URL_PRINCIPAL.url("panier"));
                         exit();
                     }
+                }
+                else if ($btnPanier == "Dans le panier")
+                {
+                    header("Location:".URL_PRINCIPAL.url("panier"));
+                    exit();
                 }
             }
         } else {
