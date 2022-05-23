@@ -39,47 +39,6 @@ class AccueilController
         $listeFiltre = GameModel::getGameByFilters($pegi, $genre, $plateforme);
         $stringJeux = "";
       
-        if ($listeFiltre == "" && $recherche == "") {
-            foreach ($listeJeux as $elementListe) {
-                $stringJeux .= '<div class="card m-4" onclick="Redirection(' . $elementListe['idJeux'] . ')">
-                    <img class="card-img" src="data:image/jpeg;base64,' . base64_encode($elementListe['image']) . '"/>
-                    <div class="card-block">
-                        <h4 class="card-title">' . $elementListe['nom'] . '</h4>
-                        <p class="card-prix">' . $elementListe['prix'] . ' CHF</p>
-                    </div>
-                </div>';
-            }
-        } elseif ($listeFiltre == "" && $recherche != "") {
-
-            $requete = GameModel::searchGame($recherche);
-            if ($requete != null) {
-                $stringJeux .= '<p> Vous avez recherché : ' . $recherche . '</p>';
-                foreach ($requete as $elementListe) {
-                    $stringJeux .= '<div class="card m-4" onclick="Redirection(' . $elementListe['idJeux'] . ')">
-                        <img class="card-img" src="data:image/jpeg;base64,' . base64_encode($elementListe['image']) . '"/>
-                        <div class="card-block">
-                            <h4 class="card-title">' . $elementListe['nom'] . '</h4>
-                            <p class="card-prix">' . $elementListe['prix'] . ' CHF</p>
-                        </div>
-                    </div>';
-                }
-            } else {
-                $stringJeux .= '<p>Aucun resultat</p>';
-            }
-        } elseif ($listeFiltre && $recherche == "") {
-            foreach ($listeFiltre  as $elementListe) {
-                $stringJeux .= '
-                    <div class="card m-4" onclick="Redirection(' . $elementListe['idJeux'] . ')" >
-                        <img class="card-img" src="data:image/jpeg;base64,' . base64_encode($elementListe['image']) . '"/>
-                        <div class="card-block">
-                            <h4 class="card-title">' . $elementListe['nom'] . '</h4>
-                            <p class="card-prix">' . $elementListe['prix'] . ' CHF</p>
-                        </div>
-                    </div>';
-            }
-        } elseif ($listeFiltre == null) {
-            $stringJeux .= '<p>Aucun resultat</p>';
-        }
         require "../src/view/accueil.php";
     }
 

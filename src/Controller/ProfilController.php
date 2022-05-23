@@ -35,54 +35,58 @@ class ProfilController
 
         $submit = filter_input(INPUT_POST, 'valider', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        if ($submit == "Valider") {
-            if ($nom != "") {
-                if ($nom != $infoUser['nom']) {
-                    UserModel::updateInfoUser($idUser, 'nom', $nom);
-                    $sucessMessage .= "<p>Le nom a bien été modifié</p>";
-                } elseif ($nom == $infoUser['nom']) {
-                    $errorMessage .= "<p>Le nom est identique</p>";
-                }
-            }
-
-            if ($prenom != "") {
-                if ($prenom != $infoUser['prenom']) {
-                    UserModel::updateInfoUser($idUser, 'prenom', $prenom);
-                    $sucessMessage .= "<p>Le prenom a bien été modifié</p>";
-                } elseif ($prenom == $infoUser['prenom']) {
-                    $errorMessage .= "<p>Le prenom est identique</p>";
-                }
-            }
-
-            if ($pseudo != "") {
-                if ($pseudo != $infoUser['pseudo']) {
-                    UserModel::updateInfoUser($idUser, 'pseudo', $pseudo);
-                    $sucessMessage .= "<p>Le pseudo a bien été modifié</p>";
-                } elseif ($pseudo == $infoUser['pseudo']) {
-                    $errorMessage .= "<p>Le pseudo est identique</p>";
-                }
-            }
-
-            if ($motPasseActuel != "" && $nouveauMotPasse != "" && $nouveauMotPasse2 != "") {
-                if (password_verify($motPasseActuel, $motPasseActuelBD['password'])) {
-                    if ($nouveauMotPasse == $nouveauMotPasse2) {
-                        $passwordHash = password_hash($nouveauMotPasse, PASSWORD_BCRYPT);
-                        UserModel::updateInfoUser($idUser, 'password', $passwordHash);
-                        $sucessMessage .= "<p>Le mot de passe a bien été modifié</p>";
-                    } elseif ($nouveauMotPasse != $nouveauMotPasse2) {
-                        $errorMessage .= "<p>Les mot de passe ne sont pas identique</p>";
+        if (!$_SESSION['connected']) {
+            header("location: http://easygame.ch");
+            exit();
+        } else {
+            if ($submit == "Valider") {
+                if ($nom != "") {
+                    if ($nom != $infoUser['nom']) {
+                        UserModel::updateInfoUser($idUser, 'nom', $nom);
+                        $sucessMessage .= "<p>Le nom a bien été modifié</p>";
+                    } elseif ($nom == $infoUser['nom']) {
+                        $errorMessage .= "<p>Le nom est identique</p>";
                     }
-                } else {
-                    $errorMessage .= "<p>Le mot de passe erroné</p>";
                 }
+
+                if ($prenom != "") {
+                    if ($prenom != $infoUser['prenom']) {
+                        UserModel::updateInfoUser($idUser, 'prenom', $prenom);
+                        $sucessMessage .= "<p>Le prenom a bien été modifié</p>";
+                    } elseif ($prenom == $infoUser['prenom']) {
+                        $errorMessage .= "<p>Le prenom est identique</p>";
+                    }
+                }
+
+                if ($pseudo != "") {
+                    if ($pseudo != $infoUser['pseudo']) {
+                        UserModel::updateInfoUser($idUser, 'pseudo', $pseudo);
+                        $sucessMessage .= "<p>Le pseudo a bien été modifié</p>";
+                    } elseif ($pseudo == $infoUser['pseudo']) {
+                        $errorMessage .= "<p>Le pseudo est identique</p>";
+                    }
+                }
+
+                if ($motPasseActuel != "" && $nouveauMotPasse != "" && $nouveauMotPasse2 != "") {
+                    if (password_verify($motPasseActuel, $motPasseActuelBD['password'])) {
+                        if ($nouveauMotPasse == $nouveauMotPasse2) {
+                            $passwordHash = password_hash($nouveauMotPasse, PASSWORD_BCRYPT);
+                            UserModel::updateInfoUser($idUser, 'password', $passwordHash);
+                            $sucessMessage .= "<p>Le mot de passe a bien été modifié</p>";
+                        } elseif ($nouveauMotPasse != $nouveauMotPasse2) {
+                            $errorMessage .= "<p>Les mot de passe ne sont pas identique</p>";
+                        }
+                    } else {
+                        $errorMessage .= "<p>Le mot de passe erroné</p>";
+                    }
+                }
+                $infoUser = UserModel::getInfoUser($idUser);
             }
-            $infoUser = UserModel::getInfoUser($idUser);
-        }
 
-        /* -------------- Page Wishlist --------------*/
+            /* -------------- Page Wishlist --------------*/
 
 
-        $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
+            $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($_POST['supprimer']) {

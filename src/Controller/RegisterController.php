@@ -48,112 +48,102 @@ class RegisterController
         $from = 'site.easygame@gmail.com';
         $name = 'EasyGame';
         $subj = 'Email de confirmation';
-        $msg = '<h1>Complètez votre création de compte en vérifiant votre email ci-dessous </h1>
-                <button type="submit">
-                    <a href="'.URL_PRINCIPAL.'/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
-                </button>';
+        $msg = '    
+            <h2>Bonjour '. $email. ',</h2>
+            <h3>Complètez votre création de compte en vérifiant votre email ci-dessous.</h3>
+            <button style="border: 2px solid transparent; border-radius: 10px; padding: 10px 30px; font-size: 18px;" type="submit">
+                <a href="'.URL_PRINCIPAL.'/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
+            </button>
+        ';
 
-        $errorMessage = "";
 
-        $failStyle = '<style>#error {background: rgba(200, 30, 50, 0.5); color:darkred; height: 80px; border: 2px solid darkred;}</style>';
+        $message = "";
+        $script = "";
 
         // Si le boutton "Valider" est pressé
         if ($submit == "Valider")
         {
-            if ($userName != "")
+            if ($password2 == "")
             {
-                if ($lastName != "")
+                $message .= "<div>Veuillez confirmer votre mot de passe.</div>";
+                $script = "Message(" . json_encode('fail').",". json_encode('password2') . ");";
+            }
+            if ($password == "")
+            {
+                $message .= "<div>Veuillez indiquer votre mot de passe.</div>";
+                $script = "Message(" . json_encode('fail').",". json_encode('password') . ");";
+            }
+            if ($email == "")
+            {
+                $message .= "<div>Veuillez indiquer votre email.</div>";
+                $script = "Message(" . json_encode('fail').",". json_encode('email') . ");";
+            }
+            if ($firstName == "")
+            {
+                $message .= "<div>Veuillez indiquer votre prénom.</div>";
+                $script = "Message(" . json_encode('fail').",". json_encode('firstName') . ");";
+            }
+            if ($lastName == "")
+            {
+                $message .= "<div>Veuillez indiquer votre nom.</div>";
+                $script = "Message(" . json_encode('fail').",". json_encode('lastName') . ");";
+            }
+            if ($userName == "")
+            {
+                $message .= "<div>Veuillez indiquer votre nom d'utilisateur.</div>";
+                $script = "Message(" . json_encode('fail').",". json_encode('userName') . ");";
+            }
+
+            // Condition pour Exécuter
+            if ($userName != "" && $lastName != "" && $firstName != "" && $email != "" && $password != "" && $password2 != "")
+            {
+                // Si le mot de passe est identique à celui de confirmation
+                if ($password == $password2)
                 {
-                    if ($firstName != "")
+                    // Hash le mot de passe
+                    $passwordHash = password_hash($password, PASSWORD_BCRYPT);;
+
+                    // Récupère la fonction verifUserInfo
+                    $exists = UserModel::verifUserExists ($userName, $email);
+
+                    // Retourne un message d'erreur si le pseudo ou l'email existe déjà dans la base de donné
+                    if ($exists['pseudo_exists'] === 1)
                     {
-                        if ($email != "")
-                        {
-                            if ($password != "")
-                            {
-                                if ($password2 != "")
-                                {
-                                    // Si le mot de passe est identique à celui de confirmation
-                                    if ($password == $password2)
-                                    {
-                                        // Hash le mot de passe
-                                        $passwordHash = password_hash($password, PASSWORD_BCRYPT);;
-
-                                        // Récupère la fonction verifUserInfo
-                                        $exists = UserModel::verifUserExists ($userName, $email);
-
-                                        // Retourne un message d'erreur si le pseudo ou l'email existe déjà dans la base de donné
-                                        if ($exists['pseudo_exists'] === 1)
-                                        {
-                                            $errorMessage = "Ce nom d'utilisateur est déjà utilisé.";
-                                            echo $failStyle;
-                                        }
-                                        else if ($exists['email_exists'] === 1)
-                                        {
-                                            $errorMessage = "Cette adresse mail est déjà utilisée.";
-                                            echo $failStyle;
-                                        }
-                                        else
-                                        {
-                                            UserModel::newUser($userName, $lastName, $firstName, $email, $passwordHash);
-
-                                            // Récupère l'id de l'utilisateur et on le met dans la session
-                                            $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
-
-                                            // Envoie un mail de confirmation pour activer le compte
-                                            smtpmailer($to, $from, $name, $subj, $msg);
-
-                                            // Efface les valeurs contenues dans le formulaire
-                                            $userName = "";
-                                            $lastName = "";
-                                            $firstName = "";
-                                            $email = "";
-                                            $password = "";
-                                            $password2 = "";
-
-                                            $errorMessage = "Votre compte a été crée. Veuillez vérifier votre mail pour activer votre compte.";
-                                            echo '<style>#error {background: rgba(30, 190, 50, 0.5); color:darkgreen; height: 80px; border: 2px solid darkgreen;}</style>';
-                                        }
-                                    }
-                                    else
-                                    {
-                                        $errorMessage = "Les mots de passe ne sont pas identiques.";
-                                        echo $failStyle;
-                                    }
-                                }
-                                else
-                                {
-                                    $errorMessage = "Veuillez confirmer votre mot de passe.";
-                                    echo $failStyle;
-                                }
-                            }
-                            else
-                            {
-                                $errorMessage = "Veuillez indiquer votre mot de passe.";
-                                echo $failStyle;
-                            }
-                        }
-                        else
-                        {
-                            $errorMessage = "Veuillez indiquer votre email.";
-                            echo $failStyle;
-                        }
+                        $message = "Ce nom d'utilisateur est déjà utilisé.";
+                        $script = "Message(" . json_encode('fail') . ");";
+                    }
+                    else if ($exists['email_exists'] === 1)
+                    {
+                        $message = "Cette adresse mail est déjà utilisée.";
+                        $script = "Message(" . json_encode('fail') . ");";
                     }
                     else
                     {
-                        $errorMessage = "Veuillez indiquer votre prénom.";
-                        echo $failStyle;
+                        UserModel::newUser($userName, $lastName, $firstName, $email, $passwordHash);
+
+                        // Récupère l'id de l'utilisateur et on le met dans la session
+                        $_SESSION['idUser'] = UserModel::getIdUser($email)['idUser'];
+
+                        // Envoie un mail de confirmation pour activer le compte
+                        smtpmailer($to, $from, $name, $subj, $msg);
+
+                        // Efface les valeurs contenues dans le formulaire
+                        $userName = "";
+                        $lastName = "";
+                        $firstName = "";
+                        $email = "";
+                        $password = "";
+                        $password2 = "";
+
+                        $message = "Votre compte a été crée. Veuillez vérifier votre mail pour activer votre compte.";
+                        $script = "Message(" . json_encode('success') . ");";
                     }
                 }
                 else
                 {
-                    $errorMessage = "Veuillez indiquer votre nom.";
-                    echo $failStyle;
+                    $message = "Les mots de passe ne sont pas identiques.";
+                    $script = "Message(" . json_encode('fail') . ");";
                 }
-            }
-            else
-            {
-                $errorMessage = "Veuillez indiquer votre nom d'utilisateur.";
-                echo $failStyle;
             }
         }
         require '../src/view/register.php';

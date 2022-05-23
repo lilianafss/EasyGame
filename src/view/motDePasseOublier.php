@@ -11,10 +11,10 @@
 <body class="d-flex flex-column h-100">
 <?php require_once "header.php" ?>
 <main class="flex-shrink-0">
-    <p id="message"><?=$message?></p>
     <form method="POST">
         <fieldset>
             <legend>J'ai oublié mon mot de passe</legend>
+            <div class="messageDiv" id="msg"><?=$message?></div>
             <div class="inputContainer">
                 <label for="email">Saississez votre adresse e-mail</label>
                 <input id="email" name="email" type="email" placeholder="example@gmail.com" value="<?=$email?>">
@@ -27,6 +27,6 @@
 </main>
 <?php require_once "footer.php"?>
 <script src="assets/js/message.js"></script>
-<?=$script?>
+<script><?=$script?></script>
 </body>
 </html>

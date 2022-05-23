@@ -4,6 +4,7 @@ use EasyGame\Model\PegiModel;
 use EasyGame\Model\PlatformModel;
 use EasyGame\Model\GenreModel;
 use EasyGame\Controller\AccueilController;
+use EasyGame\Model\GameModel;
 
 @ini_set('display_errors', 'on');
 
@@ -146,7 +147,46 @@ use EasyGame\Controller\AccueilController;
         </div>
 
         <div id="main-container">
-            <?= $stringJeux ?>
+        <?php if ($listeFiltre == "" && $recherche == "") {
+            foreach ($listeJeux as $elementListe) { ?>
+                <div class="card m-4" onclick="Redirection(<?=$elementListe['idJeux']?>)">
+                <?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($elementListe['image']).'"/>'?>
+                    <div class="card-block">
+                        <h4 class="card-title"><?= $elementListe['nom']?></h4>
+                        <p class="card-prix"><?= $elementListe['prix']?> CHF</p>
+                    </div>
+                </div>
+       <?php     }
+        } elseif ($listeFiltre == "" && $recherche != "") {
+
+            $requete = GameModel::searchGame($recherche);
+            if ($requete != null) {?>
+                <p> Vous avez recherché :<?=$recherche?></p>
+               <?php foreach ($requete as $elementListe){ ?>
+                   <div class="card m-4" onclick="Redirection(<?=$elementListe['idJeux']?>)">
+                   <?php echo ' <img class="card-img" src="data:image/jpeg;base64,' . base64_encode($elementListe['image']) . '"/>'?>
+                        <div class="card-block">
+                            <h4 class="card-title"><?=$elementListe['nom']?></h4>
+                            <p class="card-prix"><?=$elementListe['prix']?> CHF</p>
+                        </div>
+                    </div>
+            <?php  }
+            } else { ?>
+               <p>Aucun resultat</p>
+            <?php }
+        } elseif ($listeFiltre && $recherche == "") {
+            foreach ($listeFiltre  as $elementListe) { ?>
+                    <div class="card m-4" onclick="Redirection(<?=$elementListe['idJeux']?>)" >
+                       <?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($elementListe['image']) . '"/>'?>
+                        <div class="card-block">
+                            <h4 class="card-title"><?=$elementListe['nom']?></h4>
+                            <p class="card-prix"><?=$elementListe['prix']?> CHF</p>
+                        </div>
+                    </div>
+        <?php    }
+        } elseif ($listeFiltre == null) { ?>
+            <p>Aucun resultat</p>
+       <?php } ?>
         </div>
     </main>
     <?php require_once "footer.php"; ?>

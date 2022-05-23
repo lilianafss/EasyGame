@@ -1,4 +1,6 @@
 /*--------------------Media--------------------*/
+
+
 /*#region Media (Screen under 600px)*/
 
 @media only screen and (max-width: 600px) {
@@ -74,7 +76,7 @@ footer .footer-heading {
 }
 
 footer a {
-    color: #a3de83;
+    color: #865ad3;
 }
 
 footer .footer-heading .logo {
@@ -92,9 +94,13 @@ footer .menu a {
     letter-spacing: 1px;
 }
 
+footer .menu a:hover {
+    color: #865ad3;
+}
+
 footer .ftco-footer-social li a {
     background: transparent;
-    border: 1px solid #a3de83;
+    border: 1px solid #865ad3;
 }
 
 .mt-5 {

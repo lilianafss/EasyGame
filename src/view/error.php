@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
     <?php require_once "style.php" ?>
-    echo'<link rel="stylesheet" href="/assets/css/error.css">';
+    <link rel="stylesheet" href="/assets/css/error.css">
 </head>
 <body>
 <div id="div-container" class="container">
