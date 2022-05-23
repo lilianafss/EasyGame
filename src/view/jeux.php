@@ -36,7 +36,9 @@ if ($BOOL == false) {
 </head>
 
 <body class="d-flex flex-column h-100">
-    <?php require_once "header.php"; ?>
+    <header>
+        <?php require_once "header.php" ?>
+    </header>
 
     <main class="flex-shrink-0">
 

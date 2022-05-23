@@ -17,78 +17,15 @@ use EasyGame\Model\GameModel;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
     <?php require_once "style.php" ?>
+    <link rel="stylesheet" href="assets/css/accueil.css">
 </head>
 
 <body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar justify-content-center">
-            <span class="nav-container" id="logo-container">
-                <a href="/"><img id="logo" alt="logo" src="assets/image/logo.png"></a>
-            </span>
-            <span class="nav-container">
-                <ul class="nav" id="container-ul">
-                    <?php
-                        $quantiteBadge = 0;
-                        if (isset($_SESSION['quantite']))
-                        {
-                            $quantiteBadge = $_SESSION['quantite'];
-                        }
-                        if (!($_SESSION['connected']))
-                        {
-                            echo '
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-arrow-right-to-bracket icon"></i></a>
-                                    <p class="icon-texte">Connexion</p>
-                                </li>
-                                <li class="nav-item nav-li">
-                                    <a class="nav-link" href="/nouveau"><i class="fa-solid fa-2x fa-user-plus icon"></i></a>
-                                    <p class="icon-texte">S\'inscrire</p>
-                                </li>
-                            ';
-                        }
-                        else
-                        {
-                            echo '
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/profil"><i class="fa-solid fa-2x fa-user icon"></i></a>
-                                    <p class="icon-texte">Profil</p>
-                                </li>
-                                
-                                
-                                <li class="nav-item nav-li">
-                                             
-                                <a class="nav-link" href="/panier">
-                                    <i class="fa-solid fa-2x fa-basket-shopping icon"></i>
-                                    <span class="badge rounded-pill badge-notification bg-danger">' . $quantiteBadge . '</span>
-                                </a>
-                                <p id="panier" class="texte-icon">Panier</p>
-                                   
-                                </li>
-                                   
-                            
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/deconnexion"><i class="fa-solid fa-2x fa-arrow-right-from-bracket icon"></i></a>
-                                        <p class="icon-texte">Déconnexion</p>
-                                    </li>
-                                ';
-
-                            if ($_SESSION['admin'])
-                            {
-                                echo '
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
-                                        <p class="icon-texte">Admin</p>
-                                    </li>
-                                ';
-                            }
-                        }
-                    ?>
-                </ul>
-            </span>
-        </nav>
-        <nav class="navbar justify-content-center mb-3">
+        <?php require_once "header.php" ?>
+        <nav class="navbar" id="filterNav">
             <form method="GET">
-                <ul class="nav">
+                <ul class="nav" id="filterUl">
                     <li class="nav-item filtre-container">
                         <select name="age" id="age" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Age", PegiModel::getPegi(), "pegi"); ?>

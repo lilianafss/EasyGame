@@ -8,10 +8,10 @@ body
     padding: 0;
 
     overflow-x: hidden;
-
 }
 
-.messageReussi{
+.messageReussi
+{
     margin: 10px auto 20px auto; 
     font-size: 25px;
     border-radius: 5px;
@@ -24,7 +24,8 @@ body
     background:rgba(30, 190, 50, 0.5);
 }
 
-.messageFaux{
+.messageFaux
+{
     margin: 10px auto 20px auto; 
     font-size: 25px;
     border-radius: 5px;

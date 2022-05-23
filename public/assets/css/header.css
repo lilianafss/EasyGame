@@ -5,16 +5,15 @@
 
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, royalblue, dodgerblue, deepskyblue);
-    /*background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);*/
+    background-color: #332E52;
 }
 
 #logoContainer {
     display: flex;
     justify-content: right;
-    width: 38%;
+    width: 40%;
 }
 
 #logo {
@@ -36,9 +35,8 @@ nav {
 }
 
 .nav {
-    width: 55%;
-    padding-bottom: 10px;
-    padding-top: 20px;
+    width: 60%;
+    padding-left: 20px;
 }
 
 .nav-link {

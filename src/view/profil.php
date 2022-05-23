@@ -28,9 +28,11 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
 <body class="d-flex flex-column h-100">
 
-    <?php require_once "header.php";
+    <header>
+        <?php require_once "header.php" ?>
+    </header>
 
-    if ($sucessMessage != "") { ?>
+    <?php if ($sucessMessage != "") { ?>
         <div class="alert alert-success" role="alert">
             <?= $sucessMessage ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

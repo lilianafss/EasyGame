@@ -3,15 +3,15 @@ margin: 0;
 }
 /*--------------------Header--------------------*/
 /*#region Header*/
+h1
+{
+    width: 100%;
+}
+
 input[type=submit] {
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
     margin: 5px;
-}
-header
-{
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
 }
 
 ul
@@ -28,7 +28,6 @@ a
 
 #credit{
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
-  
 }
 #creditText{
     color: white;
@@ -52,37 +51,7 @@ input[type="radio"] {
 .bold {
     font-weight: bold
 }
-/*--------------------Link-Nav--------------------*/
-/*#region Link-Nav*/
-.nav-container
-{
-    display: flex;
-    justify-content: center;
-    width: 50%;
-}
 
-#logo-container
-{
-    justify-content: right;
-    padding-right: 15px;
-}
-
-#logo
-{
-    width: 167px;
-    height: 100px;
-}
-
-#icon-container
-{
-    justify-content: left;
-    padding-left: 15px;
-}
-
-.icon
-{
-    color: #fff;
-}
 /*#endregion*/
 
 .container .h8 {
@@ -94,17 +63,14 @@ input[type="radio"] {
     height: 35px;
     width: 35px;
 }
- .btn.btn-primary {
+.btn.btn-primary {
     width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 15px;
-    /* background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
     border: none;
-    transition: 0.5s;
-    background-size: 200% auto */
  }
  .btn.btn.btn-primary:hover {
     background-position: right center;
@@ -119,9 +85,7 @@ input[type="radio"] {
 /*#region Main*/
  #jeux-container
 {
-    /* display: flex;
-    flex-wrap: wrap;
-    /* justify-content: center; */
+    display: flex;
     width: 60%; 
 }
 
@@ -132,23 +96,28 @@ input[type="radio"] {
 
 #test
 {
-    display: flex;
     width: 50%;
-    margin: 0;
+    margin: auto;
 }
 
 main
 {
     width: 100%;
     display: flex;
+    flex-direction: column;
 }
 
 #payement{
-    width: 700px;
+    width: 100%;
     
 }
 #moyen{
     width: 100%;
+}
+
+.label-payement
+{
+    font-size: 15px;
 }
 
 /*--------------------Cards--------------------*/

@@ -62,7 +62,6 @@ class JeuxController
             if ($_POST['wishlist']) {
                 header("Refresh: 0");
                 WishlistModel::addGameToWishlist($idUser, $idJeux);
-               
             }
         }
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -73,15 +72,18 @@ class JeuxController
 
                     if (!$_SESSION['connected']) {
                         header("Location: http://easygame.ch/connexion");
+                        exit();
                         $_SESSION['idJeux'] = $idJeux;
                     } else {
                         $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                         header("Location: http://easygame.ch/panier");
+                        exit();
                     }
                 }
             }
         } else {
             header("Location: http://easygame.ch/");
+            exit();
         }
         require '../src/view/jeux.php';
     }
