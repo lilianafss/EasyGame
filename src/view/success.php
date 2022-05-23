@@ -12,8 +12,6 @@
 
 <body>
    <form method="POST">
-  
-
       <div id="div-container" class="container">
          <div class="row">
             <div class="col-md-6 mx-auto mt-5">
@@ -25,9 +23,7 @@
                      <h1>Paiement reussi !</h1>
                      <p>Votre achat a bien été effectuer</p>
                      <input type="submit" name="retourPageAccueil" value="Retourner vers la page d'accueil">
-                    
                   </div>
-
                </div>
             </div>
          </div>

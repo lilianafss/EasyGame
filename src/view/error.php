@@ -21,7 +21,6 @@
                <p>Veuillez réessayer </p>
                <a href="<?= url('panier')?>">Retourner vers la page panier</a>
             </div>
-            
          </div>
       </div>
    </div>

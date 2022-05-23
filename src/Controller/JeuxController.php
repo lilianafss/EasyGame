@@ -72,16 +72,19 @@ class JeuxController
                     $_SESSION["quantite"] = $quantite;
 
                     if (!$_SESSION['connected']) {
-                        header("Location:".URL_PRINCIPAL.url("connexion"));
                         $_SESSION['idJeux'] = $idJeux;
+                        header("Location:".URL_PRINCIPAL.url("connexion"));
+                        exit();
                     } else {
                         $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                         header("Location:".URL_PRINCIPAL.url("panier"));
+                        exit();
                     }
                 }
             }
         } else {
             header("Location:".URL_PRINCIPAL);
+            exit();
         }
         require '../src/view/jeux.php';
     }

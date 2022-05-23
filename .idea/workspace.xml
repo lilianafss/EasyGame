@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="747c5722-3723-4c68-8b26-1de0f02e4280" name="Changes" comment="">
+    <list default="true" id="34519622-e487-471c-a7c9-bf26681537de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/message.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/message.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/modifierMdp.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/modifierMdp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/accueil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/body.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/panier.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/panier.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModifierMotDePasseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifierMotDePasseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ajouterJeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ajouterJeux.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/effacer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/effacer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/jeux.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/modifierJeu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/modifierJeu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/modifierMdp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/modifierMdp.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/motDePasseOublier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/motDePasseOublier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/panier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/profil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/style.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/style.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/success.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/success.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,32 +48,28 @@
       <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
     </include_path>
   </component>
-  <component name="ProjectId" id="29EuVh8ABOqrkQRqLnFGRYcdAeJ" />
+  <component name="ProjectId" id="29YJDCL5PPWZ5aiLSvLd9NBni8R" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="747c5722-3723-4c68-8b26-1de0f02e4280" name="Changes" comment="" />
-      <created>1652690596270</created>
+      <changelist id="34519622-e487-471c-a7c9-bf26681537de" name="Changes" comment="" />
+      <created>1653283973698</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1652690596270</updated>
-      <workItem from="1652690600570" duration="15995000" />
-      <workItem from="1652853166297" duration="21480000" />
-      <workItem from="1652938762254" duration="23370000" />
+      <updated>1653283973698</updated>
+      <workItem from="1653283974135" duration="9151000" />
     </task>
     <servers />
   </component>
