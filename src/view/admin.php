@@ -17,7 +17,9 @@
     <main>
         <h1>Page d'Admin</h1>
         <div>
-            <button class="btn" id="ajouterJoue" onclick="allerPageAjouterJeux()">Ajouter jeux</button>
+            <form method="POST">
+                <button class="btn" id="ajouterJoue" name="submit" value="ok" type="submit">Ajouter jeux</button>
+            </form>
         </div>
             <?php
             //affichage des jeux

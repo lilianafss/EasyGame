@@ -31,6 +31,12 @@ class AdminController
             $stringTableJ = ""; //la variable ne vaut rien parce qu'on n'a pas cliqué le bouton
             $stringTableU = ""; //la variable ne vaut rien parce qu'on n'a pas cliqué le bouton
 
+            $submit = filter_input(INPUT_POST,'submit',FILTER_SANITIZE_SPECIAL_CHARS);
+
+            if($submit == "ok"){
+                header("location: ".URL_PRINCIPAL.url('ajouterJeux'));
+            }
+
             //recuperer les jeux de la base de donnée
             $jeux = GameModel::getGames();
 
