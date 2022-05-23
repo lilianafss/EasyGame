@@ -4,9 +4,9 @@
             <div class="col-md-12 text-center">
                 <h2 class="footer-heading">EasyGame</h2>
                 <p class="menu">
-                    <a href="http://easygame.ch">Accueil</a>
-                    <a href="/profil">Profil</a>
-                    <a href="/panier">Panier</a>
+                    <a href="<?= url("accueil") ?>">Accueil</a>
+                    <a href="<?= url('profil') ?>">Profil</a>
+                    <a href="<?= url("panier") ?>">Panier</a>
                     <a href="#">Contact</a>
                 </p>
                 <ul class="ftco-footer-social p-0">

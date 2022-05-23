@@ -7,7 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Payement Réussi</title>
    <?php require_once "style.php" ?>
-    <link rel="stylesheet" href="assets/css/success.css">
+    <link rel="stylesheet" href="/assets/css/success.css">
 </head>
 
 <body>

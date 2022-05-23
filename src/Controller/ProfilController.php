@@ -88,23 +88,22 @@ class ProfilController
 
             $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
 
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if ($_POST['supprimer']) {
-                    header("Refresh: 0");
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            if ($_POST['supprimer']) {
+                header("Refresh: 0");
+                WishlistModel::deleteGameToWishlist($idJeux);
+            }
+            if ($_POST['AjoutPanier']) {
+
+                $_SESSION["quantite"]++;
+
+                if (!$_SESSION['connected']) {
+                    header("Location:".URL_PRINCIPAL.url("connexion"));
+                    $_SESSION['idJeux'] = $idJeux;
+                } else {
+                    $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                     WishlistModel::deleteGameToWishlist($idJeux);
-                }
-                if ($_POST['AjoutPanier']) {
-
-                    $_SESSION["quantite"]++;
-
-                    if (!$_SESSION['connected']) {
-                        header("Location: http://easygame.ch/connexion");
-                        $_SESSION['idJeux'] = $idJeux;
-                    } else {
-                        $panier = PanierModel::addGameToPanier($idUser, $idJeux);
-                        WishlistModel::deleteGameToWishlist($idJeux);
-                        header("Location: http://easygame.ch/panier");
-                    }
+                    header("Location:".URL_PRINCIPAL.url("panier"));
                 }
             }
         }

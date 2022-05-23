@@ -15,7 +15,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier</title>
     <?php require_once "style.php" ?>
-    <link rel="stylesheet" href="assets/css/panier.css">
+    <link rel="stylesheet" href="/assets/css/panier.css">
 </head>
 <?php require_once "header.php";
 $_SESSION['nbPanel'] = 1 ?>
@@ -92,7 +92,7 @@ $_SESSION['nbPanel'] = 1 ?>
                                 <form action="" method="get">
                                     <!-- Credit card form tabs -->
                                     <ul id="moyen" role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-2">
-                                        <li id="credit" class="nav-item"> <a id="creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li>
+                                        <!-- <li id="credit" class="nav-item"> <a id="creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li> -->
                                         <li class="nav-item"> <a data-toggle="pill" href="?methodPayement=Paypal" class="nav-link "> <i class="fab fa-paypal mr-2" "></i> Paypal </a> </li>
                                         </ul>
                                     </form>
@@ -101,10 +101,9 @@ $_SESSION['nbPanel'] = 1 ?>
                                 
                                 <div class=" tab-content">
                                                     <?php
+                                                      if ($_SESSION['nbPanel'] == 1) {
+                                                            ?>
 
-                                                    if (isset($_GET["methodPayement"])) {
-                                                        if ($_GET["methodPayement"] == "Paypal") {
-                                                            $_SESSION['nbPanel'] = 2 ?>
                                                             <div id="paypal">
                                                                 <?php if ($_SESSION['quantite'] != 0) { ?>
                                                                     <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mb-3"></div>
@@ -118,10 +117,7 @@ $_SESSION['nbPanel'] = 1 ?>
 
                                                         <?php } ?>
                                                     <?php  } ?>
-                                                    <?php
-                                                    if ($_SESSION['nbPanel'] == 1) {
-                                                    ?>
-
+<!--                                                  
                                                         <div id="credit-card" class="tab-pane fade show active pt-3">
                                                             <form role="form" onsubmit="event.preventDefault()">
                                                                 <div class="form-group"> <label for="username">
@@ -154,10 +150,9 @@ $_SESSION['nbPanel'] = 1 ?>
                                                                 <?php } elseif ($_SESSION['quantite'] == 0) { ?>
                                                                     <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
                                                                 <?php  } ?>
-                                                            <?php } ?>
-
+                                                          
                                                             </form>
-                                                        </div>
+                                                        </div> -->
 
 
 
@@ -166,7 +161,7 @@ $_SESSION['nbPanel'] = 1 ?>
                     </div>
                 </div>
             </div>
-        <?php } ?>
+      
 
 
 

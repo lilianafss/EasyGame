@@ -18,7 +18,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
     <title>Profil</title>
     <?php require_once "style.php" ?>
-    <link rel="stylesheet" href="assets/css/profil.css">
+    <link rel="stylesheet" href="/assets/css/profil.css">
     <!-- <style>
         input[type="submit"] {
             font-family: FontAwesome;
@@ -182,7 +182,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
     <?php require_once "footer.php";
     ?>
-    <script src="assets/js/profil.js"></script>
+    <script src="/assets/js/profil.js"></script>
 </body>
 
 </html>

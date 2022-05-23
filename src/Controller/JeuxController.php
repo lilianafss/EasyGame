@@ -72,16 +72,16 @@ class JeuxController
                     $_SESSION["quantite"] = $quantite;
 
                     if (!$_SESSION['connected']) {
-                        header("Location: http://easygame.ch/connexion");
+                        header("Location:".URL_PRINCIPAL.url("connexion"));
                         $_SESSION['idJeux'] = $idJeux;
                     } else {
                         $panier = PanierModel::addGameToPanier($idUser, $idJeux);
-                        header("Location: http://easygame.ch/panier");
+                        header("Location:".URL_PRINCIPAL.url("panier"));
                     }
                 }
             }
         } else {
-            header("Location: http://easygame.ch/");
+            header("Location:".URL_PRINCIPAL);
         }
         require '../src/view/jeux.php';
     }

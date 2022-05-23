@@ -30,7 +30,7 @@
             
             //si on n'est pas connecté en tant administrateur on va être rederiger vers la page d'accueil
             if (!$_SESSION['admin']) {
-                header("location: http://easygame.ch");
+                header("location:".URL_PRINCIPAL);
                 exit();
             } else {
                 //recuperer les données
@@ -41,28 +41,28 @@
                 
                 if($effacerjeux != ""){
                     GameModel::deleteGame($effacerjeux); //effacer le jeu avec l'id
-                    header("location: http://easygame.ch/admin");
+                    header("location:".URL_PRINCIPAL.url("admin"));
                     exit();
                 }
                 elseif($effacerUser != ""){
 
                     UserModel::deleteUser($effacerUser); //effacer le user avec l'id
-                    header("location: http://easygame.ch/admin");
+                    header("location:".URL_PRINCIPAL.url("admin"));
                     exit();
                 }
                 elseif($disabledUser != ""){
 
                     UserModel::updateUserStatus($disabledUser,"Disabled");
-                    header("location: http://easygame.ch/admin");
+                    header("location:".URL_PRINCIPAL.url("admin"));
                     exit();
                 }
                 //changer le status de l'utilisateur
                 elseif($actifUser != ""){
                     UserModel::updateUserStatus($actifUser,"Actif");
-                    header("location: http://easygame.ch/admin");
+                    header("location:".URL_PRINCIPAL.url("admin"));
                     exit();
                 }else{
-                    header("location: http://easygame.ch/admin");
+                    header("location:".URL_PRINCIPAL.url("admin"));
                     exit();
                 }
             }

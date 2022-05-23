@@ -56,7 +56,7 @@ class MotDePasseOublierController
                     <h2>Bonjour '. $email. ',</h2>
                     <h3>Veuillez cliquer sur le lien ci-dessous pour changer votre mot de passe.</h3>
                     <button style="border: 2px solid transparent; border-radius: 10px; padding: 10px 30px; font-size: 18px;" type="submit">
-                        <a href="http://easygame.ch/modifierMdp?confirm='.$key.'" style="text-decoration: none">Cliquer ici pour changer votre mot de passe</a>
+                        <a href="'.URL_PRINCIPAL.'/modifierMdp?confirm='.$key.'" style="text-decoration: none">Cliquer ici pour changer votre mot de passe</a>
                     </button>
                 ';
 

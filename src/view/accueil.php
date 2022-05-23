@@ -7,6 +7,8 @@ use EasyGame\Controller\AccueilController;
 use EasyGame\Model\GameModel;
 
 @ini_set('display_errors', 'on');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -23,7 +25,7 @@ use EasyGame\Model\GameModel;
     <header>
         <nav class="navbar justify-content-center">
             <span class="nav-container" id="logo-container">
-                <a href="/"><img id="logo" alt="logo" src="assets/image/logo.png"></a>
+                <a href="<?= url("accueil") ?>"><img id="logo" alt="logo" src="assets/image/logo.png"></a>
             </span>
             <span class="nav-container">
                 <ul class="nav" id="container-ul">
@@ -37,11 +39,11 @@ use EasyGame\Model\GameModel;
                         {
                             echo '
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-arrow-right-to-bracket icon"></i></a>
+                                    <a class="nav-link" href="'.url('connexion').'"><i class="fa-solid fa-2x fa-arrow-right-to-bracket icon"></i></a>
                                     <p class="icon-texte">Connexion</p>
                                 </li>
                                 <li class="nav-item nav-li">
-                                    <a class="nav-link" href="/nouveau"><i class="fa-solid fa-2x fa-user-plus icon"></i></a>
+                                    <a class="nav-link" href="'.url('nouveau').'"><i class="fa-solid fa-2x fa-user-plus icon"></i></a>
                                     <p class="icon-texte">S\'inscrire</p>
                                 </li>
                             ';
@@ -50,14 +52,14 @@ use EasyGame\Model\GameModel;
                         {
                             echo '
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/profil"><i class="fa-solid fa-2x fa-user icon"></i></a>
+                                    <a class="nav-link" href="'.url('profil').'"><i class="fa-solid fa-2x fa-user icon"></i></a>
                                     <p class="icon-texte">Profil</p>
                                 </li>
                                 
                                 
                                 <li class="nav-item nav-li">
                                              
-                                <a class="nav-link" href="/panier">
+                                <a class="nav-link" href="'.url('panier').'">
                                     <i class="fa-solid fa-2x fa-basket-shopping icon"></i>
                                     <span class="badge rounded-pill badge-notification bg-danger">' . $quantiteBadge . '</span>
                                 </a>
@@ -67,7 +69,7 @@ use EasyGame\Model\GameModel;
                                    
                             
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/deconnexion"><i class="fa-solid fa-2x fa-arrow-right-from-bracket icon"></i></a>
+                                        <a class="nav-link" href="'.url('deconnexion').'"><i class="fa-solid fa-2x fa-arrow-right-from-bracket icon"></i></a>
                                         <p class="icon-texte">Déconnexion</p>
                                     </li>
                                 ';
@@ -76,7 +78,7 @@ use EasyGame\Model\GameModel;
                             {
                                 echo '
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
+                                        <a class="nav-link" href="'.url('admin').'"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
                                         <p class="icon-texte">Admin</p>
                                     </li>
                                 ';
