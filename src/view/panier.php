@@ -4,7 +4,7 @@ use EasyGame\Model\PanierModel;
 
 $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
 
-
+@ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -37,9 +37,10 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
         <?php } else { ?>
             <h1 class="text-center">panier</h1>
             <div id="jeux-container">
-                <form method="POST">
+              
                     <table id="cart" class="table table-hover table-condensed">
                         <?php foreach ($tableauxPanier as $panier) { ?>
+                            <form method="POST">
                             <tr data-th="Product">
                                 <td class="row">
                                     <div class="hidden-xs"><?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($panier['image']) . '"/>'; ?></div>
@@ -61,9 +62,9 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                     <input class="rounded" type="submit" name="trash" value="Supprimer">
                                 </td>
                             </tr>
+                            </form>
                         <?php } ?>
                     </table>
-                </form>
             </div>
             <div id="test">
                 <form method="POST" action="/panier">
