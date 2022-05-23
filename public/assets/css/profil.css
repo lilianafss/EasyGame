@@ -2,24 +2,26 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
 }
 
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(0deg, #3C3661 0%, #332E52 60%, #211E36 100%);
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #3C3661;
 }
+
 #info-button {
     font-family: FontAwesome;
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
@@ -27,24 +29,6 @@
     margin: 5px;
     width: 20%;
     float: right;
-}
-#editer{
-    font-family: FontAwesome;
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
-    color: white;
-    margin: 5px;
-    width: 20%;
-    float: right;
-}
-/* #info,
-#motPasse,
-#historiqueAchat,
-#wishlist {
-    height: auto;
-} */
-
-button {
-    width: 4%;
 }
 
 
@@ -85,32 +69,91 @@ button {
     background-color: #ccc;
 }
 
-
-/* Style the tab content */
-
 .tabcontent {
     float: left;
     padding: 0px 12px;
-    
 }
-#info{
+
+
+/*--------------------Informations personnelles--------------------*/
+
+
+/*#region Informations personnelles*/
+
+#editer {
+    font-family: FontAwesome;
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
+    margin: 5px;
+    float: right;
+}
+
+
+/* #info,
+#motPasse,
+#historiqueAchat,
+#wishlist {
+    height: auto;
+} */
+
+button {
+    width: 4%;
+}
+
+
+/* Style the tab content */
+
+#info {
     width: 1500px;
 }
 
+#info h5 {
+    font-size: 1.5rem;
+}
+
+#containerNom,
+#containerPseudo {
+    width: 40%;
+    float: left;
+    margin-bottom: 2%;
+}
+
+#containerPrenom,
+#email {
+    width: 60%;
+    float: right;
+    margin-bottom: 2%;
+}
+
+#nouveauPassword {
+    width: 100%;
+    clear: both;
+    margin-top: 15%;
+}
+
+#nouveauPassword h3 {
+    padding-bottom: 2%;
+}
+
+
+/*#endregion*/
+
+
 /*--------------------Historique--------------------*/
 
+
 /*#region Historique*/
+
 .overlay {
     position: absolute;
     top: 0;
-
     left: 3%;
     right: 6%;
     height: 100%;
     width: 93.5%;
     opacity: 0;
     transition: .5s ease;
-    background-color:#3C3661 ;
+    background-color: #3C3661;
     cursor: pointer;
     z-index: 2;
     border-radius: 10px;
@@ -128,52 +171,47 @@ button {
     width: 23%;
 }
 
-
-
 #imageHistorique {
     width: 100%;
-height: 150px;
+    height: 150px;
     border-radius: 10px;
-   
 }
-
 
 #text {
     color: white;
     font-size: 20px;
     text-align: center;
     margin-top: 20%;
-
 }
-
 
 #container-historique {
     width: 1500px;
     display: flex;
     flex-wrap: wrap;
-
-   overflow: scroll;
+    overflow: scroll;
     gap: 25px;
 }
-#historiqueAchat{
+
+#historiqueAchat {
     width: 1000px;
     display: flex;
-  
-    
 }
-main{
+
+main {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     margin-bottom: auto;
-  
 }
 
+
 /*#endregion*/
+
+
 /*--------------------Wishlist--------------------*/
+
+
 /*#region Wishlist*/
-
-
 
 .nav-container {
     display: flex;
@@ -185,8 +223,8 @@ main{
     justify-content: right;
     padding-right: 15px;
 }
-#imgWishlist{
-    
+
+#imgWishlist {
     width: 100px;
     border-radius: 10px;
 }
@@ -204,7 +242,6 @@ main{
 .icon {
     color: #fff;
 }
-
 
 .container .h8 {
     font-size: 30px;
@@ -241,18 +278,14 @@ main{
     transition: transform 0.2s ease-in
 }
 
-
-.container{
+.container {
     width: 1500px;
 }
-
 
 .card {
     display: flex;
     flex-direction: column;
-
     height: auto;
-
     border-radius: 20px;
     border: 0;
 }
@@ -265,7 +298,6 @@ main{
 .card-img {
     width: 80%;
     height: 65%;
-
     border-radius: 20px;
 }
 
@@ -324,12 +356,9 @@ main{
     font-weight: 600;
 }
 
-
-
 .display-flex {
     display: flex;
 }
-
 
 
 /*#endregion*/
