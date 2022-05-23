@@ -52,7 +52,7 @@ class RegisterController
             <h2>Bonjour '. $email. ',</h2>
             <h3>Complètez votre création de compte en vérifiant votre email ci-dessous.</h3>
             <button style="border: 2px solid transparent; border-radius: 10px; padding: 10px 30px; font-size: 18px;" type="submit">
-                <a href="http://easygame.ch/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
+                <a href="'.URL_PRINCIPAL.'/verification?confirmation='.$key.'" style="text-decoration: none">Cliquer ici pour vérifier votre email</a>
             </button>
         ';
 

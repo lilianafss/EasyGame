@@ -25,7 +25,7 @@ use EasyGame\Model\GameModel;
         <?php require_once "header.php" ?>
         <nav class="navbar" id="filterNav">
             <form method="GET">
-                <ul class="nav" id="filterUl">
+                <ul class="nav">
                     <li class="nav-item filtre-container">
                         <select name="age" id="age" class="filtres border-0 px-2 py-1 m-2 rounded shadow">
                             <?php AccueilController::affichageFiltre("Age", PegiModel::getPegi(), "pegi"); ?>

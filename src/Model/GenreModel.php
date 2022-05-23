@@ -39,7 +39,7 @@ class GenreModel
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function getGameGenre( $idJeux)
+    public static function getGameGenre($idJeux)
     {
         try
         {

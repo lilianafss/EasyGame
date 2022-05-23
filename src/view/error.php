@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
     <?php require_once "style.php" ?>
-    <link rel="stylesheet" href="assets/css/error.css">
+    <link rel="stylesheet" href="/assets/css/error.css">
 </head>
 <body>
 <div id="div-container" class="container">
@@ -19,7 +19,7 @@
             <div class="content">
                <h1>Oups ! le paiement a echoué</h1>
                <p>Veuillez réessayer </p>
-               <a href="http://easygame.ch/panier">Retourner vers la page panier</a>
+               <a href="<?= url('panier')?>">Retourner vers la page panier</a>
             </div>
          </div>
       </div>

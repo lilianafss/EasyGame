@@ -16,14 +16,14 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>Profil</title>
     <?php require_once "style.php" ?>
-    <link rel="stylesheet" href="assets/css/profil.css">
-    <style>
+    <link rel="stylesheet" href="/assets/css/profil.css">
+    <!-- <style>
         input[type="submit"] {
-            font-family: FontAwesome; 
+            font-family: FontAwesome;
         }
-    </style>
+    </style> -->
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -59,20 +59,27 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
             <div id="info" class="tabcontent">
                 <form action="" method="post">
+                    <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
                     <h3>Informations personnelles</h3>
 
-                    <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
-                    <h5>Nom </h5>
-                    <p id="nom"><?= $infoUser['nom'] ?></p>
-                    <input type="text" name="editNom" id="editNom" placeholder="<?= $infoUser['nom'] ?> " style="display:none">
+                    <div id="containerNom">
+                        <h5>Nom</h5>
+                        <p id="nom"><?= $infoUser['nom'] ?></p>
+                        <input type="text" name="editNom" id="editNom" placeholder="<?= $infoUser['nom'] ?> " style="display:none">
 
-                    <h5>Prenom </h5>
-                    <p id="prenom"><?= $infoUser['prenom'] ?></p>
-                    <input type="text" name="editPrenom" id="editPrenom" placeholder="<?= $infoUser['prenom'] ?>" style="display:none">
+                    </div>
 
-                    <h5>Pseudo </h5>
-                    <p id="pseudo"><?= $infoUser['pseudo'] ?></p>
-                    <input type="text" name="editPseudo" id="editPseudo" placeholder="<?= $infoUser['pseudo'] ?>" style="display:none">
+                    <div id="containerPrenom">
+                        <h5>Prenom </h5>
+                        <p id="prenom"><?= $infoUser['prenom'] ?></p>
+                        <input type="text" name="editPrenom" id="editPrenom" placeholder="<?= $infoUser['prenom'] ?>" style="display:none">
+                    </div>
+
+                    <div id="containerPseudo">
+                        <h5>Pseudo </h5>
+                        <p id="pseudo"><?= $infoUser['pseudo'] ?></p>
+                        <input type="text" name="editPseudo" id="editPseudo" placeholder="<?= $infoUser['pseudo'] ?>" style="display:none">
+                    </div>
 
                     <div id="email" style="display:block">
                         <h5>Email : </h5>
@@ -82,14 +89,14 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                     <div id="nouveauPassword" style="display:none">
                         <h3>Changer votre mot de passe</h3>
 
-                        <label for="">Votre mot de passe actuel :</label>
-                        <input type="password" value="" name="motPasseActuel" minlength="8"><br>
+                        <label for="motPasseActuel">Votre mot de passe actuel :</label><br>
+                        <input type="password" name="motPasseActuel" minlength="8"><br>
 
-                        <label for="">Nouveau mot de passe :</label>
-                        <input type="password" value="" name="nouveauMotPasse" minlength="8"><br>
+                        <label for="nouveauMotPasse">Nouveau mot de passe :</label><br>
+                        <input type="password" name="nouveauMotPasse" minlength="8"><br>
 
-                        <label for="">Confirmation du nouveau mot de passe : </label>
-                        <input type="password" value="" name="nouveauMotPasse2" minlength="8"><br>
+                        <label for="nouveauMotPasse2">Confirmation du nouveau mot de passe : </label><br>
+                        <input type="password" name="nouveauMotPasse2" minlength="8"><br>
                     </div>
 
                     <input type="submit" value="Valider" name="valider" id="valider" style="display:none">
@@ -155,8 +162,8 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                                                         </td>
                                                         <td width="15%" class="price"><?= number_format($wishlist['prix'], 2)  ?>CHF</td>
 
-                                                        <td width="15%"><input type="submit" id ="info-button" name="AjoutPanier" value="&#xf07a;"></td>
-                                                        <td width="10%" class="text-center"><input type="submit" id ="info-button" name="supprimer" value="&#xf014;"></td>
+                                                        <td width="15%"><input type="submit" id="info-button" name="AjoutPanier" value="&#xf07a;"></td>
+                                                        <td width="10%" class="text-center"><input type="submit" id="info-button" name="supprimer" value="&#xf014;"></td>
                                                     </tr>
                                                     <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
                                                 </form>
@@ -177,7 +184,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
     <?php require_once "footer.php";
     ?>
-    <script src="assets/js/profil.js"></script>
+    <script src="/assets/js/profil.js"></script>
 </body>
 
 </html>

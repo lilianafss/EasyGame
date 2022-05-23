@@ -1,7 +1,7 @@
 <nav class="navbar">
 
     <div id="logoContainer">
-        <a href="/">
+        <a href="<?= url('accueil') ?>">
             <img id="logo" alt="logo" src="assets/image/logo.png">
         </a>
     </div>
@@ -11,7 +11,7 @@
 
             echo '
                 <li class="nav-item nav-li">
-                    <a class="nav-link" href="/"><i class="fa-solid fa-2x fa-house icon"></i></a>
+                    <a class="nav-link" href="'.url('accueil').'"><i class="fa-solid fa-2x fa-house icon"></i></a>
                     <p class="texte-icon">Accueil</p>
                 </li>
             ';
@@ -20,11 +20,11 @@
             {
                 echo '
                     <li class="nav-item nav-li">
-                        <a class="nav-link" href="/connexion"><i class="fa-solid fa-2x fa-arrow-right-to-bracket icon"></i></a>
+                        <a class="nav-link" href="'.url('connexion').'"><i class="fa-solid fa-2x fa-arrow-right-to-bracket icon"></i></a>
                         <p class="texte-icon">Connexion</p>
                     </li>
                     <li class="nav-item nav-li">
-                        <a class="nav-link" href="/nouveau"><i class="fa-solid fa-2x fa-user-plus icon"></i></a>
+                        <a class="nav-link" href="'.url('nouveau').'"><i class="fa-solid fa-2x fa-user-plus icon"></i></a>
                         <p class="texte-icon">S\'inscrire</p>
                     </li>
                 ';
@@ -33,14 +33,14 @@
             {
                 echo '
                     <li class="nav-item nav-li">
-                        <a class="nav-link" href="/profil"><i class="fa-solid fa-2x fa-user icon"></i></a>
+                        <a class="nav-link" href="'.url('profil').'"><i class="fa-solid fa-2x fa-user icon"></i></a>
                         <p class="texte-icon">Profil</p>
                     </li>
                 
                     
                     <li class="nav-item nav-li">
                              
-                    <a class="nav-link" href="/panier">
+                    <a class="nav-link" href="'.url('panier').'">
                         <i class="fa-solid fa-2x fa-basket-shopping icon"></i>
                         <span class="badge rounded-pill badge-notification bg-danger">'.$_SESSION['quantite'].'</span>
                     </a>
@@ -50,7 +50,7 @@
                   
                     
                    <li class="nav-item nav-li">
-                        <a class="nav-link" href="/deconnexion"><i class="fa-solid fa-2x fa-arrow-right-from-bracket icon"></i></a>
+                        <a class="nav-link" href="'.url('deconnexion').'"><i class="fa-solid fa-2x fa-arrow-right-from-bracket icon"></i></a>
                         <p class="texte-icon">Déconnexion</p>
                     </li>
                     
@@ -60,7 +60,7 @@
                 {
                     echo '
                         <li class="nav-item nav-li">
-                            <a class="nav-link" href="/admin"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
+                            <a class="nav-link" href="'.url('admin').'"><i class="fa-solid fa-2x fa-screwdriver-wrench icon"></i></a>
                             <p class="texte-icon">Admin</p>
                         </li>
                     ';
