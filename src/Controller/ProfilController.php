@@ -110,4 +110,5 @@ class ProfilController
 
         require '../src/view/profil.php';
     }
+    }
 }
