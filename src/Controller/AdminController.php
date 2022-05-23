@@ -1,5 +1,4 @@
 <?php
-
 namespace EasyGame\Controller;
 
 use EasyGame\Model\BaseDonnee;
@@ -7,6 +6,7 @@ use EasyGame\Model\GameModel;
 use EasyGame\Model\UserModel;
 
 require_once('../src/php/tools.php');
+const URL_PRINCIPAL = 'http://easygame.ch'; //PROBLEME
 
 class AdminController
 {

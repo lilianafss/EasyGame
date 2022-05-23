@@ -25,16 +25,15 @@
             //affichage des jeux
                       
             foreach ($jeux as $unJeux) {
-                $stringTableJ .= " 
-                    <div>
+                $stringTableJ .= "<div>
                     <p> <b>IdJeux :</b>  " . $unJeux['idJeux'] . "</p>
                     <p><b>Nom :</b> " . $unJeux['nom'] . "</p>
                     <p> <b>Description :</b> " . $unJeux['description'] . "</p>
                     <p> <b>Prix :</b> " . $unJeux['prix'] . "</p>
                     <p> <b>Pegi :</b> " . $unJeux['pegi'] . "</p>
-                    <p> <b>Image :</b> <img class=\"card-img\" src=\"data:image/jpeg;base64," . base64_encode($unJeux['image']) . "\"/></p>
-                    <p><h3><small><a href='http://easygame.ch/effacer?idJeux=" . $unJeux['idJeux'] . "'>Effacer</a> |
-                    <a class:'liens' href='http://easygame.ch/modifier?idJeux=" . $unJeux['idJeux'] . "'>Modifier</a></small></h3></p>
+                    <p> <b>Image :</b> <img class='img-fluid' src='data:image/jpeg;base64," . base64_encode($unJeux['image']) . "'/></p>
+                    <p><h3><small><a href='".URL_PRINCIPAL.url('effacer')."?idJeux=" . $unJeux['idJeux'] . "'>Effacer</a> |
+                    <a class:'liens' href='".URL_PRINCIPAL.url('modifierJeu')."?idJeux=" . $unJeux['idJeux'] . "'>Modifier</a></small></h3></p>
                     </div>";
             }
 
@@ -53,9 +52,9 @@
                     <p><b>Email : </b>" . $unUser['email'] . "</p>
                     <p><b>Admin : </b>" . $unUser['admin'] . "</p>
                     <p><b>USER_STATUS : </b>" . $unUser['user_status'] . "</p>
-                    <p><h3><small><a href='http://easygame.ch/effacer?idUser=" . $unUser['idUser'] . "'>Effacer</a> |
-                    <a href='http://easygame.ch/effacer?disabled=" . $unUser['idUser'] . "'>Disabled</a> |
-                    <a href='http://easygame.ch/effacer?actif=" . $unUser['idUser'] . "'>Actif</a></h3></small></p>
+                    <p><h3><small><a href='".URL_PRINCIPAL.url('effacer')."?idUser=" . $unUser['idUser'] . "'>Effacer</a> |
+                    <a href='".URL_PRINCIPAL.url('effacer')."?disabled=" . $unUser['idUser'] . "'>Disabled</a> |
+                    <a href='".URL_PRINCIPAL.url('effacer')."?actif=" . $unUser['idUser'] . "'>Actif</a></h3></small></p>
                     </div>";
             }
 

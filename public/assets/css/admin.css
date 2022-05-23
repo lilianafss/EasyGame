@@ -28,6 +28,10 @@ main div {
     border-bottom: 1px solid black;
 }
 
+img{
+    width: 50%;
+}
+
 .liens{
     font-size:  1.4rem;
 }
@@ -43,15 +47,5 @@ main div {
 #ajouterJoue{
     font-size: 25px;
     text-decoration: none;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
-/* 
-tr{
-    border-radius: 25px;
-    border: 2px solid black;
-   
-    
-}
-td, th{
-    border: 1px solid black; 
-} */
