@@ -17,7 +17,6 @@ if ($BOOL == false) {
     $dedans = "Ajouter dans le panier";
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">

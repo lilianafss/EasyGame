@@ -46,8 +46,11 @@ class PanierController
         $jeux = GameModel::getGames($userUtilisateur);
         $tableauxPanier = PanierModel::getPanier($userUtilisateur);
         $quantite = 0;
-       
- 
+
+        $btnSupprimer = filter_input(INPUT_POST, 'trash', FILTER_SANITIZE_SPECIAL_CHARS);
+        $btnPayer = filter_input(INPUT_POST, 'payer', FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
         if (!$_SESSION['connected']) {
             header("location:".URL_PRINCIPAL);
             exit();
@@ -64,9 +67,8 @@ class PanierController
             $_SESSION['quantite'] = $quantite;
             //si le bouton est cliqué on supprime un jeu
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if ($_POST['trash']) {
-                    $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
-                    var_dump($idJeux);
+                if ($btnSupprimer == "Supprimer") {
+
                     //quand le jeu est supprimé on réduit le total
                     foreach ($tableauxPanier as $panier) {
                         if ($panier["idJeux"] == $idJeux) {
@@ -81,9 +83,7 @@ class PanierController
             }
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-
-                if ($_POST['payer']) {
-
+                if ($btnPayer == "Payer ".$_SESSION['total']." CHF") {
                     $apiContext = new ApiContext(
                         new OAuthTokenCredential(
                             'AXHuFZprDDdz67bEgvtu4ds0_nhdUlhmKS5KQVGuPD8XwcQINPZrPk3FnzcsQGB3ZR8A9Nk0Ns4c4cdw', //client ID
