@@ -13,18 +13,16 @@
     <?php require_once "header.php" ?>
 </header>
 <main class="flex-shrink-0">
-    <form method="POST">
-        <fieldset>
-            <legend>J'ai oublié mon mot de passe</legend>
-            <div class="messageDiv" id="msg"><?=$message?></div>
-            <div class="inputContainer">
-                <label for="email">Saississez votre adresse e-mail</label>
-                <input id="email" name="email" type="email" placeholder="example@gmail.com" value="<?=$email?>">
-            </div>
-            <div id="submitContainer">
-                <input class="btn" id="submit" name="submit" type="submit" value="Envoyer">
-            </div>
-        </fieldset>
+    <form method="POST" class="container">
+        <h1>J'ai oublié mon mot de passe</h1>
+        <div class="messageDiv" id="msg"><?=$message?></div>
+        <div class="inputContainer">
+            <label for="email" class="text-primary">Saississez votre adresse e-mail</label>
+            <input id="email" name="email" type="email" placeholder="example@gmail.com" value="<?=$email?>">
+        </div>
+        <div id="submitContainer">
+            <input class="btn" id="submit" name="submit" type="submit" value="Envoyer">
+        </div>
     </form>
 </main>
 <?php require_once "footer.php"?>
