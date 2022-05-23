@@ -28,7 +28,7 @@
     </form>
 </main>
 <?php require_once "footer.php"?>
-<script src="assets/js/message.js"></script>
+<script src="/assets/js/message.js"></script>
 <script><?=$script?></script>
 </body>
 </html>
