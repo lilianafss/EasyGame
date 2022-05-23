@@ -50,7 +50,7 @@ class HistoriqueModel
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addGameToHistorique( $idUser,  $idJeux)
+    public static function addGameToHistorique($idJeux, $idUser)
     {
         try
         {

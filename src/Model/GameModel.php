@@ -42,7 +42,7 @@ class GameModel
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function getGameById( $idJeux)
+    public static function getGameById($idJeux)
     {
         try
         {
@@ -300,7 +300,7 @@ class GameModel
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function ajouterPlateformes($idJeux, $plateformes)
+    public static function ajouterPlateformes($plateformes, $idJeux)
     {
         foreach($plateformes as $key)
         {
@@ -321,7 +321,7 @@ class GameModel
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function ajouterGenres($idJeux,$genres)
+    public static function ajouterGenres($genres, $idJeux)
     {
         foreach($genres as $key)
         {

@@ -17,7 +17,6 @@
         <div>
             <button class="btn" id="ajouterJoue" onclick="allerPageAjouterJeux()">Ajouter jeux</button>
         </div>
-        <table>
             <?php
             //affichage des jeux
                       
