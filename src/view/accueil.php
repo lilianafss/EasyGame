@@ -53,34 +53,6 @@ use EasyGame\Model\GameModel;
         </nav>
     </header>
     <main class="flex-shrink-0">
-
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjg2Nzg2Y2EtYjdkOC00YTY1LTkzYjUtNTcxNmUxZDcyMzhlXkEyXkFqcGdeQXVyNzg3NzI2MTI@._V1_.jpg" class="d-block w-100" alt="seven days to die">
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img src="https://cdn1.epicgames.com/b4565296c22549e4830c13bc7506642d/offer/TETRA_PREORDER_STANDARD%20EDITION_EPIC_Store_Landscape_2560x1440-2560x1440-827a9d1823ad230a0ea5a2efc7936370.jpg" class="d-block w-100" alt="far cry 6">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://api.cdkeybay.com/static/6b98443cff87b77741a9fef8.jpg" class="d-block w-100" alt="call of dutty ">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
         <div id="main-container">
         <?php if ($listeFiltre == "" && $recherche == "") {
             foreach ($listeJeux as $elementListe) { ?>
