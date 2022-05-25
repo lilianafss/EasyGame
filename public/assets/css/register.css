@@ -141,6 +141,11 @@ form
     {
         width: 100%;
     }
+
+    .btnSubmit
+    {
+        width: 35%;
+    }
 }
 /*#endregion*/
 

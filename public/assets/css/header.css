@@ -7,12 +7,14 @@ header
     flex-wrap: wrap;
     justify-content: center;
     background-color: #332E52;
+    padding-bottom: 10px;
 }
 
 #logoContainer
 {
     display: flex;
     width: 100%;
+    justify-content: center;
 }
 
 #logo
@@ -66,11 +68,6 @@ header
     color: silver;
 }
 
-#panier-container
-{
-    width: 130px;
-}
-
 .badge
 {
     margin: 0 0.3em;
@@ -85,19 +82,42 @@ header
 }
 
 /*#endregion*/
+@media only screen and (min-width: 1920px)
+{
+    #nav-link
+    {
+        width: 40%;
+    }
+}
 
-@media only screen and (max-width: 1024px)
+@media only screen and (min-width: 2560px)
+{
+    #nav-link
+    {
+        width: 30%;
+    }
+}
+
+
+@media only screen and (max-width: 1550px)
 {
     #logoContainer
+    {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 1200px)
+{
+    .nav
     {
         width: 100%;
         justify-content: center;
     }
 
-    .nav
+    #nav-link
     {
-        width: 100%;
-        justify-content: center;
+        width: 80%;
     }
 }
 
@@ -112,31 +132,42 @@ header
     .nav
     {
         width: 100%;
-        justify-content: center;
+
     }
 
-    .nav-link
+    #nav-link
     {
-        margin-right: 5px;
-        margin-left: 5px;
+        width: 90%;
+        flex-wrap: wrap;
     }
 }
 
 @media only screen and (max-width: 600px)
 {
+    #nav-link
+    {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
     .nav-link
     {
         margin-right: 0;
         margin-left: 0;
     }
+
+    .texte-icon
+    {
+        width: auto;
+    }
+
 }
 
 @media only screen and (max-width: 480px)
 {
-    .nav-li
+    #nav-link
     {
-        width: 20%;
-        padding-bottom: 15px;
+        width: 100%;
     }
 
     .nav-link
@@ -151,14 +182,33 @@ header
         text-align: center;
     }
 
-    #logoContainer
+    .nav-li
     {
-        flex-wrap: wrap;
+        width: 25%;
     }
 
     #panier
     {
-        margin-left: 1.3rem;
-        padding-left: 0 ;
+        padding-left: 0.6rem;
+    }
+
+    #accueil
+    {
+        width: 15%;
+    }
+
+    #profil
+    {
+        width: 15%;
+    }
+
+    .connexion
+    {
+        width: 20%;
+    }
+
+    #admin
+    {
+        width: 15%;
     }
 }

@@ -40,10 +40,10 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                 <?php foreach ($tableauxPanier as $panier) { ?>
                     <form method="POST">
                         <div data-th="Product" class="panier-container">
-                            <div class="panier-item w-50">
+                            <div class="panier-item" id="image-container">
                                 <div class="hidden-xs"><?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($panier['image']) . '"/>'; ?></div>
                             </div>
-                            <div class="panier-container w-50">
+                            <div class="panier-container" id="panier-texte-container">
                                 <div class="panier-item">
                                     <h4 class="nomargin"><?= $panier['nom'] ?></h4>
                                     
