@@ -13,6 +13,7 @@
     use EasyGame\Model\UserModel;
     use EasyGame\Model\WishlistModel;
 
+    require_once('../src/php/config.php');
     require_once('../src/php/tools.php');
 
     class EffacerController

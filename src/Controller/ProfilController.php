@@ -7,6 +7,7 @@ use EasyGame\Model\WishlistModel;
 use EasyGame\Model\UserModel;
 use EasyGame\Model\HistoriqueModel;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 class ProfilController
@@ -38,8 +39,8 @@ class ProfilController
         $btnSupprimer=filter_input(INPUT_POST, 'supprimer', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if (!$_SESSION['connected']) {
-            header("location: http://easygame.ch");
-            exit();
+            // Redirige l'utilisateur vers la page d'accueil
+            RedirectUser("");
         } else {
             if ($submit == "Valider") {
                 if ($nom != "") {
@@ -86,8 +87,6 @@ class ProfilController
             }
 
             /* -------------- Page Wishlist --------------*/
-
-
             $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
 
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -100,12 +99,14 @@ class ProfilController
                     $_SESSION["quantite"]++;
 
                     if (!$_SESSION['connected']) {
-                        header("Location:" . URL_PRINCIPAL . url("connexion"));
+                        // Redirige l'utilisateur vers la page de connexion
+                        RedirectUser(url("connexion"));
                         $_SESSION['idJeux'] = $idJeux;
                     } else {
                         $panier = PanierModel::addGameToPanier($idUser, $idJeux);
                         WishlistModel::deleteGameToWishlist($idJeux);
-                        header("Location:" . URL_PRINCIPAL . url("panier"));
+                        // Redirige l'utilisateur vers le panier
+                        RedirectUser(url("panier"));
                     }
                 }
             }

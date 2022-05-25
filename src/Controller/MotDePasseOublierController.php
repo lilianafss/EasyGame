@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require_once('../src/php/smtpMailer.php');
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 class MotDePasseOublierController
@@ -27,8 +28,8 @@ class MotDePasseOublierController
         //renvois à la page d'accueil si déjà connectée
         if ($_SESSION['connected'])
         {
-            header("location: /");
-            exit();
+            // Redirige l'utilisateur vers la page d'accueil
+            RedirectUser("");
         }
 
         // Filtre les inputs

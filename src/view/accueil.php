@@ -6,7 +6,6 @@ use EasyGame\Model\GenreModel;
 use EasyGame\Controller\AccueilController;
 use EasyGame\Model\GameModel;
 
-@ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">

@@ -5,6 +5,7 @@ namespace EasyGame\Controller;
 use EasyGame\Model\BaseDonnee;
 use EasyGame\Model\UserModel;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 class ConnexionController
@@ -21,8 +22,8 @@ class ConnexionController
         SessionStart();
 
         if ($_SESSION['connected']) {
-            header("location:".URL_PRINCIPAL);
-            exit();
+            // Redirige vers la page d'accueil
+            RedirectUser("");
         }
 
         //varible pour récupérer le boutton
@@ -44,8 +45,8 @@ class ConnexionController
                         $_SESSION['admin'] = boolval(UserModel::getInfoUser($_SESSION['idUser'])['admin']);
                         $_SESSION['connected'] = true;
 
-                        header("location:".URL_PRINCIPAL);
-                        exit();
+                        // Redirige vers la page d'accueil
+                        RedirectUser("");
                     } else {
                         $_SESSION['idUser'] = "";
                         $_SESSION['connected'] = false;
