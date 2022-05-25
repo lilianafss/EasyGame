@@ -148,7 +148,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
                     <?php foreach ($tableauxWishlist as $wishlist) { ?>
                         <form action="" method="POST">
-                            <div class="card ecommerce-card">
+                            <div class="card ecommerce-card" onclick=" Redirection(<?= $wishlist['idJeux'] ?>) ">
                                 <div class="item-img text-center">
                                     <?php echo '<img id="imgWishlist"  src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
                                 </div>
@@ -163,7 +163,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                                 <div class="item-options">
 
                                     <input type="submit" name="supprimer" class="btn btn-danger waves-effect waves-float waves-light" value="&#xf014;">
-                                    <input type="submit" name="AjoutPanier" class="btn btn-primary waves-effect waves-float waves-light" value="&#xf07a;">
+                                    <!-- <input type="submit" name="AjoutPanier" class="btn btn-primary waves-effect waves-float waves-light" value="&#xf07a;"> -->
 
                                 </div>
                                 <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
