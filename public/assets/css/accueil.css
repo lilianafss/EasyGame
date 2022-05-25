@@ -128,11 +128,7 @@ form
     color: white;
 }
 */
-
-
 /*#endregion */
-
-
 /*#endregion*/
 
 
@@ -159,6 +155,7 @@ form
     {
         width: 70%;
     }
+
     #container-ul
     {
         width: 80%;
@@ -201,15 +198,15 @@ form
         width: 90%;
     }
 
+    .card-title
+    {
+        margin-bottom: 20px;
+    }
+
     #icon-container
     {
         width: 100%;
         justify-content: center;
-    }
-    .icon-texte {
-        width: 80px;
-        margin-bottom: 0;
-        text-align: center;
     }
 
     .filtres
@@ -227,13 +224,13 @@ form
 
     #search
     {
-        width: 55%;
+        width: 50%;
         margin: 8px 20px 0 0;
     }
 
     #filtre-submit
     {
-        width: 35%;
+        width: 40%;
         margin: 8px 0 0 0;
     }
 }

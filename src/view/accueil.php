@@ -44,7 +44,7 @@ use EasyGame\Model\GameModel;
                         </select>
                     </li>
 
-                    <li class="nav-item filtre-li">
+                    <li class="nav-item filtre-container">
                         <input id="search" class="border-0 rounded shadow" type="Search" placeholder="Recherche" name="recherche">
                         <button id="filtre-submit" class="btn" type="submit">Rechercher</button>
                     </li>

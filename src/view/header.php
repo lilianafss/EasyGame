@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" id="nav-link">
 
     <div id="logoContainer">
         <a href="<?= url('accueil') ?>">
@@ -35,7 +35,7 @@
                         <p class="texte-icon">Profil</p>
                     </li>
                 
-                    <li class="nav-item nav-li">                            
+                    <li class="nav-item nav-li" id="panier-container">                            
                         <a class="nav-link" href="'.url('panier').'">
                             <i class="fa-solid fa-2x fa-basket-shopping icon"></i>
                             <span class="badge rounded-pill badge-notification bg-danger">'.$_SESSION['quantite'].'</span>

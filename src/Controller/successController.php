@@ -12,7 +12,9 @@ class successController
     function success()
     {
 
+        // Crée la session si elle n'existe pas
         SessionStart();
+
         if (!$_SESSION['connected']) {
             header("location: http://easygame.ch");
             exit();

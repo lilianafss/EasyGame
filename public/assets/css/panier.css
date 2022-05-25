@@ -116,7 +116,7 @@ main
     display: flex;
     text-align: center;
     align-items: center;
-    margin: 40px;
+    margin: 20px;
 }
 
 .panier-item
@@ -179,9 +179,7 @@ form
 
 .card-img
 {
-    width: 100%;
-    height: 300px;
-
+    width: 45%;
     border-radius: 20px;
 }
 

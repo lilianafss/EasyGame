@@ -21,7 +21,7 @@ class ConnexionController
         SessionStart();
 
         if ($_SESSION['connected']) {
-            header("location: /");
+            header("location:".URL_PRINCIPAL);
             exit();
         }
 
@@ -47,11 +47,9 @@ class ConnexionController
                         header("location:".URL_PRINCIPAL);
                         exit();
                     } else {
-                        $_SESSION = [
-                            'idUser' => "",
-                            'connected' => false,
-                            'admin' => false
-                        ];
+                        $_SESSION['idUser'] = "";
+                        $_SESSION['connected'] = false;
+                        $_SESSION['admin'] = false;
                         $erreur = "Email ou mot de passe incorrect.";
                     }
                 } else {
