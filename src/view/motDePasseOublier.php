@@ -17,7 +17,7 @@
         <h1>J'ai oublié mon mot de passe</h1>
         <div class="messageDiv" id="msg"><?=$message?></div>
         <div class="inputContainer">
-            <label for="email" class="text-primary">Saississez votre adresse e-mail</label>
+            <label for="email">Saississez votre adresse e-mail</label>
             <input id="email" name="email" type="email" placeholder="example@gmail.com" value="<?=$email?>">
         </div>
         <div id="submitContainer">

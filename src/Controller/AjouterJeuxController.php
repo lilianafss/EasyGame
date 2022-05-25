@@ -8,6 +8,7 @@ use EasyGame\Model\GenreModel;
 use EasyGame\Model\PlatformModel;
 use EasyGame\Model\PegiModel;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 class AjouterJeuxController
@@ -41,8 +42,9 @@ class AjouterJeuxController
 
         //si on n'est pas connecté en tant d'admin, on va à la page d'accueil
         if (!$_SESSION['admin']) {
-            header("location:".URL_PRINCIPAL);
-            exit();
+
+            // Redirige vers la page d'accueil
+            RedirectUser("");
         } else {
             
             $genre = GenreModel::getGenre();
@@ -55,6 +57,7 @@ class AjouterJeuxController
             //on essaye d'ajouter le jeu si on touche le bouton Ajouter jeu
             if ($submit == "Ajouter jeu") {
                 $bool = true;
+
                 //recuperer les donnees et l'image
                 $nomJeux = filter_input(INPUT_POST, 'nomJeu', FILTER_SANITIZE_SPECIAL_CHARS);
                 $description = filter_input(INPUT_POST, 'descrifJeu', FILTER_SANITIZE_SPECIAL_CHARS);

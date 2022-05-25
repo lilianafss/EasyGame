@@ -14,6 +14,7 @@ use EasyGame\Model\UserModel;
 use EasyGame\Model\WishlistModel;
 use PDOException;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 class ModifierController
@@ -29,7 +30,7 @@ class ModifierController
         // Crée la session si elle n'existe pas
         SessionStart();
 
-        //declaration de la message d'erreur
+        // Declaration du message d'erreur
         $messageErreur = "";
 
         //declaration des variables
@@ -44,8 +45,9 @@ class ModifierController
         $tableauGenre = [];
 
         if (!$_SESSION['admin']) {
-            header("location: http://easygame.ch");
-            exit();
+
+            // Redirige l'utilisateur vers la page d'accueil
+            RedirectUser("");
         } else {
             //recuperer l'id du jeu
             $idJeu = filter_input(INPUT_GET,'idJeux');
@@ -94,7 +96,6 @@ class ModifierController
                     if ($test) {
                         //ajout de la plateforme au tableau
                         $tableauPlatform[$i] = intval($test);
-
                     }
                 }
                 //pas avoir la même valeur deux ou plusieurs fois
@@ -114,14 +115,16 @@ class ModifierController
 
                         GameModel::updateGame($idJeu, $nomJeu, $description, $prixJeu, $pegi);
 
-                        header('Location: http://easygame.ch/modifier?idJeux='.$idJeu.'&valid=ok');
-                      
+                        // Redirige l'utilisateur
+                        RedirectUser("modifier?idJeux='.$idJeu.'&valid=ok'");
                     }
                     else{
-                        header('Location: http://easygame.ch/modifier?idJeux='.$idJeu.'&valid=prix');
+                        // Redirige l'utilisateur
+                        RedirectUser("modifier?idJeux='.$idJeu.'&valid=prix'");
                     }
                 }else{
-                    header('Location: http://easygame.ch/modifier?idJeux='.$idJeu.'&valid=non');
+                    // Redirige l'utilisateur
+                    RedirectUser("modifier?idJeux='.$idJeu.'&valid=non'");
                 }
             }
         }

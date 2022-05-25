@@ -2,8 +2,6 @@
 
 namespace EasyGame\Controller;
 
-//require_once 'vendor/autoload.php';
-
 //use pour les requete a la base de donnée
 use EasyGame\Model\BaseDonnee;
 use EasyGame\Model\GameModel;
@@ -28,9 +26,8 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
 use PayPal\Exception\PayPalConnectionException;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
-
-@ini_set('display_errors', 'on');
 
 class PanierController
 {
@@ -52,8 +49,8 @@ class PanierController
 
         $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
         if (!$_SESSION['connected']) {
-            header("location:".URL_PRINCIPAL);
-            exit();
+            // Redirige vers la page d'accueil
+            RedirectUser("");
         } else {
             //parcourir le panier
             foreach ($tableauxPanier as $panier) {
@@ -106,8 +103,6 @@ class PanierController
                     $payer = new Payer();
                     $payer->setPaymentMethod('paypal');
 
-
-                    var_dump($payer);
                     //config du prix,de la quantité et de la monnaie
                     $item1 = new Item();
                     $item1->setName($_SESSION['item'])

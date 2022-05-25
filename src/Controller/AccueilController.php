@@ -9,9 +9,8 @@ use EasyGame\Model\PlatformModel;
 use EasyGame\Model\GenreModel;
 use EasyGame\Model\PanierModel;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
-
-
 
 class AccueilController
 {
@@ -24,11 +23,13 @@ class AccueilController
         // Crée la session si elle n'existe pas
         SessionStart();
 
-        if ($_SESSION['connected'] && $_SESSION['idJeux'] != "") {
+        if ($_SESSION['connected'] && $_SESSION['idJeux'] != "")
+        {
             PanierModel::addGameToPanier($_SESSION['idUser'], $_SESSION['idJeux']);
             $_SESSION['idJeux'] = "";
-            header("Location:".URL_PRINCIPAL.url("panier"));
-            exit();
+
+            // Redirige l'utilisateur vers la page panier
+            RedirectUser(url("panier"));
         }
 
         $recherche = filter_input(INPUT_GET, 'recherche');
