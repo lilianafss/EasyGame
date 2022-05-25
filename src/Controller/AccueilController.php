@@ -28,6 +28,7 @@ class AccueilController
             PanierModel::addGameToPanier($_SESSION['idUser'], $_SESSION['idJeux']);
             $_SESSION['idJeux'] = "";
             header("Location:".URL_PRINCIPAL.url("panier"));
+            exit();
         }
 
         $recherche = filter_input(INPUT_GET, 'recherche');

@@ -55,7 +55,7 @@
                     <input id="password2" class="label-input" type="password" name="password2" minlength="8" placeholder="Doit être identique au mot de passe" value="<?=$password2?>">
                 </div>
 
-                <div class="divForm" id="container-form-bot">
+                <div id="container-form-bot">
                     <label for="showPassWord" id="containerShowPassWord">
                         <input type="checkbox" name="showPassWord" id="showPassWord" onclick="ShowPassword()">
                         <span class="ml-2">Afficher le mot de passe</span>
