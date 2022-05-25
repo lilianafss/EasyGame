@@ -105,24 +105,39 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
 
 
+           
             <div id="historiqueAchat" class="tabcontent">
-                <h3>Historique d'achat</h3>
+                <div id="container-historique" class="container">
+                    <table id="cart" class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width:50%">Product</th>
+                                <th style="width:10%">Price</th>
+                            </tr>
+                        </thead>
+                        <?php foreach ($tableauxHistorique as $historique) { ?>
+                            <tbody>
+                                <tr>
+                                    <td data-th="Product">
+                                        <div class="row">
+                                            <div class="col-sm-2 hidden-xs"><?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?></div>
+                                            <div class="col-sm-10">
+                                                <h4 class="nomargin"><?php echo $historique['nom'] ?></h4>
 
-                <div id="container-historique">
-                    <?php foreach ($tableauxHistorique as $historique) { ?>
-                        <input type="hidden" name="idJeux" value="<?php $historique['idJeux'] ?>">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-th="Price"><?php echo $historique['prix'] ?> </td>
 
-                        <div id="historique" class="m-4 container" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
-                            <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
-                            <div class="overlay">
-                                <div id="text"> <?php echo $historique['nom'] ?> </div>
 
-                            </div>
-                        </div>
 
-                    <?php } ?>
+                                </tr>
+
+                            </tbody>
+
+                        <?php } ?>
+                    </table>
                 </div>
-
             </div>
 
             <div id="wishlist" class="tabcontent">
