@@ -63,7 +63,7 @@ if ($BOOL == false) {
                                                 <div class="w-100">
                                                     <h5>Laissez votre avis</h5>
                                                     <?php
-                                                        $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
+                                                    $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
                                                     ?>
                                                     <div class="starrating risingstar d-flex flex-row-reverse">
                                                         <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
@@ -103,12 +103,21 @@ if ($BOOL == false) {
                     <div class="card">
                         <div class="row d-flex">
                             <div class="d-flex">
+                                <?php echo '<img id="imgProfil" class="card-img" src="data:image/jpeg;base64,' . base64_encode($commentaire['avatar']) . '"/>'; ?>
+                                <div id="note">
+                                <span class="fa fa-star star-active ml-3"></span>
+                                    <p class="text-left"><span class="text-muted"><?= $userNote['note'] ?></span>
+                                      
+                                    </p>
+                                </div>
                                 <h3 id="commentaire-pseudo" class="mt-2 mb-0"><?= $user['pseudo'] ?></h3>
+
+
                                 <p id="commentaire-date" class="text-muted pt-5 pt-sm-3"><?= $commentaire['date'] ?></p>
+
                             </div>
                             <div>
-                                <p class="text-left"><span class="text-muted"><?= $userNote['note'] ?></span>
-                                    <span class="fa fa-star star-active ml-3"></span>
+
                             </div>
                         </div>
                         <div class="row text-left">

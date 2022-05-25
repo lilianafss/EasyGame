@@ -58,11 +58,6 @@ form
     justify-content: center;
 }
 
-#carouselExampleInterval {
-    width: 60%;
-    margin: 40px auto 20px auto;
-}
-
 /*--------------------Cards--------------------*/
 
 
@@ -114,20 +109,6 @@ form
     color: #332E52;
 }
 
-
-/* Code qui pourrait être utile dans la page jeux
-.card-btn
-{
-    display: flex;
-    justify-content: center;
-    width: 75%;
-    height: 15%;
-    font-size: 18px;
-    margin-bottom: 5px;
-    background-color: #3C3661;
-    color: white;
-}
-*/
 /*#endregion */
 /*#endregion*/
 
@@ -145,12 +126,6 @@ form
 
 @media only screen and (max-width: 1024px)
 {
-    #carouselExampleInterval
-    {
-        width: 70%;
-        margin: 40px auto 20px auto;
-    }
-
     .card
     {
         width: 70%;
@@ -164,12 +139,6 @@ form
 
 @media only screen and (max-width: 769px)
 {
-    #carouselExampleInterval
-    {
-        width: 80%;
-        margin: 40px auto 20px auto;
-    }
-
     .card
     {
         width: 80%;
@@ -187,12 +156,6 @@ form
 
 @media only screen and (max-width: 480px)
 {
-    #carouselExampleInterval
-    {
-        width: 90%;
-        margin: 40px auto 20px auto;
-    }
-
     .card
     {
         width: 90%;
@@ -234,8 +197,6 @@ form
         margin: 8px 0 0 0;
     }
 }
-
-
 /*#endregion */
 
 
@@ -243,7 +204,6 @@ form
 
 
 /*#region Scroll-bar*/
-
 
 /* Largeur de la scroll-bar*/
 

@@ -9,6 +9,7 @@ use EasyGame\Model\NoteModel;
 use EasyGame\Model\PanierModel;
 use EasyGame\Model\WishlistModel;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 //@ini_set('display_errors', 'on');
@@ -74,25 +75,27 @@ class JeuxController
                     if (!$_SESSION['connected'])
                     {
                         $_SESSION['idJeux'] = $idJeux;
-                        header("Location:".URL_PRINCIPAL.url("connexion"));
-                        exit();
+
+                        // Redirige l'utilisateur vers la page de connexion
+                        RedirectUser(url("connexion"));
                     }
                     else
                     {
                         $panier = PanierModel::addGameToPanier($idUser, $idJeux);
-                        header("Location:".URL_PRINCIPAL.url("panier"));
-                        exit();
+
+                        // Redirige l'utilisateur vers le panier
+                        RedirectUser(url("panier"));
                     }
                 }
                 else if ($btnPanier == "Dans le panier")
                 {
-                    header("Location:".URL_PRINCIPAL.url("panier"));
-                    exit();
+                    // Redirige l'utilisateur vers le panier
+                    RedirectUser(url("panier"));
                 }
             }
         } else {
-            header("Location:".URL_PRINCIPAL);
-            exit();
+            // Redirige l'utilisateur vers la page d'accueil
+            RedirectUser("");
         }
         require '../src/view/jeux.php';
     }

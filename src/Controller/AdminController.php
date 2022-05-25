@@ -5,8 +5,8 @@ use EasyGame\Model\BaseDonnee;
 use EasyGame\Model\GameModel;
 use EasyGame\Model\UserModel;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
-const URL_PRINCIPAL = 'http://easygame.ch'; //PROBLEME
 
 class AdminController
 {
@@ -23,8 +23,8 @@ class AdminController
 
         if (!$_SESSION['admin'])
         {
-            header("location:".URL_PRINCIPAL);
-            exit();
+            // Redirige vers la page d'accueil
+            RedirectUser("");
         }
         else
         {
@@ -34,8 +34,8 @@ class AdminController
             $submit = filter_input(INPUT_POST,'submit',FILTER_SANITIZE_SPECIAL_CHARS);
 
             if($submit == "ok"){
-                
-                header("Location:".URL_PRINCIPAL.url("ajouterJeux"));
+                // Redirige vers la page ajouterJeux
+                RedirectUser(url("ajouterJeux"));
             }
 
             //recuperer les jeux de la base de donnée

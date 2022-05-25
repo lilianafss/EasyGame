@@ -11,7 +11,7 @@ use Exception;
 use PDO;
 use PDOException;
 
-require "../src/php/config.php";
+require_once "../src/php/config.php";
 
 class BaseDonnee
 {
