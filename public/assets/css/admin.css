@@ -18,6 +18,7 @@ main {
     width: 60%;
     margin: auto;
     margin-bottom: 20px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
