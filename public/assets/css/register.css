@@ -129,6 +129,8 @@ form
     .divForm
     {
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 
     label
@@ -144,7 +146,7 @@ form
 
     .btnSubmit
     {
-        width: 35%;
+        width: 45%;
     }
 }
 /*#endregion*/
