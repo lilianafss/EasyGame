@@ -23,8 +23,8 @@ class CommentaireModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `commentaire`, `idUser`, `date` FROM `commentaires`
-                WHERE `commentaires`.`idJeux` = ?;
+            SELECT `commentaire`, `commentaires`.`idUser`,`user`.`avatar`,`date` FROM `commentaires`,`user`
+            WHERE `commentaires`.`idJeux` = ? AND `commentaires`.`idUser`=`user`.`idUser`;
             ");
             $query->execute([$idJeux]);
             return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -34,6 +34,7 @@ class CommentaireModel
             echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
+
 
     /**
      * Récupérer les commentaires du jeu

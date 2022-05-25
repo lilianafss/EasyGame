@@ -122,28 +122,27 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
             <div id="historiqueAchat" class="tabcontent">
                 <div id="container-historique" class="container">
-
                     <table id="cart" class="table table-hover table-condensed">
-
                         <tbody>
                             <?php foreach ($tableauxHistorique as $historique) { ?>
                                 <tr>
-
                                     <td>
                                         <div class="row">
                                             <div class="col-sm-2 hidden-xs"><?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?></div>
                                             <div class="col-sm-10">
                                                 <h4 class="nomargin"><?php echo $historique['nom'] ?></h4>
                                             </div>
+                                        
+                                    
+                                            <td> <?php echo $historique['prix'] ?> </td>
+                                            <td>
+                                                <div class="round" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
+                                                    <div id="cta">
+                                                    <span class="arrow primera next "></span>
+                                                    <span class="arrow segunda next "></span>
+                                                </div>
+                                            </td>
                                         </div>
-                                    </td>
-                                    <td> <?php echo $historique['prix'] ?> </td>
-                                    <td>
-                                        <div class="round" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
-                                            <div id="cta">
-                                                <span class="arrow primera next "></span>
-                                                <span class="arrow segunda next "></span>
-                                            </div>
                                     </td>
                                 </tr>
                             <?php } ?>

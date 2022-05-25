@@ -45,7 +45,7 @@ class UserModel
         try
         {
             $query = BaseDonnee::getConnexion()->prepare("
-                SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`, `dateCreation`
+                SELECT `idUser`, `pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`, `dateCreation`,`avatar`
                 FROM `user`
                 WHERE `user`.`idUser` = ?
             ");
