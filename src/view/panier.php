@@ -37,16 +37,14 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
         <?php } else { ?>
             <h1 class="text-center">Panier</h1>
             <div id="jeux-container">
-              
-                    <table id="cart" class="table table-hover table-condensed">
-                        <?php foreach ($tableauxPanier as $panier) { ?>
-                            <form method="POST">
-                            <tr data-th="Product">
-                                <td class="row">
-                                    <div class="hidden-xs"><?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($panier['image']) . '"/>'; ?></div>
-                                </td>
-
-                                <td>
+                <?php foreach ($tableauxPanier as $panier) { ?>
+                    <form method="POST">
+                        <div data-th="Product" class="panier-container">
+                            <div class="panier-item w-50">
+                                <div class="hidden-xs"><?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($panier['image']) . '"/>'; ?></div>
+                            </div>
+                            <div class="panier-container w-50">
+                                <div class="panier-item">
                                     <h4 class="nomargin"><?= $panier['nom'] ?></h4>
                                     
                                     <input type="hidden" name="idJeux" value="<?= $panier['idJeux'] ?>">
@@ -56,13 +54,13 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                     <?= number_format($panier['prix'], 2)  ?> CHF
                                 </div>
 
-                                <td class="actions" data-th="">
-                                    <input class="rounded" type="submit" name="trash" value="Supprimer">
-                                </td>
-                            </tr>
-                            </form>
-                        <?php } ?>
-                    </table>
+                                <div class="actions" class="panier-item">
+                                    <input class="rounded btn" type="submit" name="trash" value="Supprimer">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                <?php } ?>
             </div>
             <div id="payement-container">
                 <form method="POST" action="/panier">
@@ -85,7 +83,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                         <?php if ($_SESSION['nbPanel'] == 1) { ?>
                                             <div id="paypal">
                                                 <?php if ($_SESSION['quantite'] != 0) { ?>
-                                                    <div><input type="submit" name="payer" value="Payer  <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mt-3 mb-3"></div>
+                                                    <div><input type="submit" name="payer" value="Payer <?php echo $_SESSION['total'];  ?> CHF" class="btn btn-primary mt-3 mb-3"></div>
                                                 <?php } elseif ($_SESSION['quantite'] == 0) { ?>
                                                     <div><input type="submit" name="payer" value="Payer  0 CHF" class="btn btn-primary mb-3"></div>
                                                 <?php  } ?>

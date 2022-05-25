@@ -17,10 +17,7 @@
     </header>
     <main>
         <div class="row d-flex justify-content-center" id="box">
-
-            <div class="row text-center" id="title">
-                <h3>Connexion</h3>
-            </div>
+            <h1 class="title">Connexion</h1>
 
             <div class="col justify-content-center align-items-center">
 
@@ -39,17 +36,12 @@
                     <div class="formItemsContainer">
                         <input class="btn boutton" type="submit" name="btnSubmit" value="Se connecter">
                     </div>
-
                 </form>
 
                 <a href="/motDePasseOublier">Mot de passe oublié?</a>
             </div>
 
-            <div>
-                <hr id="line">
-            </div>
-
-            <p>ou</p>
+            <p class="my-2">ou</p>
 
             <div class="col justify-content-center align-items-center" id="linkIncrit">
                 <a href="/nouveau">Crée un nouveau compte</a>

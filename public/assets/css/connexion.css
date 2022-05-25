@@ -1,27 +1,22 @@
-#title
+main
 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
-    color: white;
+    justify-items: center;
+}
+
+h1
+{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: 35px;
+    margin-bottom: 40px;
 }
 
 #box
 {
-    border: 2px double black;
-    border-radius: 5px;
     width: 60%;
     margin: 20px auto 20px auto;
     text-align: center;
-}
-
-#line
-{
-    padding-right: 20px;
-    border: 1px solid black;
-    color:black;
-    background-color:black;
 }
 
 #linkIncrit
@@ -50,7 +45,7 @@
 .connexionInput
 {
     align-self: center;
-    width: 220px;
+    width: 35%;
     margin: 10px;
 }
 
@@ -58,6 +53,8 @@
 {
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
+    margin: 10px 0;
+    width: 35%;
 }
 
 .boutton:hover
@@ -70,6 +67,18 @@ a:link
     text-decoration: none;
 }
 
+@media only screen and (max-width: 1250px)
+{
+    .connexionInput
+    {
+        width: 70%;
+    }
+
+    .boutton
+    {
+        width: 70%;
+    }
+}
 
 @media only screen and (max-width: 769px)
 {
@@ -78,4 +87,18 @@ a:link
         width: 75%;
     }
 
+    .connexionInput
+    {
+        width: 80%;
+    }
+
+    .boutton
+    {
+        width: 80%;
+    }
+
+    .title
+    {
+        margin-bottom: 20px;
+    }
 }

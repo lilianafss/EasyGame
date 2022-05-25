@@ -18,9 +18,9 @@
 {
     display: flex;
     flex-direction: column-reverse;
-    background-color: rgba(200, 30, 50, 0.5);
-    color: darkred;
-    border: 2px solid darkred;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: #5c0404;
+    border: 2px solid #5c0404;
 }
 
 #successMessage

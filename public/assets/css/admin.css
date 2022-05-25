@@ -1,10 +1,14 @@
-h1{
+h1 {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
     background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
     color: white;
     text-align: center;
+}
+
+h2 {
+    border-bottom: 1px solid black;
 }
 
 main {
@@ -19,7 +23,7 @@ main {
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-} 
+}
 
 main p {
     margin-bottom: 0px;
@@ -29,24 +33,46 @@ main div {
     border-bottom: 1px solid black;
 }
 
-img{
+img {
     width: 50%;
 }
 
-.liens{
-    font-size:  1.4rem;
+.liens {
+    font-size: 1.4rem;
 }
 
-.btn{
+.btn {
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
 }
-.btn:hover{
+
+.btn:hover {
     color: white;
 }
 
-#ajouterJoue{
+#ajouterJeu {
     font-size: 25px;
     text-decoration: none;
     margin-bottom: 20px;
+}
+
+.btnUser {
+    margin: 5px auto;
+    font-size: 20px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.btnUser:hover,
+.btnJeux:hover {
+    color: white;
+}
+
+.btnJeux {
+    font-size: 20px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    color: white;
+    margin: 10px 0;
 }

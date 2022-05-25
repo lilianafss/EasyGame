@@ -35,7 +35,7 @@ SimpleRouter::form('/motDePasseOublier', [MotDePasseOublierController::class, 'm
 SimpleRouter::form('/modifierMdp', [ModifierMotDePasseController::class, 'ModifierMdp'])->name('ModifierMdp'); // page de récupération de l'email pour mdp oublié
 SimpleRouter::form('/deconnexion', [DeconnexionController::class, 'deconnexion'])->name('deconnexion'); // page de déconnnexion
 SimpleRouter::form('/modifier', [ModifierController::class, 'modifierJeu'])->name('modifierJeu'); //pade de modification de jeu
-SimpleRouter::form('/profil', [ProfilController::class, 'profil'])->name('profil'); // page d'accueil du site
+SimpleRouter::form('/profil', [ProfilController::class, 'profil'])->name('profil'); // page profil du site
 SimpleRouter::form('/error', [errorController::class, 'error'])->name('error'); // page d'error pour paypal
 SimpleRouter::form('/success', [successController::class, 'success'])->name('success'); // page de succes pour paypal
 
