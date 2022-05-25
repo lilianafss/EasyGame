@@ -44,13 +44,13 @@ class HistoriqueModel
     #region Insert
     /**
      * Ajoute un jeu à son historique d'achat
-     * @param int $idJeux
      * @param int $idUser
+     * @param int $idJeux
      * @return void
      *
      * @author Rodrigo De Castilho E Sousa
      */
-    public static function addGameToHistorique($idJeux, $idUser)
+    public static function addGameToHistorique($idUser,$idJeux)
     {
         try
         {

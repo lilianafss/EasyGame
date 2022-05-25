@@ -14,7 +14,7 @@ class successController
 
         SessionStart();
         if (!$_SESSION['connected']) {
-            header("location: http://easygame.ch");
+            header("location:".URL_PRINCIPAL);
             exit();
         } else {
             $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
@@ -23,17 +23,19 @@ class successController
 
 
                     foreach ($tableauxPanier as $panier) {
+                        var_dump($_SESSION['idUser']);
+                        var_dump($panier['idJeux']);
                         HistoriqueModel::addGameToHistorique($_SESSION['idUser'], $panier['idJeux']);
                     }
-
+                
                     PanierModel::deletePanier($_SESSION['idUser']);
                     $_SESSION['total'] = 0;
                     $_SESSION['totalPanier'] = 0;
                     $_SESSION['quantite'] = 0;
+                
                     header("location:".URL_PRINCIPAL);
                 }
 
-               
                
             }
         }
