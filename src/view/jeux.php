@@ -104,6 +104,7 @@ if ($BOOL == false) {
                         <div class="row d-flex">
                             <div class="d-flex">
                                 <h3 id="commentaire-pseudo" class="mt-2 mb-0"><?= $user['pseudo'] ?></h3>
+                                <?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($commentaire['avatar']) . '"/>'; ?>
                                 <p id="commentaire-date" class="text-muted pt-5 pt-sm-3"><?= $commentaire['date'] ?></p>
                             </div>
                             <div>
