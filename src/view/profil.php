@@ -58,8 +58,9 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
         <div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi-exclamation-octagon-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
                 <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                <?= $errorMessage ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </svg>
+            <?= $errorMessage ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     <?php
     } ?>
@@ -121,24 +122,39 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
 
 
+
             <div id="historiqueAchat" class="tabcontent">
-                <h3>Historique d'achat</h3>
+                <div id="container-historique" class="container">
+                    <table id="cart" class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width:50%">Product</th>
+                                <th style="width:10%">Price</th>
+                            </tr>
+                        </thead>
+                        <?php foreach ($tableauxHistorique as $historique) { ?>
+                            <tbody>
+                                <tr>
+                                    <td data-th="Product">
+                                        <div class="row">
+                                            <div class="col-sm-2 hidden-xs"><?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?></div>
+                                            <div class="col-sm-10">
+                                                <h4 class="nomargin"><?php echo $historique['nom'] ?></h4>
 
-                <div id="container-historique">
-                    <?php foreach ($tableauxHistorique as $historique) { ?>
-                        <input type="hidden" name="idJeux" value="<?php $historique['idJeux'] ?>">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-th="Price"><?php echo $historique['prix'] ?> </td>
 
-                        <div id="historique" class="m-4 container" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
-                            <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
-                            <div class="overlay">
-                                <div id="text"> <?php echo $historique['nom'] ?> </div>
 
-                            </div>
-                        </div>
 
-                    <?php } ?>
+                                </tr>
+
+                            </tbody>
+
+                        <?php } ?>
+                    </table>
                 </div>
-
             </div>
 
             <div id="wishlist" class="tabcontent">
@@ -148,7 +164,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
                     <?php foreach ($tableauxWishlist as $wishlist) { ?>
                         <form action="" method="POST">
-                            <div class="card ecommerce-card">
+                            <div class="card ecommerce-card" onclick=" Redirection(<?= $wishlist['idJeux'] ?>) ">
                                 <div class="item-img text-center">
                                     <?php echo '<img id="imgWishlist"  src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
                                 </div>
@@ -163,7 +179,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                                 <div class="item-options">
 
                                     <input type="submit" name="supprimer" class="btn btn-danger waves-effect waves-float waves-light" value="&#xf014;">
-                                    <input type="submit" name="AjoutPanier" class="btn btn-primary waves-effect waves-float waves-light" value="&#xf07a;">
+                                    <!-- <input type="submit" name="AjoutPanier" class="btn btn-primary waves-effect waves-float waves-light" value="&#xf07a;"> -->
 
                                 </div>
                                 <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">

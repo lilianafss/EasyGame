@@ -61,6 +61,7 @@
         padding:5px 10px;
         background:rgba(30, 190, 50, 0.7);
         transition:all ease-in-out 0.3s;
+        border: none;
     }
     .content a:hover
     {
