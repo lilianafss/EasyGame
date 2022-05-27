@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 require_once '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require_once '../vendor/phpmailer/phpmailer/src/SMTP.php';
 require_once '../vendor/phpmailer/phpmailer/src/Exception.php';
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 class ModifierMotDePasseController
@@ -32,8 +33,8 @@ class ModifierMotDePasseController
         // Empêche l'accès à la page si la clé donnée par l'url est différente de celle stocké dans la session
         if($confirmationKey != $_SESSION['key'] || $_SESSION['connected'])
         {
-            header("Location: /");
-            exit();
+            // Redirige l'utilisateur vers la page d'accueil
+            RedirectUser("");
         }
         else
         {

@@ -129,6 +129,8 @@ form
     .divForm
     {
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 
     label
@@ -140,6 +142,11 @@ form
     .label-input
     {
         width: 100%;
+    }
+
+    .btnSubmit
+    {
+        width: 45%;
     }
 }
 /*#endregion*/

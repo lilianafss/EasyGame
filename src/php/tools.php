@@ -1,8 +1,12 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 /**
- * Fonction qui démarre une session et qui crée une session si elle n'existe pas
+ * Crée une session si elle n'existe pas
  * @return void
+ *
+ * @author Flavio Soares Rodrigues
  */
 function SessionStart()
 {
@@ -20,8 +24,14 @@ function SessionStart()
     }
 }
 
-//function Redirect ($url)
-//{
-//    location ...
-//    exit();
-//}
+/**
+ * Redirige l'utilisateur vers une page en fonction de l'url donnée en paramètre
+ * @param $url
+ * @return void
+ * @author Flavio Soares Rodrigues
+ */
+function RedirectUser($url)
+{
+    header("Location:".URL_PRINCIPAL.$url);
+    exit();
+}

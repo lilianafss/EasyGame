@@ -22,7 +22,7 @@
                   <div class="content">
                      <h1>Paiement reussi !</h1>
                      <p>Votre achat a bien été effectuer</p>
-                     <input class="btn" type="submit" name="retourPageAccueil" value="Retourner vers la page d'accueil">
+                     <input type="submit" name="retourPageAccueil" value="Retourner vers la page d'accueil">
                   </div>
                </div>
             </div>

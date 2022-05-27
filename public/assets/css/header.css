@@ -1,26 +1,35 @@
 /*--------------------Header--------------------*/
-
-
 /*#region Header*/
 
-header {
+header
+{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     background-color: #332E52;
+    padding-bottom: 10px;
 }
 
-#logoContainer {
+#logoContainer
+{
     display: flex;
     width: 100%;
+    justify-content: center;
 }
 
-#logo {
+#logo
+{
     width: 167px;
     height: 100px;
 }
 
-.texte-icon {
+#nav-link
+{
+    width: 45%;
+}
+
+.texte-icon
+{
     width: 100px;
     margin-bottom: 0;
     text-align: center;
@@ -29,90 +38,177 @@ header {
     font-weight: bold;
 }
 
-.nav {
+.nav
+{
     width: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.nav-link {
+.nav-link
+{
     justify-content: center;
-    width: 100px;
+    width: 100%;
     display: flex;
     color: white;
 }
 
-.nav-link:visited {
+.nav-link:visited
+{
     color: white;
 }
 
-.nav-link:hover {
+.nav-link:hover
+{
     color: silver;
 }
 
-.nav-link:focus {
+.nav-link:focus
+{
     color: silver;
 }
-.badge{
+
+.badge
+{
     margin: 0 0.3em;
     font-size: 1em;
 }
-#panier{
+
+#panier
+{
     text-align: left;
-    padding-left: 0.5em ;
+    padding-left: 1.5rem;
     padding-top: 0;
 }
 
 /*#endregion*/
-
-@media only screen and (max-width: 1024px) {
-    #logoContainer {
-        width: 100%;
-        justify-content: center;
-    }
-    .nav {
-        width: 100%;
-        justify-content: center;
+@media only screen and (min-width: 1920px)
+{
+    #nav-link
+    {
+        width: 40%;
     }
 }
 
-@media only screen and (max-width: 769px) {
-    #logoContainer {
-        width: 100%;
-        justify-content: center;
-    }
-    .nav {
-        width: 100%;
-        justify-content: center;
-    }
-    .nav-link {
-        margin-right: 5px;
-        margin-left: 5px;
+@media only screen and (min-width: 2560px)
+{
+    #nav-link
+    {
+        width: 30%;
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .nav-link {
-        margin-right: 0;
-        margin-left: 0;
-    }
-}
 
-@media only screen and (max-width: 480px) {
-    .nav-li {
-        width: 80px;
-        padding-bottom: 15px;
-    }
-    .nav-link {
-        padding: 4px;
-        width: 80px;
-    }
-    .icon-texte {
-        width: 80px;
-        text-align: center;
-    }
+@media only screen and (max-width: 1550px)
+{
     #logoContainer
     {
         flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 1200px)
+{
+    .nav
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #nav-link
+    {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 769px)
+{
+    #logoContainer
+    {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav
+    {
+        width: 100%;
+
+    }
+
+    #nav-link
+    {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{
+    #nav-link
+    {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
+    .nav-link
+    {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .texte-icon
+    {
+        width: auto;
+    }
+
+}
+
+@media only screen and (max-width: 480px)
+{
+    #nav-link
+    {
+        width: 100%;
+    }
+
+    .nav-link
+    {
+        padding: 4px;
+        width: 100%;
+    }
+
+    .texte-icon
+    {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-li
+    {
+        width: 25%;
+    }
+
+    #panier
+    {
+        padding-left: 0.6rem;
+    }
+
+    #accueil
+    {
+        width: 15%;
+    }
+
+    #profil
+    {
+        width: 15%;
+    }
+
+    .connexion
+    {
+        width: 20%;
+    }
+
+    #admin
+    {
+        width: 15%;
     }
 }

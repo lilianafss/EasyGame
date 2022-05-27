@@ -60,3 +60,8 @@ function Redirection(id) {
 
     window.location.replace(stringUrl);
 }
+$('.round').click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.arrow').toggleClass('bounceAlpha');
+});

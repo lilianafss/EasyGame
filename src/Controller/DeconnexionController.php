@@ -2,6 +2,7 @@
 
 namespace EasyGame\Controller;
 
+require_once('../src/php/config.php');
 require_once('../src/php/tools.php');
 
 class DeconnexionController
@@ -19,7 +20,7 @@ class DeconnexionController
         }
         session_destroy();
 
-        header("Location: /");
-        exit();
+        // Redirige vers la page d'accueil
+        RedirectUser("");
     }
 }
