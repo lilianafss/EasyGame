@@ -15,7 +15,7 @@ L'utilisateur va avoir l'option de se connecter ou de créer un compte s'il est 
 Pour créer un compte l'utilisateur va être obligé d'aller sur la page **inscription**. Pour aller sur cette page vous avez un icône toute en haut à côté du logo. **(Si vous n'arrivez pas à trouver l'icône va sur le point 4 "navigations sur le site")**
 
 Voici un exemple de création de compte :
-![exemple creation de compte](/assets/gifs/inscriptionGif.gif)
+![exemple creation de compte](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/inscriptionGif.gif)
 
 Une fois créer le compte vous allez recevoir un **email** de confirmation. Une fois confirmez-vous avez bien créé votre compte sur le site.
 
@@ -25,7 +25,7 @@ Pour se connecter vos devez aller sur la page de connexion. Pour aller sur cett
 
 Voici un exemple de connexion :
 
-![exemple connexion](/assets/gifs/connexionGif.gif)
+![exemple connexion](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/connexionGif.gif)
 
 #### 2.3 Wishlist
 
@@ -35,25 +35,25 @@ Pour ajouter un jeu à sa wishlist il faut aller sur la page d'accueil et clique
 
 Voici un exemple :
 
-![exemple ajouter un jeu a sa wishlist](/assets/gifs/ajouterJeuWishlist.gif)
+![exemple ajouter un jeu a sa wishlist](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/ajouterJeuWishlist.gif)
 
 #### 2.4 Historique d'achat
 
 Si vous désirez regarder votre historique d'achat. Vous devrez aller sur la page de profil et cliquer sur l'historique dans la barre latérale.
 
-![page de profil historique](/assets/images/historique.PNG "historique d'achat")
+![page de profil historique](https://github.com/lilianafss/EasyGame/blob/main/public/assets/image/historique.PNG "historique d'achat")
 
 #### 2.5 Commenter et noter un jeu
 
 Si vous voulez commenter et noter un jeu vous avez juste besoin d'aller sur la page du jeu aller toute en bas et écrite et noter le jeu.
 
-![exemple noter et commenter un jeu](/assets/gifs/noterCommenter.gif)
+![exemple noter et commenter un jeu](/https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/noterCommenter.gif)
 
 #### 2.6 Acheter un jeu
 
 Pour acheter un jeu vous allez sur la page du jeu et cliquez sur le bouton ajouté au panier. Une fois cliquez, vous allez directement sur la page panier et pour payer cliquer sur le bouton "Payer" avec le montant à coter.
 
-![exemple acheter un jeu](https://raw.githubusercontent.com/lilianafss/EasyGame/main/public/assets/gifs/acheterJeu.gif)
+![exemple acheter un jeu](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/acheterJeu.gif)
 
 ### 3. Fonctionnalités de l'Admin
 
@@ -67,7 +67,7 @@ Pour créer des nouveaux jeux vous devrez aller sur la page admin et cliquer sur
 
 Voici un exemple d'ajout d'un jeu :
 
-![exemple ajouter un jeu](/assets/gifs/ajouterJeu.gif)
+![exemple ajouter un jeu](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/ajouterJeu.gif)
 
 #### 3.2 Modifier et effacer un jeux
 
@@ -75,13 +75,13 @@ Si vous voulez effacer ou modifier un jeu vous devrez aller sur la page admin et
 
 Voici un example de modification et effacement d'un jeu :
 
-![exemple effacer et modifier un jeu](/assets/gifs/effacerModifJeu.gif)
+![exemple effacer et modifier un jeu](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/effacerModifJeu.gif)
 
 #### 3.3 Effacer un utilisateur et modifier son status
 
 Pour effacer des utilisateurs ou changer son status ("en Attente", "Disabled" et "Actif"). Vous devrez aller on bas du utilisateur que vous désirez effacer ou changer le status et cliquer sur le link que correspond à ce que vous voulez faire.
 
-![exemple effacer et modifier un user](/assets/gifs/effacerModifUser.gif)
+![exemple effacer et modifier un user](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/effacerModifUser.gif)
 
 ### 4. Navigation sur le site
 
@@ -95,7 +95,7 @@ Les icônes de gauche a droite:
 2. "Connexion" -> on va sur la page de connexion
 3. "S'incrire" -> on va sur la page d'inscrition
 
-![barre nav du site](/assets/images/barreNavNoConne.PNG "Les icones du site exemple")
+![barre nav du site](https://github.com/lilianafss/EasyGame/blob/main/public/assets/image/barreNavNoConne.png "Les icones du site exemple")
 
 Les icônes vont changer si vous êtes connecté ou pas et si vous êtes connecté en tant un admin ou un utilisateur normal comme vous pouvez regarder a bas.
 
@@ -109,13 +109,13 @@ Les icônes de gauche a droite:
 4. "Admin" -> si on clique on va sur la page admin
 5. "Panier" -> si on clique sur cet icône on va sur le panier.
 
-![barre nav du site](/assets/images/barreNavAccueil.png "Les icones du site exemple")
+![barre nav du site](https://github.com/lilianafss/EasyGame/blob/main/public/assets/image/barreNavAccueil.png "Les icones du site exemple")
 
 ### 5. Recherche des jeux sur le site
 
 Pour chercher un jeu sur le site vous devez aller sur la page d'accueil et on bat des icônes. Vous pouvez chercher par rapport à l'âge (**le Pegi**), **la plateforme**, **le genre** et **le nom** du jeu.
 
-![barre nav du site](/assets/images/barreRecherche.PNG "recherche")
+![barre nav du site](https://github.com/lilianafss/EasyGame/blob/main/public/assets/image/barreRecherche.PNG "recherche")
 
 ### 6. Mot de passe oublié
 
@@ -123,4 +123,4 @@ Si vous oubliiez votre mot de passe vous pouvez le changer sur la page connexion
 
 Voici un exemple :
 
-![exemple de mot de passe oublié](/assets/gifs/motDePasseOublie.gif)
+![exemple de mot de passe oublié](https://github.com/lilianafss/EasyGame/blob/main/public/assets/gifs/motDePasseOublie.gif)
