@@ -165,3 +165,40 @@ input[type=submit] {
 section {
     width: 1500px;
 }
+
+
+/* .card {
+    width: 1500px;
+    border: none;
+    overflow: hidden
+}
+
+.main_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    overflow: hidden
+}
+
+.heart {
+    height: 32px;
+    width: 32px;
+    background-color: #eaeaea;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.right-side {
+    position: relative
+}
+
+.buttons .btn {
+    background-color: #865ad3;
+    height: 50px;
+    width: 150px;
+    border-radius: 0px !important
+} */

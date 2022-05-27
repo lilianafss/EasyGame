@@ -72,9 +72,47 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                 <button class="tablinks" onclick="openCity(event, 'wishlist')"><i class="fa-solid fa-heart"></i> Whislist</button>
             </div>
 
+            <div id="info" class="tabcontent container py-5 h-100">
+                <div class="row d-flex justify-content-center h-100">
+                    <div class="col col-lg-6 mb-4 mb-lg-0">
+                        <div class="card card-profil mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4 text-center" style="margin-top: 5%;border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"  /> -->
+                                    <?php echo '<img id="avatar" class=" card-img img-fluid my-5" src="data:image/jpeg;base64,' . base64_encode($infoUser['avatar']) . '"alt="Avatar"/>'; ?>
+                                    <h5><?php echo $infoUser['prenom'] . " " . $infoUser['nom'] ?></h5>
+                                    <p><?= $infoUser['dateCreation'] ?></p>
+                                    <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <h6>Informations personnelles</h6>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Email</h6>
+                                                <p class="text-muted"><?= $infoUser['email'] ?></p>
+                                                <input type="text" name="editNom" id="editNom" placeholder="<?= $infoUser['nom'] ?> " style="display:none">
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Pseudo</h6>
+                                                <p class="text-muted"><?= $infoUser['pseudo'] ?></p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Mot de passe</h6>
+                                                <p class="text-muted password"><?= $infoUser['password'] ?></p>
+                                            </div>
 
-
-            <div id="info" class="tabcontent">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div id="info" class="tabcontent">
                 <form action="" method="post">
                     <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
                     <h3>Informations personnelles</h3>
@@ -118,9 +156,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
                     <input type="submit" value="Valider" name="valider" id="valider" style="display:none">
                 </form>
-            </div>
-
-
+            </div>  -->
 
 
             <div id="historiqueAchat" class="tabcontent">

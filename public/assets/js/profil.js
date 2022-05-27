@@ -44,6 +44,14 @@ function editProfil() {
 
         return false;
     }
+    // var profil = document.getElementById("profil");
+    // var modifierProfil = document.getElementById("modifier");
+
+    // if (inputNom.style.display === "none") {
+    //     inputNom.style.display === "block"
+
+    //     return false;
+    // }
 }
 
 function Redirection(id) {

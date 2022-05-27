@@ -104,7 +104,7 @@ button {
 /* Style the tab content */
 
 #info {
-    width: 1500px;
+    width: 1300px;
 }
 
 #info h5 {
@@ -135,6 +135,17 @@ button {
     padding-bottom: 2%;
 }
 
+.card-profil {
+    border-radius: .5rem;
+    width: 1000px!important;
+    height: 500px!important;
+}
+
+#avatar {
+    width: 300px;
+    border-radius: 10%;
+}
+
 
 /*#endregion*/
 
@@ -147,11 +158,10 @@ button {
 #historique {
     position: relative;
     display: flex;
-
 }
 
 #imageHistorique {
-     width: 100%;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -163,15 +173,12 @@ button {
 }
 
 #container-historique {
-   
     display: flex;
     flex-wrap: wrap;
     overflow: scroll;
- 
 }
 
 #historiqueAchat {
-
     display: flex;
 }
 
