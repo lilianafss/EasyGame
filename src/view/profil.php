@@ -72,93 +72,83 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                 <button class="tablinks" onclick="openCity(event, 'wishlist')"><i class="fa-solid fa-heart"></i> Whislist</button>
             </div>
 
-            <div id="info" class="tabcontent container py-5 h-100">
-                <div class="row d-flex justify-content-center h-100">
-                    <div class="col col-lg-6 mb-4 mb-lg-0">
-                        <div class="card card-profil mb-3">
-                            <div class="row g-0">
-                                <div class="col-md-4 text-center" style="margin-top: 5%;border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                    <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"  /> -->
-                                    <?php echo '<img id="avatar" class=" card-img img-fluid my-5" src="data:image/jpeg;base64,' . base64_encode($infoUser['avatar']) . '"alt="Avatar"/>'; ?>
-                                    <h5><?php echo $infoUser['prenom'] . " " . $infoUser['nom'] ?></h5>
-                                    <p><?= $infoUser['dateCreation'] ?></p>
-                                    <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body p-4">
-                                        <h6>Informations personnelles</h6>
-                                        <hr class="mt-0 mb-4">
-                                        <div class="row pt-1">
-                                            <div class="col-6 mb-3">
-                                                <h6>Email</h6>
-                                                <p class="text-muted"><?= $infoUser['email'] ?></p>
-                                                <input type="text" name="editNom" id="editNom" placeholder="<?= $infoUser['nom'] ?> " style="display:none">
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <h6>Pseudo</h6>
-                                                <p class="text-muted"><?= $infoUser['pseudo'] ?></p>
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <h6>Mot de passe</h6>
-                                                <p class="text-muted password"><?= $infoUser['password'] ?></p>
-                                            </div>
-
+            <div id="info" class="tabcontent">
+                <div class="container rounded bg-white mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-3 border-right">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                <?php echo '<img class="rounded-circle mt-5" width="160px" src="data:image/jpeg;base64,' . base64_encode($infoUser['avatar']) . '"/>' ?>
+                                <!-- <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"> -->
+                                <span class="font-weight-bold"><?php echo $infoUser['prenom'] . " " . $infoUser['nom'] ?></span>
+                                <span class="text-black-50"><?= $infoUser['email'] ?></span>
+                                <span> </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 border-right">
+                            <form action="" method="post">
+                                <div class="p-3 py-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Informations personnelles</h4>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <label class="labels">Nom</label>
+                                            <p class="text-muted" id="nomActuel"><?= $infoUser['nom'] ?></p>
+                                            <input type="text" class="form-control" name="editNom" id="editNom" placeholder="<?= $infoUser['nom'] ?> " style="display:none">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="labels">Prenom</label>
+                                            <p class="text-muted" id="prenomActuel"><?= $infoUser['prenom'] ?></p>
+                                            <input type="text" class="form-control" name="editPrenom" id="editPrenom" placeholder="<?= $infoUser['prenom'] ?>" style="display:none">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="labels">Nom d'utilisateur</label>
+                                            <p class="text-muted" id="pseudoActuel"><?= $infoUser['pseudo'] ?></p>
+                                            <input type="text" class="form-control" name="editPseudo" id="editPseudo" placeholder="<?= $infoUser['pseudo'] ?>" style="display:none">
+                                        </div>
+                                    </div><br>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6" id="motPasseActuel">
+                                            <label class="labels">Mot de passe</label>
+                                            <p class="text-muted">Si vous voulez changer le mot de passe, cliquez sur le bouton modifier</p>
                                         </div>
                                     </div>
+                                    <div id="editPasseActuel" style="display: none;">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="text-right">Mot de passe</h5>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12">
+                                                <label class="labels">Votre mot de passe actuel</label>
+                                                <input type="password" class="form-control" name="motPasseActuel" minlength="8">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="labels">Nouveau mot de passe</label>
+                                                <input type="password" class="form-control" name="nouveauMotPasse" minlength="8">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="labels">Confirmation du nouveau mot de passe</label>
+                                                <input type="password" class="form-control" name="nouveauMotPasse2" minlength="8"><br>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="mt-5 text-center">
+                                        <!-- <button onclick="editProfil()" id="valider" style="display: none;" class="btn btn-primary profile-button" type="button">Sauvegarder</button> -->
+                                        <input type="submit" onclick="editProfil()" class="btn btn-primary profile-button" value="Sauvegarder" name="valider" id="valider" style="display:none">
+                                    </div>
                                 </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 py-5">
+                                <button onclick="editProfil()" id="editer" class="btn btn-primary profile-button" type="button">modifier</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- <div id="info" class="tabcontent">
-                <form action="" method="post">
-                    <button id="editer" onclick="return editProfil()"><i class="fa-solid fa-pencil"></i></button>
-                    <h3>Informations personnelles</h3>
-
-                    <div id="containerNom">
-                        <h5>Nom</h5>
-                        <p id="nom"><?= $infoUser['nom'] ?></p>
-                        <input type="text" name="editNom" id="editNom" placeholder="<?= $infoUser['nom'] ?> " style="display:none">
-
-                    </div>
-
-                    <div id="containerPrenom">
-                        <h5>Prenom </h5>
-                        <p id="prenom"><?= $infoUser['prenom'] ?></p>
-                        <input type="text" name="editPrenom" id="editPrenom" placeholder="<?= $infoUser['prenom'] ?>" style="display:none">
-                    </div>
-
-                    <div id="containerPseudo">
-                        <h5>Pseudo </h5>
-                        <p id="pseudo"><?= $infoUser['pseudo'] ?></p>
-                        <input type="text" name="editPseudo" id="editPseudo" placeholder="<?= $infoUser['pseudo'] ?>" style="display:none">
-                    </div>
-
-                    <div id="email" style="display:block">
-                        <h5>Email : </h5>
-                        <p><?= $infoUser['email'] ?></p>
-                    </div>
-
-                    <div id="nouveauPassword" style="display:none">
-                        <h3>Changer votre mot de passe</h3>
-
-                        <label for="motPasseActuel">Votre mot de passe actuel :</label><br>
-                        <input type="password" name="motPasseActuel" minlength="8"><br>
-
-                        <label for="nouveauMotPasse">Nouveau mot de passe :</label><br>
-                        <input type="password" name="nouveauMotPasse" minlength="8"><br>
-
-                        <label for="nouveauMotPasse2">Confirmation du nouveau mot de passe : </label><br>
-                        <input type="password" name="nouveauMotPasse2" minlength="8"><br>
-                    </div>
-
-                    <input type="submit" value="Valider" name="valider" id="valider" style="display:none">
-                </form>
-            </div>  -->
-
-
             <div id="historiqueAchat" class="tabcontent">
                 <div id="container-historique" class="container">
                     <table id="cart" class="table table-hover table-condensed">
@@ -171,24 +161,24 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                                             <div class="col-sm-10">
                                                 <h4 class="nomargin"><?php echo $historique['nom'] ?></h4>
                                             </div>
-                                        
-                                    
-                                            <td> <?php echo $historique['prix'] ?> </td>
-                                            <td>
-                                                <div class="round" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
-                                                    <div id="cta">
-                                                    <span class="arrow primera next "></span>
-                                                    <span class="arrow segunda next "></span>
-                                                </div>
-                                            </td>
-                                        </div>
+
+
+                                    <td> <?php echo $historique['prix'] ?> </td>
+                                    <td>
+                                        <div class="round" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
+                                            <div id="cta">
+                                                <span class="arrow primera next "></span>
+                                                <span class="arrow segunda next "></span>
+                                            </div>
                                     </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
                 </div>
+                </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+            </table>
             </div>
+        </div>
         </div>
 
         <div id="wishlist" class="tabcontent">

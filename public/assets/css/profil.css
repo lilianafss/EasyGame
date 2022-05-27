@@ -81,23 +81,20 @@
 /*#region Informations personnelles*/
 
 #editer {
-    font-family: FontAwesome;
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
-    margin: 5px;
-    float: right;
+    width: 50%;
+    cursor: pointer;
 }
 
-
-/* #info,
-#motPasse,
-#historiqueAchat,
-#wishlist {
-    height: auto;
-} */
+#valider {
+    background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
+    color: white;
+    cursor: pointer;
+}
 
 button {
-    width: 4%;
+    width: 2%;
 }
 
 
@@ -109,41 +106,6 @@ button {
 
 #info h5 {
     font-size: 1.5rem;
-}
-
-#containerNom,
-#containerPseudo {
-    width: 40%;
-    float: left;
-    margin-bottom: 2%;
-}
-
-#containerPrenom,
-#email {
-    width: 60%;
-    float: right;
-    margin-bottom: 2%;
-}
-
-#nouveauPassword {
-    width: 100%;
-    clear: both;
-    margin-top: 15%;
-}
-
-#nouveauPassword h3 {
-    padding-bottom: 2%;
-}
-
-.card-profil {
-    border-radius: .5rem;
-    width: 1000px!important;
-    height: 500px!important;
-}
-
-#avatar {
-    width: 300px;
-    border-radius: 10%;
 }
 
 

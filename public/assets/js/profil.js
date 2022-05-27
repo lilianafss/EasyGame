@@ -20,16 +20,16 @@ function editProfil() {
     var inputPrenom = document.getElementById("editPrenom");
     var inputPseudo = document.getElementById("editPseudo");
 
-    var nom = document.getElementById("nom");
-    var prenom = document.getElementById("prenom");
-    var pseudo = document.getElementById("pseudo");
-    var email = document.getElementById("email");
-    var nouveauPassword = document.getElementById("nouveauPassword");
+    var nom = document.getElementById("nomActuel");
+    var prenom = document.getElementById("prenomActuel");
+    var pseudo = document.getElementById("pseudoActuel");
+    var password = document.getElementById("motPasseActuel");
+    var nouveauPassword = document.getElementById("editPasseActuel");
 
     var btnValider = document.getElementById("valider");
     var btnEditer = document.getElementById("editer");
 
-    if (inputNom.style.display === "none" && inputPrenom.style.display === "none" && inputPseudo.style.display === "none") {
+    if (inputNom.style.display === "none" && inputPrenom.style.display === "none" & inputPseudo.style.display === "none") {
         inputNom.style.display = "block";
         inputPrenom.style.display = "block";
         inputPseudo.style.display = "block";
@@ -39,19 +39,25 @@ function editProfil() {
         nom.style.display = "none";
         prenom.style.display = "none";
         pseudo.style.display = "none";
-        email.style.display = "none";
+        password.style.display = "none";
         btnEditer.style.display = "none";
 
         return false;
+    } else {
+        inputNom.style.display = "none";
+        inputPrenom.style.display = "none";
+        inputPseudo.style.display = "none";
+        nouveauPassword.style.display = "none";
+        btnValider.style.display = "none";
+
+        nom.style.display = "block";
+        prenom.style.display = "block";
+        pseudo.style.display = "block";
+        password.style.display = "block";
+        btnEditer.style.display = "block";
+
     }
-    // var profil = document.getElementById("profil");
-    // var modifierProfil = document.getElementById("modifier");
 
-    // if (inputNom.style.display === "none") {
-    //     inputNom.style.display === "block"
-
-    //     return false;
-    // }
 }
 
 function Redirection(id) {

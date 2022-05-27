@@ -42,7 +42,7 @@ class ProfilController
             // Redirige l'utilisateur vers la page d'accueil
             RedirectUser("");
         } else {
-            if ($submit == "Valider") {
+            if ($submit == "Sauvegarder") {
                 if ($nom != "") {
                     if ($nom != $infoUser['nom']) {
                         UserModel::updateInfoUser($idUser, 'nom', $nom);
