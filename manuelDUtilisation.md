@@ -53,7 +53,7 @@ Si vous voulez commenter et noter un jeu vous avez juste besoin d'aller sur la p
 
 Pour acheter un jeu vous allez sur la page du jeu et cliquez sur le bouton ajouté au panier. Une fois cliquez, vous allez directement sur la page panier et pour payer cliquer sur le bouton "Payer" avec le montant à coter.
 
-![exemple acheter un jeu](/assets/gifs/acheterJeu.gif)
+![exemple acheter un jeu](https://raw.githubusercontent.com/lilianafss/EasyGame/main/public/assets/gifs/acheterJeu.gif)
 
 ### 3. Fonctionnalités de l'Admin
 
