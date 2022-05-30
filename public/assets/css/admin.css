@@ -1,24 +1,19 @@
 h1 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #3C3661 0%, #332E52 20%, #211E36 50%, #1B182C 80%, #110E2C 100%);
-    color: white;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    margin-top: 35px;
 }
 
 h2 {
-    border-bottom: 1px solid black;
+    margin: 10px;
+    text-decoration-line: underline;
 }
 
 main {
-    border: 2px double black;
-    border-radius: 5px;
     flex-direction: column;
-    width: 60%;
-    margin: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    width: 80%;
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -26,11 +21,36 @@ main {
 }
 
 main p {
-    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 75%;
 }
 
 main div {
-    border-bottom: 1px solid black;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 20px 0;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+/*.infoJeux*/
+/*{*/
+/*    !*flex-direction: row;*!*/
+/*}*/
+
+b
+{
+    text-decoration-line: underline;
+}
+
+.btnContainer
+{
+    border: 0;
+    margin: 0;
 }
 
 img {
@@ -41,9 +61,14 @@ img {
     font-size: 1.4rem;
 }
 
-.btn {
+.boutton
+{
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
+    margin: 0;
+    width: 30%;
+    font-size: 20px;
+    height: auto;
 }
 
 .btn:hover {
@@ -51,16 +76,12 @@ img {
 }
 
 #ajouterJeu {
-    font-size: 25px;
     text-decoration: none;
-    margin-bottom: 20px;
+    height: 100%;
 }
 
 .btnUser {
-    margin: 5px auto;
-    font-size: 20px;
     text-decoration: none;
-    margin-bottom: 20px;
     color: white;
 }
 
@@ -72,7 +93,69 @@ img {
 .btnJeux {
     font-size: 20px;
     text-decoration: none;
-    margin-bottom: 20px;
     color: white;
-    margin: 10px 0;
+    margin: 15px 0 30px;
+}
+
+.img-fluid
+{
+    margin: auto;
+}
+
+@media only screen and (max-width: 1200px)
+{
+    .boutton
+    {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 1024px)
+{
+    .boutton
+    {
+        width: 60%;
+    }
+
+    img
+    {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 769px)
+{
+    h1
+    {
+        margin-bottom: 15px;
+    }
+    main
+    {
+        width: 100%;
+    }
+
+    main div
+    {
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    main p
+    {
+        width: 90%;
+    }
+
+    img
+    {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 400px)
+{
+    img
+    {
+        width: 80%;
+    }
 }

@@ -63,21 +63,22 @@ if ($BOOL == false) {
                                                 <div class="w-100">
                                                     <h5>Laissez votre avis</h5>
                                                     <?php
-                                                    $noteUSer = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-                                                    ?>
-                                                    <div class="starrating risingstar d-flex flex-row-reverse">
-                                                        <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
-                                                        <input type="radio" id="star4" name="note" value="4" /><label for="star4" title="4 star"></label>
-                                                        <input type="radio" id="star3" name="note" value="3" /><label for="star3" title="3 star"></label>
-                                                        <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="2 star"></label>
-                                                        <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
-                                                    </div>
-
+                                                    $noteUser = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
+                                                    if($noteUser['note'] == "")
+                                                    {?>
+                                                        <div class="starrating risingstar d-flex flex-row-reverse">
+                                                            <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
+                                                            <input type="radio" id="star4" name="note" value="4" /><label for="star4" title="4 star"></label>
+                                                            <input type="radio" id="star3" name="note" value="3" /><label for="star3" title="3 star"></label>
+                                                            <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="2 star"></label>
+                                                            <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
+                                                        </div>
+                                                    <?php }?>
 
                                                     <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
 
                                                     <div class="d-flex justify-content-center mt-3">
-                                                        <input type="submit" value="Ajouter commentaire" name="envoyer">
+                                                        <input class="btn boutton" type="submit" value="Ajouter commentaire" name="envoyer">
                                                     </div>
                                                 </div>
                                             </div>

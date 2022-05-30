@@ -20,6 +20,7 @@ footer .footer-heading {
     color: #fff;
     font-weight: 700;
     margin-bottom: 30px;
+    text-decoration-line: underline;
 }
 
 .ftco-footer-social li {

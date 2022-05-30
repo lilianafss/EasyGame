@@ -70,6 +70,7 @@ input[type=submit] {
     justify-content: left;
 }
 
+
 /* Enleve les radio buttons */
 
 .starrating>input {
@@ -128,20 +129,15 @@ input[type=submit] {
 }
 
 section {
-    width: 1500px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 1024px)
 {
-    h1
-    {
-        text-align: center;
-    }
     main
     {
         flex-wrap: wrap;
     }
-
     #descriptionJeuxContainer
     {
         width: 90%;
@@ -150,13 +146,12 @@ section {
 
     #asideContainer
     {
-        width: 60%;
+        width: 70%;
         margin: 20px auto;
     }
 
-    .boutton,
-    input[type=submit] {
-        width: 60%;
+    .boutton, input[type=submit] {
+        width: 50%;
     }
 }
 
@@ -164,20 +159,17 @@ section {
 {
     #asideContainer
     {
-        width: 90%;
-        margin: 20px auto;
+        width: 80%;
     }
 
-    .boutton, input[type=submit]
-    {
-        width: 50%;
+    .boutton, input[type=submit] {
+        width: 55%;
     }
 }
 
-@media only screen and (max-width: 400px)
+@media only screen and (max-width: 600px)
 {
-
-    .boutton, input[type=submit]
+    #asideContainer
     {
         width: 80%;
     }

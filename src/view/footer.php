@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
-                <h2 class="footer-heading">EasyGame</h2>
+                <h2 class="footer-heading"><a class="footer-heading" href="<?= url("accueil") ?>">EasyGame</a></h2>
                 <p class="menu">
                     <a href="<?= url("accueil") ?>">Accueil</a>
                     <a href="<?= url('profil') ?>">Profil</a>
