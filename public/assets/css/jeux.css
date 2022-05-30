@@ -34,7 +34,7 @@ main {
     margin: 10% auto;
     text-align: center;
     border: black solid 1px;
-    border-radius: 5%;
+    border-radius: 20px;
     height: 250px;
     width: 300px;
     padding: 2%;
@@ -48,49 +48,14 @@ main {
 input[type=submit] {
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
-    margin: 5px;
+    margin: 10px 0;
+    width: 100%;
 }
 
 .boutton:hover,
 input[type=submit] {
     color: #DDDDDD;
 }
-
-
-/* #commentaireContainer {
-    border: black solid 1px;
-    margin: 5% auto;
-    text-align: left;
-    width: 400px;
-    height: auto;
-}
-
-#commentaireContainer h5 {
-    width: 50%;
-    margin: 0;
-    float: left;
-    font-size: 23px;
-    padding: 0.5rem 1rem 0rem 1rem;
-}
-
-#commentaireContainer p:first-of-type {
-    width: 50%;
-    float: right;
-    text-align: right;
-    font-size: 18px;
-    color: #ffca08;
-    padding: 0rem 1rem 0.2rem 1rem;
-}
-
-#commentaireContainer h6 {
-    width: 100%;
-    float: left;
-    padding: 0 1rem;
-}
-
-#commentaireContainer p {
-    padding: 0;
-} */
 
 #commentaire-pseudo {
     width: 80%;
@@ -104,7 +69,6 @@ input[type=submit] {
 .starrating {
     justify-content: left;
 }
-
 
 /* Enleve les radio buttons */
 
@@ -121,16 +85,12 @@ input[type=submit] {
     display: inline-block;
 }
 
-
 /*quand l'etoile n'est pas clique*/
-
 .starrating>label {
     color: #222222;
 }
 
-
 /*quand l'etoile estclique*/
-
 .starrating>input:checked~label {
     color: #ffca08;
 }
@@ -142,11 +102,8 @@ input[type=submit] {
 .card {
     border-radius: 5px;
     background-color: #fff;
-    padding-left: 60px;
-    padding-right: 60px;
     margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px 60px;
 }
 
 .star-active {
@@ -174,39 +131,54 @@ section {
     width: 1500px;
 }
 
+@media only screen and (max-width: 1024px)
+{
+    h1
+    {
+        text-align: center;
+    }
+    main
+    {
+        flex-wrap: wrap;
+    }
 
-/* .card {
-    width: 1500px;
-    border: none;
-    overflow: hidden
+    #descriptionJeuxContainer
+    {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #asideContainer
+    {
+        width: 60%;
+        margin: 20px auto;
+    }
+
+    .boutton,
+    input[type=submit] {
+        width: 60%;
+    }
 }
 
-.main_image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    width: 100%;
-    overflow: hidden
+@media only screen and (max-width: 769px)
+{
+    #asideContainer
+    {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .boutton, input[type=submit]
+    {
+        width: 50%;
+    }
 }
 
-.heart {
-    height: 32px;
-    width: 32px;
-    background-color: #eaeaea;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
+@media only screen and (max-width: 400px)
+{
 
-.right-side {
-    position: relative
+    .boutton, input[type=submit]
+    {
+        width: 80%;
+    }
 }
-
-.buttons .btn {
-    background-color: #865ad3;
-    height: 50px;
-    width: 150px;
-    border-radius: 0px !important
-} */
