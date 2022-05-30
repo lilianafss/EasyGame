@@ -76,7 +76,7 @@ class ModifierController
 
                 $idJeu = filter_input(INPUT_GET,'idJeux');
 
-                 //prendre les valeurs et les stocks dans une variable
+                //prendre les valeurs et les stocks dans une variable
                 for ($i = 1; $i <= 10; $i++) {
 
                     $test = filter_input(INPUT_POST, 'nbGenre' . $i, FILTER_SANITIZE_NUMBER_INT);
@@ -116,15 +116,15 @@ class ModifierController
                         GameModel::updateGame($idJeu, $nomJeu, $description, $prixJeu, $pegi);
 
                         // Redirige l'utilisateur
-                        RedirectUser("modifier?idJeux='.$idJeu.'&valid=ok'");
+                        RedirectUser("/modifier?idJeux=$idJeu&valid=ok");
                     }
                     else{
                         // Redirige l'utilisateur
-                        RedirectUser("modifier?idJeux='.$idJeu.'&valid=prix'");
+                        RedirectUser("/modifier?idJeux=$idJeu&valid=prix");
                     }
                 }else{
                     // Redirige l'utilisateur
-                    RedirectUser("modifier?idJeux='.$idJeu.'&valid=non'");
+                    RedirectUser("/modifier?idJeux=$idJeu&valid=non");
                 }
             }
         }

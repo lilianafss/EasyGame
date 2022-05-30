@@ -96,18 +96,14 @@ class AjouterJeuxController
                 //si tout est rempli on l'ajoute a la base de donnée
                 if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "" && $tableauGenre != [] && $tableauPlatform != []) {
                     $img = file_get_contents($image);
+                    $bool = true;
 
                     if($prix > 0){
-                        GameModel::newGame($nomJeux, $description, $prix, $idPegi, $img, $tableauGenre, $tableauPlatform);
-                        $messageErreur = "<p class='messageReussi'>Le jeu a bien été créer</p>";
-                    }
-                    else{
-                        $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zero</p>";
+                    
+                        GameModel::newGame($nomJeux, $description, $prix, $idPegi, $img, $tableauGenre, $tableauPlatform);                        
+
                     }
                 }
-                else{
-                    $messageErreur = "<p class='messageFaux'>Tous les champs doivent être remplis</p>";
-                } 
             }
         }
         require '../src/view/ajouterJeux.php';
