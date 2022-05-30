@@ -146,8 +146,8 @@ class UserModel
     public static function newUser( $pseudo,  $nom,  $prenom,  $email,  $password)
     {
         $query = BaseDonnee::getConnexion()->prepare("
-            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`, `dateCreation`) 
-            VALUES ( ?, ?, ?, ?, ?, false, 'En Attente', DATE(NOW()) );
+            INSERT INTO `user`(`pseudo`, `nom`, `prenom`, `email`, `password`, `admin`, `user_status`, `dateCreation`, `avatar`) 
+            VALUES ( ?, ?, ?, ?, ?, false, 'En Attente', DATE(NOW()), '');
         ");
         $query->execute([$pseudo, $nom, $prenom, $email, $password]);
 

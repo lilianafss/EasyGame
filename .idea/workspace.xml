@@ -3,26 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="34519622-e487-471c-a7c9-bf26681537de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AjouterJeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AjouterJeuxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DeconnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DeconnexionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EffacerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EffacerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/JeuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JeuxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModifierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModifierMotDePasseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifierMotDePasseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MotDePasseOublierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/errorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/errorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/successController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/successController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/BaseDonnee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BaseDonnee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/php/tools.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/tools.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/motDePasseOublier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/motDePasseOublier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/jeux.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/jeux.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/acheterJeu.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/ajouterJeu.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/ajouterJeuWishlist.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/connexionGif.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/effacerModifJeu.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/effacerModifUser.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/inscriptionGif.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/motDePasseOublie.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gifs/noterCommenter.gifZone.Identifier" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/jeux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/jeux.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +60,8 @@
       <updated>1653283973698</updated>
       <workItem from="1653283974135" duration="13097000" />
       <workItem from="1653317039658" duration="230000" />
-      <workItem from="1653459634720" duration="21950000" />
+      <workItem from="1653459634720" duration="22947000" />
+      <workItem from="1653890702784" duration="3257000" />
     </task>
     <servers />
   </component>
