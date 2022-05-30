@@ -1,0 +1,19 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLUseCase</id><coordinates><x>467</x><y>80</y><w>130</w><h>60</h></coordinates><panel_attributes>Navigateur</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>447</x><y>380</y><w>130</w><h>60</h></coordinates><panel_attributes>Router</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>227</x><y>380</y><w>130</w><h>60</h></coordinates><panel_attributes>Controller</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>227</x><y>180</y><w>130</w><h>60</h></coordinates><panel_attributes>View</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>227</x><y>510</y><w>130</w><h>60</h></coordinates><panel_attributes>Model</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>227</x><y>630</y><w>130</w><h>60</h></coordinates><panel_attributes>Base de données</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>567</x><y>100</y><w>100</w><h>330</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;310;80;310;80;10;30;10</additional_attributes></element><element><id>Relation</id><coordinates><x>347</x><y>400</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>147</x><y>200</y><w>100</w><h>230</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>80;210;10;210;10;10;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>277</x><y>430</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>277</x><y>560</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLHierarchy</id><coordinates><x>800</x><y>120</y><w>290</w><h>510</h></coordinates><panel_attributes>type=Package
+
+
+EasyGame
+	public
+		assets
+			css
+			font-awesome
+			gifs
+			image
+			js
+
+	router
+	src
+		Controller
+		Model
+		php
+		View
+	vendor</panel_attributes><additional_attributes></additional_attributes></element></diagram>
