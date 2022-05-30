@@ -20,11 +20,16 @@
         <?php
         //message d'erreur
         if ($bool) {
-            $bool = false;
             if ($nomJeux != "" && $description != "" && $prix != "" && $idPegi != "" && $image != "" && $tableauGenre != [] && $tableauPlatform != []) {
                 if ($prix > 0) {
-
                     $messageErreur = "<p class='messageReussi'>Le jeu a bien été créer</p>";
+                    
+                    $nomJeux ="";
+                    $description = "";
+                    $prix = "";
+                    $idPegi = "";
+                    $nbGenre = "";
+                    $nbPlateforme = "";
                 } else {
                     $messageErreur = "<p class='messageFaux'>Le prix doit être plus grand que zéro</p>";
                 }
