@@ -82,7 +82,7 @@ if ($BOOL == false) {
                                         <h5>Laissez votre avis</h5>
                                         <?php
                                         $noteUser = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-                                        if($noteUser['note'] == "")
+                                        if(!$noteUser)
                                         {?>
                                             <div class="starrating risingstar d-flex flex-row-reverse">
                                                 <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
@@ -113,11 +113,10 @@ if ($BOOL == false) {
                 ?>
                 <h3 class="text-center">Avis des joueurs</h3>
                 <p class="text-center" id="nbcommentaires"><?= $numeroCommentaires['nbCommentaires'] ?> commentaire(s)</p>
-
                 <?php
                 foreach ($tableauxCommentaire as $commentaire) {
                     $user = UserModel::getInfoUser($commentaire['idUser']);
-                    $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
+                    $getNotes = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
                     ?>
                     <div class="card">
                         <div class="d-flex">
@@ -128,7 +127,7 @@ if ($BOOL == false) {
                         <div class="text-left">
                             <div id="note">
                                 <span class="fa fa-star star-active"></span>
-                                <p class="text-left"><span class="text-muted"><?= $userNote['note'] ?></span></p>
+                                <p class="text-left"><span class="text-muted"><?= $getNotes['note'] ?></span></p>
                             </div>
                             <p class="content"><?= $commentaire['commentaire'] ?></p>
                         </div>
