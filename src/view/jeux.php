@@ -73,11 +73,10 @@ if ($BOOL == false) {
                                                         <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
                                                     </div>
 
-
                                                     <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
 
                                                     <div class="d-flex justify-content-center mt-3">
-                                                        <input type="submit" value="Ajouter commentaire" name="envoyer">
+                                                        <input class="btn boutton" type="submit" value="Ajouter votre commentaire" name="envoyer">
                                                     </div>
                                                 </div>
                                             </div>
