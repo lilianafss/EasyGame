@@ -45,110 +45,100 @@ if ($BOOL == false) {
             <!-- Description du jeux -->
             <h1><?= $infoJeux['nom'] ?></h1>
             <?php echo '<img class="card-img" src="data:image/jpeg;base64,' . base64_encode($infoJeux['image']) . '"/>'; ?>
-            <h3>A propos du jeu</h3>
+            <h3 class="text-center">A propos du jeu</h3>
             <p><?= $infoJeux['description'] ?></p>
 
+            <div id="asideContainer">
+                <p class="prix"><?= $infoJeux['prix'] . " CHF" ?></p>
+                <?php
+
+                $moyenne = NoteModel::averageByGame($idJeux);
+                if ($moyenne != "") {
+                    echo "Moyenne des joueurs: " . $moyenne['average'] . "/5";
+                }
+                ?>
+
+                <form method="POST">
+                    <input class="btn boutton" type="submit" name="panier" value="<?php echo $dedans ?>">
+                    <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="Ajouter a la wishlist">
+
+                    <br>
+                </form>
+            </div>
+        </div>
+
+        <div id="nouveauCommentaireContainer">
             <!-- Si l'utilisateur n'est pas connecte le formulaire d'avis ne vas pas s'afficher -->
             <?php
-            if ($idUser != null) {
+                if ($idUser != null) {
             ?>
-                <form action="#" method="POST">
-                    <section>
-                        <div class="container my-5 py-5 text-dark">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-md-10 col-lg-8 col-xl-6">
-                                    <div class="card">
-                                        <div class="card-body p-4">
-                                            <div class="d-flex flex-start w-100">
-                                                <div class="w-100">
-                                                    <h5>Laissez votre avis</h5>
-                                                    <?php
-                                                    $noteUser = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
-                                                    if($noteUser['note'] == "")
-                                                    {?>
-                                                        <div class="starrating risingstar d-flex flex-row-reverse">
-                                                            <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
-                                                            <input type="radio" id="star4" name="note" value="4" /><label for="star4" title="4 star"></label>
-                                                            <input type="radio" id="star3" name="note" value="3" /><label for="star3" title="3 star"></label>
-                                                            <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="2 star"></label>
-                                                            <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
-                                                        </div>
-                                                    <?php }?>
-
-                                                    <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
-
-                                                    <div class="d-flex justify-content-center mt-3">
-                                                        <input class="btn boutton" type="submit" value="Ajouter commentaire" name="envoyer">
-                                                    </div>
-                                                </div>
+            <form action="#" class="w-100" method="POST">
+                <section class="w-100">
+                    <div class="w-100 text-dark">
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="d-flex flex-start w-100">
+                                    <div class="w-100">
+                                        <h5>Laissez votre avis</h5>
+                                        <?php
+                                        $noteUser = NoteModel::getNoteByUserForOneGame($idJeux, $_SESSION['idUser']);
+                                        if($noteUser['note'] == "")
+                                        {?>
+                                            <div class="starrating risingstar d-flex flex-row-reverse">
+                                                <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 star"></label>
+                                                <input type="radio" id="star4" name="note" value="4" /><label for="star4" title="4 star"></label>
+                                                <input type="radio" id="star3" name="note" value="3" /><label for="star3" title="3 star"></label>
+                                                <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="2 star"></label>
+                                                <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 star"></label>
                                             </div>
+                                        <?php }?>
+
+                                        <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
+
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <input class="btn boutton" type="submit" value="Ajouter commentaire" name="envoyer">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </form>
-            <?php
-            }
-            if ($tableauxCommentaire) {
-            ?>
-                <h3>Avis des joueurs</h3>
-                <p id="nbcommentaires"><?= $numeroCommentaires['nbCommentaires'] ?> commentaire(s)</p>
+                    </div>
+                </section>
+            </form>
+            <?php } ?>
+        </div>
+
+        <div id="commentaireContainer">
+            <?php if ($tableauxCommentaire) {
+                ?>
+                <h3 class="text-center">Avis des joueurs</h3>
+                <p class="text-center" id="nbcommentaires"><?= $numeroCommentaires['nbCommentaires'] ?> commentaire(s)</p>
 
                 <?php
                 foreach ($tableauxCommentaire as $commentaire) {
                     $user = UserModel::getInfoUser($commentaire['idUser']);
                     $userNote = NoteModel::getNoteByUserForOneGame($idJeux, $user['idUser']);
-                ?>
+                    ?>
                     <div class="card">
-                        <div class="row d-flex">
-                            <div class="d-flex">
-                                <?php echo '<img id="imgProfil" class="card-img" src="data:image/jpeg;base64,' . base64_encode($commentaire['avatar']) . '"/>'; ?>
-                                <div id="note">
-                                <span class="fa fa-star star-active ml-3"></span>
-                                    <p class="text-left"><span class="text-muted"><?= $userNote['note'] ?></span>
-                                      
-                                    </p>
-                                </div>
-                                <h3 id="commentaire-pseudo" class="mt-2 mb-0"><?= $user['pseudo'] ?></h3>
-
-
-                                <p id="commentaire-date" class="text-muted pt-5 pt-sm-3"><?= $commentaire['date'] ?></p>
-
-                            </div>
-                            <div>
-
-                            </div>
+                        <div class="d-flex">
+                            <?php echo '<img id="imgProfil" class="card-img" src="data:image/jpeg;base64,' . base64_encode($commentaire['avatar']) . '"/>'; ?>
+                            <h3 id="commentaire-pseudo"><?= $user['pseudo'] ?></h3>
+                            <p id="commentaire-date" class="text-muted"><?= $commentaire['date'] ?></p>
                         </div>
-                        <div class="row text-left">
+                        <div class="text-left">
+                            <div id="note">
+                                <span class="fa fa-star star-active"></span>
+                                <p class="text-left"><span class="text-muted"><?= $userNote['note'] ?></span></p>
+                            </div>
                             <p class="content"><?= $commentaire['commentaire'] ?></p>
                         </div>
                     </div>
-            <?php
+                    <?php
                 }
             }
             ?>
-
         </div>
-        <div id="asideContainer">
-            <p class="prix"><?= $infoJeux['prix'] . " CHF" ?></p>
-            <?php
 
-            $moyenne = NoteModel::averageByGame($idJeux);
-            if ($moyenne != "") {
-                echo "Moyenne des joueurs: " . $moyenne['average'] . "/5";
-            }
-            ?>
-
-            <form method="POST">
-                <input class="btn boutton" type="submit" name="panier" value="<?php echo $dedans ?>">
-                <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="Ajouter a la wishlist">
-
-                <br>
-            </form>
-            <!-- <button class="btn boutton" >Wishlist</button> <br> -->
-        </div>
     </main>
     <?php require_once "footer.php"; ?>
 </body>

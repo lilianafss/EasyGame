@@ -1,6 +1,7 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 h1 {
-    margin: 5% 0;
+    margin: 2% 0;
+    text-align: center;
 }
 
 h3,
@@ -14,42 +15,51 @@ h3,
 }
 
 main {
-    width: 100%;
+    width: 60%;
     display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 #descriptionJeuxContainer {
-    width: 50%;
-    margin-left: 10%;
-    margin-bottom: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 #imgProfil{
     width: 100px;
     height: 100px;
     border-radius: 50%
 }
+
 #asideContainer {
+    width: 100%;
     font-weight: 600;
     font-size: 18px;
-    margin: 10% auto;
+    margin: 5% 0;
     text-align: center;
-    border: black solid 1px;
+    border: #ccc solid 1px;
     border-radius: 20px;
-    height: 250px;
-    width: 300px;
-    padding: 2%;
 }
+
 #note{
-    
-    margin-top:100px;
+    margin: 20px auto 0;
+    display: flex;
+    line-height: 45px;
+    font-size: 22px;
+    width: 78%;
 }
 
 .boutton,
 input[type=submit] {
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(90deg, #3C3661 0%, #332E52 80%, #211E36 100%);
     color: white;
-    margin: 10px 0;
-    width: 100%;
+    align-items: center;
+    margin: 10px auto;
+    width: 35%;
 }
 
 .boutton:hover,
@@ -103,8 +113,9 @@ input[type=submit] {
 .card {
     border-radius: 5px;
     background-color: #fff;
-    margin-top: 30px;
-    padding: 30px 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
 }
 
 .star-active {
@@ -126,9 +137,23 @@ input[type=submit] {
 
 .content {
     font-size: 18px;
+    margin: 0 auto;
+    width: 78%;
 }
 
 section {
+    width: 100%;
+}
+
+#nouveauCommentaireContainer
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+#commentaireContainer
+{
     width: 100%;
 }
 
@@ -136,18 +161,13 @@ section {
 {
     main
     {
-        flex-wrap: wrap;
+        width: 80%;
     }
+
     #descriptionJeuxContainer
     {
         width: 90%;
         margin: 0 auto;
-    }
-
-    #asideContainer
-    {
-        width: 70%;
-        margin: 20px auto;
     }
 
     .boutton, input[type=submit] {
@@ -157,20 +177,23 @@ section {
 
 @media only screen and (max-width: 769px)
 {
-    #asideContainer
-    {
-        width: 80%;
-    }
-
     .boutton, input[type=submit] {
         width: 55%;
+    }
+
+    #commentaire-pseudo {
+        width: 40%;
+    }
+
+    #commentaire-date {
+        width: 40%;
     }
 }
 
 @media only screen and (max-width: 600px)
 {
-    #asideContainer
+    main
     {
-        width: 80%;
+        width: 90%;
     }
 }
