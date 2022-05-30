@@ -32,7 +32,7 @@
         foreach ($jeux as $unJeux) {
             $stringTableJ .= "<div>
                 <p class='infoJeux'> <b>IdJeux </b>" . $unJeux['idJeux'] . "</p>
-                <p class='infoJeux'> <b>Nom</b>"  . $unJeux['nom'] . "</p>
+                <p class='infoJeux'> <b>Nom </b>"  . $unJeux['nom'] . "</p>
                 <p> <b>Image</b><img class='img-fluid' src='data:image/jpeg;base64," . base64_encode($unJeux['image']) . "'/></p>
                 <p> <b>Description</b> " . $unJeux['description'] . "</p>
                 <p class='infoJeux'> <b>Prix </b>" . $unJeux['prix'] . "</p>
@@ -56,13 +56,13 @@
         foreach ($users as $unUser) {
             $stringTableU .= " 
                     <div>
-                    <p><b>IdUser</b>" . $unUser['idUser'] . "</p>
-                    <p><b>Pseudo</b>" . $unUser['pseudo'] . "</p>
-                    <p><b>Nom</b>" . $unUser['nom'] . "</p>
-                    <p><b>Prenom</b>" . $unUser['prenom'] . "</p>
-                    <p><b>Email</b>" . $unUser['email'] . "</p>
-                    <p><b>Admin</b>" . $unUser['admin'] . "</p>
-                    <p><b>USER_STATUS</b>" . $unUser['user_status'] . "</p>
+                    <p><b>IdUser </b>" . $unUser['idUser'] . "</p>
+                    <p><b>Pseudo </b>" . $unUser['pseudo'] . "</p>
+                    <p><b>Nom </b>" . $unUser['nom'] . "</p>
+                    <p><b>Prenom </b>" . $unUser['prenom'] . "</p>
+                    <p><b>Email </b>" . $unUser['email'] . "</p>
+                    <p><b>Admin </b>" . $unUser['admin'] . "</p>
+                    <p><b>USER_STATUS </b>" . $unUser['user_status'] . "</p>
                     <p><h3><small><a href='" . URL_PRINCIPAL . url('effacer') . "?idUser=" . $unUser['idUser'] . "'>Effacer</a> |
                     <a href='" . URL_PRINCIPAL . url('effacer') . "?disabled=" . $unUser['idUser'] . "'>Disabled</a> |
                     <a href='" . URL_PRINCIPAL . url('effacer') . "?actif=" . $unUser['idUser'] . "'>Actif</a></h3></small></p>
