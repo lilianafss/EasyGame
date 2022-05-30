@@ -272,26 +272,3 @@ form
     }
 } 
 /*#endregion */
-
-
-/*--------------------Scroll-bar--------------------*/
-/*#region Scroll-bar*/
-
-/* Largeur de la scroll-bar*/
-::-webkit-scrollbar
-{
-    width: 10px;
-}
-
-/* Couleur de la scroll-bar */
-::-webkit-scrollbar-thumb
-{
-    background: linear-gradient(0deg, #3C3661 0%, #332E52 60%, #211E36 100%);
-}
-
-/* Couleur de la scroll-bar (hover) */
-::-webkit-scrollbar-thumb:hover
-{
-    background: #3C3661;
-}
-/*#endregion*/
