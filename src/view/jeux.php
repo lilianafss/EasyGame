@@ -78,7 +78,7 @@ if ($BOOL == false) {
                                                     <textarea class="form-control" name="commentaire" id="commentaire" required rows="6"></textarea>
 
                                                     <div class="d-flex justify-content-center mt-3">
-                                                        <input class="btn boutton" type="submit" value="Ajouter votre commentaire" name="envoyer">
+                                                        <input class="btn boutton" type="submit" value="Ajouter commentaire" name="envoyer">
                                                     </div>
                                                 </div>
                                             </div>
