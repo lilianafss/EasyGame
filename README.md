@@ -32,7 +32,7 @@ Les notes et les commentaires sont stockés dans des tables appelées *notes* et
 ## Manuel d'installation
 
 Il faut faire un clone du projet disponible sur github.
-En suite vous devez récupérer la base de données ```database/20220519_structure_final.sql.sql```
+En suite vous devez récupérer la base de données , lien ci-dessous ```https://github.com/lilianafss/EasyGame/blob/9252eb7396cbe829225cc44443fbd7cdf0863b3c/database/20220519_structure_final.sql```
 
 - Clone du projet qui est disponible sur github. 
 - Récupérer la base de données qui est également sur github.
