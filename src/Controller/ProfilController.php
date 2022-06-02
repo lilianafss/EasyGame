@@ -91,24 +91,9 @@ class ProfilController
 
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($btnSupprimer) {
-                    header("Refresh: 0");
                     WishlistModel::deleteGameToWishlist($idJeux);
                 }
-                if ($btnAjoutPanier) {
-                    echo "sfsf";
-                    $_SESSION["quantite"]++;
-
-                    if (!$_SESSION['connected']) {
-                        // Redirige l'utilisateur vers la page de connexion
-                        RedirectUser(url("connexion"));
-                        $_SESSION['idJeux'] = $idJeux;
-                    } else {
-                        $panier = PanierModel::addGameToPanier($idUser, $idJeux);
-                        WishlistModel::deleteGameToWishlist($idJeux);
-                        // Redirige l'utilisateur vers le panier
-                        RedirectUser(url("panier"));
-                    }
-                }
+                
             }
 
             require '../src/view/profil.php';

@@ -20,7 +20,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
     <?php require_once "style.php" ?>
     <link rel="stylesheet" href="/assets/css/profil.css">
     <style>
-        input[type="submit"] {
+        #wishlist input[type="submit"] {
             font-family: FontAwesome;
         }
     </style>
