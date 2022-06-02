@@ -31,7 +31,13 @@ Les notes et les commentaires sont stockés dans des tables appelées *notes* et
 
 ## Manuel d'installation
 
+Il faut faire un clone du projet disponible sur github.
+En suite vous devez récupérer la base de données ```database/20220519_structure_final.sql.sql```
+
 - Clone du projet qui est disponible sur github. 
 - Récupérer la base de données qui est également sur github.
 - Fichier de config
 - Installer Composer
+```
+curl -sS https://getcomposer.org/installer -o composer setup.php
+```
