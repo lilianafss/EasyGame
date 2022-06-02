@@ -28,3 +28,5 @@ Les filtres son séparer dans trois tables les genres dans une table *genre*,les
 Les notes et les commentaires sont stockés dans des tables appelées *notes* et *commentaires* ses notes et ses commentaires sont eux lier aux utilisateurs et aux jeux à l'aide de clé étrangère presente dans les tables *notes* et *commentaires*
 
 ![base de donnée](https://github.com/lilianafss/EasyGame/blob/main/public/assets/image/CaptureBaseDonnee.PNG)
+
+## Manuel d'installation
