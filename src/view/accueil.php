@@ -71,7 +71,7 @@ use EasyGame\Model\GameModel;
 
             $requete = GameModel::searchGame($recherche);
             if ($requete != null) {?>
-                <p> Vous avez recherché :<?=$recherche?></p>
+                <p class="rechercheJeu"> Vous avez recherché : <?=$recherche?></p>
                <?php foreach ($requete as $elementListe){ ?>
                    <div class="card m-4" onclick="Redirection(<?=$elementListe['idJeux']?>)">
                    <?php echo ' <img class="card-img" src="data:image/jpeg;base64,' . base64_encode($elementListe['image']) . '"/>'?>
@@ -82,7 +82,7 @@ use EasyGame\Model\GameModel;
                     </div>
             <?php  }
             } else { ?>
-               <p>Aucun resultat</p>
+               <p class="rechercheJeu" >Aucun resultat</p>
             <?php }
             /* Si les filtres ne sont pas vides et la barre de recherche est vide, on affiche tous les jeux qu'on a filtrer*/
         } elseif ($listeFiltre && $recherche == "") {
@@ -96,7 +96,7 @@ use EasyGame\Model\GameModel;
                     </div>
         <?php    }
         } elseif ($listeFiltre == null) { ?>
-            <p>Aucun resultat</p>
+            <p class="rechercheJeu">Aucun resultat</p>
        <?php } ?>
         </div>
     </main>

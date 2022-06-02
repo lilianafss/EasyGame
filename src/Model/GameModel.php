@@ -76,7 +76,7 @@ class GameModel
             $query = BaseDonnee::getConnexion()->prepare("
                 SELECT idJeux, nom, description, prix, image 
                 FROM jeux WHERE nom 
-                LIKE '%$gameName%'
+                LIKE '$gameName%'
             ");
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
