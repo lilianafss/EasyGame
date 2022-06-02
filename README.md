@@ -30,3 +30,8 @@ Les notes et les commentaires sont stockés dans des tables appelées *notes* et
 ![base de donnée](https://github.com/lilianafss/EasyGame/blob/main/public/assets/image/CaptureBaseDonnee.PNG)
 
 ## Manuel d'installation
+
+- Clone du projet qui est disponible sur github. 
+- Récupérer la base de données qui est également sur github.
+- Fichier de config
+- Installer Composer
