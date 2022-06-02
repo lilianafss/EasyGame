@@ -4,9 +4,12 @@ use EasyGame\Model\UserModel;
 use EasyGame\Model\NoteModel;
 use EasyGame\Model\PanierModel;
 use EasyGame\Model\PlatformModel;
+use EasyGame\Model\WishlistModel;
 
 $tableauxPanier = PanierModel::getPanier($idUser);
+$tableauxWishlist = WishlistModel::getWishlist($idUser);
 $BOOL = false;
+$BOOLWishlist = false;
 foreach ($tableauxPanier as $panier) {
     if ($panier["idJeux"] == $idJeux) {
         $BOOL = TRUE;
@@ -15,6 +18,16 @@ foreach ($tableauxPanier as $panier) {
 }
 if ($BOOL == false) {
     $dedans = "Ajouter dans le panier";
+}
+
+foreach ($tableauxWishlist as $wishlist) {
+    if ($wishlist["idJeux"] == $idJeux) {
+        $BOOLWishlist = TRUE;
+        $dedansWishlist = "Dans la wishlist";
+    }
+}
+if ($BOOLWishlist == false) {
+    $dedansWishlist = "Ajouter à la wishlist";
 }
 
 ?>
@@ -40,7 +53,18 @@ if ($BOOL == false) {
     </header>
 
     <main class="flex-shrink-0">
+        <?php if($messageSucess!=""){?>
+    <div class="alert alert-success alert-dismissible d-flex align-items-center fade show">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi-info-circle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </svg>
+            <div>
+               <?=$messageSucess?>
+            </div>
 
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <?php } ?>
         <div id="descriptionJeuxContainer">
             <!-- Description du jeux -->
             <h1><?= $infoJeux['nom'] ?></h1>
@@ -60,7 +84,7 @@ if ($BOOL == false) {
 
                 <form method="POST">
                     <input class="btn boutton" type="submit" name="panier" value="<?php echo $dedans ?>">
-                    <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="Ajouter a la wishlist">
+                    <input class="btn boutton" type="submit" name="wishlist" id="wishlist" value="<?php echo $dedansWishlist ?>">
 
                     <br>
                 </form>
