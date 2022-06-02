@@ -22,6 +22,7 @@ use EasyGame\Model\GameModel;
 <body class="d-flex flex-column h-100">
     <header>
         <?php require_once "header.php" ?>
+        <!--Affichage des filtres et barre de recherche-->
         <nav class="navbar" id="filterNav">
             <form method="GET">
                 <ul class="nav">
@@ -52,7 +53,9 @@ use EasyGame\Model\GameModel;
         </nav>
     </header>
     <main class="flex-shrink-0">
+
         <div id="main-container">
+        <!--Si les filtres sont vides et la barre de recherche aussi, on affiche tous les jeux-->
         <?php if ($listeFiltre == "" && $recherche == "") {
             foreach ($listeJeux as $elementListe) { ?>
                 <div class="card m-4" onclick="Redirection(<?=$elementListe['idJeux']?>)">
@@ -63,6 +66,7 @@ use EasyGame\Model\GameModel;
                     </div>
                 </div>
        <?php     }
+       /* Si les filtres sont vides et la barre de recherche contient un mot, on affiche tous les jeux qui contiennent ce nom*/
         } elseif ($listeFiltre == "" && $recherche != "") {
 
             $requete = GameModel::searchGame($recherche);
@@ -80,6 +84,7 @@ use EasyGame\Model\GameModel;
             } else { ?>
                <p>Aucun resultat</p>
             <?php }
+            /* Si les filtres ne sont pas vides et la barre de recherche est vide, on affiche tous les jeux qu'on a filtrer*/
         } elseif ($listeFiltre && $recherche == "") {
             foreach ($listeFiltre  as $elementListe) { ?>
                     <div class="card m-4" onclick="Redirection(<?=$elementListe['idJeux']?>)" >
@@ -96,6 +101,7 @@ use EasyGame\Model\GameModel;
         </div>
     </main>
     <?php require_once "footer.php"; ?>
+
     <script>
         function Redirection(id) {
 

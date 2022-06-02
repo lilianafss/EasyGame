@@ -357,5 +357,9 @@ table {
     height: 100%;
 }
 
+#wishlist input[type="submit"] {
+    font-family: FontAwesome;
+}
+
 
 /*#endregion*/

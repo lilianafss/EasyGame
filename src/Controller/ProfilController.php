@@ -24,6 +24,7 @@ class ProfilController
         $errorMessage = "";
         $sucessMessage = "";
 
+        //Récupération des données
         $nom = filter_input(INPUT_POST, 'editNom', FILTER_SANITIZE_SPECIAL_CHARS);
         $prenom = filter_input(INPUT_POST, 'editPrenom', FILTER_SANITIZE_SPECIAL_CHARS);
         $pseudo = filter_input(INPUT_POST, 'editPseudo', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -43,6 +44,7 @@ class ProfilController
             RedirectUser("");
         } else {
             if ($submit == "Sauvegarder") {
+                /* Si tous les informations sont correctes on les modifie, sinon on affiche des messages d'erreur*/
                 if ($nom != "") {
                     if ($nom != $infoUser['nom']) {
                         UserModel::updateInfoUser($idUser, 'nom', $nom);
@@ -83,12 +85,13 @@ class ProfilController
                         $errorMessage .= "<p>Le mot de passe erroné</p>";
                     }
                 }
+                /*Actualisation des informations*/
                 $infoUser = UserModel::getInfoUser($idUser);
             }
 
             /* -------------- Page Wishlist --------------*/
             $idJeux = filter_input(INPUT_POST, 'idJeux', FILTER_VALIDATE_INT);
-
+            /* Si le bouton est clique on supprime de la wishlist*/    
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($btnSupprimer) {
                     WishlistModel::deleteGameToWishlist($idJeux);

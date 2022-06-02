@@ -63,6 +63,7 @@ class JeuxController
             }
             if ($_SERVER['REQUEST_METHOD'] == "POST")
             {
+                // Si le bouton est clique, on ajoute le jeu à la wishlist
                 if ($btnWishlist == "Ajouter à la wishlist") {
                
                     WishlistModel::addGameToWishlist($idUser, $idJeux);
@@ -70,7 +71,7 @@ class JeuxController
                 }elseif($btnWishlist=="Dans la wishlist"){
                     RedirectUser(url("profil"));
                 }
-
+                // Si le bouton est clique, on ajoute le jeu au panier
                 if ($btnPanier == "Ajouter dans le panier")
                 {
                     $quantite++;

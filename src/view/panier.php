@@ -4,7 +4,6 @@ use EasyGame\Model\PanierModel;
 
 $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
 
-@ini_set('display_errors', 'on');
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -37,6 +36,7 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
         <?php } else { ?>
             <h1 class="text-center">Panier</h1>
             <div id="jeux-container">
+                 <!--Affichage de tout ce que contient le panier-->
                 <?php foreach ($tableauxPanier as $panier) { ?>
                     <form method="POST">
                         <div data-th="Product" class="panier-container">
@@ -72,7 +72,6 @@ $tableauxPanier = PanierModel::getPanier($_SESSION['idUser']);
                                         <form action="" method="get">
                                             <!-- Credit card form tabs -->
                                             <ul id="moyen" role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-2">
-                                                <!-- <li id="credit" class="nav-item"> <a id="creditText" data-toggle="pill" href="?methodPayement=CreditCard" class="nav-link  "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li> -->
                                                 <li class="nav-item"> <a data-toggle="pill" href="?methodPayement=Paypal" class="nav-link "> <i class="fab fa-paypal mr-2" "></i> Paypal </a> </li>
                                             </ul>
                                         </form>
