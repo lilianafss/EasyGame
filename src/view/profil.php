@@ -78,7 +78,6 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                         <div class="col-md-3 border-right">
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                                 <?php echo '<img class="rounded-circle mt-5" width="160px" src="data:image/jpeg;base64,' . base64_encode($infoUser['avatar']) . '"/>' ?>
-                                <!-- <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"> -->
                                 <span class="font-weight-bold"><?php echo $infoUser['prenom'] . " " . $infoUser['nom'] ?></span>
                                 <span class="text-black-50"><?= $infoUser['email'] ?></span>
                                 <span> </span>
@@ -88,7 +87,7 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                             <form action="" method="post">
                                 <div class="p-3 py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4 class="text-right">Informations personnelles</h4>
+                                        <h2 class="text-right">Informations personnelles</h2>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6">
@@ -135,7 +134,6 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
 
 
                                     <div class="mt-5 text-center">
-                                        <!-- <button onclick="editProfil()" id="valider" style="display: none;" class="btn btn-primary profile-button" type="button">Sauvegarder</button> -->
                                         <input type="submit" onclick="editProfil()" class="btn btn-primary profile-button" value="Sauvegarder" name="valider" id="valider" style="display:none">
                                     </div>
                                 </div>
@@ -150,63 +148,75 @@ $tableauxHistorique = HistoriqueModel::getHistory($_SESSION['idUser'])
                 </div>
             </div>
             <div id="historiqueAchat" class="tabcontent">
-                <div id="container-historique" class="container">
-                    <table id="cart" class="table table-hover table-condensed">
-                        <tbody>
-                            <?php foreach ($tableauxHistorique as $historique) { ?>
-                                <tr>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-sm-2 hidden-xs"><?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?></div>
-                                            <div class="col-sm-10">
-                                                <h4 class="nomargin"><?php echo $historique['nom'] ?></h4>
-                                            </div>
 
+            <h1>Historique d'achat</h1>
+                <table>
+                    <tbody>
+                        <?php foreach ($tableauxHistorique as $historique) { ?>
+                            <tr id="row">
+                                <td id="first-child">
 
-                                    <td> <?php echo $historique['prix'] ?> </td>
-                                    <td>
-                                        <div class="round" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
-                                            <div id="cta">
-                                                <span class="arrow primera next "></span>
-                                                <span class="arrow segunda next "></span>
-                                            </div>
-                                    </td>
-                </div>
-                </td>
-                </tr>
-            <?php } ?>
-            </tbody>
-            </table>
+                                    <?php echo '<img id="imageHistorique" src="data:image/jpeg;base64,' . base64_encode($historique['image']) . '"/>' ?>
+
+                                </td>
+                                <td id="second-child">
+
+                                    <h4>
+                                        <?php echo $historique['nom'] ?>
+                                    </h4>
+
+                                </td>
+                                <td id="third-child">
+                                    <p>
+                                      <?php echo $historique['prix'] ?> CHF 
+                                    </p>
+                                    
+                                </td>
+                                <td id="fourth-child">
+                                    <div class="round" onclick=" Redirection(<?= $historique['idJeux'] ?>) ">
+                                        <div id="cta">
+                                            <span class="arrow primera next "></span>
+                                            <span class="arrow segunda next "></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                           
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
-        </div>
-        </div>
 
-        <div id="wishlist" class="tabcontent">
-            <section id="wishlistSection" class="grid-view wishlist-items">
-                <?php foreach ($tableauxWishlist as $wishlist) { ?>
-                    <form action="" method="POST">
-                        <div class="card ecommerce-card" onclick=" Redirection(<?= $wishlist['idJeux'] ?>) ">
-                            <div class="item-img text-center">
-                                <?php echo '<img id="imgWishlist"  src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-name">
-                                    <p> <?= $wishlist['nom'] ?> </p>
+
+
+
+            <div id="wishlist" class="tabcontent">
+            <h1>Wishlist</h1>
+                <section id="wishlistSection" class="grid-view wishlist-items">
+                    <?php foreach ($tableauxWishlist as $wishlist) { ?>
+                        <form action="" method="POST">
+                            <div class="card ecommerce-card" onclick=" Redirection(<?= $wishlist['idJeux'] ?>) ">
+                                <div class="item-img text-center">
+                                    <?php echo '<img id="imgWishlist"  src="data:image/jpeg;base64,' . base64_encode($wishlist['image']) . '"/>'; ?>
                                 </div>
-                                <div class="item-cost">
-                                    <h6 class="item-price"><?= number_format($wishlist['prix'], 2)  ?> CHF </h6>
+                                <div class="card-body">
+                                    <div class="item-name">
+                                        <p> <?= $wishlist['nom'] ?> </p>
+                                    </div>
+                                    <div class="item-cost">
+                                        <h6 class="item-price"><?= number_format($wishlist['prix'], 2)  ?> CHF </h6>
+                                    </div>
                                 </div>
+                                <div class="item-options">
+                                    <input type="submit" name="supprimer" class="btn btn-danger waves-effect waves-float waves-light" value="&#xf014;">
+                                    <!-- <input type="submit" name="AjoutPanier" class="btn btn-primary waves-effect waves-float waves-light" value="&#xf07a;"> -->
+                                </div>
+                                <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
                             </div>
-                            <div class="item-options">
-                                <input type="submit" name="supprimer" class="btn btn-danger waves-effect waves-float waves-light" value="&#xf014;">
-                                <!-- <input type="submit" name="AjoutPanier" class="btn btn-primary waves-effect waves-float waves-light" value="&#xf07a;"> -->
-                            </div>
-                            <input type="hidden" name="idJeux" value="<?= $wishlist['idJeux'] ?>">
-                        </div>
-                    </form>
-                <?php } ?>
-            </section>
-        </div>
+                        </form>
+                    <?php } ?>
+                </section>
+            </div>
         </div>
     </main>
     <?php require_once "footer.php";

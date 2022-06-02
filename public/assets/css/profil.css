@@ -7,7 +7,7 @@
 .main-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    height: auto;
 }
 
 ::-webkit-scrollbar {
@@ -35,7 +35,9 @@
 /* Style the tab */
 
 .tab {
-    background-color: #f1f1f1;
+    height: auto;
+    width: 260px;
+    background-color: #F5F7F9;
 }
 
 
@@ -59,19 +61,27 @@
 /* Change background color of buttons on hover */
 
 .tab button:hover {
-    background-color: #ddd;
+    background-color: #865ad3;
+    color: white;
 }
 
 
 /* Create an active/current "tab button" class */
 
 .tab button.active {
-    background-color: #ccc;
+    color: #865ad3;
+    background-color: #e7e7e7;
 }
 
 .tabcontent {
     float: left;
     padding: 0px 12px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin: 2% 0;
 }
 
 
@@ -102,6 +112,7 @@ button {
 
 #info {
     width: 1300px;
+    height: 800px;
 }
 
 #info h5 {
@@ -117,54 +128,8 @@ button {
 
 /*#region Historique*/
 
-td:not(:first-child) {
-    width: 50%;
-}
-
-td:first-child {
-    width: 100%;
-}
-
-#historique {
-    position: relative;
-    display: flex;
-}
-
-.col-sm-10 {
-    width: 50%;
-}
-
-#imageHistorique {
-    width: 100%;
-    border-radius: 10px;
-}
-
-#text {
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 20%;
-}
-
-#container-historique {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: scroll;
-}
-
-#historiqueAchat {
-    display: flex;
-}
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-bottom: auto;
-}
-
 .round {
-    position: absolute;
+    position: relative;
     border: 2px solid #865ad3;
     width: 40px;
     height: 40px;
@@ -248,6 +213,42 @@ main {
     animation-delay: 0.2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+table {
+    width: 1300px;
+    margin: 2%;
+}
+
+#row {
+    width: 100%;
+}
+
+#first-child {
+    width: 20%;
+}
+
+#second-child {
+    width: 45%;
+}
+
+#third-child {
+    width: 15%;
+}
+
+#imageHistorique {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#second-child h4 {
+    margin-left: 30px;
+    font-size: 1.5em;
+}
+
+#third-child p {
+    font-size: 1.3em;
 }
 
 
