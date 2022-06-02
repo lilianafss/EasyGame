@@ -33,11 +33,11 @@ Les notes et les commentaires sont stockés dans des tables appelées *notes* et
 
 Vouz devez faire un clone du projet disponible sur github
 
-lien : [Easygame](https://github.com/lilianafss/EasyGame).
+lien du projet : [Easygame](https://github.com/lilianafss/EasyGame).
 
 En suite vous devez récupérer la base de données
 
-lien : [data-base](https://github.com/lilianafss/EasyGame/blob/9252eb7396cbe829225cc44443fbd7cdf0863b3c/database/20220519_structure_final.sql).
+lien de la base de données : [data-base](https://github.com/lilianafss/EasyGame/blob/9252eb7396cbe829225cc44443fbd7cdf0863b3c/database/20220519_structure_final.sql).
  
 - Récupérer la base de données qui est également sur github.
 - Fichier de config
