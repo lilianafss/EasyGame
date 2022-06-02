@@ -38,6 +38,10 @@ legend{
     width: 100px;
 }
 
+#changer:hover{
+    color: white;
+}
+
 h1{
     padding-top: 10px;
     padding-bottom: 10px;

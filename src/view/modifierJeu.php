@@ -159,7 +159,7 @@
     </main>
     <?php require_once "footer.php"; ?>
 
-    <script src="//js/modifierJeu.js"></script>
+    <script src="/assets/js/modifierJeu.js"></script>
 </body>
 
 </html>
