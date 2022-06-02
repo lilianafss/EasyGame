@@ -27,7 +27,8 @@ main {
     flex-direction: column;
     flex-wrap: nowrap;
 }
-#imgProfil{
+
+#imgProfil {
     width: 100px;
     height: 100px;
     border-radius: 50%
@@ -43,7 +44,7 @@ main {
     border-radius: 20px;
 }
 
-#note{
+#note {
     margin: 20px auto 0;
     display: flex;
     line-height: 45px;
@@ -96,12 +97,16 @@ input[type=submit] {
     display: inline-block;
 }
 
+
 /*quand l'etoile n'est pas clique*/
+
 .starrating>label {
     color: #222222;
 }
 
+
 /*quand l'etoile estclique*/
+
 .starrating>input:checked~label {
     color: #ffca08;
 }
@@ -145,55 +150,49 @@ section {
     width: 100%;
 }
 
-#nouveauCommentaireContainer
-{
+.alert {
+    width: 100%;
+}
+
+#nouveauCommentaireContainer {
     display: flex;
     flex-direction: row;
     width: 100%
 }
 
-#commentaireContainer
-{
+#commentaireContainer {
     width: 100%;
 }
 
-@media only screen and (max-width: 1024px)
-{
-    main
-    {
+@media only screen and (max-width: 1024px) {
+    main {
         width: 80%;
     }
-
-    #descriptionJeuxContainer
-    {
+    #descriptionJeuxContainer {
         width: 90%;
         margin: 0 auto;
     }
-
-    .boutton, input[type=submit] {
+    .boutton,
+    input[type=submit] {
         width: 50%;
     }
 }
 
-@media only screen and (max-width: 769px)
-{
-    .boutton, input[type=submit] {
+@media only screen and (max-width: 769px) {
+    .boutton,
+    input[type=submit] {
         width: 55%;
     }
-
     #commentaire-pseudo {
         width: 40%;
     }
-
     #commentaire-date {
         width: 40%;
     }
 }
 
-@media only screen and (max-width: 600px)
-{
-    main
-    {
+@media only screen and (max-width: 600px) {
+    main {
         width: 90%;
     }
 }

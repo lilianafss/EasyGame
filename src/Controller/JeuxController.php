@@ -27,6 +27,7 @@ class JeuxController
             $note = "";
             $content = "";
             $commentaire = "";
+            $messageSucess="";
             $quantite = 0;
             $envoiePanier = filter_input(INPUT_POST, 'panier');
             $idUser = $_SESSION['idUser'];
@@ -62,9 +63,12 @@ class JeuxController
             }
             if ($_SERVER['REQUEST_METHOD'] == "POST")
             {
-                if ($btnWishlist == "Ajouter a la wishlist") {
-                    header("Refresh: 0");
+                if ($btnWishlist == "Ajouter à la wishlist") {
+               
                     WishlistModel::addGameToWishlist($idUser, $idJeux);
+                    $messageSucess="Ton jeu a été ajouter à ta wishlist";
+                }elseif($btnWishlist=="Dans la wishlist"){
+                    RedirectUser(url("profil"));
                 }
 
                 if ($btnPanier == "Ajouter dans le panier")
